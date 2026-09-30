@@ -59,9 +59,8 @@ SYMBOLS = [
 ]
 
 
-# --------------------------------------------------
 # 3. DATE RANGE
-# --------------------------------------------------
+
 
 START_DATE = "2016-01-01"
 END_DATE = "2026-09-28"
@@ -90,7 +89,7 @@ def download_stock_data(symbols):
         "limit": 10000,
 
         # Free Alpaca stock feed
-        "feed": "iex",
+        "feed": "sip",
 
         # Adjust historical prices for corporate actions
         "adjustment": "all",
@@ -151,9 +150,7 @@ def download_stock_data(symbols):
     return pd.DataFrame(all_rows)
 
 
-# --------------------------------------------------
 # 5. DOWNLOAD
-# --------------------------------------------------
 
 print("---------------------------------------")
 print("HALALIFY HISTORICAL DATA DOWNLOADER")
