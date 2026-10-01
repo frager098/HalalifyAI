@@ -1,0 +1,59 @@
+{
+  "review_date": "2026-10-02",
+  "base_branch": "develop",
+  "base_commit": "255436b",
+  "working_branch": "feature/data-reconciliation",
+  "source_branch_note": "SPY upload branch is present on GitHub but not merged into develop.",
+  "price_rows": 127501,
+  "company_count": 50,
+  "benchmark": "SPY",
+  "missing_price_sessions": 0,
+  "first_possible_core_feature_date": "2016-03-31",
+  "action_pilot_checks": [
+    {
+      "kind": "cash_dividends",
+      "ticker": "AAPL",
+      "ex_date": "2016-02-04",
+      "passed": true,
+      "observed_adjustment_ratio": 0.9942283743653607,
+      "expected_ratio": 0.9946030098598858,
+      "tolerance": 0.001
+    },
+    {
+      "kind": "forward_splits",
+      "ticker": "AAPL",
+      "ex_date": "2020-08-31",
+      "passed": true,
+      "expected_split_ratio": 4.0,
+      "observed_price_factor": 3.999919878214887,
+      "observed_volume_factor": 4.0,
+      "tolerance": 0.01
+    }
+  ],
+  "global_adjustment_verification": false,
+  "sec_candidate_rows": 77075,
+  "sec_quarantined_rows": 22,
+  "historical_xom_cik": "0000034088",
+  "historical_xom_retrieved": true,
+  "bac_identity_note": "SEC submissions confirms BANK OF AMERICA CORP /DE/, CIK70858, BAC ticker. CompanyFacts entityName says BofA Finance LLC; retain source label and discrepancy, not invented identity.",
+  "training_ready": false,
+  "screening_ready": false,
+  "completed": [
+    "Versioned dual price bases collected",
+    "2016-2025 session coverage checked",
+    "AAPL split/dividend pilot passed",
+    "Historical XOM source retrieved",
+    "SEC evidence expanded and questionable records quarantined",
+    "Report/interim paths corrected",
+    "Documents revised for 50 companies plus separate SPY and early2016 warmup"
+  ],
+  "remaining": [
+    "Complete issuer/action review, including spin-offs and mergers",
+    "Reviewed financial mappings and compatible TTM snapshots",
+    "Missing business/prohibited-income evidence and screening domain approval",
+    "Feature/label construction and model evaluation",
+    "Team review of experiment v1.1 and reconciliation PR"
+  ],
+  "tests": "15 passed (including existing health test); one upstream Starlette deprecation warning",
+  "environment_note": "Checks use Python3.12 bundled runtime, pandas3.0.1/numpy2.3.5 and workspace test dependencies; full requirements lock not separately reproduced."
+}

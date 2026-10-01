@@ -82,7 +82,7 @@ Swagger - Zod validation - centralized error handling
 
 Target architecture:
 
-Frontend → HalalifyAPI (Node/Express application backend) → HalalifyAI
+Frontend â†’ HalalifyAPI (Node/Express application backend) â†’ HalalifyAI
 (Python/FastAPI AI service)
 
 The backend should generally own: - authentication - users -
@@ -423,7 +423,7 @@ of these.
 
 Important gaps: - Profit margin needs net income and revenue. Current
 extraction does not yet include net income. - Historical market cap
-requires point-in-time shares outstanding × historical price, or another
+requires point-in-time shares outstanding Ã— historical price, or another
 defensible historical source. - Sector/industry are not straightforward
 Company Facts fields. - Some debt/revenue/receivable coverage is
 incomplete.
@@ -489,7 +489,7 @@ allows future information to influence past training.
 
 Concept:
 
-Past → Train → Validation → Test → Future
+Past â†’ Train â†’ Validation â†’ Test â†’ Future
 
 Do not use:
 
@@ -927,3 +927,7 @@ Whenever starting a new task in this repository:
 
 This file reflects the current project understanding and should be
 updated when the team/supervisor makes a new authoritative decision.
+
+# 38. Data reconciliation update 2026-10-02
+
+Earlier IEX coverage notes above describe an old snapshot. Reviewed current local SIP files have 134,237 rows (50 companies) through 2026-09-28, with 49 starting 2016-01-04 and LIN starting 2018-10-31. A new fixed-study 2016-2025 collection contains the companies plus separate SPY and separate split/all price bases. Use docs/experiment_design.md and docs/data_dictionary.md v1.1 together with docs/data_reconciliation.md for the proposed revision; do not claim review approvals. Preserve originals, timestamp new snapshots, put intermediate datasets in data/interim and reports in reports/validation. Run task changes through focused feature branches and peer-reviewed PRs into develop, overriding the old direct-to-develop workflow example. The dictionary uses next-session-after-filing availability, stricter than the older <= filing-date example. No missing screening values become zero; no total-debt/TTM snapshot is certified by candidate extraction. No trained model or portfolio is created by this change.
