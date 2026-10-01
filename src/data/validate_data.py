@@ -27,7 +27,10 @@ def digest(path):
 
 def audit(repo, out):
     out.mkdir(parents=True, exist_ok=True)
-    paths = [repo/'data/raw/alpaca_historical_prices.csv', repo/'data/raw/alpaca_data_summary.csv', repo/'data/processed/sec_historical_fundamentals_long.csv']
+    sec_path = repo/'data/interim/sec_historical_fundamentals_long.csv'
+    if not sec_path.exists():
+        sec_path = repo/'data/processed/sec_historical_fundamentals_long.csv'
+    paths = [repo/'data/raw/alpaca_historical_prices.csv', repo/'data/raw/alpaca_data_summary.csv', sec_path]
     rawpaths = sorted((repo/'data/raw/sec').glob('*_companyfacts.json'))
     manifest = {str(p): digest(p) for p in paths + rawpaths}
     checks=[]
@@ -49,7 +52,11 @@ def audit(repo, out):
     for col in ['open','high','low','close','volume']:
         a[col]=pd.to_numeric(a[col],errors='coerce')
         check('market_nonfinite_'+col,(~np.isfinite(a[col])).sum())
-        check('market_nonpositive_'+col,(a[col]<=0).sum())
+        if col == 'volume':
+            check('market_negative_volume',(a[col]<0).sum())
+            check('market_zero_volume',(a[col]==0).sum(),'REVIEW','Zero-volume sessions require review, not automatic filling.')
+        else:
+            check('market_nonpositive_'+col,(a[col]<=0).sum())
     check('market_fractional_volume',(a.volume%1!=0).sum())
     check('market_invalid_ohlc',((a.high<a[['open','close','low']].max(axis=1))|(a.low>a[['open','close','high']].min(axis=1))).sum())
     check('market_unsorted_tickers',sum(not x.date.is_monotonic_increasing for _,x in a.groupby('ticker')))
@@ -130,4 +137,4 @@ def audit(repo, out):
     print(json.dumps({'market_rows':len(a),'sec_rows':len(f),'checks':checks},indent=2,default=str))
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(); p.add_argument('--repo',type=Path,default=Path.cwd()); p.add_argument('--out',type=Path,default=Path('data/interim/validation')); args=p.parse_args(); audit(args.repo,args.out)
+    p=argparse.ArgumentParser(); p.add_argument('--repo',type=Path,default=Path.cwd()); p.add_argument('--out',type=Path); args=p.parse_args(); audit(args.repo,args.out or args.repo/'reports/validation')

@@ -1,0 +1,22 @@
+{
+  "rows": 127501,
+  "company_count": 50,
+  "benchmark_symbols": [
+    "SPY"
+  ],
+  "source_sha256": "30125048724827c3dbe08fda4cbebb9892624f9a1f199b9d4a7e06eb1485471a",
+  "missing_symbols": [],
+  "unexpected_symbols": [],
+  "missing_sessions": 0,
+  "unexpected_sessions": 0,
+  "currency_ok": true,
+  "first_possible_feature_date": "2016-03-31",
+  "action_adjustment_verified": false,
+  "core_ready": false,
+  "remaining": [
+    "Independent corporate-action checks and issuer identities",
+    "Exact 16 feature calculations and complete-window checks",
+    "Future labels and chronological partition purges"
+  ],
+  "date_note": "Potential feature date only; missing windows and unknown actions can delay readiness."
+}

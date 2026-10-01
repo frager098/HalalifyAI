@@ -99,3 +99,7 @@ Never commit:
 - Large datasets
 - Trained model files
 
+
+## Data collection and preparation
+
+Follow [the reconciled experiment](docs/experiment_design.md), [the dictionary](docs/data_dictionary.md) and [the simple preparation guide](docs/data_reconciliation.md). The current amendment retains 50 companies plus separate SPY, uses versioned Alpaca SIP snapshots with separate price bases, and keeps intermediate financial evidence outside model-ready storage. Screening decisions remain subject to domain review. Run `python -m pytest` before submitting a feature-branch PR into develop.
