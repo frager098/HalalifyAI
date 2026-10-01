@@ -1,0 +1,287 @@
+{
+  "market_rows": 134237,
+  "sec_rows": 39092,
+  "raw_company_files": 50,
+  "checks": [
+    {
+      "check": "market_missing_cells",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_duplicate_keys",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_invalid_dates",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonfinite_open",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonpositive_open",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonfinite_high",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonpositive_high",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonfinite_low",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonpositive_low",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonfinite_close",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonpositive_close",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonfinite_volume",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_nonpositive_volume",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_fractional_volume",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_invalid_ohlc",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_unsorted_tickers",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "market_calendar_issues",
+      "status": "PASS",
+      "count": 0,
+      "explanation": "LIN eligibility starts at its documented 2018-10-31 US listing; early-close days remain sessions."
+    },
+    {
+      "check": "summary_mismatch",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "price_moves_over_20_percent",
+      "status": "REVIEW",
+      "count": 30,
+      "explanation": "Diagnostic threshold only; genuine market moves must not be deleted automatically."
+    },
+    {
+      "check": "sec_exact_duplicate_rows",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_missing_required_cells",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_invalid_period_start",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_invalid_period_end",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_invalid_filing_date",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_nonfinite_value",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_negative_values",
+      "status": "REVIEW",
+      "count": 8,
+      "explanation": ""
+    },
+    {
+      "check": "sec_period_after_filing",
+      "status": "FAIL",
+      "count": 1,
+      "explanation": ""
+    },
+    {
+      "check": "sec_start_after_end",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_revenue_missing_start",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_unexpected_form",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_invalid_accession",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_non_usd",
+      "status": "REVIEW",
+      "count": 8,
+      "explanation": "Keep currencies separate; no automatic conversion or summing across units."
+    },
+    {
+      "check": "sec_missing_company_fields",
+      "status": "REVIEW",
+      "count": 33,
+      "explanation": ""
+    },
+    {
+      "check": "sec_conflicting_same_filing",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "sec_changed_values_across_filings",
+      "status": "REVIEW",
+      "count": 684,
+      "explanation": "May be restatements/context differences. Preserve as-filed versions; do not select latest globally."
+    },
+    {
+      "check": "sec_source_mismatches",
+      "status": "PASS",
+      "count": 0,
+      "explanation": ""
+    },
+    {
+      "check": "amended_facts_found_in_raw",
+      "status": "REVIEW",
+      "count": 8788,
+      "explanation": "Amended facts require explicit relevance review."
+    }
+  ],
+  "python": "3.13.7",
+  "pandas": "3.0.6",
+  "numpy": "2.5.3",
+  "input_sha256": {
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\alpaca_historical_prices.csv": "f83ee0a9ed9b80d4126af375675a1f6a3ea296f73639539e803bf15d9df275d4",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\alpaca_data_summary.csv": "f068954953bfb14505b50fa4efdb488b954b7e0c66f1c7428b19e0e68c281b24",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\processed\\sec_historical_fundamentals_long.csv": "f950636c5657335470ee47d3feebc3d12b892c7e1030220aea05fa88581bc4f9",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\AAPL_companyfacts.json": "da6ece210e686c8cbd50d380abd6cb56e9423f3b1b86840826a24b566bde7c26",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\ABBV_companyfacts.json": "1d01eaa706d62f92bf863c534a5d9c30a89d1affee80c64dea1abf9d90abadc9",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\ABT_companyfacts.json": "17674b1a915197862926dd215bd5bd6873c71a3e5f72fbef5f0c96130b2c5f8e",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\ADBE_companyfacts.json": "5f79eab4617dc1a5eaf7d77b622f1b8cf1af407da0dc48822b4d088388df0bfc",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\AMD_companyfacts.json": "83b2931d21c16f70191e2f5498458a1a6438677a03c84213569a9d6bd86cd925",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\AMZN_companyfacts.json": "1b0de442d9e49bb40137a0b2991e46eea9a622bcc26bf893c47bcd9b071cff33",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\AVGO_companyfacts.json": "cbde5cf7cc69e77110a4c868fd44301a1d41139a92feeac3d8ef42152316d5df",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\BAC_companyfacts.json": "c364d75e34a067329c255cdfbbba889d20efcd865a99fbb756d8a973576c5922",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\CAT_companyfacts.json": "0c72281ac00c945eeca91d2d3156a70fd3f5e4734927bc8c8fc6a362dbb570fe",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\COP_companyfacts.json": "330efe9adda84f853d4b20a3ba4e0d767ef5cb412df35abcf4900c56a703b58a",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\COST_companyfacts.json": "bae874f798f8b2e591c607ed6b7b27a5d90aeed2dbc284601523bdbce6d8ded2",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\CRM_companyfacts.json": "f7c1c2b6eaf5dfca4c75740d89c5c65ef1e31e0ddb5d1d59761051246ac2ef78",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\CSCO_companyfacts.json": "d26aadb1b8901950de42bc924ca260d735fc964cbed77466970c4627265b77c1",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\CVX_companyfacts.json": "e46b9b043fcd95e365ef33959bbe2d06076698b16e8012ee89f6bcc55bf864a7",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\DE_companyfacts.json": "de59734a049da949f44b14a9652df64799b8dc8ee5d938de9649193bd3e78a8c",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\DHR_companyfacts.json": "d5f18da44eb60da2c61a608c7e4961b7b7ebb5498093f71791c3c24cd3c4a94f",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\GE_companyfacts.json": "0b75086d950659070921126b35c7e3f52d60e74a7ba5709d5961e0aa028c0120",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\GOOGL_companyfacts.json": "b52823fa4247a10ae0425be7a73e5aeb27582ba6fa0bb63a04c1013a5a5163a2",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\GS_companyfacts.json": "08acacca3d4f79d38fd82f5520cc5bcc994e5f0ee02d70fa7a797d66a79229c7",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\HD_companyfacts.json": "d2883d1f4a9a2ef915be93ef8265e61408a4305d4ca290b98167bf4bb5c9c1aa",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\HON_companyfacts.json": "a7c0a7b4196e82c45953292d7dbf2da9c67d73e895c7336d6a7825435a221a9e",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\INTC_companyfacts.json": "2ebb54ae084047a57f03ffe5bf2607c4cf445293aa83276d31592efddee9ea18",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\JNJ_companyfacts.json": "9d96720735c317379ad333f5879930274e22e3e92642f6840fd19c005d2064a1",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\JPM_companyfacts.json": "5159f496b41cecb4e1b617eb8c0a6c1674ddc63a1b5765775446cd9caaec8e3e",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\KO_companyfacts.json": "5ddcaef626e51088de478a19e2fea776ce55c4a9260eb35f2cae78a16d928269",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\LIN_companyfacts.json": "874dd2eaa0148b17eebacaea2570248dff5fcbd4c312cbf919a9a45b057ceb0e",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\LLY_companyfacts.json": "dd4717661874498983b3906ddb9cdeea1ab9014a511feb82678474762c75e0b4",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\LOW_companyfacts.json": "27bcc190a9580ba96b3c8ea3007efecdafb7da03e51cef673801e4917fa1a839",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\MA_companyfacts.json": "d3002e6899255e32e0f5d3b4abcbd7eb5e8b5bef4371316941087a3aa374d794",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\MCD_companyfacts.json": "163bfd5e44aaa9d5ba6b1eb39004dc2a58cc7bff6717e3dbe8ddc658b27b3620",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\META_companyfacts.json": "f74088b8301d01ebc3bd206b708e37f4d4ae4b0b9b5f39919f03974f975b5a35",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\MRK_companyfacts.json": "4c08a9be7e44dbdae2ca9c8751d681e790caee2a6f10d1acdc307541416e1959",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\MS_companyfacts.json": "4391bc78398df77903c99dcf2f16adc574dd74c087eb19ece878545f25cd3dab",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\MSFT_companyfacts.json": "fda04f69f944733987fc66de0dcca96eceaad3492286bfb5dedad1e06e8003d5",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\NEE_companyfacts.json": "caae50754b1d76aca2f747524285456cef1cb9bb1331cba217fbae61f9a93495",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\NFLX_companyfacts.json": "28d1944ab0c7ceeea22026293b6fafc1eba2e1a9135be501bb20378037b3bcb4",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\NKE_companyfacts.json": "fbaf3f247f9c44b91babadfb3b65a9cb77e44070cf009daf8c45b2df2dee400b",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\NVDA_companyfacts.json": "b225cb72be346fa45121a23f5d25b5611cbf4a294792070d4fb6c31e636c8aa9",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\ORCL_companyfacts.json": "dfe3a3d9980a840875266d9a21af5474ed88284c7260f839857a5988daa22c5d",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\PEP_companyfacts.json": "2c4e2a5b2da88dde9d24acdfa6c84f877a6e49f6ea6980ff771c936bf31ee4ac",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\PG_companyfacts.json": "6a65d7c18905ad36b1459be176144f0d4d0a71209682bc55ea83ba444f9da3a2",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\SBUX_companyfacts.json": "9a98ada725081d0eeb97b1d5df8fb8cc983f1e04d4c3a2991fdea277b5b6fe68",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\SLB_companyfacts.json": "1fea1d80ca1660237a955705fd47690abd6c4c173a4afbe86776d579855182d0",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\TMO_companyfacts.json": "20a9c86a95481abb8ab8a46180dd9c68c8c32363c67abeef1872fbd07d502f54",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\TSLA_companyfacts.json": "f5b368e0969941d5432874d28ef7b149c0b952fc9168e38bcd9fe41306a65cb7",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\UNP_companyfacts.json": "5311d7c2a1c3bd9bc56719b6e0eac9d2cd30aae17c83af99320fee84406c7a72",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\UPS_companyfacts.json": "0a3ab252c45c43e3d2fd2f1f4fec1a8d6bba8527464233e03382d8fa9690508b",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\V_companyfacts.json": "48984c63440e81881436fc4b4c5a57e195ee179b5142c1bb25625aa306ebde57",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\WMT_companyfacts.json": "2a5c6128ed5b9dcb73a35bff3dcc84b507742a8d8942e09217cbd1d137b3b226",
+    "C:\\Users\\Muhiddin\\OneDrive\\Desktop\\Halalify\\HalalifyAI\\data\\raw\\sec\\XOM_companyfacts.json": "b1d2930042be2941095e38fd55c95b475201e47ab67188ece7345d56e1b042ef"
+  }
+}

@@ -1,0 +1,38 @@
+check,status,count,explanation
+market_missing_cells,PASS,0,
+market_duplicate_keys,PASS,0,
+market_invalid_dates,PASS,0,
+market_nonfinite_open,PASS,0,
+market_nonpositive_open,PASS,0,
+market_nonfinite_high,PASS,0,
+market_nonpositive_high,PASS,0,
+market_nonfinite_low,PASS,0,
+market_nonpositive_low,PASS,0,
+market_nonfinite_close,PASS,0,
+market_nonpositive_close,PASS,0,
+market_nonfinite_volume,PASS,0,
+market_nonpositive_volume,PASS,0,
+market_fractional_volume,PASS,0,
+market_invalid_ohlc,PASS,0,
+market_unsorted_tickers,PASS,0,
+market_calendar_issues,PASS,0,LIN eligibility starts at its documented 2018-10-31 US listing; early-close days remain sessions.
+summary_mismatch,PASS,0,
+price_moves_over_20_percent,REVIEW,30,Diagnostic threshold only; genuine market moves must not be deleted automatically.
+sec_exact_duplicate_rows,PASS,0,
+sec_missing_required_cells,PASS,0,
+sec_invalid_period_start,PASS,0,
+sec_invalid_period_end,PASS,0,
+sec_invalid_filing_date,PASS,0,
+sec_nonfinite_value,PASS,0,
+sec_negative_values,REVIEW,8,
+sec_period_after_filing,FAIL,1,
+sec_start_after_end,PASS,0,
+sec_revenue_missing_start,PASS,0,
+sec_unexpected_form,PASS,0,
+sec_invalid_accession,PASS,0,
+sec_non_usd,REVIEW,8,Keep currencies separate; no automatic conversion or summing across units.
+sec_missing_company_fields,REVIEW,33,
+sec_conflicting_same_filing,PASS,0,
+sec_changed_values_across_filings,REVIEW,684,May be restatements/context differences. Preserve as-filed versions; do not select latest globally.
+sec_source_mismatches,PASS,0,
+amended_facts_found_in_raw,REVIEW,8788,Amended facts require explicit relevance review.

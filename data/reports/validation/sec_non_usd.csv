@@ -1,0 +1,9 @@
+source_row,ticker,company_name,field,sec_concept,value,unit,period_start,period_end,filing_date,form,fiscal_year,fiscal_period,accession_number
+31365,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,500000000.0,EUR,,2021-06-12,2021-07-13,10-Q,2021,Q2,0000077476-21-000039
+31375,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,500000000.0,EUR,,2021-09-04,2021-10-05,10-Q,2021,Q3,0000077476-21-000050
+31478,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,1000000000.0,EUR,,2024-06-15,2024-07-11,10-Q,2024,Q2,0000077476-24-000042
+31480,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,800000000.0,CAD,,2024-06-15,2024-07-11,10-Q,2024,Q2,0000077476-24-000042
+31489,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,1000000000.0,EUR,,2024-09-07,2024-10-08,10-Q,2024,Q3,0000077476-24-000052
+31491,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,800000000.0,CAD,,2024-09-07,2024-10-08,10-Q,2024,Q3,0000077476-24-000052
+31556,PEP,"PepsiCo, Inc.",total_debt,LongTermDebtCurrent,500000000.0,EUR,,2026-06-13,2026-07-09,10-Q,2026,Q2,0000077476-26-000035
+33773,SLB,SLB LIMITED/NV,total_debt,LongTermDebtNoncurrent,5000000000.0,EUR,,2020-06-30,2021-01-27,10-K,2020,FY,0001564590-21-002477
