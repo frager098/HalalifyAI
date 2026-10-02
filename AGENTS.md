@@ -1,8 +1,10 @@
 # HalalifyAI - shared project context and agent guidance
 
-Updated: 2026-10-02 | Handoff version: 2.0
+Updated: 2026-10-03 | Handoff version: 2.1
 
-Status: dated evidence plus proposed research specifications. Local branch checked clean at 741f60c; remote push is supported by the user's successful output. No merge or domain approval is confirmed.
+Status: dated evidence plus proposed research specifications. Published data-readiness branch cb0e2f0 was verified on 2026-10-02. New SEC evidence work is prepared on feature/sec-screening-evidence. No develop merge or domain approval is confirmed.
+
+Current screening evidence addition: read docs/sec_screening_evidence.md, configs/sec_screening_evidence.json and reports/validation/screening_evidence/sec_2015_2025_v2/coverage.json. Original annual/quarterly filings, business excerpts and revenue/income candidates are preserved with issuer, reporting period, availability, dimensions and SHA-256 provenance. Large files reside in data/raw and data/interim, never Git. The source ZIP is read directly by the extractor; do not make the beginner user manually unpack/copy multiple bundles. Standard/edition, prohibited-income completeness, company-specific mappings, historical business continuity and peer approval remain pending. Empty approved amounts and needs_review are intentional, not evidence of zero income. This current section supersedes older claims that business evidence has not been collected; it does not supersede approval requirements or certify historical eligibility.
 
 Read current sections together; historical data snapshots are explicitly labeled. The attached original has been preserved. Repository links are discovery pointers, not permission to merge/publish.
 

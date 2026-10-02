@@ -521,3 +521,30 @@ Both AI developers should be able to explain a raw field, a derived feature, a f
 ## 16. Source pointers
 
 Detailed bibliography is in [experiment_design.md](experiment_design.md), section 16. Relevant primary documentation: yfinance API/maintainer notice (S4), Alpha Vantage data definitions (S5), SEC filings/XBRL (S6), FRED units and vintages (S7), the selected screening reference (S8), exchange calendars (S9), and scikit-learn splitting/preprocessing/model behavior (S11–S13). Feature windows, freshness controls, label boundaries and table layouts are explicit Halalify design choices; they are not asserted as a published universal optimum.
+
+## 17. Original SEC screening evidence (2026-10-02 addition)
+
+Version `sec_2015_2025_v2` is an intermediate source-evidence layer, not model-ready screening results. See [sec_screening_evidence.md](sec_screening_evidence.md).
+
+| Field | Meaning |
+| --- | --- |
+| `ticker`, `cik`, `accession_number` | Study symbol, legal issuer identifier and exact filing version. |
+| `form`, `filing_date` | Annual/quarterly/amended form and public filing date. |
+| `available_from_session` | Next XNYS session after the later filing/acceptance date; never the reporting-period end. |
+| `period_start`, `period_end` | Dates covered by the flow amount; missing/reversed/future periods cannot count as usable. |
+| `source_url`, `source_sha256`, `source_kind` | Original location, saved-byte fingerprint and inline/separate/API representation. |
+| `source_issuer_role` | Study issuer or explicitly unapproved historical predecessor candidate. |
+| `source_concept`, `context_id`, `dimensions` | Report tag, context and reporting slices; segment and entity totals are separate. |
+| `unit`, `value_decimal` | Unit and exact scaled/sign-adjusted decimal string. USD is required for usable candidates. |
+| `displayed_value`, `scale`, `sign`, `format`, `reported_decimals` | Retained display transformation and rounding precision where supplied. |
+| `numeric_parse_status` | Parsed, missing or unsupported transformation; unknown is never coerced to zero. |
+| `issuer_context_matches` | Whether original filing context identifies the study issuer; unverified API records remain null. |
+| `original_filing_verification` | Exact whole-entity original match for CompanyFacts, or not verified. |
+| `evidence_kind` | Revenue/income candidate category; gross, net, combined and unallocated meanings remain distinct. |
+| `fact_id` | Stable source-record ID; does not authorize summing duplicate versions or representations. |
+| `source_table_row_label`, `classification_basis` | Literal row label when available and how the candidate category was identified. |
+| Business `text`, `extraction_rule` | Dated original excerpt and explicit heading rule; reorganized excerpts are not certified complete disclosures. |
+| `business_activity_text_candidates` | Literal mentions with context; not prohibited-business judgements. |
+| `approved_interest_income`, `approved_prohibited_income` | Null until standard, mapping, reporting period and completeness are reviewed. |
+
+These fields do not add predictors or change the 16-feature model experiment. They preserve evidence for independent screening. A usable source number is not an approved financial ratio or a halal verdict.

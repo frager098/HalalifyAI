@@ -9,3 +9,9 @@ Approved metrics remain null. Every company's status is `needs_review` and `port
 After a standard and edition are selected, the teammate must record the exact threshold denominators, debt/security/cash definitions, compatible reporting periods and business/income evidence. The reviewer must approve company-specific mappings and the methodology. Historical screens require evidence that was actually available on each screening date; today's company description or ratio must not be copied into past years.
 
 Do not expose these evidence candidates as approved screening results in the backend. Unit fixtures can test calculations after definitions are agreed; they cannot substitute for domain review.
+
+## Original business and income disclosures
+
+The [SEC evidence guide](sec_screening_evidence.md) documents the added annual/quarterly source corpus and version `sec_2015_2025_v2`. Business excerpts come from original annual reports. Original inline/separate XBRL preserves standard and custom revenue/income concepts, issuer contexts and segment dimensions. CompanyFacts amounts require exact original-filing verification before counting as usable source candidates. This is additional evidence, not an approval of the old financial handoff's debt/revenue definitions.
+
+Gross interest income remains separate from net interest, combined interest/dividend/fee/other income, cash receipts and unallocated investment income. Neither combined figures nor broad segment categories establish a complete prohibited-income numerator. Missing disclosure stays unknown. Quarterly narrative changes, event filings, incorporated documents and predecessor continuity require review before certifying historical business eligibility. Every evidence packet still has empty approved income amounts, `needs_review`, and `portfolio_eligible=false`.
