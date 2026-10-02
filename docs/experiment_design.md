@@ -6,7 +6,7 @@ Version: `1.1` | Revised: `2026-10-02` | Experiment ID: `HALALIFY_US_20D_V1_1`
 
 Companion specification: [data_dictionary.md](data_dictionary.md).
 
-**Status: a complete initial experiment specification, ready for team review and data collection. No models have been trained, no performance has been measured, and full provider coverage has not yet been tested for this deliverable.** Backend agreement and domain review of screening rules are outstanding implementation checks, not completed meetings or approvals.
+**Execution status, 2026-10-02:** The proposed v1.1 price-only experiment now has implemented features/labels and 22 provisional train/validation model fits. See [data_readiness.md](data_readiness.md) and [evaluation_report.md](evaluation_report.md) for executed evidence and limitations. This does not approve the methodology. Test performance, final refit, backend agreement, Shariah standard selection and portfolio backtesting remain outstanding. Original walkthrough instructions below are proposal material; the execution guide takes precedence for current file paths and scope.
 
 **Beginner reading route:** start with the decisions in section 2, the worked target explanation in section 7, and the Day 2 walkthrough in section 14. Then read dictionary sections 1, 6, 7 and 8. The remaining sections are reference material for implementation; you do not need to memorize every backend field today.
 

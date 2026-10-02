@@ -1,0 +1,25 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\readiness-clean-env\\Scripts\\python.exe",
+  "isolated_environment": true,
+  "dataset_sha256": "c72ddccf7ce11e21676ee22f508004ec8030515fa62af7cc15012d722b3c875d",
+  "all_rebuilt_dataset_values_match": true,
+  "selected_models": {
+    "return_class": {
+      "validation_macro_f1": 0.3628921360166149,
+      "probabilities_match": true
+    },
+    "risk_class": {
+      "validation_macro_f1": 0.57705962528622,
+      "probabilities_match": true
+    }
+  },
+  "test_evaluated": false,
+  "scope": "Selected configurations reproduced; complete candidate grid not rerun here",
+  "tests_passed": 35,
+  "tests_failed": 0,
+  "dependency_check": "no_broken_requirements",
+  "test_warning": "Starlette TestClient httpx deprecation",
+  "peer_approval": false,
+  "screening_standard": null
+}

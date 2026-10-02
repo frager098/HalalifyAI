@@ -1,0 +1,21 @@
+{
+  "experiment_id": "HALALIFY_US_20D_V1_1",
+  "methodology_status": "proposed_not_approved",
+  "universe_version": "US50_V1_1",
+  "calendar": "XNYS",
+  "calendar_package_version": "4.11.2",
+  "feature_version": "core_v1",
+  "label_version": "core_20d_readiness_v1",
+  "horizon_sessions": 20,
+  "screening_standard": null,
+  "screening_edition": null,
+  "prices": "data/interim/prices/alpaca_sip_20261001T192530002523Z/daily_prices.csv",
+  "raw_reference": "data/raw/raw_reference_20261002/raw_prices.csv",
+  "actions": "data/raw/actions/20261001T193109154154Z",
+  "financial_facts": "data/interim/sec_identity/bac_identity_20261002/financial_facts_identity_updated.csv",
+  "dataset": "data/processed/core_v1_readiness/research_rows.csv",
+  "seed": 42,
+  "test_scored": false,
+  "final_refit_done": false,
+  "portfolio_backtest_done": false
+}

@@ -6,7 +6,7 @@ Version: `1.1` | Revised: `2026-10-02` | Experiment: `HALALIFY_US_20D_V1_1`
 
 Read with [experiment_design.md](experiment_design.md). That file defines the universe, dates, evaluation and decisions; this file defines the records and calculations required to implement them.
 
-**Status:** proposed implementation contract. Real price samples, fitted class thresholds, provider coverage and backend support have not been validated in this deliverable. Example numbers are illustrations. The logical tables below do not require a particular database product or a rewrite of existing backend tables.
+**Execution status, 2026-10-02:** The logical schema remains a proposed contract. The price-based 16-feature/20-session-label subset is implemented and checked on the saved dataset; training-fitted thresholds are serialized. See [data_readiness.md](data_readiness.md) for exact executed coverage, exclusions and provisional versions. Financial screening metrics, historical security identity, verified bar-arrival cutoffs, backend tables/endpoints and final model deployment are not certified. Example numbers below remain illustrations.
 
 ## 1. How to read this dictionary
 
