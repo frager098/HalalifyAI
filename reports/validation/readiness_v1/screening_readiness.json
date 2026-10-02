@@ -1,0 +1,406 @@
+{
+  "companies": 50,
+  "portfolio_eligible": 0,
+  "standard_not_selected": true,
+  "missing_or_unapproved_fields": [
+    "total_assets",
+    "total_debt",
+    "cash_and_cash_equivalents",
+    "interest_bearing_securities",
+    "accounts_receivable",
+    "revenue_ttm",
+    "restricted_activity_income",
+    "interest_income",
+    "total_income_for_screen",
+    "direct_prohibited_activity"
+  ],
+  "candidate_presence_by_ticker": {
+    "AAPL": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "MSFT": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "NVDA": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "AMD": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "AVGO": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "ORCL": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "ADBE": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "CRM": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "CSCO": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "INTC": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "GOOGL": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "META": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "NFLX": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "AMZN": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "TSLA": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "HD": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "LOW": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "NKE": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "SBUX": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "MCD": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "COST": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "WMT": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "JNJ": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "LLY": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "ABBV": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "MRK": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "TMO": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "ABT": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "DHR": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "CAT": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "DE": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "HON": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "UPS": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "UNP": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "GE": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "XOM": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "CVX": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "COP": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "SLB": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "JPM": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "BAC": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "GS": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "total_assets"
+    ],
+    "MS": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "V": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "MA": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "PG": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "KO": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "PEP": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "LIN": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ],
+    "NEE": [
+      "cash_candidate",
+      "debt_component",
+      "net_income_candidate",
+      "receivables_candidate",
+      "revenue_candidate",
+      "total_assets"
+    ]
+  },
+  "next_review": "Select standard and edition, then map exact business/income/debt/security components with sources"
+}

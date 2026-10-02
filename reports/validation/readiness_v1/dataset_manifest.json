@@ -1,0 +1,59 @@
+{
+  "calendar_version": "4.11.2",
+  "calendar": "XNYS",
+  "input_sha256": "3eff4484f22a4e9b5c921541adbadfe3b37022a0d11c52c4742af3fbd7767df1",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "splits": {
+    "test": {
+      "rows": 36336,
+      "ticker_count": 50,
+      "sessions": 732,
+      "first_feature_date": "2023-01-03",
+      "last_feature_date": "2025-12-02",
+      "label_end_max": "2025-12-31"
+    },
+    "train": {
+      "rows": 58157,
+      "ticker_count": 50,
+      "sessions": 1179,
+      "first_feature_date": "2016-03-31",
+      "last_feature_date": "2020-12-02",
+      "label_end_max": "2020-12-31"
+    },
+    "validation": {
+      "rows": 24150,
+      "ticker_count": 50,
+      "sessions": 483,
+      "first_feature_date": "2021-01-04",
+      "last_feature_date": "2022-12-01",
+      "label_end_max": "2022-12-30"
+    }
+  },
+  "eligible_rows": 118643,
+  "excluded_rows": 7057,
+  "excluded_reasons": {
+    "": 3263,
+    "split_boundary_purge": 1981,
+    "future_not_observed_or_gap_or_unresolved_action": 1813
+  },
+  "methodology_status": "proposed_v1_1_research_not_approved",
+  "screening_ready": false,
+  "unresolved_action_windows_excluded": true
+}

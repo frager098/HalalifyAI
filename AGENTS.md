@@ -866,3 +866,10 @@ Beginner terminology: a ticker is a market symbol; SPY is an ETF market referenc
 
 Before continuing: check current branch/status and live remote branches, read current relevant source and documents, verify datasets and versions, identify the planned folder and tests, and make a focused change. Record actual evidence and remaining limitations. Never claim exact shared conversational memory: this file and its companion documents provide the transferable project context.
 
+# Current execution override — 2026-10-02
+
+Read `docs/data_readiness.md`, `docs/evaluation_report.md` and `docs/screening_methodology.md` before relying on older status statements in this file. The user explicitly confirmed that no Shariah standard/edition has been selected. Never turn the proposed MSCI example into an approved rule or interpret missing evidence as zero.
+
+The isolated `feature/data-readiness` work integrates the published reconciliation/BAC changes and implements audited price-based features/targets and provisional train/validation comparisons. It is not merged into develop and has no peer approval. BAC issuer identity was checked against original filings; preserve the original source name and evidence. Five unsupported spin-off transitions remain excluded from model windows; no universal action certification exists.
+
+118,643 usable price-based research rows are split into 58,157 training, 24,150 validation and 36,336 untouched-test rows. Sixteen features and future 20-session labels follow the reconciled dictionary. Test performance, final refit/calibration, screening, API integration and portfolio backtesting remain pending. Do not claim every mismatch or milestone is complete. This research does not approve the proposed source/universe/warm-up/class/cadence amendments.
