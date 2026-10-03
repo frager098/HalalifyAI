@@ -11,7 +11,7 @@ Read current sections together; historical data snapshots are explicitly labeled
 
 ## Purpose of this file
 
-This file gives Codex the working context, technical decisions, data
+This file gives AI the working context, technical decisions, data
 facts, architecture, constraints, and unresolved issues for the
 HalalifyAI Final Year Project.
 
@@ -91,7 +91,7 @@ Swagger - Zod validation - centralized error handling
 
 Target architecture:
 
-Frontend â†’ HalalifyAPI (Node/Express application backend) â†’ HalalifyAI
+Frontend → HalalifyAPI (Node/Express application backend) → HalalifyAI
 (Python/FastAPI AI service)
 
 The backend should generally own: - authentication - users -
