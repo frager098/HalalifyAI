@@ -2,7 +2,7 @@
 
 ## Purpose of this file
 
-This file gives Codex the working context, technical decisions, data
+This file gives AI the working context, technical decisions, data
 facts, architecture, constraints, and unresolved issues for the
 HalalifyAI Final Year Project.
 
