@@ -1,0 +1,1339 @@
+{
+  "status": "resolved_for_verified_records",
+  "cik": "0000070858",
+  "ticker": "BAC",
+  "normalized_company_name": "Bank of America Corporation",
+  "companyfacts_source_name": "BofA Finance LLC",
+  "submissions_source_name": "BANK OF AMERICA CORP /DE/",
+  "candidate_rows": 1115,
+  "verified_rows": 1115,
+  "needs_review_rows": 0,
+  "full_dataset_rows": 77075,
+  "other_company_rows_changed": 0,
+  "filing_count": 69,
+  "identity_verified_filings": 69,
+  "raw_sources": {
+    "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\HalalifyAI-reconciliation\\data\\raw\\sec_snapshots\\20261001T193734106748Z\\BAC_companyfacts.json": "5d7d95935dcf5a78305f4301ffba861cbbf4387f17ef779290652b42e047a85c",
+    "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\HalalifyAI-reconciliation\\data\\raw\\sec_snapshots\\20261001T193734106748Z\\BAC_submissions.json": "3f92d99a69db7d738e2398099c283f448012f6c242d67ff6c99d9d52e4ccb4d8",
+    "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\HalalifyAI-reconciliation\\data\\interim\\sec\\sec_evidence_20261001T195303920031Z\\financial_facts.csv": "8c9929d8ab4069c1c04a0cf3edd59de6372cb99a315d7127310c2ab47ac9f532"
+  },
+  "filings": [
+    {
+      "accession_number": "0000070858-11-000140",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085811000140/0000070858-11-000140-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085811000140/bac-20110930.xml",
+      "index_sha256": "480d7ba7cc31cc07ddd2725644a96a0d9cab6161961e4737c28787a2aefae831",
+      "instance_sha256": "69c8b1b3afb8d3577f2a26f428e4ed23fc77ac19f3b9d5cf26ac200ec62d6e85"
+    },
+    {
+      "accession_number": "0000070858-12-000155",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000155/0000070858-12-000155-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000155/bac-20111231.xml",
+      "index_sha256": "fc14c88a49ddb1e25bfd74d2420e8f99bad2f0c15d012969c44a26cd030a21ab",
+      "instance_sha256": "afb104d9bc5268221e25f2121975bdcd55b8d968474de20299f49eadfb0e1b0c"
+    },
+    {
+      "accession_number": "0000070858-12-000191",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000191/0000070858-12-000191-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000191/bac-20120331.xml",
+      "index_sha256": "c7d2cf372bb9be66ab8c2c98236294147365632b13860c2be80d50ed10b19b5a",
+      "instance_sha256": "4fa84499422c2c0d8a3a9199c7cf2961611ff3577611bb51fb0258e326cbba10"
+    },
+    {
+      "accession_number": "0000070858-12-000308",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000308/0000070858-12-000308-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000308/bac-20120630.xml",
+      "index_sha256": "c75c9846a2cf93d8e8592bcac465b7ecbc256fabb6e4ac13926805796408223a",
+      "instance_sha256": "fb0602aa762196e71d8cb0b68cfdebe9d71deeea875478dd92417092829dbfe4"
+    },
+    {
+      "accession_number": "0000070858-12-000362",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000362/0000070858-12-000362-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085812000362/bac-20120930.xml",
+      "index_sha256": "354a5c986316c15d38d8b2822d093b23f532ad8c9a0bbd0c5367aa79e87208ee",
+      "instance_sha256": "ebdf936a3d1a67960fa0c1d0b15f3347bacbf49488dc29ae2fb07fdfd25f2c1b"
+    },
+    {
+      "accession_number": "0000070858-13-000097",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000097/0000070858-13-000097-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000097/bac-20121231.xml",
+      "index_sha256": "4314a3bf2fc6b6667bd939ede0bf9377d2b4889f4da60c0173beb20003bc692e",
+      "instance_sha256": "1d01130c5f10ca0d29cae31f645499e0936ba55fde4823b1edc09f162c6ea4c2"
+    },
+    {
+      "accession_number": "0000070858-13-000147",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000147/0000070858-13-000147-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000147/bac-20130331.xml",
+      "index_sha256": "13f633545e2e8058940bd1666d44d174424f17464beabfda25dd1cef1e14b9e7",
+      "instance_sha256": "d14bb27272137347f21ac860ffbf5cd2b92ae3feeda497c4152e675788557791"
+    },
+    {
+      "accession_number": "0000070858-13-000216",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000216/0000070858-13-000216-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000216/bac-20130630.xml",
+      "index_sha256": "8f5658c8864f60658ee8d90436b1dc75f28206128b8bd7cf4119a4e404350238",
+      "instance_sha256": "3b3069431f27d757ca2212aca2304224884a68e0a01f0c284fae27e4c342354d"
+    },
+    {
+      "accession_number": "0000070858-13-000248",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000248/0000070858-13-000248-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085813000248/bac-20130930.xml",
+      "index_sha256": "bd66d22979217196a9ae10be26f1778eafa44a272bf7d458acbc18dc96a4b1a0",
+      "instance_sha256": "82816f1a8ed8f61ad4a54f47ec2b8111af9357a62e09724a2415509a348338ed"
+    },
+    {
+      "accession_number": "0000070858-14-000012",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000012/0000070858-14-000012-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000012/bac-20131231.xml",
+      "index_sha256": "e29b467524132bbbedeff6f388e71be91b52aefad088b61052646665dc0e25c5",
+      "instance_sha256": "b749fb5403b9c1715b3a1096c2ac184630f5f12b96b238ff5bacad6c243f7b3b"
+    },
+    {
+      "accession_number": "0000070858-14-000056",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000056/0000070858-14-000056-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000056/bac-20140331.xml",
+      "index_sha256": "53d67deb0cd9efd93fefac25ffeb2a4bc713084d9369d5673698a8f9a74ca8c7",
+      "instance_sha256": "afcb98070450cd277229bee3836ab655cf10c7aed48d17c8478cb0abe1f39b77"
+    },
+    {
+      "accession_number": "0000070858-14-000088",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000088/0000070858-14-000088-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000088/bac-20140630.xml",
+      "index_sha256": "a7a2db93b540cbd8c4c79f6d6ceda706a978ead8a6c0799a5387b1116f3c991b",
+      "instance_sha256": "4d574622a28a187a8574f2c151deae59d72e2344b24522fb9035baa4d5f9b6b1"
+    },
+    {
+      "accession_number": "0000070858-14-000139",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000139/0000070858-14-000139-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085814000139/bac-20140930.xml",
+      "index_sha256": "be291deefa992c8568c717813f1f3d7680e4d5bfc0da87215521a3cb5977da33",
+      "instance_sha256": "c9d9ad683e905d58fde75f20b9a67654f711db618e00840098e44b93a2449490"
+    },
+    {
+      "accession_number": "0000070858-15-000008",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000008/0000070858-15-000008-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000008/bac-20141231.xml",
+      "index_sha256": "c9cd301e32a5ef1a2678a8de967e948cd4b4a83c98b3cb15b1f2b655d2e229d5",
+      "instance_sha256": "bf5bae4be94bf05babf9997138a1602c3982436620414221e9c441a57c5287ec"
+    },
+    {
+      "accession_number": "0000070858-15-000048",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000048/0000070858-15-000048-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000048/bac-20150331.xml",
+      "index_sha256": "149ec0f6e38a1c159c902f6bf71f4d0c1492d8aae9a60daf2671195cc940161f",
+      "instance_sha256": "9d55b45839cc765c88ca385d1b2353e51c16d7c1b6901d0136113fcbb02d6382"
+    },
+    {
+      "accession_number": "0000070858-15-000078",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000078/0000070858-15-000078-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000078/bac-20150630.xml",
+      "index_sha256": "67eb43cca108ff3340aaa69d5ceb58f970afce0493d3eeceb37bb668b756ea08",
+      "instance_sha256": "49ba90d21459c245c1cc8e7d537165c28546c00236b030d1303139f3f9569194"
+    },
+    {
+      "accession_number": "0000070858-15-000103",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000103/0000070858-15-000103-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085815000103/bac-20150930.xml",
+      "index_sha256": "0fdb3ac34916ce5d63152d2789f3617dbb6163be07f594c571dd463c4f2cd5dd",
+      "instance_sha256": "04c489303f01e121ee537fdb0eb9a6c3f95a03328a6588e422be485136891443"
+    },
+    {
+      "accession_number": "0000070858-16-000137",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000137/0000070858-16-000137-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000137/bac-20151231.xml",
+      "index_sha256": "c3889e64a10214ae0b38571e2d211ed9ec8f814241c06142ed14bfc80e3f807a",
+      "instance_sha256": "3c43efc50cc2ee3995d31d91bcc7b7288bff3f56dd16a8d4f513556448206fc2"
+    },
+    {
+      "accession_number": "0000070858-16-000166",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000166/0000070858-16-000166-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000166/bac-20160331.xml",
+      "index_sha256": "780063b120a81f2c530ba2574b01bc945fb7f86b9d6bf2f33d4f1321baf3d08b",
+      "instance_sha256": "4f85533d7cd6c85723bb0b34e2c7c793639710ea816eaac567c501138084c63e"
+    },
+    {
+      "accession_number": "0000070858-16-000200",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000200/0000070858-16-000200-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000200/bac-20160630.xml",
+      "index_sha256": "592cc7c8237a30bc0ab88bd327990afc66237bbab9f1d7bf208fb4666e6c8faa",
+      "instance_sha256": "c2429bd35f9e7e4574b7162c9a95534878ad381c7348da1cf1ccc7d0f769ae9b"
+    },
+    {
+      "accession_number": "0000070858-16-000222",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000222/0000070858-16-000222-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085816000222/bac-20160930.xml",
+      "index_sha256": "59947e043d8619a3cb8126fa33a04688b4c19e5eff2572188d1b84cb967084e7",
+      "instance_sha256": "1f7e9a5a4c4cbe62ca39349b5747d22473d61396c772fb2f164c2118233a9414"
+    },
+    {
+      "accession_number": "0000070858-17-000013",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000013/0000070858-17-000013-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000013/bac-20161231.xml",
+      "index_sha256": "78878ba5114389c4ffd9c077746e0c4127c5dba5e803a6080328a6df1241ebff",
+      "instance_sha256": "928e78a9ebca22211d5c4274714417ca23f170a9f7f805cb96f1be3f388a4fa0"
+    },
+    {
+      "accession_number": "0000070858-17-000025",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000025/0000070858-17-000025-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000025/bac-20170331.xml",
+      "index_sha256": "83f342e13de03ed776249f0d09ffd37ca24552104e41d7133b750de0df338cde",
+      "instance_sha256": "778e154e3bd06c9da04d9a97cd16ac86e496b1e4413cf3f192f69ec785ac1841"
+    },
+    {
+      "accession_number": "0000070858-17-000037",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000037/0000070858-17-000037-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000037/bac-20170630.xml",
+      "index_sha256": "6843612e45fcdf79ee5b98e2d078dd73ee7eb74048cf14bf286bd3d828bbba91",
+      "instance_sha256": "6cad5f1910a5a9eea24075e25f5daffe5cf43838b774b68a105b93764ec1e908"
+    },
+    {
+      "accession_number": "0000070858-17-000046",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000046/0000070858-17-000046-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085817000046/bac-20170930.xml",
+      "index_sha256": "4d92499aa7f4b098e06b1ceca78991d23fc8e46697a1a715e59923fa30d2b32f",
+      "instance_sha256": "d30f18daeefde367c13712fa9699a1675aeda36bbab24f3570deaca56d4a7416"
+    },
+    {
+      "accession_number": "0000070858-18-000009",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000009/0000070858-18-000009-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000009/bac-20171231.xml",
+      "index_sha256": "aa21262c4ae67470db1507e16d4982d14423811be50d1e9e99f37dae1338d2d5",
+      "instance_sha256": "036ed8ffbce69f6630bd7ea1423ec498298b2f1778d144972cdcbfb8908ddb18"
+    },
+    {
+      "accession_number": "0000070858-18-000020",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000020/0000070858-18-000020-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000020/bac-20180331.xml",
+      "index_sha256": "f357a5ce1990a60e05f76e13488808adbceb21f4f4f74852d726d12e9674b873",
+      "instance_sha256": "719c6e753d2c792891df1199c43128757a0a106ed17df270725f669c188301c1"
+    },
+    {
+      "accession_number": "0000070858-18-000030",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000030/0000070858-18-000030-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000030/bac-20180630.xml",
+      "index_sha256": "c6337e76ea2523fb7bef4a6a14ee2ecedf41c77d4b4c23242250d07b39d17bf3",
+      "instance_sha256": "1685bec639ace30f0494e719e5d83ed1c21a09ebdab2b1169db407662559cf09"
+    },
+    {
+      "accession_number": "0000070858-18-000042",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000042/0000070858-18-000042-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085818000042/bac-20180930.xml",
+      "index_sha256": "6c6a697645d3e25fd48d0217162fd733ca6ada63dcc9ae64511dd2f9c2866886",
+      "instance_sha256": "142ba4983dfd443f08d2d51ab02a2763cb3cae151be5cfc3caff76461740c6c7"
+    },
+    {
+      "accession_number": "0000070858-19-000012",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000012/0000070858-19-000012-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "DocumentType": [
+          "10-K"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000012/bac-1231201810xk_htm.xml",
+      "index_sha256": "42879efb824eb9530169962862c8f2929151ba36ce4ba4d8a8a4db2fc70a3ea1",
+      "instance_sha256": "86fccf88f6e9300895f2bfde5edadba063d2e328671f50236868d8223c73fad2"
+    },
+    {
+      "accession_number": "0000070858-19-000026",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000026/0000070858-19-000026-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000026/bac-331201910xq_htm.xml",
+      "index_sha256": "78cc0b4cb82da6dd1412e17150d59e60322ece60367119bd5fb6b4248506ab05",
+      "instance_sha256": "f3644860c2c5c2cef83656d01626cdd1171dcb3f256c3f0aa1596c988aadc8d9"
+    },
+    {
+      "accession_number": "0000070858-19-000042",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000042/0000070858-19-000042-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000042/bac-630201910xq_htm.xml",
+      "index_sha256": "9b3c117dbf45eca76d0c945c23192ed235e3e94cc3a506f859eabe1d99329354",
+      "instance_sha256": "067f73d7732db971f7657c81b6f9f4624a3e4aa792cb3d43422f0477b87c4ac9"
+    },
+    {
+      "accession_number": "0000070858-19-000057",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000057/0000070858-19-000057-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085819000057/bac-930201910xq_htm.xml",
+      "index_sha256": "52ef2d4ee5976812ba4f80779df39dd2c625aa406a831efa02332ba8c8e8f9fe",
+      "instance_sha256": "7ac93e3c7f3597d94cd4e62091c2950262d0cedd0d887264eacc5ff55230a160"
+    },
+    {
+      "accession_number": "0000070858-20-000011",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000011/0000070858-20-000011-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000011/bac-1231201910xk_htm.xml",
+      "index_sha256": "93179d8f81930732886f8b4656b35db60dc70455cf4bc2f4b36431020ebe56ec",
+      "instance_sha256": "7ca55916a39ef373613033ee9cbf4ff29fb44441ca14d918c2c6b99d3ece87e9"
+    },
+    {
+      "accession_number": "0000070858-20-000023",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000023/0000070858-20-000023-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000023/bac-0331202010xq_htm.xml",
+      "index_sha256": "5d0b7dc2a3c6ef0a25c30bc8a62c06f7f30b5fa013546422472edcd3d9b14e7c",
+      "instance_sha256": "3af544584d10dbe50b629cf228f3d2f0135c378ee3a3260c2f9f40b473e65e0d"
+    },
+    {
+      "accession_number": "0000070858-20-000040",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000040/0000070858-20-000040-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000040/bac-0630202010xq_htm.xml",
+      "index_sha256": "f557c970369c76b631a124e700d2e5ecc3675d2fe25adb8f42da313e3621ba44",
+      "instance_sha256": "972225af325ce6c72b3fceeb695dfb172f3768aa8e2cd931d0f2d2bfc1c11adb"
+    },
+    {
+      "accession_number": "0000070858-20-000071",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000071/0000070858-20-000071-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085820000071/bac-20200930_htm.xml",
+      "index_sha256": "719672a93fd1b9dcc740c81f62180a7359b97b0d75a749a25bb95db5441dbeaf",
+      "instance_sha256": "3d882148cd139dd59055f61efa96470f6d8931a187ceb6df47bfc0b5eb0aff60"
+    },
+    {
+      "accession_number": "0000070858-21-000023",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000023/0000070858-21-000023-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000023/bac-20201231_htm.xml",
+      "index_sha256": "be28f382dead9d375f82147055914d2c87410772c9b7b3169de72b97baf31a7e",
+      "instance_sha256": "4d216b4df0809ee03b794ee0bb6b93ce97d05f556c49becb5a27ba558333da6d"
+    },
+    {
+      "accession_number": "0000070858-21-000063",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000063/0000070858-21-000063-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000063/bac-20210331_htm.xml",
+      "index_sha256": "366307c83143a7e6a0827218703fcea40cfad485d724df5fc4678a30692aee32",
+      "instance_sha256": "d6d48b865bc6ad3b8714eac8f3eb975de60d81d4d243b469f58729f8032f6dba"
+    },
+    {
+      "accession_number": "0000070858-21-000084",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000084/0000070858-21-000084-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000084/bac-20210630_htm.xml",
+      "index_sha256": "1bb21973b4f1fa89d45200fd45765d64cc70ab972edeee2994f8aa7da7b74fd3",
+      "instance_sha256": "1516fd8c0da290d1ae0bed4a247a0f200f09c0ca28563c584c10939c8510b9d3"
+    },
+    {
+      "accession_number": "0000070858-21-000107",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000107/0000070858-21-000107-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085821000107/bac-20210930_htm.xml",
+      "index_sha256": "e76274ddf698af67ff596a520b1fb6b045f5dd80974242072fbd57a3fed7828a",
+      "instance_sha256": "6fd9234780bbcf529c494ef39ac2980c3cee20f532c6fbf121dd39f4396bc098"
+    },
+    {
+      "accession_number": "0000070858-22-000062",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000062/0000070858-22-000062-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000062/bac-20211231_htm.xml",
+      "index_sha256": "450474712c2b61f16efbc42eb644f2a4b4368c531a681b4aa2885ecd4503cf3b",
+      "instance_sha256": "443fb7cf253914cc1b05a9572d1b896fce9e3eaf75f69f6c4e6a85256eeb39bb"
+    },
+    {
+      "accession_number": "0000070858-22-000088",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000088/0000070858-22-000088-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000088/bac-20220331_htm.xml",
+      "index_sha256": "7392ac62b005227f39918a3de79edc1c7c7b26a5c167543b0ad084fdc6a32686",
+      "instance_sha256": "148764c4544bf85c0b766eb2c37219c925c363d3c9659dad85e9b045de7e1fe7"
+    },
+    {
+      "accession_number": "0000070858-22-000112",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000112/0000070858-22-000112-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000112/bac-20220630_htm.xml",
+      "index_sha256": "b014b2d009355f0018a5c345c466277aaf99de2e688ea0b6b807e32f08bb19fa",
+      "instance_sha256": "cc1f71ffe0850b080baaa4c274929c7889067f012fcead904156eac8467eec22"
+    },
+    {
+      "accession_number": "0000070858-22-000131",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000131/0000070858-22-000131-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085822000131/bac-20220930_htm.xml",
+      "index_sha256": "24da491aaf90378f4ff58f0e9c4946b53bfd27fb3ae4f9ae8d4c8f6ea80d4eda",
+      "instance_sha256": "65da8bbe6899a88fd4a5774624d52b6385ebb0ee2012162ef89174dd0c0b4fad"
+    },
+    {
+      "accession_number": "0000070858-23-000092",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000092/0000070858-23-000092-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000092/bac-20221231_htm.xml",
+      "index_sha256": "1b78fda40eb0248306239684704f96904ea74683f892321d144d481c12bfce33",
+      "instance_sha256": "638a5e87cee196943c483964cfeaa8349419921549ebc09729bc12b1107f14b6"
+    },
+    {
+      "accession_number": "0000070858-23-000142",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000142/0000070858-23-000142-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000142/bac-20230331_htm.xml",
+      "index_sha256": "361989024132c8b55969957853283c2683785ecdba07f63735436c511bcb269e",
+      "instance_sha256": "08e9964086f2113c14a6910bb55c546d0e8fe3cb2091a13287d6d2c2bf126bba"
+    },
+    {
+      "accession_number": "0000070858-23-000176",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000176/0000070858-23-000176-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000176/bac-20230630_htm.xml",
+      "index_sha256": "6217706eaf4a10e7cbf307e036c0ab1cb9230c0956b09c469e537f72181413dc",
+      "instance_sha256": "f9b5115f8adcd1f91e96a121269ba04a65bb7242e4ae91c7c90f7dc754479276"
+    },
+    {
+      "accession_number": "0000070858-23-000272",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000272/0000070858-23-000272-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085823000272/bac-20230930_htm.xml",
+      "index_sha256": "aa98cd8dbbf9a2f8a2f1cf13dd600025063b456661860216d7f35137a685e61b",
+      "instance_sha256": "2d73859b272186b544fe613841f017656a3b593827217381433f81b86cceab44"
+    },
+    {
+      "accession_number": "0000070858-24-000122",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000122/0000070858-24-000122-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000122/bac-20231231_htm.xml",
+      "index_sha256": "b60ee0e1f1c2d8a5946f4e93466b8a8022af0650e60de56ac9fff6a865a84e14",
+      "instance_sha256": "95379cf04436bb96df7cadd18ce7751842b313385f7707749a827b9f04f391d3"
+    },
+    {
+      "accession_number": "0000070858-24-000156",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000156/0000070858-24-000156-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000156/bac-20240331_htm.xml",
+      "index_sha256": "6bc595dc6eb8da56c4c1600582c03c49e3a2409376fa9db6207e7d72d72c8b94",
+      "instance_sha256": "2049a56749854b46946b72f61051e8867f1c90dfe7a3adb1f94023928a432c8d"
+    },
+    {
+      "accession_number": "0000070858-24-000208",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000208/0000070858-24-000208-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000208/bac-20240630_htm.xml",
+      "index_sha256": "5290a398ac415b21849cd4b6094938a9cd34f28db4b3e0b7931602466f7f41d0",
+      "instance_sha256": "a350be266a6ebc464350f0c13701f5be29a6c67782a8acc327a6927a84ec218e"
+    },
+    {
+      "accession_number": "0000070858-24-000280",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000280/0000070858-24-000280-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085824000280/bac-20240930_htm.xml",
+      "index_sha256": "d0a62a2c37361830e7980388d576dc9cbceaab27c41805570f2b95e2e7cb8ac0",
+      "instance_sha256": "bd1d94db3fd1f998457bf8636489f3107025a75ac7010386b97f470db3c6a20f"
+    },
+    {
+      "accession_number": "0000070858-25-000139",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/0000070858-25-000139-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231_htm.xml",
+      "index_sha256": "7630d4a77787e8217311e0c172f825284bfd7c98594a6f55ba3ac3537291d888",
+      "instance_sha256": "cfb1b6c59f50e419cc5546acbffbbb3ced0aa2078e484b2b822f7047868a42ed"
+    },
+    {
+      "accession_number": "0000070858-25-000200",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000200/0000070858-25-000200-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000200/bac-20250331_htm.xml",
+      "index_sha256": "bb5d3715b3fcb15e836b79def8d8c0f5eec74e87107dd975fc75dd19a721d3d2",
+      "instance_sha256": "2a5f9e2a25a48fa3413576f9c1b3ccf6c15d6dcaa05bfb7eb494ab8053f2e3bd"
+    },
+    {
+      "accession_number": "0000070858-25-000268",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000268/0000070858-25-000268-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000268/bac-20250630_htm.xml",
+      "index_sha256": "6f182c3f344c409a592073e6338d423ef24fce1fa6600051638773ae8f75b55d",
+      "instance_sha256": "39a78324f7de0ec3c18ac9031e3fcb64ec3ec50576aa99ca1b90b309188737a6"
+    },
+    {
+      "accession_number": "0000070858-25-000405",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/0000070858-25-000405-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930_htm.xml",
+      "index_sha256": "61a47b4a9c69bea256b7713e5145b11dd122d707987b246a5ca6ff330319f48c",
+      "instance_sha256": "33f328a33188ae897271308b728c2315703492db7e9f362a85d08bfc00826c17"
+    },
+    {
+      "accession_number": "0000070858-26-000157",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/0000070858-26-000157-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000157/bac-20251231_htm.xml",
+      "index_sha256": "a79648c6e182d99ebfe2e4f183db57b33895c369b8018251c1c93f4b66a2b9a8",
+      "instance_sha256": "266d9ea8a19bed38ec37b6243507846cd5239b70ec2de2d66331d7597ac27f6b"
+    },
+    {
+      "accession_number": "0000070858-26-000249",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000249/0000070858-26-000249-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000249/bac-20260331_htm.xml",
+      "index_sha256": "d9d6bef43ee27065b9045b5e55f78323a48fcb20e1c0a7a3fde05ae9e0e0e018",
+      "instance_sha256": "b056e365e149dfd0c0128266fc10e667817499725dba4a9fa7ff203f6f8afd14"
+    },
+    {
+      "accession_number": "0000070858-26-000394",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000394/0000070858-26-000394-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "Bank of America Corporation"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000394/bac-20260630_htm.xml",
+      "index_sha256": "69b0f29691b31d8094d22c7657124c4eedc6b499426789d74f6fcb23eae29e8f",
+      "instance_sha256": "ce407c1fef0d2504f0799af71222422a1908cfeae5ccad64f4dc2a714b38ff08"
+    },
+    {
+      "accession_number": "0000950123-10-074181",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012310074181/0000950123-10-074181-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012310074181/bac-20100630.xml",
+      "index_sha256": "ca6e0608dae6b722e272551b038dc9016c6a528e198e177d16e344c9d11b2ee9",
+      "instance_sha256": "63a7ebe147a6a060be7adfdd58e012a4b641dde69211d902975236ca74895eae"
+    },
+    {
+      "accession_number": "0000950123-10-101545",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012310101545/0000950123-10-101545-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012310101545/bac-20100930.xml",
+      "index_sha256": "1d0fce20f654360da8aeaa2042a57175af1ad0ab0d769a79ee336e1c6d999d9a",
+      "instance_sha256": "51dbc17aa9f94e460860ed3f57263b9cb6104a7b29de903c698b25b3e028e28f"
+    },
+    {
+      "accession_number": "0000950123-11-018743",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311018743/0000950123-11-018743-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311018743/bac-20101231.xml",
+      "index_sha256": "4d1cf84e6ca1f4923899048d4db67811b5f2cc4577d63b0d6b53edea43918cef",
+      "instance_sha256": "cf7ffb66ab6084fd5a0089d4b29453a7707db3006b37ef0ea010736267b0879e"
+    },
+    {
+      "accession_number": "0000950123-11-045620",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311045620/0000950123-11-045620-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311045620/bac-20110331.xml",
+      "index_sha256": "711e2e390408de53f55320cc803bb047c21ebaa9bd6ed7ff08cfb2614bdeaefc",
+      "instance_sha256": "5f0a1474341dfec349f13a444ee75c6b62928c7cad8b469d396bf68cc84ec438"
+    },
+    {
+      "accession_number": "0000950123-11-072937",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311072937/0000950123-11-072937-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000095012311072937/bac-20110630.xml",
+      "index_sha256": "732f823f3970ad28c1d2498ee15e3e1edd1b9fbbed8d641e25c4126386067a18",
+      "instance_sha256": "389bfe3db8c7957c9fc6b4496544ee48daba0080f2272a28f2f6bee1f2190617"
+    },
+    {
+      "accession_number": "0001193125-09-168935",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312509168935/0001193125-09-168935-index.htm",
+      "verified": true,
+      "headers": {
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312509168935/bac-20090630.xml",
+      "index_sha256": "9f7b9bb2780c87a1d9d0e7b7e4e948c30d8dc58e8d4d51c0c0ac6a34eff89cbf",
+      "instance_sha256": "695c7136a8e1fb53dc6ad3a33572932fa1210b33d5d4f7b3d09a0c03c79927f2"
+    },
+    {
+      "accession_number": "0001193125-09-227720",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312509227720/0001193125-09-227720-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312509227720/bac-20090930.xml",
+      "index_sha256": "aa1469f279086c8169b12f6f591bba3cda31a653c8396fe1bf29edb6d7dba0ea",
+      "instance_sha256": "424061ff28bf3614c4bb944d8c5ec6b7142ebcf2a3f27aced33a331af457352b"
+    },
+    {
+      "accession_number": "0001193125-10-041666",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312510041666/0001193125-10-041666-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "DocumentType": [
+          "10-K"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312510041666/bac-20091231.xml",
+      "index_sha256": "1b1701868fe5540eea812376f366b79036519b9942af23679eb071ff53011622",
+      "instance_sha256": "9292a874084b80b89609b127934fed2a1d398f85c62ef0eb6c98979cc63f882d"
+    },
+    {
+      "accession_number": "0001193125-10-111878",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312510111878/0001193125-10-111878-index.htm",
+      "verified": true,
+      "headers": {
+        "EntityRegistrantName": [
+          "BANK OF AMERICA CORP /DE/"
+        ],
+        "DocumentType": [
+          "10-Q"
+        ],
+        "EntityCentralIndexKey": [
+          "0000070858"
+        ]
+      },
+      "instance_url": "https://www.sec.gov/Archives/edgar/data/70858/000119312510111878/bac-20100331.xml",
+      "index_sha256": "71828f788ef9e56381d39e0d657fa6647eff44136ba8149c592a8f9a1c98c8d8",
+      "instance_sha256": "91e1a1d110caa6df37a1968826bf3f86953220447547ed55e1ba4dc015898d6c"
+    }
+  ],
+  "screening_ready": false,
+  "limits": [
+    "Identity/individual reported fact verification is not reviewed debt/TTM mapping",
+    "No Shariah eligibility decision; historical filing availability remains unchanged",
+    "Original CompanyFacts and financial CSV remain unchanged"
+  ]
+}

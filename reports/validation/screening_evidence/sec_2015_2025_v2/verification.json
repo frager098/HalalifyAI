@@ -1,0 +1,23 @@
+{
+  "fresh_environment": "screening-clean-env, Python 3.12",
+  "tests_passed": 52,
+  "pip_check": "passed",
+  "reports_processed": 2214,
+  "extraction_errors": 0,
+  "reproduction": "All three intermediate output hashes and full coverage JSON identical",
+  "reproduced_hashes": {
+    "numeric_candidates.jsonl": "0b57c582c923e4704243088b501f019e974279368c7311689387165303dd82f5",
+    "business_evidence.jsonl": "71144bd3817cc7cfeeb2ba2eef0097b419b4645c4704ad31e4d057f859bd8972",
+    "screening_review_packets.json": "ebf579926d045ae1665c6beae88d9af42cafe9b4ceae21012aebed5184770861"
+  },
+  "raw_archive_sha256": "4bbfee45051900a407499bcb5ec144a7b961b3ef19b8bd0c222bba3149b53a2f",
+  "installer_smoke": {
+    "first_install_passed": true,
+    "idempotent_rerun_passed": true,
+    "existing_different_file_preserved": true,
+    "code_branch_correct": true,
+    "no_data_staged": true
+  },
+  "peer_review_approved": false,
+  "standard_selected": false
+}

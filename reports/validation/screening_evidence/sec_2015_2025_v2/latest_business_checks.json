@@ -1,0 +1,452 @@
+[
+  {
+    "ticker": "AAPL",
+    "status": "extracted_requires_review",
+    "chars": 15996,
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+    "opening": "Item 1. Business\nCompany Background\nThe Company designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related services. The Company\u2019s fiscal year is the 52- or 53-week period that ends on the last Saturday of September.\nProducts",
+    "closing": " incorporated by reference into this filing. Further, the Company\u2019s references to website URLs are intended to be inactive textual references only.\nApple Inc. | 2025 Form 10-K | 4\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "ABBV",
+    "status": "extracted_requires_review",
+    "chars": 70439,
+    "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nOverview\nAbbVie or \"the company\" refer to AbbVie Inc., or AbbVie Inc. and its consolidated subsidiaries, as the context requires. AbbVie is a global, diversified research-based biopharmaceutical company positioned for success with a comprehensive product portfolio that has leadershi",
+    "closing": "ion committee, nominations and governance committee and public policy and sustainability committee are all available on AbbVie's investor relations website (investors.abbvie.com).\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "ABT",
+    "status": "extracted_requires_review",
+    "chars": 33107,
+    "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828025007110/abt-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nGENERAL DEVELOPMENT OF BUSINESS\nAbbott Laboratories is an Illinois corporation, incorporated in 1900. Abbott\u2019s* principal business is the discovery, development, manufacture, and sale of a broad and diversified line of healthcare products.\nNARRATIVE DESCRIPTION OF BUSINESS\nAbbott ha",
+    "closing": "committee, nominations and governance committee, and public policy committee are all available on Abbott\u2019s investor relations website (www.abbottinvestor.com).\n8\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "ADBE",
+    "status": "extracted_requires_review",
+    "chars": 92479,
+    "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+    "opening": "ITEM 1. BUSINESS\nOVERVIEW\nAdobe is a global technology company with a mission to change the world through personalized digital experiences. For over four decades, Adobe\u2019s innovations have transformed how individuals, teams, businesses, enterprises, institutions, and governments engage and interact a",
+    "closing": "bility at Adobe. Prior to joining Adobe, Ms. Forusz worked in the Audit practice at Deloitte. Ms. Forusz holds a bachelor\u2019s degree from Penn State University.\n22\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "AMD",
+    "status": "extracted_requires_review",
+    "chars": 57196,
+    "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+    "opening": "ITEM 1. BUSINESS \nCautionary Statement Regarding Forward-Looking Statements \nThe statements in this report include forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. These forward-looking statements are based on current expectations and beliefs and",
+    "closing": " amendment or waiver on our website.\nThe information contained on our website is not incorporated by reference in, or considered to be a part of, this report.\n13\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "AMZN",
+    "status": "extracted_requires_review",
+    "chars": 13230,
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+    "opening": "Item 1.\nBusiness\nThis Annual Report on Form 10-K and the documents incorporated herein by reference contain forward-looking statements based on expectations, estimates, and projections as of the date of this filing. Actual results and outcomes may differ materially from those expressed in forward-lo",
+    "closing": "60\nPresident, Marshall University\nPatricia Q. Stonesifer\n68\nFormer President and Chief Executive Officer, Martha\u2019s Table\nWendell P. Weeks\n65\nChairman and CEO, Corning Incorporated\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "AVGO",
+    "status": "extracted_requires_review",
+    "chars": 45270,
+    "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+    "opening": "ITEM 1.BUSINESS\nOverview\nWe are a global technology leader that designs, develops and supplies a broad range of semiconductor and semiconductor-based solutions and infrastructure software solutions. Our more than 60-year history of innovation dates back to our diverse origins from AT&T/Bell Labs, Lu",
+    "closing": " was also the leader of Product Line Management for the Optical Ethernet and Multi-service Edge portfolio at Nortel Networks Corporation prior to joining LSI.\n11\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "BAC",
+    "status": "extracted_requires_review",
+    "chars": 37571,
+    "url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231.htm",
+    "opening": "Item 1. Business \nBank of America Corporation is a Delaware corporation, a bank holding company (BHC) and a financial holding company. When used in this report, \u201cBank of America,\u201d \u201cthe Corporation,\u201d \u201cwe,\u201d \u201cus\u201d and \u201cour\u201d may refer to Bank of America Corporation individually, Bank of America Corporati",
+    "closing": "develop cybersecurity programs, policies and frameworks, as well as provide disclosure and/or notifications of certain cybersecurity incidents and data breaches.\n7 Bank of America\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "CAT",
+    "status": "extracted_requires_review",
+    "chars": 39140,
+    "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+    "opening": "Item 1.Business.\nGeneral\nOriginally organized as Caterpillar Tractor Co. in 1925 in the State of California, our company was reorganized as Caterpillar Inc. in 1986 in the State of Delaware. As used herein, the term \u201cCaterpillar,\u201d \u201cwe,\u201d \u201cus,\u201d \u201cour\u201d or \u201cthe company\u201d refers to Caterpillar Inc. and its",
+    "closing": "r download materials on-line or register for email alerts at www.Caterpillar.com/materialsrequest\nHistorical information -\n\u2022view/download on-line at www.Caterpillar.com/historical\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "COP",
+    "status": "extracted_requires_review",
+    "chars": 46139,
+    "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000012/cop-20241231.htm",
+    "opening": "Items 1 and 2. Business and Properties\nCorporate Structure\nConocoPhillips is an independent E&P company headquartered in Houston, Texas with operations and activities in 14 countries. Our diverse, low cost of supply portfolio includes resource-rich unconventional plays in North America; conventional",
+    "closing": "e filed with, or furnished to, the SEC. Alternatively, you may access these reports at the SEC\u2019s website at www.sec.gov.\nConocoPhillips 2024 10-K\n18\nRisk Factors\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "COST",
+    "status": "extracted_requires_review",
+    "chars": 20803,
+    "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+    "opening": "Item 1\u2014Business\nCostco Wholesale Corporation and its subsidiaries (Costco or the Company) began operations in 1983, in Seattle, Washington. We are principally engaged in the operation of membership warehouses in the United States (U.S.) and Puerto Rico, Canada, Mexico, Japan, the United Kingdom (U.K",
+    "closing": "ident, Chief Operating Officer, Southwest Division. Mr. Wilcox was Senior Vice President, General Manager - San Diego Region from 2016 to October 2025.\n2025\n59\n8\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "CRM",
+    "status": "extracted_requires_review",
+    "chars": 40187,
+    "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000006/crm-20250131.htm",
+    "opening": "ITEM 1. BUSINESS\nOverview\nSalesforce, Inc. (\u201cSalesforce,\u201d the \u201cCompany,\u201d \u201cwe\u201d or \u201cour\u201d) is a global leader in customer relationship management (\u201cCRM\u201d) technology, enabling companies of every size and industry to connect with their customers through the power of data, artificial intelligence (\u201cAI\u201d), ",
+    "closing": "ancisco, California. Our principal address is Salesforce Tower, 415 Mission St., 3rd Floor, San Francisco, California 94105, and our primary website address is www.salesforce.com.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "CSCO",
+    "status": "extracted_requires_review",
+    "chars": 48082,
+    "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+    "opening": "Item 1.\nBusiness\nGeneral\nCisco designs and sells a broad range of technologies that help to power, secure, and draw insights from the Internet. We are incorporating artificial intelligence (AI) into our product portfolios across networking, security, collaboration and observability as well as integr",
+    "closing": " to July 2018. Prior to joining Cisco, Mr. Tuszik spent over 10 years at Computacenter AG & Co. oHG, most recently serving as Chief Executive Officer Germany.\n10\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "CVX",
+    "status": "extracted_requires_review",
+    "chars": 75725,
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/cvx-20241231.htm",
+    "opening": "Item 1. Business\nGeneral Development of Business\nSummary Description of Chevron \nChevron Corporation1, a Delaware corporation, manages its investments in subsidiaries and affiliates and provides administrative, financial, management and technology support to U.S. and international subsidiaries that ",
+    "closing": "onmental expenditures. Refer to page 54 through 55 and Note 24 Other Contingencies and Commitments for a discussion of environmental remediation provisions and year-end reserves. \n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "DE",
+    "status": "extracted_requires_review",
+    "chars": 53817,
+    "url": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+    "opening": "ITEM 1. BUSINESS. \nThis Annual Report on Form 10-K contains forward-looking statements that are subject to risks and uncertainties. All statements other than statements of historical fact included in this Annual Report on Form 10-K are forward-looking statements. Forward-looking statements provide o",
+    "closing": "bal Law Services & Regulatory Affairs (2024)\n\u200b\n-\nExecutive Vice President, Chief Legal Officer, and Corporate Secretary, Eastman Chemical Company (2020)\n\u200b\n\u200b\n13\nTable of Contents\n\u200b\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "DHR",
+    "status": "extracted_requires_review",
+    "chars": 56420,
+    "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000043/dhr-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nGeneral\nDanaher is a global science and technology innovator committed to accelerating the power of science and technology to improve human health. Danaher is comprised of more than 15 operating companies with leadership positions in the biotechnology, life sciences and diagnostics ",
+    "closing": " or furnishing such material to, the SEC. Danaher\u2019s internet site and the information contained on or connected to that site are not incorporated by reference into this Form 10-K.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "GE",
+    "status": "extracted_requires_review",
+    "chars": 26038,
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+    "opening": "ABOUT GE AEROSPACE. General Electric Company operates as GE Aerospace (GE Aerospace or the Company). GE Aerospace is a global aerospace leader with the industry's largest and growing commercial propulsion fleet. The Company\u2019s installed base of approximately 45,000 commercial and 25,000 military engi",
+    "closing": "tronically with the SEC. Copies are also available, without charge, from GE Aerospace Investor Relations. Reports filed with the SEC may be viewed at www.sec.gov.\n2024 FORM 10-K 7\n",
+    "rule": "Issuer-specific reorganized 10-K business heading to next management discussion or risk heading; review excerpt, not certified complete Item 1"
+  },
+  {
+    "ticker": "GOOGL",
+    "status": "extracted_requires_review",
+    "chars": 30677,
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+    "opening": "ITEM 1.BUSINESS\nOverview\nAs our founders Larry and Sergey wrote in the original founders' letter, \"Google is not a conventional company. We do not intend to become one.\" That unconventional spirit has been a driving force throughout our history, inspiring us to tackle big problems and invest in moon",
+    "closing": "to this Annual Report on Form 10-K or in any other report or document we file with the SEC, and any references to our websites are intended to be inactive textual references only.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "GS",
+    "status": "extracted_requires_review",
+    "chars": 153227,
+    "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698225000005/gs-20241231.htm",
+    "opening": "Item 1. Business\nIntroduction\nGoldman Sachs is a leading global financial institution that delivers a broad range of financial services to a large and diversified client base that includes corporations, financial institutions, governments and individuals. Our purpose is to advance sustainable econom",
+    "closing": "icient to prevent a successful cybersecurity attack or a material security breach that results in the disclosure of confidential information or otherwise disrupts our operations. \n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "HD",
+    "status": "extracted_requires_review",
+    "chars": 39991,
+    "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+    "opening": "Item 1. Business.\nINTRODUCTION\nThe Home Depot, Inc. is the world\u2019s largest home improvement retailer based on net sales for fiscal 2024. We offer our customers a wide assortment of building materials, home improvement products, lawn and garden products, d\u00e9cor products, and facilities MRO products, i",
+    "closing": "rt for reference only. The information contained on these websites, including any document posted on or accessible through them, is not incorporated by reference into this report.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "HON",
+    "status": "extracted_requires_review",
+    "chars": 36314,
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000010/hon-20241231.htm",
+    "opening": "ABOUT HONEYWELL\nHoneywell International Inc. (Honeywell, we, us, our, or the Company) is an integrated operating company serving a broad range of industries and geographies around the world. Our products and solutions enable a safer, more comfortable, and more productive world, enhancing the quality",
+    "closing": "to share and learn from one another and fully contribute at work and in the community in an inclusive and supportive environment.\n14 Honeywell International Inc.\nTABLE OF CONTENTS\n",
+    "rule": "Issuer-specific reorganized 10-K business heading to next management discussion or risk heading; review excerpt, not certified complete Item 1"
+  },
+  {
+    "ticker": "INTC",
+    "status": "extracted_requires_review",
+    "chars": 49155,
+    "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000009/intc-20241228.htm",
+    "opening": "Fundamentals of Our Business\nWe are a global designer and manufacturer of semiconductor products. The CPUs and other semiconductor solutions that we design, manufacture, market, and sell are incorporated in computing and related end products and services, and utilized globally by consumers, enterpri",
+    "closing": "ransition Action Plan, and CDP Climate Change and Water Surveys are referenced for general information only and are not incorporated by reference in this Form 10-K.\nOur Capital\n12\n",
+    "rule": "Issuer-specific reorganized 10-K business heading to next management discussion or risk heading; review excerpt, not certified complete Item 1"
+  },
+  {
+    "ticker": "JNJ",
+    "status": "extracted_requires_review",
+    "chars": 32107,
+    "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000038/jnj-20241229.htm",
+    "opening": "Item 1. Business\nGeneral\nJohnson & Johnson and its subsidiaries (the Company) have approximately 138,100 employees worldwide engaged in the research and development, manufacture and sale of a broad range of products in the healthcare field. Johnson & Johnson is a holding company, with operating comp",
+    "closing": "jnj.com, investor.jnj.com and www.factsabouttalc.com is not, and will not be deemed, a part of this Report or incorporated into any other filings the Company makes with the SEC.\n8\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "JPM",
+    "status": "extracted_requires_review",
+    "chars": 40517,
+    "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm",
+    "opening": "Item 1. Business.\nOverview\nJPMorgan Chase & Co. (\u201cJPMorganChase\u201d or the \u201cFirm\u201d, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (\u201cU.S.\u201d), with operations worldwide. JPMorganChase had $4.0 tril",
+    "closing": "th and wellness centers, counseling and resources related to mental health, time away policies, child care access and support, tuition assistance, and financial coaching.\n9\nPart I\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "KO",
+    "status": "extracted_requires_review",
+    "chars": 54829,
+    "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nIn this report, the terms \u201cThe Coca-Cola Company,\u201d \u201cCompany,\u201d \u201cwe,\u201d \u201cus\u201d and \u201cour\u201d mean The Coca-Cola Company and all entities included in our consolidated financial statements.\nGeneral\nThe Coca-Cola Company is a total beverage company, and beverage products bearing our trademarks, ",
+    "closing": "hat contains reports, proxy and information statements, and other information regarding issuers that file electronically with the SEC at the following address: http://www.sec.gov.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "LIN",
+    "status": "extracted_requires_review",
+    "chars": 21986,
+    "url": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025007990/lin-20241231.htm",
+    "opening": "ITEM 1. BUSINESS \nGeneral\nLinde plc is a public limited company formed under the laws of Ireland with its principal offices in the United Kingdom and United States. Linde is the largest industrial gas company worldwide and is a major technological innovator in the industrial gases industry. Its prim",
+    "closing": "ident, Finance, at Fisher Scientific and before that he held various financial positions, including group controller, at GenTek, a manufacturing and performance chemicals company.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "LLY",
+    "status": "extracted_requires_review",
+    "chars": 79807,
+    "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+    "opening": "Item 1.Business\nEli Lilly and Company (referred to as the company, Lilly, we, or us) was incorporated in 1901 in Indiana to succeed to the drug manufacturing business founded in Indianapolis, Indiana, in 1876 by Colonel Eli Lilly. We discover, develop, manufacture, and market products in a single bu",
+    "closing": "ssed through, our website or our or our executive officers' social media channels, is not incorporated by reference into, and is not a part of, this Annual Report on Form 10-K.\n23\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "LOW",
+    "status": "extracted_requires_review",
+    "chars": 34413,
+    "url": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+    "opening": "Item 1 - Business\nGeneral Information\nLowe\u2019s Companies, Inc. and subsidiaries (the Company or Lowe\u2019s) is a Fortune\u00ae 50 company and the world\u2019s second largest home improvement retailer. As of January 31, 2025, Lowe\u2019s operated 1,748 home improvement stores and outlets in the United States, representin",
+    "closing": "EC maintains an Internet site, www.sec.gov, that contains reports, proxy and information statements, and other information regarding issuers that file electronically with the SEC.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "MA",
+    "status": "extracted_requires_review",
+    "chars": 80079,
+    "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000011/ma-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nItem 1. Business\nOverview\nMastercard is a technology company in the global payments industry. We connect consumers, financial institutions, merchants, governments, digital partners, businesses and other organizations worldwide by enabling electronic payments and making those payment",
+    "closing": "ted EEO-1 Report, is not incorporated by reference into this Report. Our filings are also available electronically from the SEC at www.sec.gov.\n24 MASTERCARD 2024 FORM 10-K\nPART I\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "MCD",
+    "status": "extracted_requires_review",
+    "chars": 23509,
+    "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+    "opening": "BUSINESS SUMMARY\nGENERAL\nFor the year ended December 31, 2024, there were no material changes to the Company's corporate structure or in its method of conducting business. Refer to the Segment and Geographic Information section on page 52 of this Form 10-K for additional information.\nDESCRIPTION OF ",
+    "closing": "iness, these costs are not expected to have a material effect on the Company\u2019s capital expenditures, earnings or competitive position.\n McDonald's Corporation 2024 Annual Report 6\n",
+    "rule": "Issuer-specific reorganized 10-K business heading to next management discussion or risk heading; review excerpt, not certified complete Item 1"
+  },
+  {
+    "ticker": "META",
+    "status": "extracted_requires_review",
+    "chars": 40374,
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm",
+    "opening": "Item 1.Business \nOverview\nOur mission is to build the future of human connection and the technology that makes it possible. \nWe build technology that helps people connect and share, find and build communities, and grow businesses. Our products enable people to connect and share with friends and fami",
+    "closing": "ed to above are not incorporated into this filing. Further, our references to the URLs for these websites are intended to be inactive textual references only.\n13\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "MRK",
+    "status": "extracted_requires_review",
+    "chars": 119887,
+    "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+    "opening": "Item 1.Business.\nMerck & Co., Inc. (Merck or the Company) is a global health care company that delivers innovative health solutions through its prescription medicines, including biologic therapies, vaccines and animal health products. The Company\u2019s operations are principally managed on a product bas",
+    "closing": "available in the Sustainability section of the Company\u2019s website at www.merck.com. Information in the Company\u2019s Impact Report is not incorporated by reference into this Form 10-K.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "MS",
+    "status": "extracted_requires_review",
+    "chars": 46267,
+    "url": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000304/ms-20241231.htm",
+    "opening": "Business\nOverview\nWe are a global financial services firm that, through our subsidiaries and affiliates, advises, and originates, trades, manages and distributes capital for governments, institutions and individuals. We were originally incorporated under the laws of the State of Delaware in 1981, an",
+    "closing": "EO (January 2015 to May 2016). Co-Head of New Product Origination for Derivative Structured Products (December 2012 to December 2014).\nDecember 2024 Form 10-K\n12\nTable of Contents\n",
+    "rule": "Issuer-specific reorganized 10-K business heading to next management discussion or risk heading; review excerpt, not certified complete Item 1"
+  },
+  {
+    "ticker": "MSFT",
+    "status": "extracted_requires_review",
+    "chars": 50489,
+    "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+    "opening": "Item 1\nNote About Forward-Looking Statements\nThis report includes estimates, projections, statements relating to our business plans, objectives, and expected operating results that are \u201cforward-looking statements\u201d within the meaning of the Private Securities Litigation Reform Act of 1995, Section 27",
+    "closing": "investors, the media, and others interested in Microsoft to review the information we post on the social media channels listed on our Investor Relations website.\n15\nPART I\nItem 1A\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "NEE",
+    "status": "extracted_requires_review",
+    "chars": 60839,
+    "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000011/nee-20241231.htm",
+    "opening": "Item 1. Business\nOVERVIEW\nNEE is one of the largest electric power and energy infrastructure companies in North America and a leader in the renewable energy industry. At December 31, 2024, NEE had approximately 72 gigawatts of net generation and storage capacity from a diverse portfolio of assets, p",
+    "closing": "Resources from October 2011 to March 2019. Mr. Sieving previously served as Executive Vice President & General Counsel of NEE from December 2008 to May 2023. \n20\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "NFLX",
+    "status": "extracted_requires_review",
+    "chars": 10674,
+    "url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm",
+    "opening": "Item 1.Business\nABOUT US\nNetflix, Inc. (\u201cNetflix\u201d, \u201cthe Company\u201d, \u201cregistrant\u201d, \u201cwe\u201d, or \u201cus\u201d) is one of the world\u2019s leading entertainment services with approximately 302 million paid memberships in over 190 countries enjoying TV series, films and games across a wide variety of genres and languages.",
+    "closing": "media, and others interested in our company to review the information we post on the social media channels and blogs listed on our investor relations website. \n3\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "NKE",
+    "status": "extracted_requires_review",
+    "chars": 38254,
+    "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+    "opening": "ITEM 1. BUSINESS\nGENERAL\nNIKE, Inc. was incorporated in 1967 under the laws of the State of Oregon. As used in this Annual Report on Form 10-K (this \"Annual Report\"), the terms \"we,\" \"us,\" \"our,\" \"NIKE\" and the \"Company\" refer to NIKE, Inc. and its predecessors, subsidiaries and affiliates, collecti",
+    "closing": "Vision, a subsidiary of Novartis AG, and Kraft Foods Inc. Mr. Williams also served five years in the U.S. Navy as a Naval Nuclear Power Officer.\n2025 FORM 10-K 8\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "NVDA",
+    "status": "extracted_requires_review",
+    "chars": 54802,
+    "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm",
+    "opening": "Item 1. Business\nOur Company\nNVIDIA pioneered accelerated computing to help solve the most challenging computational problems. NVIDIA is now a full-stack computing infrastructure company with data-center-scale offerings that are reshaping industry.\nOur full-stack includes the foundational CUDA progr",
+    "closing": "r information regarding issuers that file electronically with the SEC. Our web site and the information on it or connected to it are not a part of this Annual Report on Form 10-K.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "ORCL",
+    "status": "extracted_requires_review",
+    "chars": 58303,
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/orcl-20250531.htm",
+    "opening": "Item 1. Business\nOracle provides products and services that address enterprise information technology (IT) needs. Our products and services include enterprise applications and infrastructure offerings that are delivered worldwide through a variety of flexible and interoperable IT deployment models. ",
+    "closing": "rollers Organization and Mergers and Acquisitions from November 2012 to September 2017. She held various other positions with us since joining Oracle in 1999.\n16\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "PEP",
+    "status": "extracted_requires_review",
+    "chars": 39861,
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000007/pep-20241228.htm",
+    "opening": "Item 1. Business.\nWhen used in this report, the terms \u201cwe,\u201d \u201cus,\u201d \u201cour,\u201d \u201cPepsiCo\u201d and the \u201cCompany\u201d mean PepsiCo, Inc. and its consolidated subsidiaries, collectively. Certain terms used in this Annual Report on Form 10-K are defined in the Glossary included in Item 7. of this report.\nCompany Overv",
+    "closing": " change on www.pepsico.com. The information on our website is not, and shall not be deemed to be, a part hereof or incorporated into this or any of our other filings with the SEC.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "PG",
+    "status": "extracted_requires_review",
+    "chars": 14145,
+    "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+    "opening": "Item 1. Business.\nThe Procter & Gamble Company (the Company) is a world-leading multinational consumer goods company focused on providing trusted, branded products of superior quality, performance and value to improve the lives of consumers around the world - now and for generations to come. Our pro",
+    "closing": "porated by reference into this Annual Report on Form 10-K. Additional detailed information on our sustainability efforts can be found on our website at https://pginvestor.com/esg.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "SBUX",
+    "status": "extracted_requires_review",
+    "chars": 38105,
+    "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+    "opening": "Item 1. Business \nGeneral\nIn this Annual Report on Form 10-K (\u201c10-K\u201d or \u201cReport\u201d) for the fiscal year ended September 28, 2025 (\u201cfiscal 2025\u201d), Starbucks Corporation (together with its subsidiaries) is referred to as \u201cStarbucks,\u201d the \u201cCompany,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour.\u201d\nStarbucks is the premier roaster,",
+    "closing": " not part of this or any other report Starbucks files with, or furnishes to, the SEC, and all website addresses in this report are intended to be inactive textual references only.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "SLB",
+    "status": "extracted_requires_review",
+    "chars": 28972,
+    "url": "https://www.sec.gov/Archives/edgar/data/87347/000095017025007638/slb-20241231.htm",
+    "opening": "Item 1. Business. \nAll references in this report to \u201cRegistrant,\u201d \u201cCompany,\u201d \u201cSLB,\u201d \u201cwe\u201d or \u201cour\u201d are to Schlumberger Limited (Schlumberger N.V.) and its consolidated subsidiaries.\nWe are SLB, a global technology company driving energy innovation for a balanced planet. With a global presence in more",
+    "closing": "onstruction Controller, July 2020 to July 2022; and Controller Operations, August 2019 to June 2020. \nVijay Kasibhatla\n61\nDirector, Mergers and Acquisitions, since January 2013.\n9\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "TMO",
+    "status": "extracted_requires_review",
+    "chars": 29048,
+    "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/tmo-20241231.htm",
+    "opening": "Item 1. Business\nDescription of Business\nThermo Fisher Scientific Inc. (also referred to in this document as \u201cThermo Fisher,\u201d \u201cwe,\u201d the \u201ccompany,\u201d or the \u201cregistrant\u201d) is the world leader in serving science. Our Mission is to enable our customers to make the world healthier, cleaner and safer. We se",
+    "closing": "or Vice President and Chief Human Resources Officer (2017)\nJoseph R. Holmes\n46\nVice President and Chief Accounting Officer (2021)\nSenior Director, Technical Accounting (2017-2021)\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "TSLA",
+    "status": "extracted_requires_review",
+    "chars": 49653,
+    "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nOverview\nWe design, develop, manufacture, sell and lease high-performance fully electric vehicles and energy generation and storage systems, and offer services related to our products. We generally sell our products directly to customers, and continue to grow our customer-facing inf",
+    "closing": "after we electronically file or furnish such information with the SEC. The information posted on our website is not incorporated by reference into this Annual Report on Form 10-K.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "UNP",
+    "status": "extracted_requires_review",
+    "chars": 27564,
+    "url": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000042/unp-20241231.htm",
+    "opening": "Item 1. Business\nGENERAL\nUnion Pacific Railroad Company is the principal operating company of Union Pacific Corporation. One of America's most recognized companies, Union Pacific Railroad Company connects 23 states in the western two-thirds of the country by rail, providing a critical link in the gl",
+    "closing": "s of Financial Condition and Results of Operations - Critical Accounting Estimates - Environmental, Item 7, and Note 17 to the Financial Statements and Supplementary Data, Item 8.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "UPS",
+    "status": "extracted_requires_review",
+    "chars": 31087,
+    "url": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/ups-20241231.htm",
+    "opening": "Item 1.Business\nOverview\nUnited Parcel Service, Inc. (\"UPS\"), founded in 1907, is a global package delivery and logistics provider. We offer a broad range of industry-leading products and services through our extensive global presence, serving over 200 countries and territories. Our services include",
+    "closing": "ction 13(r) of the Exchange Act in Item 5 of Part II of the Company's Quarterly Report on Form 10-Q for the quarter ended September 30, 2024 is incorporated by reference herein.\n8\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "V",
+    "status": "extracted_requires_review",
+    "chars": 73577,
+    "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+    "opening": "ITEM 1. Business\nOVERVIEW\nVisa is one of the world\u2019s leaders in digital payments. Our purpose is to uplift everyone, everywhere by being the best way to pay and be paid. Since Visa\u2019s early days in 1958, we have been in the business of facilitating secure, reliable and efficient global commerce and m",
+    "closing": "urces.html. The content of any of our websites referred to in this report is not incorporated by reference into this report or any other filings with the SEC.\n20\nTable of Contents\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "WMT",
+    "status": "extracted_requires_review",
+    "chars": 40077,
+    "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+    "opening": "ITEM 1.\nBUSINESS\nGeneral\nWalmart Inc. (\"Walmart,\" the \"Company\" or \"we\") is a people-led, technology-powered omni-channel retailer dedicated to helping people around the world save money and live better by providing the opportunity to shop in both retail stores and through eCommerce, and to access o",
+    "closing": "e June 2022. From September 2015 to June 2022, he served as Chief Financial Officer and Executive Vice President, Global Customer Operations for PayPal Holdings, Inc. \n2022\n54 \n13\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  },
+  {
+    "ticker": "XOM",
+    "status": "extracted_requires_review",
+    "chars": 7193,
+    "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000010/xom-20241231.htm",
+    "opening": "ITEM 1. BUSINESS\nExxon Mobil Corporation was incorporated in the State of New Jersey in 1882. Divisions and affiliated companies of ExxonMobil operate or market products in the United States and most other countries of the world. Our principal business involves exploration for, and production of, cr",
+    "closing": "tains an internet site (http://www.sec.gov) that contains reports, proxy and information statements, and other information regarding issuers that file electronically with the SEC.\n",
+    "rule": "Longest formal Item 1 (or combined Items 1 and 2 Business) to Item 1A Risk Factors or Item 2 Properties; minimum 750 characters"
+  }
+]
