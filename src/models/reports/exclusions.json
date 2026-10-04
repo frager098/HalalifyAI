@@ -1,0 +1,8 @@
+{
+  "rows": 6713,
+  "reasons": {
+    "": 3000,
+    "split_boundary_purge": 2000,
+    "future_not_observed_or_gap_or_unresolved_action": 1713
+  }
+}

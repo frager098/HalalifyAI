@@ -1,0 +1,32 @@
+{
+  "future_return_20d": {
+    "lower_cutoff": -0.0064704976120782964,
+    "upper_cutoff": 0.04261036468330137,
+    "quantile_method": "linear",
+    "fit_row_count": 58237,
+    "fit_feature_date_start": "2016-03-31",
+    "fit_feature_date_end": "2020-12-02",
+    "fit_label_end_max": "2020-12-31",
+    "class_order": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "boundary_rule": "low<=lower; lower<medium<=upper; high>upper"
+  },
+  "future_volatility_20d": {
+    "lower_cutoff": 0.1675008828509857,
+    "upper_cutoff": 0.26421416692521793,
+    "quantile_method": "linear",
+    "fit_row_count": 58237,
+    "fit_feature_date_start": "2016-03-31",
+    "fit_feature_date_end": "2020-12-02",
+    "fit_label_end_max": "2020-12-31",
+    "class_order": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "boundary_rule": "low<=lower; lower<medium<=upper; high>upper"
+  }
+}

@@ -1,0 +1,597 @@
+[
+  {
+    "file": "test_evaluation_started.json",
+    "bytes": 145,
+    "sha256": "0d8c300be0e1939c9e9a15cc2c178bb8731cb89ee7307385c416702998ecb1bc"
+  },
+  {
+    "file": "optuna.sqlite3",
+    "bytes": 827392,
+    "sha256": "aca83d3397e72ef7c768a0067c47606516627ee67e5acb4a844714dba4bf8ce0"
+  },
+  {
+    "file": "config.json",
+    "bytes": 1611,
+    "sha256": "3824ad9195590b482e5135811814841737729c06bdfda54f9b9d4a17adec3b9d"
+  },
+  {
+    "file": "research_rows_used.csv",
+    "bytes": 65094749,
+    "sha256": "3136e839ab28c46527e9702bc3e4059d168d82748ee52173c66feab6d0f0a63f"
+  },
+  {
+    "file": "all_results.json",
+    "bytes": 4966797,
+    "sha256": "a822aecbcfabfeadbe4405912384c4d06e51c6f2788420573a4be6da99d4e530"
+  },
+  {
+    "file": "frozen_selection.json",
+    "bytes": 56089,
+    "sha256": "3384a48564ff633d1856e2c3743791b110e56f18d6e199a737f049790353050f"
+  },
+  {
+    "file": "reports/return_regression__GradientBoostingRegressor__tuned_validation.json",
+    "bytes": 3112,
+    "sha256": "985260a67051627169e6bdbde32779c75f2f84bc9dce5448fd08ba5056c5e7b9"
+  },
+  {
+    "file": "reports/risk_classification__ExtraTreesClassifier__test_predictions.csv",
+    "bytes": 3653885,
+    "sha256": "113cc55db0a900b74228885b5ddf3c2554b02d3d19be108cf0b96cee6f28dc06"
+  },
+  {
+    "file": "reports/risk_classification__final_test.json",
+    "bytes": 184622,
+    "sha256": "1773bd421b0219ad1024043a98bbf2142c7ac81c731b197c8397dbaf67d59815"
+  },
+  {
+    "file": "reports/onnx_export_report.json",
+    "bytes": 4029607,
+    "sha256": "ec42973c50bfc39e45df0686c35fd2a19315cb0fb1f2837a52ea7d29332f992b"
+  },
+  {
+    "file": "reports/risk_classification__GradientBoostingClassifier__tuned_validation.json",
+    "bytes": 4231,
+    "sha256": "a8b6da498d0030f5e206303146ce3eb5ffa502e96e12e557df1a254f35ec0c96"
+  },
+  {
+    "file": "reports/return_classification__GradientBoostingClassifier__confusion.png",
+    "bytes": 55658,
+    "sha256": "a9d15d2283151039c332ecec079ab70a31a677028d7f24fbdb596915e3fecb75"
+  },
+  {
+    "file": "reports/risk_classification__ExtraTreesClassifier__optuna.json",
+    "bytes": 133293,
+    "sha256": "210307083aaf789c461153187908192e44100c0e0259941d7c1420c40e545ac6"
+  },
+  {
+    "file": "reports/return_regression__ElasticNet__optuna.json",
+    "bytes": 50621,
+    "sha256": "2cd6ac481f09977b35a81b7419e7a5f6730c72116148b6ebfb9474f6f78a29f4"
+  },
+  {
+    "file": "reports/return_regression__ElasticNet__untuned.json",
+    "bytes": 1849,
+    "sha256": "403d2920bacf04d23dc0485acc2d5c5974d394ba1f3cf9ee271b15888b44ac16"
+  },
+  {
+    "file": "reports/risk_regression_lazypredict.json",
+    "bytes": 87347,
+    "sha256": "963a8472610b05b6dd85cf9aaf4554713255597292a0732ce2dae23d1af8b4ab"
+  },
+  {
+    "file": "reports/return_regression__GradientBoostingRegressor__untuned.json",
+    "bytes": 2511,
+    "sha256": "b291c67502eda6460670a228de9809389c4a89898fececd9fa90c1c12a7ae8f5"
+  },
+  {
+    "file": "reports/return_regression_lazypredict.csv",
+    "bytes": 854,
+    "sha256": "05884354c712a25f7204b2411c77935ad34ce33e033cb5368162a5663daf5ce2"
+  },
+  {
+    "file": "reports/risk_regression__ExtraTreesRegressor__test_predictions.csv",
+    "bytes": 2386348,
+    "sha256": "a3341609b939f1f01096c2b6864a28f83cf6652e0c75b65a902e96288e6e234f"
+  },
+  {
+    "file": "reports/risk_regression__GradientBoostingRegressor__optuna.json",
+    "bytes": 73898,
+    "sha256": "67ae48592fa80f87bf56e9d88a2c541e41d9e6c96ef55a89eb854b27bc3214e6"
+  },
+  {
+    "file": "reports/return_classification__HistGradientBoostingClassifier__optuna.json",
+    "bytes": 134916,
+    "sha256": "4533e35cd57e412d6661723cb2f1bd90a0bf0c887916d54f0e627a3bb8fbf668"
+  },
+  {
+    "file": "reports/return_classification_lazypredict.csv",
+    "bytes": 1496,
+    "sha256": "2634491980bbffe79222e89e272586188e5ca48ad1783fa13166e69962c11dd8"
+  },
+  {
+    "file": "reports/return_classification_lazypredict.json",
+    "bytes": 88857,
+    "sha256": "54b7ea87cdeaa8bfc2115a132d3ea9d8d0eb4586efdb5564c48555f93a507fa6"
+  },
+  {
+    "file": "reports/return_classification__HistGradientBoostingClassifier__tuned_validation.json",
+    "bytes": 4588,
+    "sha256": "73c0f50c8d86130a66e6c4220ed3dbdee7bf32d5f33e4ef9c641243d0d248fa3"
+  },
+  {
+    "file": "reports/risk_regression__GradientBoostingRegressor__test_predictions.csv",
+    "bytes": 2384090,
+    "sha256": "fb3778e41fe746bf5f5a4436a117b2a94cbb1e2b59f9742d6fe34ab9e9dfcc6c"
+  },
+  {
+    "file": "reports/return_class_class_balance.json",
+    "bytes": 155,
+    "sha256": "d983cab2047ab037362d930a494304956c97817a90dfbf55b7e45554131c5045"
+  },
+  {
+    "file": "reports/return_classification_baseline.json",
+    "bytes": 5743,
+    "sha256": "9a33d95c68ef9e1f689ffc48dacda9902307165b202ca3f90592deaefd682872"
+  },
+  {
+    "file": "reports/onnx_example_predictions.json",
+    "bytes": 418,
+    "sha256": "daaa1c729245a716891eb1621cf3c571e468a6d26dbd1bd49c0a56108f237882"
+  },
+  {
+    "file": "reports/return_classification__GradientBoostingClassifier__untuned.json",
+    "bytes": 3666,
+    "sha256": "a50c834a704de305d2800c478354876b0a8381839ac0cb6cff74620389b15edf"
+  },
+  {
+    "file": "reports/input_manifest.json",
+    "bytes": 633,
+    "sha256": "42986f5828c5194ecf7e10c7be4e76cc85953477831333809c4a31f68679240d"
+  },
+  {
+    "file": "reports/risk_classification__ExtraTreesClassifier__untuned.json",
+    "bytes": 3586,
+    "sha256": "2d578e6cdaccec1a9a3f138ec55eb63b3fc89c7146fbd0633aff4b71ae481493"
+  },
+  {
+    "file": "reports/return_regression_baseline.json",
+    "bytes": 1694,
+    "sha256": "cc7737d0a626a6c9816adc00916642cfdc7d027f634f948ee103f1a59d52c20e"
+  },
+  {
+    "file": "reports/label_thresholds.json",
+    "bytes": 878,
+    "sha256": "8e385891082ea2021b838a0798c05e558c4b6ac269bdf9a46e45ed0e49080b62"
+  },
+  {
+    "file": "reports/all_test_results.json",
+    "bytes": 440931,
+    "sha256": "f6dbe9d46abd284dca29b47cd7e135d58023cee710f383dc278e4a0ab21cbf48"
+  },
+  {
+    "file": "reports/risk_regression__ExtraTreesRegressor__tuned_validation.json",
+    "bytes": 2729,
+    "sha256": "79bcff4a23c9d5b3c85dc08c456384c3edaeb0011230ea18923ffe1726e6166a"
+  },
+  {
+    "file": "reports/return_classification__final_test.json",
+    "bytes": 187168,
+    "sha256": "113c5222b932e69cfe269ae4c88ef7822f430e3113bc00a97bb137a309c33790"
+  },
+  {
+    "file": "reports/risk_regression_lazypredict.csv",
+    "bytes": 851,
+    "sha256": "58c05ceaf9e9c147a6674ef51ac4f4976e68eefd1cca7c599f4b086852a8d13d"
+  },
+  {
+    "file": "reports/risk_classification__GradientBoostingClassifier__confusion.png",
+    "bytes": 56178,
+    "sha256": "7db969d49cbfff5274e1abc1d047293685843e6621685ed3f9913defdb4c17ef"
+  },
+  {
+    "file": "reports/risk_regression__GradientBoostingRegressor__tuned_validation.json",
+    "bytes": 3144,
+    "sha256": "8f4295624b5929523a06139b6f7b7e56aa2ece84fb37475757e8c65671fa3eaa"
+  },
+  {
+    "file": "reports/risk_regression__ExtraTreesRegressor__untuned.json",
+    "bytes": 2340,
+    "sha256": "1053322aec7444479207dd6d22f7adf07a82dd8091c61b79b8d056da9515a437"
+  },
+  {
+    "file": "reports/exclusions.json",
+    "bytes": 146,
+    "sha256": "71448287eb916e19fdfbb9e81cfca9f798887f80b08b3fdb3380a1b985e5f97e"
+  },
+  {
+    "file": "reports/return_regression__GradientBoostingRegressor__test_predictions.csv",
+    "bytes": 2481295,
+    "sha256": "a91f0bda351dd1e88d3d34d819be41d8ea6aeaff3bb5692418cb6681405de1f6"
+  },
+  {
+    "file": "reports/return_classification__GradientBoostingClassifier__tuned_validation.json",
+    "bytes": 4300,
+    "sha256": "5391d0c23ddf5b878c69f57374ab52fc971e42ee47ea3b96fcaa6769f4abcae6"
+  },
+  {
+    "file": "reports/return_classification__HistGradientBoostingClassifier__test_predictions.csv",
+    "bytes": 3611728,
+    "sha256": "7f77fe629ae732c562ee1589eb8537f40c9c00e554cea8739c40456cde33f991"
+  },
+  {
+    "file": "reports/return_classification__HistGradientBoostingClassifier__untuned.json",
+    "bytes": 3776,
+    "sha256": "4d4efb7bb8e7c2c541573971246a742f39ce5a085dcfbe807fa9a7dab1c3946c"
+  },
+  {
+    "file": "reports/validation_comparison.json",
+    "bytes": 16432,
+    "sha256": "48c924a583331e5c7a4cfdbb0c12a486daa3cb7a4e82ebbefaef4c28f5bf2aca"
+  },
+  {
+    "file": "reports/split_manifest.json",
+    "bytes": 615,
+    "sha256": "5243b32f8c0f94f36dac00d83c5110934a3f963652cd7edda608c19b5affbec1"
+  },
+  {
+    "file": "reports/return_regression_lazypredict.json",
+    "bytes": 87350,
+    "sha256": "77e277a94d4c5d3a1039add20cf9e9f112103af6a63395e32e5893a2864722d2"
+  },
+  {
+    "file": "reports/risk_classification_baseline.json",
+    "bytes": 5736,
+    "sha256": "f1442d1e5e28546e4084bb2911d5a9b9536722d4867ec3e91517e807a64e0fb0"
+  },
+  {
+    "file": "reports/risk_regression__ExtraTreesRegressor__optuna.json",
+    "bytes": 67887,
+    "sha256": "288f60c8c365c66f241dde45c75b73efb2d59f4c247e263c9791c197128d66f1"
+  },
+  {
+    "file": "reports/risk_classification__GradientBoostingClassifier__test_predictions.csv",
+    "bytes": 3640119,
+    "sha256": "fd0bc3c5f74fc85a02d6139cf24cf28b8e09c042e8a4d518edc17f8c46c6db5a"
+  },
+  {
+    "file": "reports/risk_classification__GradientBoostingClassifier__untuned.json",
+    "bytes": 3651,
+    "sha256": "7fe136fece32e406d520e9cb8da78ea170fe848a9ee2d1ec190c719ccf5e2666"
+  },
+  {
+    "file": "reports/risk_classification__GradientBoostingClassifier__optuna.json",
+    "bytes": 132676,
+    "sha256": "9321293bbb310e5afa928ef3d1d00a9c0ffdd760a93fc7f2f41936358d12c4f3"
+  },
+  {
+    "file": "reports/return_regression__GradientBoostingRegressor__optuna.json",
+    "bytes": 74033,
+    "sha256": "2c8867f806faeb8f11ecce0dbe09fb31733a247dce972461ddb71254244fca84"
+  },
+  {
+    "file": "reports/risk_regression_baseline.json",
+    "bytes": 1690,
+    "sha256": "39951d24239721f9146e631d112fe552d264ae679169989974021aeebf9d284b"
+  },
+  {
+    "file": "reports/risk_classification__ExtraTreesClassifier__confusion.png",
+    "bytes": 52415,
+    "sha256": "69f97ecabab2e205edd14f2fcb8956ae03dfb4d31e1a98d3f162b86e01a4e55b"
+  },
+  {
+    "file": "reports/risk_regression__final_test.json",
+    "bytes": 20795,
+    "sha256": "9516b3ae08a1026d516c116c78f3434dd99bfa85c43c39e4ecc28b468ef87000"
+  },
+  {
+    "file": "reports/risk_classification_lazypredict.json",
+    "bytes": 88820,
+    "sha256": "4b6ccf86da9cbaf2b7984a28d17f0d58f0e9fcf3adf1632cf7f48a613cdc8179"
+  },
+  {
+    "file": "reports/return_regression__final_test.json",
+    "bytes": 20702,
+    "sha256": "e5c75f43d93cf9b98d8e7de47e3b6db8e53f74d7d29e3faa0e648999127d9175"
+  },
+  {
+    "file": "reports/risk_regression__GradientBoostingRegressor__untuned.json",
+    "bytes": 2506,
+    "sha256": "b4d814e76b529430f0686ab999f099259d2591e5f227f3a16e2d3578521fa96f"
+  },
+  {
+    "file": "reports/return_regression__ElasticNet__test_predictions.csv",
+    "bytes": 2153523,
+    "sha256": "ec40859c15fa21d2b97b9d0e37e6c65bc8bf282b05d9f08cc0fa75eb3e356af6"
+  },
+  {
+    "file": "reports/return_classification__HistGradientBoostingClassifier__confusion.png",
+    "bytes": 55930,
+    "sha256": "5ee9ab1167f7e8e3724c2cc9b55b0c81843de1c1c5fd193b6a85d2ff9fdc5f92"
+  },
+  {
+    "file": "reports/final_fit.json",
+    "bytes": 8258,
+    "sha256": "f11eaeb7cf63fb7b78317f8da67ec5ac1a96bd4d0a928aa5f7ac3fc8b8e2d3e7"
+  },
+  {
+    "file": "reports/return_classification__GradientBoostingClassifier__test_predictions.csv",
+    "bytes": 3612341,
+    "sha256": "e07e29d84a6d2ee858156c11a2fa9595b0b9a0ccc76b84117480824d01d34474"
+  },
+  {
+    "file": "reports/risk_classification_lazypredict.csv",
+    "bytes": 1471,
+    "sha256": "0ecfc3cb4669d24c00d6009f9dc33a4af74737809bf750269ce61f2788f0460d"
+  },
+  {
+    "file": "reports/return_regression__ElasticNet__tuned_validation.json",
+    "bytes": 1988,
+    "sha256": "e0c8d53d876fd224b1e6c3940af05acdafbc14e75b04eef9e4063d19676c29e1"
+  },
+  {
+    "file": "reports/risk_class_class_balance.json",
+    "bytes": 155,
+    "sha256": "096565fd0bef173eeba4d396ed8d958410513418aeab7123b2c287379abccc50"
+  },
+  {
+    "file": "reports/risk_classification__ExtraTreesClassifier__tuned_validation.json",
+    "bytes": 4074,
+    "sha256": "cc781b04e9e61eede1b88d5c1f12e3d7e02eb5cef445bf28e476e26cc040a105"
+  },
+  {
+    "file": "reports/return_classification__GradientBoostingClassifier__optuna.json",
+    "bytes": 133044,
+    "sha256": "2fe590c7cde5b9f1d978f1b99e57f4055d916b46feafd8894677f2ab97112e91"
+  },
+  {
+    "file": "models/risk_classification__ExtraTreesClassifier__final.joblib",
+    "bytes": 28399418,
+    "sha256": "9baedcb84c1051533db8069a54e7a355656afc605085c9a50219d44d5ae5db2c"
+  },
+  {
+    "file": "models/risk_classification__ExtraTreesClassifier__tuned_train.joblib",
+    "bytes": 29340138,
+    "sha256": "6bacc4babae536f3c567f9652c1d01b9cff41ba700f078f9f9a96e3cbfc87662"
+  },
+  {
+    "file": "models/risk_regression__GradientBoostingRegressor__final.joblib",
+    "bytes": 149939,
+    "sha256": "a0250acda501e5fbed2b9771538d6ecd1eebf27d55b215a2b840093d9db05fd2"
+  },
+  {
+    "file": "models/risk_regression__ExtraTreesRegressor__tuned_train.joblib",
+    "bytes": 970442,
+    "sha256": "68d6a5f7f8800df8c8380d3efb7b2f9e84b133d5da24cb36989cf2c5fb74e50a"
+  },
+  {
+    "file": "models/risk_regression__GradientBoostingRegressor__tuned_train.joblib",
+    "bytes": 149939,
+    "sha256": "37c5261f4ece17cf14fa386d537ae8b3dabaf687136799a1151cbe79c665741a"
+  },
+  {
+    "file": "models/return_regression__GradientBoostingRegressor__untuned.joblib",
+    "bytes": 144369,
+    "sha256": "c6f77b565987042d08c4434c1d4f642d8d6061c11077daa99a5cec3f7a696518"
+  },
+  {
+    "file": "models/return_classification__GradientBoostingClassifier__untuned.joblib",
+    "bytes": 402290,
+    "sha256": "9b41292a8b8c8250167a243c622ddb865220692c4410e6e0a3cdf540a6b366f0"
+  },
+  {
+    "file": "models/return_classification__baseline__final.joblib",
+    "bytes": 2657,
+    "sha256": "9a78861ce8a14540989f460a0a1dbdd297ed5f2010a6f1325ed0add80dfeda25"
+  },
+  {
+    "file": "models/return_regression__baseline__final.joblib",
+    "bytes": 2045,
+    "sha256": "e202c27bb0842f4f1a9bc265e615e8d43682286d8725caa4cd0e1d3638909d95"
+  },
+  {
+    "file": "models/risk_regression__baseline__final.joblib",
+    "bytes": 2045,
+    "sha256": "da39e56f425aa592f8e42d8249b394d2204a9fc704620c8484b292173c0d3151"
+  },
+  {
+    "file": "models/risk_classification__baseline__final.joblib",
+    "bytes": 2657,
+    "sha256": "2572a6615824638fe95a06b5f7191d9d2dfbc7c867ba1d5efd2a0f3545982e6b"
+  },
+  {
+    "file": "models/return_regression__GradientBoostingRegressor__tuned_train.joblib",
+    "bytes": 59730,
+    "sha256": "b52a7c56b608509ee4db5f77a062ceb8c16659b6bad5e140ee13ed646931a583"
+  },
+  {
+    "file": "models/risk_classification__GradientBoostingClassifier__tuned_train.joblib",
+    "bytes": 404065,
+    "sha256": "60cb231a50e3fa621cad0d893646c93f113e54958de968bcd6455a3fb87383af"
+  },
+  {
+    "file": "models/return_regression__GradientBoostingRegressor__final.joblib",
+    "bytes": 59729,
+    "sha256": "a26485ef8be7659b874d4713468718e4ffff3d403eb62074d13f2ee5dd6fda28"
+  },
+  {
+    "file": "models/return_regression__ElasticNet__final.joblib",
+    "bytes": 2072,
+    "sha256": "591acf457c81157a482186548c4fa40f774b0c0410346465f754021414882f98"
+  },
+  {
+    "file": "models/risk_regression__ExtraTreesRegressor__final.joblib",
+    "bytes": 975770,
+    "sha256": "59dabc223538eb64cea5ca5334c79f8b2861212ea2477771361aecda349a8744"
+  },
+  {
+    "file": "models/return_classification__HistGradientBoostingClassifier__tuned_train.joblib",
+    "bytes": 1151337,
+    "sha256": "2c2dcbdeefdc3a93779d5a101e331a83225981adb8b31252fd8f956e1e080494"
+  },
+  {
+    "file": "models/risk_classification__ExtraTreesClassifier__untuned.joblib",
+    "bytes": 350489658,
+    "sha256": "1d2761b1d1e0ea162507644c55c3bf2852105df83c6ca13e8eba364d74f32bfd"
+  },
+  {
+    "file": "models/risk_regression__GradientBoostingRegressor__untuned.joblib",
+    "bytes": 144225,
+    "sha256": "a0708aca838915290ec299cc70abced3b12cf7804a3c44c70560c154e7f9ef55"
+  },
+  {
+    "file": "models/return_regression__ElasticNet__untuned.joblib",
+    "bytes": 2072,
+    "sha256": "af326eaa87c0f26a1f08617341cc1563a42b2cbf1e6e22c71cfbf5adf17dc6d4"
+  },
+  {
+    "file": "models/return_classification__HistGradientBoostingClassifier__untuned.joblib",
+    "bytes": 1122537,
+    "sha256": "69a54e3654e9f6a9038f5b5b9481de0c07038a8fbc834922f97f8a95734b253d"
+  },
+  {
+    "file": "models/return_classification__GradientBoostingClassifier__final.joblib",
+    "bytes": 536962,
+    "sha256": "ab06c950d193ad38b108ebcd267cb5c60188ec2963e6365c3901c0933323ff3e"
+  },
+  {
+    "file": "models/risk_classification__GradientBoostingClassifier__final.joblib",
+    "bytes": 404498,
+    "sha256": "4955302503076afe533a2580069b0b12ef0df4160117ba1ea2f6eb28771ee96e"
+  },
+  {
+    "file": "models/return_regression__ElasticNet__tuned_train.joblib",
+    "bytes": 2072,
+    "sha256": "af326eaa87c0f26a1f08617341cc1563a42b2cbf1e6e22c71cfbf5adf17dc6d4"
+  },
+  {
+    "file": "models/risk_regression__ExtraTreesRegressor__untuned.joblib",
+    "bytes": 838591818,
+    "sha256": "900ebbd428c9171195777fdcc48775ff5a6e8bdc6b1d0257568528257ed0a84f"
+  },
+  {
+    "file": "models/return_classification__GradientBoostingClassifier__tuned_train.joblib",
+    "bytes": 536963,
+    "sha256": "28f75d97daa0fa8061fb7b511c393265467746fd2d55c609be0ded15ffad6b3b"
+  },
+  {
+    "file": "models/return_classification__HistGradientBoostingClassifier__final.joblib",
+    "bytes": 1151337,
+    "sha256": "85b6e8f19dd1c00ae77d9118f10871cde5c3fd9cfc3471805e41b5d223fce7a0"
+  },
+  {
+    "file": "models/risk_classification__GradientBoostingClassifier__untuned.joblib",
+    "bytes": 402866,
+    "sha256": "dfb9c56d745d83ad291d7b967f937725d44399d5d344af512c38c1224b18d4f7"
+  },
+  {
+    "file": "onnx/risk_classification__ExtraTreesClassifier.json",
+    "bytes": 1208,
+    "sha256": "28af7ebda63157aea26a3ef6731d81511544bc05aa9f1b52f1e9e12b2a011967"
+  },
+  {
+    "file": "onnx/return_classification__GradientBoostingClassifier.onnx",
+    "bytes": 141118,
+    "sha256": "f5018001584521650b43bb280bc0613aed21a6ea04b6dd404922b8cf8d3fc25b"
+  },
+  {
+    "file": "onnx/risk_regression__baseline.onnx",
+    "bytes": 923,
+    "sha256": "25e51f4822dad2c975d4ab4865626fd8b87d42ec51f4441b611e979bbfd2226f"
+  },
+  {
+    "file": "onnx/return_regression__GradientBoostingRegressor.json",
+    "bytes": 938,
+    "sha256": "fcb332536209050a8f59320fe92cee2f495179e984bd5d59fc3fc5b2117d77fa"
+  },
+  {
+    "file": "onnx/return_regression__ElasticNet.json",
+    "bytes": 890,
+    "sha256": "72ac1f9df32fb7f173874697f3430aa810abaec0ea7f6d0437c7d75faf25b0ed"
+  },
+  {
+    "file": "onnx/return_classification__baseline.json",
+    "bytes": 1195,
+    "sha256": "a9f0b955781ab7279ea2f1d82a07819426f2f5b52c0e6b35233c04018c995489"
+  },
+  {
+    "file": "onnx/return_regression__GradientBoostingRegressor.onnx",
+    "bytes": 12404,
+    "sha256": "7a494aca58fab0f221e90d750ed1ca7c81f820e3fa6b51ba82a1c01c553b03fd"
+  },
+  {
+    "file": "onnx/risk_regression__baseline.json",
+    "bytes": 910,
+    "sha256": "81260f4bc36ab4cff066255a95b198546a735597e0e510f7b0ac16dc9c36068d"
+  },
+  {
+    "file": "onnx/risk_regression__ExtraTreesRegressor.onnx",
+    "bytes": 444392,
+    "sha256": "d26532b05b11cf1a451435d4c8efa1dfa671abda071e8ac77a9ee6a0701c2379"
+  },
+  {
+    "file": "onnx/risk_regression__GradientBoostingRegressor.json",
+    "bytes": 936,
+    "sha256": "cf613eb7c048af7f5283145a2f705fc84cc59715db8a9587698b510794ed92a8"
+  },
+  {
+    "file": "onnx/risk_regression__ExtraTreesRegressor.json",
+    "bytes": 924,
+    "sha256": "f9ffe66417dd21d13097157b8d862bf4408c459bee318f4408fe223f14b1d1c1"
+  },
+  {
+    "file": "onnx/risk_regression__GradientBoostingRegressor.onnx",
+    "bytes": 35662,
+    "sha256": "2121b7c427515705ef4f5ce003bc32bc1b8581ef04071d329c9c0e1e8a383478"
+  },
+  {
+    "file": "onnx/risk_classification__GradientBoostingClassifier.onnx",
+    "bytes": 170234,
+    "sha256": "6232d0a7737f4f668bdd744d67a26c531ac52090c441d1d7fe22e79b0e9d5f14"
+  },
+  {
+    "file": "onnx/risk_classification__ExtraTreesClassifier.onnx",
+    "bytes": 16613291,
+    "sha256": "39fc9bbd88b4bcf84a88346184fefa9c5cfb293f6c2b573abfcef9382f99900f"
+  },
+  {
+    "file": "onnx/risk_classification__GradientBoostingClassifier.json",
+    "bytes": 1219,
+    "sha256": "8e8d83b2b923039e69ce7c3ae7766e9bfae73fca3c2724b81f15b52288a31eaa"
+  },
+  {
+    "file": "onnx/return_regression__ElasticNet.onnx",
+    "bytes": 929,
+    "sha256": "8b6232f7cabb2aa67382446a56d7633c40003d695dad3092181cefbbeeb24cad"
+  },
+  {
+    "file": "onnx/risk_classification__baseline.json",
+    "bytes": 1194,
+    "sha256": "7542910144fcdc3163170e77bfa096555e1ac74956740d4dbe4b9c98149ca878"
+  },
+  {
+    "file": "onnx/risk_classification__baseline.onnx",
+    "bytes": 1352,
+    "sha256": "a351beb5a201078a88e855e1d4cbb4dd3964e4e37b314f78fe8e417efc5e734c"
+  },
+  {
+    "file": "onnx/return_regression__baseline.onnx",
+    "bytes": 927,
+    "sha256": "58c82eec5a2b88c63b4210e96abaae85eb7cbd73d0366bda403d9c5b01f9dbd2"
+  },
+  {
+    "file": "onnx/return_classification__GradientBoostingClassifier.json",
+    "bytes": 1221,
+    "sha256": "cf174c49a0fed20ef9801867a3464e3c914ae3a85320a8cc7a6799cbc5516ca2"
+  },
+  {
+    "file": "onnx/return_regression__baseline.json",
+    "bytes": 912,
+    "sha256": "5f8970a6d552c131fd69e28d3f6948170f9e2838469c446fa89f4bb54cfde9d5"
+  },
+  {
+    "file": "onnx/return_classification__baseline.onnx",
+    "bytes": 1356,
+    "sha256": "d472e7f180c3b0b0a4109f1b2c3d4c9090868e3b405fe0da38ebf65fccf49f5f"
+  }
+]

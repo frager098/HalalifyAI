@@ -1,0 +1,146 @@
+{
+  "stage": "top2_untuned_validation",
+  "task": "return_classification",
+  "model_family": "GradientBoostingClassifier",
+  "parameters": {
+    "ccp_alpha": 0.0,
+    "criterion": "friedman_mse",
+    "init": null,
+    "learning_rate": 0.1,
+    "loss": "log_loss",
+    "max_depth": 3,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "n_estimators": 100,
+    "n_iter_no_change": null,
+    "random_state": 42,
+    "subsample": 1.0,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "pipeline_parameters": {
+    "memory": null,
+    "steps": [
+      [
+        "scaler",
+        "StandardScaler()"
+      ],
+      [
+        "model",
+        "GradientBoostingClassifier(random_state=42)"
+      ]
+    ],
+    "transform_input": null,
+    "verbose": false,
+    "scaler": "StandardScaler()",
+    "model": "GradientBoostingClassifier(random_state=42)",
+    "scaler__copy": true,
+    "scaler__with_mean": true,
+    "scaler__with_std": true,
+    "model__ccp_alpha": 0.0,
+    "model__criterion": "friedman_mse",
+    "model__init": null,
+    "model__learning_rate": 0.1,
+    "model__loss": "log_loss",
+    "model__max_depth": 3,
+    "model__max_features": null,
+    "model__max_leaf_nodes": null,
+    "model__min_impurity_decrease": 0.0,
+    "model__min_samples_leaf": 1,
+    "model__min_samples_split": 2,
+    "model__min_weight_fraction_leaf": 0.0,
+    "model__n_estimators": 100,
+    "model__n_iter_no_change": null,
+    "model__random_state": 42,
+    "model__subsample": 1.0,
+    "model__tol": 0.0001,
+    "model__validation_fraction": 0.1,
+    "model__verbose": 0,
+    "model__warm_start": false
+  },
+  "metrics": {
+    "macro_f1": 0.3638578623729271,
+    "accuracy": 0.37275362318840577,
+    "balanced_accuracy": 0.3777631324047763,
+    "confusion_matrix": [
+      [
+        2684,
+        2011,
+        5435
+      ],
+      [
+        1663,
+        1907,
+        2461
+      ],
+      [
+        2027,
+        1551,
+        4411
+      ]
+    ],
+    "per_class": {
+      "Low": {
+        "precision": 0.421085660495764,
+        "recall": 0.26495557749259624,
+        "f1-score": 0.32525448376151234,
+        "support": 10130.0
+      },
+      "Medium": {
+        "precision": 0.34869263119400257,
+        "recall": 0.3161996352180401,
+        "f1-score": 0.33165217391304347,
+        "support": 6031.0
+      },
+      "High": {
+        "precision": 0.3584139107824815,
+        "recall": 0.5521341845036926,
+        "f1-score": 0.43466692944422547,
+        "support": 7989.0
+      },
+      "accuracy": 0.37275362318840577,
+      "macro avg": {
+        "precision": 0.3760640674907494,
+        "recall": 0.3777631324047763,
+        "f1-score": 0.3638578623729271,
+        "support": 24150.0
+      },
+      "weighted avg": {
+        "precision": 0.38227460591281015,
+        "recall": 0.37275362318840577,
+        "f1-score": 0.36304663688213673,
+        "support": 24150.0
+      }
+    },
+    "log_loss": 1.0949123748492753
+  },
+  "fit_seconds": 152.19505821599978,
+  "seed": 42,
+  "dataset_sha256": "7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3bad69a5a1d070b0f3",
+  "repo_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "test_used_for_selection": false
+}

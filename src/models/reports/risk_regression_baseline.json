@@ -1,0 +1,73 @@
+{
+  "stage": "baseline_validation",
+  "task": "risk_regression",
+  "model_family": "LinearRegression",
+  "parameters": {
+    "copy_X": true,
+    "fit_intercept": true,
+    "n_jobs": 2,
+    "positive": false
+  },
+  "pipeline_parameters": {
+    "memory": null,
+    "steps": [
+      [
+        "scaler",
+        "StandardScaler()"
+      ],
+      [
+        "model",
+        "LinearRegression(n_jobs=2)"
+      ]
+    ],
+    "transform_input": null,
+    "verbose": false,
+    "scaler": "StandardScaler()",
+    "model": "LinearRegression(n_jobs=2)",
+    "scaler__copy": true,
+    "scaler__with_mean": true,
+    "scaler__with_std": true,
+    "model__copy_X": true,
+    "model__fit_intercept": true,
+    "model__n_jobs": 2,
+    "model__positive": false
+  },
+  "metrics": {
+    "rmse": 0.7170338504924373,
+    "mae": 0.10232236532529349,
+    "r2": -0.0583617677642112
+  },
+  "fit_seconds": 0.041185500999972646,
+  "seed": 42,
+  "dataset_sha256": "7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3bad69a5a1d070b0f3",
+  "repo_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "test_used_for_selection": false,
+  "dummy_validation": {
+    "rmse": 0.6991532042475844,
+    "mae": 0.12047336299026178,
+    "r2": -0.006235256811163881
+  },
+  "historical_validation": {
+    "rmse": 0.9736477460552928,
+    "mae": 0.12408002727356604,
+    "r2": -0.9514550452082198
+  }
+}

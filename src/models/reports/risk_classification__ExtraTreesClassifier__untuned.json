@@ -1,0 +1,144 @@
+{
+  "stage": "top2_untuned_validation",
+  "task": "risk_classification",
+  "model_family": "ExtraTreesClassifier",
+  "parameters": {
+    "bootstrap": false,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": 2,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "pipeline_parameters": {
+    "memory": null,
+    "steps": [
+      [
+        "scaler",
+        "StandardScaler()"
+      ],
+      [
+        "model",
+        "ExtraTreesClassifier(n_jobs=2, random_state=42)"
+      ]
+    ],
+    "transform_input": null,
+    "verbose": false,
+    "scaler": "StandardScaler()",
+    "model": "ExtraTreesClassifier(n_jobs=2, random_state=42)",
+    "scaler__copy": true,
+    "scaler__with_mean": true,
+    "scaler__with_std": true,
+    "model__bootstrap": false,
+    "model__ccp_alpha": 0.0,
+    "model__class_weight": null,
+    "model__criterion": "gini",
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__max_leaf_nodes": null,
+    "model__max_samples": null,
+    "model__min_impurity_decrease": 0.0,
+    "model__min_samples_leaf": 1,
+    "model__min_samples_split": 2,
+    "model__min_weight_fraction_leaf": 0.0,
+    "model__monotonic_cst": null,
+    "model__n_estimators": 100,
+    "model__n_jobs": 2,
+    "model__oob_score": false,
+    "model__random_state": 42,
+    "model__verbose": 0,
+    "model__warm_start": false
+  },
+  "metrics": {
+    "macro_f1": 0.5594745553790478,
+    "accuracy": 0.5960662525879917,
+    "balanced_accuracy": 0.5767966883156808,
+    "confusion_matrix": [
+      [
+        2124,
+        1161,
+        312
+      ],
+      [
+        2000,
+        3579,
+        2554
+      ],
+      [
+        738,
+        2990,
+        8692
+      ]
+    ],
+    "per_class": {
+      "Low": {
+        "precision": 0.43685726038667216,
+        "recall": 0.5904920767306089,
+        "f1-score": 0.5021870197422863,
+        "support": 3597.0
+      },
+      "Medium": {
+        "precision": 0.4630012936610608,
+        "recall": 0.4400590188122464,
+        "f1-score": 0.4512387316396646,
+        "support": 8133.0
+      },
+      "High": {
+        "precision": 0.7520332237411317,
+        "recall": 0.6998389694041868,
+        "f1-score": 0.7249979147551923,
+        "support": 12420.0
+      },
+      "accuracy": 0.5960662525879917,
+      "macro avg": {
+        "precision": 0.5506305925962882,
+        "recall": 0.5767966883156808,
+        "f1-score": 0.5594745553790478,
+        "support": 24150.0
+      },
+      "weighted avg": {
+        "precision": 0.6077522867834833,
+        "recall": 0.5960662525879917,
+        "f1-score": 0.5996176155568482,
+        "support": 24150.0
+      }
+    },
+    "log_loss": 0.8208061186141739
+  },
+  "fit_seconds": 4.260768942000141,
+  "seed": 42,
+  "dataset_sha256": "7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3bad69a5a1d070b0f3",
+  "repo_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "test_used_for_selection": false
+}

@@ -1,0 +1,12 @@
+{
+  "train": {
+    "Low": 19413,
+    "Medium": 19411,
+    "High": 19413
+  },
+  "validation": {
+    "Low": 3597,
+    "Medium": 8133,
+    "High": 12420
+  }
+}

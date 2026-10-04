@@ -1,0 +1,2137 @@
+{
+  "study_name": "halalify_risk_return_v1__risk_regression__GradientBoostingRegressor",
+  "direction": "MINIMIZE",
+  "best_value": 0.6923856677897592,
+  "best_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.012936441233433429,
+    "max_depth": 1,
+    "min_samples_leaf": 34,
+    "subsample": 0.8369997884445356
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "value": 0.6947867697445773,
+      "params": {
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "min_samples_leaf": 1,
+        "subsample": 1.0
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.1,
+          "loss": "squared_error",
+          "max_depth": 3,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 100,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 1.0,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 50.148855710000134,
+        "validation_metrics": {
+          "rmse": 0.6947867697445773,
+          "mae": 0.10112147066293001,
+          "r2": 0.006294015493002458
+        }
+      },
+      "started": "2026-10-03 17:14:04.533669",
+      "completed": "2026-10-03 17:14:54.742808",
+      "duration_seconds": 50.209139
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "value": 0.6972385407231871,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.17254716573280354,
+        "max_depth": 4,
+        "min_samples_leaf": 36,
+        "subsample": 0.6624074561769746
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.17254716573280354,
+          "loss": "squared_error",
+          "max_depth": 4,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 36,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.6624074561769746,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 88.1153004419998,
+        "validation_metrics": {
+          "rmse": 0.6972385407231871,
+          "mae": 0.10948412735830543,
+          "r2": -0.0007315592323333675
+        }
+      },
+      "started": "2026-10-03 17:14:54.985906",
+      "completed": "2026-10-03 17:16:23.164952",
+      "duration_seconds": 88.179046
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "value": 0.6930489039886858,
+      "params": {
+        "n_estimators": 100,
+        "learning_rate": 0.011900590783184251,
+        "max_depth": 5,
+        "min_samples_leaf": 37,
+        "subsample": 0.8832290311184181
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.011900590783184251,
+          "loss": "squared_error",
+          "max_depth": 5,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 37,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 100,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8832290311184181,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 71.30902261400024,
+        "validation_metrics": {
+          "rmse": 0.6930489039886858,
+          "mae": 0.09846684049581239,
+          "r2": 0.011258899398276956
+        }
+      },
+      "started": "2026-10-03 17:16:23.371250",
+      "completed": "2026-10-03 17:17:34.740871",
+      "duration_seconds": 71.369621
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "value": 0.6961740895413969,
+      "params": {
+        "n_estimators": 100,
+        "learning_rate": 0.18276027831785724,
+        "max_depth": 5,
+        "min_samples_leaf": 13,
+        "subsample": 0.6727299868828402
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.18276027831785724,
+          "loss": "squared_error",
+          "max_depth": 5,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 13,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 100,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.6727299868828402,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 55.249672335000014,
+        "validation_metrics": {
+          "rmse": 0.6961740895413969,
+          "mae": 0.1062637446487282,
+          "r2": 0.002321676361987657
+        }
+      },
+      "started": "2026-10-03 17:17:34.969570",
+      "completed": "2026-10-03 17:18:30.277344",
+      "duration_seconds": 55.307774
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "value": 0.692954307221967,
+      "params": {
+        "n_estimators": 100,
+        "learning_rate": 0.024878734419814436,
+        "max_depth": 3,
+        "min_samples_leaf": 26,
+        "subsample": 0.7164916560792167
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.024878734419814436,
+          "loss": "squared_error",
+          "max_depth": 3,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 26,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 100,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7164916560792167,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 35.94125364799993,
+        "validation_metrics": {
+          "rmse": 0.692954307221967,
+          "mae": 0.09712578284418226,
+          "r2": 0.011528794718675628
+        }
+      },
+      "started": "2026-10-03 17:18:30.480010",
+      "completed": "2026-10-03 17:19:06.476570",
+      "duration_seconds": 35.99656
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "value": 0.6930798730994058,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.01518747922672247,
+        "max_depth": 2,
+        "min_samples_leaf": 22,
+        "subsample": 0.7824279936868144
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.01518747922672247,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 22,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7824279936868144,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 80.11711259100002,
+        "validation_metrics": {
+          "rmse": 0.6930798730994058,
+          "mae": 0.09785839795817058,
+          "r2": 0.011170533002821892
+        }
+      },
+      "started": "2026-10-03 17:19:06.687715",
+      "completed": "2026-10-03 17:20:26.868530",
+      "duration_seconds": 80.180815
+    },
+    {
+      "number": 6,
+      "state": "COMPLETE",
+      "value": 0.6937547772481781,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.018187859051288217,
+        "max_depth": 3,
+        "min_samples_leaf": 36,
+        "subsample": 0.6185801650879991
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.018187859051288217,
+          "loss": "squared_error",
+          "max_depth": 3,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 36,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.6185801650879991,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 124.09379258499985,
+        "validation_metrics": {
+          "rmse": 0.6937547772481781,
+          "mae": 0.09889349322996004,
+          "r2": 0.009243799685373366
+        }
+      },
+      "started": "2026-10-03 17:20:27.065775",
+      "completed": "2026-10-03 17:22:31.214957",
+      "duration_seconds": 124.149182
+    },
+    {
+      "number": 7,
+      "state": "COMPLETE",
+      "value": 0.6923969535673002,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.016666983286066417,
+        "max_depth": 1,
+        "min_samples_leaf": 57,
+        "subsample": 0.9862528132298237
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.016666983286066417,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 57,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9862528132298237,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 50.74221479300013,
+        "validation_metrics": {
+          "rmse": 0.6923969535673002,
+          "mae": 0.09763255201906774,
+          "r2": 0.013118240005818294
+        }
+      },
+      "started": "2026-10-03 17:22:31.412267",
+      "completed": "2026-10-03 17:23:22.211281",
+      "duration_seconds": 50.799014
+    },
+    {
+      "number": 8,
+      "state": "COMPLETE",
+      "value": 0.6927570407603715,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.0249064396938244,
+        "max_depth": 1,
+        "min_samples_leaf": 42,
+        "subsample": 0.7760609974958406
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.0249064396938244,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 42,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7760609974958406,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 54.05152571200006,
+        "validation_metrics": {
+          "rmse": 0.6927570407603715,
+          "mae": 0.09794196773262424,
+          "r2": 0.012091499821627938
+        }
+      },
+      "started": "2026-10-03 17:23:22.412674",
+      "completed": "2026-10-03 17:24:16.519057",
+      "duration_seconds": 54.106383
+    },
+    {
+      "number": 9,
+      "state": "COMPLETE",
+      "value": 0.6925405026822646,
+      "params": {
+        "n_estimators": 100,
+        "learning_rate": 0.04407984038169244,
+        "max_depth": 1,
+        "min_samples_leaf": 55,
+        "subsample": 0.7035119926400067
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.04407984038169244,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 55,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 100,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7035119926400067,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 12.34549294999988,
+        "validation_metrics": {
+          "rmse": 0.6925405026822646,
+          "mae": 0.09816608381348635,
+          "r2": 0.012708993004569513
+        }
+      },
+      "started": "2026-10-03 17:24:16.736379",
+      "completed": "2026-10-03 17:24:29.135750",
+      "duration_seconds": 12.399371
+    },
+    {
+      "number": 10,
+      "state": "COMPLETE",
+      "value": 0.693410727494094,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.10261451916475534,
+        "max_depth": 1,
+        "min_samples_leaf": 49,
+        "subsample": 0.9559367162493349
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.10261451916475534,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 49,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9559367162493349,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 32.754677045000335,
+        "validation_metrics": {
+          "rmse": 0.693410727494094,
+          "mae": 0.10039113781335429,
+          "r2": 0.010226235887788704
+        }
+      },
+      "started": "2026-10-03 17:24:29.347744",
+      "completed": "2026-10-03 17:25:02.176263",
+      "duration_seconds": 32.828519
+    },
+    {
+      "number": 11,
+      "state": "COMPLETE",
+      "value": 0.6927017740193735,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.011102458257807488,
+        "max_depth": 1,
+        "min_samples_leaf": 57,
+        "subsample": 0.856150862843909
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.011102458257807488,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 57,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.856150862843909,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 29.83970606099956,
+        "validation_metrics": {
+          "rmse": 0.6927017740193735,
+          "mae": 0.09893443820428731,
+          "r2": 0.012249120176583861
+        }
+      },
+      "started": "2026-10-03 17:25:02.389841",
+      "completed": "2026-10-03 17:25:32.301995",
+      "duration_seconds": 29.912154
+    },
+    {
+      "number": 12,
+      "state": "COMPLETE",
+      "value": 0.6924467178370289,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.025217901007332642,
+        "max_depth": 1,
+        "min_samples_leaf": 58,
+        "subsample": 0.7601830135231681
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.025217901007332642,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 58,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7601830135231681,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 27.01443002399992,
+        "validation_metrics": {
+          "rmse": 0.6924467178370289,
+          "mae": 0.09787728008242971,
+          "r2": 0.012976375675763485
+        }
+      },
+      "started": "2026-10-03 17:25:32.532006",
+      "completed": "2026-10-03 17:25:59.623517",
+      "duration_seconds": 27.091511
+    },
+    {
+      "number": 13,
+      "state": "COMPLETE",
+      "value": 0.6940430145287511,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.028961247002032505,
+        "max_depth": 2,
+        "min_samples_leaf": 43,
+        "subsample": 0.9710279600625669
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.028961247002032505,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 43,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9710279600625669,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 98.43903653599955,
+        "validation_metrics": {
+          "rmse": 0.6940430145287511,
+          "mae": 0.10075204477225455,
+          "r2": 0.008420361184186653
+        }
+      },
+      "started": "2026-10-03 17:25:59.848012",
+      "completed": "2026-10-03 17:27:38.359482",
+      "duration_seconds": 98.51147
+    },
+    {
+      "number": 14,
+      "state": "COMPLETE",
+      "value": 0.693327269686391,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.02062265733739415,
+        "max_depth": 2,
+        "min_samples_leaf": 58,
+        "subsample": 0.9260082799922205
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.02062265733739415,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 58,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9260082799922205,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 94.29387713699998,
+        "validation_metrics": {
+          "rmse": 0.693327269686391,
+          "mae": 0.0983578658011591,
+          "r2": 0.010464476728710204
+        }
+      },
+      "started": "2026-10-03 17:27:38.566556",
+      "completed": "2026-10-03 17:29:12.933290",
+      "duration_seconds": 94.366734
+    },
+    {
+      "number": 15,
+      "state": "COMPLETE",
+      "value": 0.6924234778122154,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.011160837611892462,
+        "max_depth": 1,
+        "min_samples_leaf": 36,
+        "subsample": 0.8901146353649689
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.011160837611892462,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 36,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8901146353649689,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 46.118671424999775,
+        "validation_metrics": {
+          "rmse": 0.6924234778122154,
+          "mae": 0.09825378401384402,
+          "r2": 0.0130426279028234
+        }
+      },
+      "started": "2026-10-03 17:29:13.143541",
+      "completed": "2026-10-03 17:29:59.338011",
+      "duration_seconds": 46.19447
+    },
+    {
+      "number": 16,
+      "state": "COMPLETE",
+      "value": 0.6924557720586898,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.01946847206860975,
+        "max_depth": 1,
+        "min_samples_leaf": 17,
+        "subsample": 0.9151277908555333
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.01946847206860975,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 17,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9151277908555333,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 31.52985804599939,
+        "validation_metrics": {
+          "rmse": 0.6924557720586898,
+          "mae": 0.09830563870012655,
+          "r2": 0.012950563468482001
+        }
+      },
+      "started": "2026-10-03 17:29:59.546622",
+      "completed": "2026-10-03 17:30:31.148593",
+      "duration_seconds": 31.601971
+    },
+    {
+      "number": 17,
+      "state": "COMPLETE",
+      "value": 0.6924411734588762,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.010227392184392958,
+        "max_depth": 1,
+        "min_samples_leaf": 18,
+        "subsample": 0.9605635127059058
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.010227392184392958,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 18,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9605635127059058,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 66.26939930400022,
+        "validation_metrics": {
+          "rmse": 0.6924411734588762,
+          "mae": 0.09815890648983411,
+          "r2": 0.012992181687025317
+        }
+      },
+      "started": "2026-10-03 17:30:31.366889",
+      "completed": "2026-10-03 17:31:37.710225",
+      "duration_seconds": 66.343336
+    },
+    {
+      "number": 18,
+      "state": "COMPLETE",
+      "value": 0.692957031909349,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.01049442929862655,
+        "max_depth": 2,
+        "min_samples_leaf": 46,
+        "subsample": 0.8499837004596409
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.01049442929862655,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 46,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8499837004596409,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 86.69522222599971,
+        "validation_metrics": {
+          "rmse": 0.692957031909349,
+          "mae": 0.09809174388004831,
+          "r2": 0.011521021391380337
+        }
+      },
+      "started": "2026-10-03 17:31:37.915688",
+      "completed": "2026-10-03 17:33:04.685924",
+      "duration_seconds": 86.770236
+    },
+    {
+      "number": 19,
+      "state": "COMPLETE",
+      "value": 0.6923856677897592,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.012936441233433429,
+        "max_depth": 1,
+        "min_samples_leaf": 34,
+        "subsample": 0.8369997884445356
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.012936441233433429,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 34,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8369997884445356,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 43.35045566200006,
+        "validation_metrics": {
+          "rmse": 0.6923856677897592,
+          "mae": 0.09801285183727709,
+          "r2": 0.01315041125433436
+        }
+      },
+      "started": "2026-10-03 17:33:04.895352",
+      "completed": "2026-10-03 17:33:48.322807",
+      "duration_seconds": 43.427455
+    },
+    {
+      "number": 20,
+      "state": "COMPLETE",
+      "value": 0.6931571690141514,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.022561828043917882,
+        "max_depth": 2,
+        "min_samples_leaf": 36,
+        "subsample": 0.9196535923118365
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.022561828043917882,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 36,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9196535923118365,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 62.178013982000266,
+        "validation_metrics": {
+          "rmse": 0.6931571690141514,
+          "mae": 0.09803425819970091,
+          "r2": 0.010949961772226957
+        }
+      },
+      "started": "2026-10-03 17:33:48.523871",
+      "completed": "2026-10-03 17:34:50.771982",
+      "duration_seconds": 62.248111
+    },
+    {
+      "number": 21,
+      "state": "COMPLETE",
+      "value": 0.6924501810024805,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.013943873186295485,
+        "max_depth": 1,
+        "min_samples_leaf": 34,
+        "subsample": 0.8650808325695192
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.013943873186295485,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 34,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8650808325695192,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 60.20490179999979,
+        "validation_metrics": {
+          "rmse": 0.6924501810024805,
+          "mae": 0.09776639737632699,
+          "r2": 0.012966502758251064
+        }
+      },
+      "started": "2026-10-03 17:34:50.984593",
+      "completed": "2026-10-03 17:35:51.263332",
+      "duration_seconds": 60.278739
+    },
+    {
+      "number": 22,
+      "state": "COMPLETE",
+      "value": 0.6924370243374535,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.013891574579805633,
+        "max_depth": 1,
+        "min_samples_leaf": 24,
+        "subsample": 0.9940213694316365
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.013891574579805633,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 24,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9940213694316365,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 51.35554624999986,
+        "validation_metrics": {
+          "rmse": 0.6924370243374535,
+          "mae": 0.09800640929621283,
+          "r2": 0.013004009992940935
+        }
+      },
+      "started": "2026-10-03 17:35:51.478914",
+      "completed": "2026-10-03 17:36:42.905983",
+      "duration_seconds": 51.427069
+    },
+    {
+      "number": 23,
+      "state": "COMPLETE",
+      "value": 0.69252026812422,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.02180785704060647,
+        "max_depth": 1,
+        "min_samples_leaf": 48,
+        "subsample": 0.8495783000667205
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.02180785704060647,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 48,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8495783000667205,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 44.00047967000046,
+        "validation_metrics": {
+          "rmse": 0.69252026812422,
+          "mae": 0.09772529014811378,
+          "r2": 0.012766685241376696
+        }
+      },
+      "started": "2026-10-03 17:36:43.114325",
+      "completed": "2026-10-03 17:37:27.184577",
+      "duration_seconds": 44.070252
+    },
+    {
+      "number": 24,
+      "state": "COMPLETE",
+      "value": 0.6925200738148732,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.02215055394228006,
+        "max_depth": 1,
+        "min_samples_leaf": 35,
+        "subsample": 0.8430708430906871
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.02215055394228006,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 35,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8430708430906871,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 43.83335569500014,
+        "validation_metrics": {
+          "rmse": 0.6925200738148732,
+          "mae": 0.09759351825352511,
+          "r2": 0.01276723924287626
+        }
+      },
+      "started": "2026-10-03 17:37:27.385275",
+      "completed": "2026-10-03 17:38:11.290959",
+      "duration_seconds": 43.905684
+    },
+    {
+      "number": 25,
+      "state": "COMPLETE",
+      "value": 0.692925505337187,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.041133024361936756,
+        "max_depth": 1,
+        "min_samples_leaf": 55,
+        "subsample": 0.9409014335368082
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.041133024361936756,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 55,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9409014335368082,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 48.59822765900026,
+        "validation_metrics": {
+          "rmse": 0.692925505337187,
+          "mae": 0.09821436305075253,
+          "r2": 0.011610962451259255
+        }
+      },
+      "started": "2026-10-03 17:38:11.513471",
+      "completed": "2026-10-03 17:39:00.188039",
+      "duration_seconds": 48.674568
+    },
+    {
+      "number": 26,
+      "state": "COMPLETE",
+      "value": 0.6924434153860335,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.010720224322894168,
+        "max_depth": 1,
+        "min_samples_leaf": 28,
+        "subsample": 0.883722074567432
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.010720224322894168,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 28,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.883722074567432,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 45.82296517499981,
+        "validation_metrics": {
+          "rmse": 0.6924434153860335,
+          "mae": 0.09826420313752485,
+          "r2": 0.012985790376689343
+        }
+      },
+      "started": "2026-10-03 17:39:00.400793",
+      "completed": "2026-10-03 17:39:46.296602",
+      "duration_seconds": 45.895809
+    },
+    {
+      "number": 27,
+      "state": "COMPLETE",
+      "value": 0.6930328622513866,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.019626952455612048,
+        "max_depth": 2,
+        "min_samples_leaf": 56,
+        "subsample": 0.9761214512158022
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.019626952455612048,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 56,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9761214512158022,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 66.42295939799988,
+        "validation_metrics": {
+          "rmse": 0.6930328622513866,
+          "mae": 0.09786208013279842,
+          "r2": 0.011304670890983415
+        }
+      },
+      "started": "2026-10-03 17:39:46.513030",
+      "completed": "2026-10-03 17:40:53.008392",
+      "duration_seconds": 66.495362
+    },
+    {
+      "number": 28,
+      "state": "COMPLETE",
+      "value": 0.6931620715468769,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.01282659902738369,
+        "max_depth": 2,
+        "min_samples_leaf": 56,
+        "subsample": 0.9272143847348335
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.01282659902738369,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 56,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9272143847348335,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 126.20307176699953,
+        "validation_metrics": {
+          "rmse": 0.6931620715468769,
+          "mae": 0.09794930794456591,
+          "r2": 0.010935971100143549
+        }
+      },
+      "started": "2026-10-03 17:40:53.231855",
+      "completed": "2026-10-03 17:42:59.506265",
+      "duration_seconds": 126.27441
+    },
+    {
+      "number": 29,
+      "state": "COMPLETE",
+      "value": 0.693295678073058,
+      "params": {
+        "n_estimators": 400,
+        "learning_rate": 0.014712327200730983,
+        "max_depth": 2,
+        "min_samples_leaf": 40,
+        "subsample": 0.9674658603331445
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.014712327200730983,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 40,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 400,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9674658603331445,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 131.2497439660001,
+        "validation_metrics": {
+          "rmse": 0.693295678073058,
+          "mae": 0.09813157295258348,
+          "r2": 0.01055465149260415
+        }
+      },
+      "started": "2026-10-03 17:42:59.723560",
+      "completed": "2026-10-03 17:45:11.046352",
+      "duration_seconds": 131.322792
+    },
+    {
+      "number": 30,
+      "state": "COMPLETE",
+      "value": 0.6924952532060842,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.016537782293130823,
+        "max_depth": 1,
+        "min_samples_leaf": 54,
+        "subsample": 0.890309514252688
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.016537782293130823,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 54,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.890309514252688,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 30.76018718999967,
+        "validation_metrics": {
+          "rmse": 0.6924952532060842,
+          "mae": 0.0984640332397184,
+          "r2": 0.01283800478439956
+        }
+      },
+      "started": "2026-10-03 17:45:11.251215",
+      "completed": "2026-10-03 17:45:42.081179",
+      "duration_seconds": 30.829964
+    },
+    {
+      "number": 31,
+      "state": "COMPLETE",
+      "value": 0.6924487236976088,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.013367025169303541,
+        "max_depth": 1,
+        "min_samples_leaf": 31,
+        "subsample": 0.9476621575906404
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.013367025169303541,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 31,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9476621575906404,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 48.80913207899994,
+        "validation_metrics": {
+          "rmse": 0.6924487236976088,
+          "mae": 0.09805447937509952,
+          "r2": 0.012970657301783262
+        }
+      },
+      "started": "2026-10-03 17:45:42.295377",
+      "completed": "2026-10-03 17:46:31.178100",
+      "duration_seconds": 48.882723
+    },
+    {
+      "number": 32,
+      "state": "COMPLETE",
+      "value": 0.6924629378703893,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.01171362443777978,
+        "max_depth": 1,
+        "min_samples_leaf": 45,
+        "subsample": 0.9956833159411084
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.01171362443777978,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 45,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.9956833159411084,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 51.26551588200073,
+        "validation_metrics": {
+          "rmse": 0.6924629378703893,
+          "mae": 0.09822758674387727,
+          "r2": 0.012930134591193743
+        }
+      },
+      "started": "2026-10-03 17:46:31.390257",
+      "completed": "2026-10-03 17:47:22.730467",
+      "duration_seconds": 51.34021
+    },
+    {
+      "number": 33,
+      "state": "COMPLETE",
+      "value": 0.6929379406233434,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.010883343351962173,
+        "max_depth": 2,
+        "min_samples_leaf": 20,
+        "subsample": 0.970391685676445
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.010883343351962173,
+          "loss": "squared_error",
+          "max_depth": 2,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 20,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.970391685676445,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 98.05337423299989,
+        "validation_metrics": {
+          "rmse": 0.6929379406233434,
+          "mae": 0.09807574305755674,
+          "r2": 0.011575486745118546
+        }
+      },
+      "started": "2026-10-03 17:47:22.944881",
+      "completed": "2026-10-03 17:49:01.068504",
+      "duration_seconds": 98.123623
+    },
+    {
+      "number": 34,
+      "state": "COMPLETE",
+      "value": 0.69250681036843,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.022011313874808924,
+        "max_depth": 1,
+        "min_samples_leaf": 28,
+        "subsample": 0.993444633305244
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.022011313874808924,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 28,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.993444633305244,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 51.090041090999875,
+        "validation_metrics": {
+          "rmse": 0.69250681036843,
+          "mae": 0.0976180540839892,
+          "r2": 0.012805054705423369
+        }
+      },
+      "started": "2026-10-03 17:49:01.274963",
+      "completed": "2026-10-03 17:49:52.437537",
+      "duration_seconds": 51.162574
+    },
+    {
+      "number": 35,
+      "state": "COMPLETE",
+      "value": 0.6923862711648688,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.010938027745779642,
+        "max_depth": 1,
+        "min_samples_leaf": 41,
+        "subsample": 0.7677734335218682
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.010938027745779642,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 41,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7677734335218682,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 40.12192366999989,
+        "validation_metrics": {
+          "rmse": 0.6923862711648688,
+          "mae": 0.09802585348382242,
+          "r2": 0.013148691285923886
+        }
+      },
+      "started": "2026-10-03 17:49:52.644476",
+      "completed": "2026-10-03 17:50:32.836508",
+      "duration_seconds": 40.192032
+    },
+    {
+      "number": 36,
+      "state": "COMPLETE",
+      "value": 0.6924358691753715,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.010780532989680042,
+        "max_depth": 1,
+        "min_samples_leaf": 35,
+        "subsample": 0.8108806833236378
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.010780532989680042,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 35,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8108806833236378,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 42.17152504299975,
+        "validation_metrics": {
+          "rmse": 0.6924358691753715,
+          "mae": 0.09813209609109626,
+          "r2": 0.013007303113763857
+        }
+      },
+      "started": "2026-10-03 17:50:33.045981",
+      "completed": "2026-10-03 17:51:15.289506",
+      "duration_seconds": 42.243525
+    },
+    {
+      "number": 37,
+      "state": "COMPLETE",
+      "value": 0.6923881234811357,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.015242100757118255,
+        "max_depth": 1,
+        "min_samples_leaf": 28,
+        "subsample": 0.8213840192932493
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.015242100757118255,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 28,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.8213840192932493,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 43.07226977099981,
+        "validation_metrics": {
+          "rmse": 0.6923881234811357,
+          "mae": 0.09788697484594942,
+          "r2": 0.013143411102727431
+        }
+      },
+      "started": "2026-10-03 17:51:15.500127",
+      "completed": "2026-10-03 17:51:58.645278",
+      "duration_seconds": 43.145151
+    },
+    {
+      "number": 38,
+      "state": "COMPLETE",
+      "value": 0.6924404256166422,
+      "params": {
+        "n_estimators": 300,
+        "learning_rate": 0.012197036749634987,
+        "max_depth": 1,
+        "min_samples_leaf": 45,
+        "subsample": 0.7735481636723834
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.012197036749634987,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 45,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 300,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7735481636723834,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 40.30726735100052,
+        "validation_metrics": {
+          "rmse": 0.6924404256166422,
+          "mae": 0.09809300134791285,
+          "r2": 0.012994313639201227
+        }
+      },
+      "started": "2026-10-03 17:51:58.864767",
+      "completed": "2026-10-03 17:52:39.245479",
+      "duration_seconds": 40.380712
+    },
+    {
+      "number": 39,
+      "state": "COMPLETE",
+      "value": 0.6924699333948914,
+      "params": {
+        "n_estimators": 200,
+        "learning_rate": 0.014062312033176365,
+        "max_depth": 1,
+        "min_samples_leaf": 28,
+        "subsample": 0.7941665042119943
+      },
+      "distributions": {
+        "n_estimators": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_depth": "IntDistribution(high=5, log=False, low=1, step=1)",
+        "min_samples_leaf": "IntDistribution(high=60, log=False, low=1, step=1)",
+        "subsample": "FloatDistribution(high=1.0, log=False, low=0.6, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9,
+          "ccp_alpha": 0.0,
+          "criterion": "friedman_mse",
+          "init": null,
+          "learning_rate": 0.014062312033176365,
+          "loss": "squared_error",
+          "max_depth": 1,
+          "max_features": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 28,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "n_estimators": 200,
+          "n_iter_no_change": null,
+          "random_state": 42,
+          "subsample": 0.7941665042119943,
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 27.593528510000397,
+        "validation_metrics": {
+          "rmse": 0.6924699333948914,
+          "mae": 0.09835028667033067,
+          "r2": 0.01291019097853241
+        }
+      },
+      "started": "2026-10-03 17:52:39.451723",
+      "completed": "2026-10-03 17:53:07.119396",
+      "duration_seconds": 27.667673
+    }
+  ],
+  "objective_partition": "validation",
+  "fit_partition": "train",
+  "test_used": false
+}
