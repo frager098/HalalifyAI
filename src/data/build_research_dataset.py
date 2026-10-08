@@ -6,6 +6,7 @@ import pandas as pd
 from ..features.core import build_features,FEATURES
 from ..labels.targets import build_targets,split_and_label
 from .reconciliation import save_json,sha256
+from .training_inputs import require_audited_prices
 
 
 def main():
@@ -14,7 +15,7 @@ def main():
     p.add_argument('--repo',type=Path,default=Path.cwd());a=p.parse_args()
     calendar=xcals.get_calendar('XNYS',start='2015-01-01',end='2026-12-31').sessions
     calendar=calendar[(calendar>=pd.Timestamp('2016-01-01'))&(calendar<=pd.Timestamp('2025-12-31'))]
-    prices=pd.read_csv(a.prices)
+    prices=require_audited_prices(pd.read_csv(a.prices))
     features=build_features(prices,calendar)
     targets=build_targets(prices,calendar)
     dataset,cutoffs=split_and_label(features.merge(targets,on=['ticker','as_of_date'],validate='one_to_one'))

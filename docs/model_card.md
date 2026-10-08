@@ -1,5 +1,7 @@
 # Provisional model card
 
+2026-10-08: research fits reproduced using the earlier retained audited snapshot after input validation repair. Full Colab/API/ONNX execution and newer-input matched comparison remain unverified. No production-readiness or improved-test-performance claim is supported. See training_data_repair.md.
+
 Purpose: academic classification of next-20-session company return and annualized realized volatility. The two classifiers are separate from Shariah screening. No percentage-return prediction, investment recommendation or compliance certification is supplied.
 
 Population: the collected 50-company cohort, 2016–2025, with separate SPY market inputs. Today's selected company cohort has selection/survivorship bias. Historical ticker/issuer relationships and provider revisions are not universally certified.

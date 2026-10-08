@@ -1,5 +1,10 @@
 # HalalifyAI
 
+Training input repair: see [docs/training_data_repair.md](docs/training_data_repair.md).
+Use audited prices with explicit verification flags. Failed source checks stop training;
+missing flags must never be assigned True. The repaired notebook defaults to a retained
+audited CSV and clears historical outputs. Earlier test results are not new holdout evidence.
+
 Python AI service for Halalify.
 
 The service will provide:

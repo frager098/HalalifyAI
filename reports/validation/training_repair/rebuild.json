@@ -1,0 +1,9 @@
+{
+  "rebuilt_audited_prices": "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\HalalifyAI-training-data-repair\\data\\interim\\prices\\training_audit_4a240ce496d24a5a9b73e6a2e10a5266\\audited_prices.csv",
+  "rows": 127501,
+  "original_audited_sha256": "3eff4484f22a4e9b5c921541adbadfe3b37022a0d11c52c4742af3fbd7767df1",
+  "rebuilt_sha256": "3eff4484f22a4e9b5c921541adbadfe3b37022a0d11c52c4742af3fbd7767df1",
+  "all_values_exactly_reproduced": true,
+  "exact_user_colab_input_available": false,
+  "originals_changed": false
+}

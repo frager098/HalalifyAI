@@ -29,6 +29,17 @@ def build_targets(prices,calendar,horizon=20):
 
 def split_and_label(frame):
     f=frame.copy()
+    if 'exclusion_reason' not in f:
+        f['exclusion_reason']=''
+    # A valid future target does not imply a valid past feature window.
+    # Keep the feature reason rather than reporting blank exclusions.
+    unavailable=~f.features_ready
+    reasons=(f['unavailable_reasons'].fillna('incomplete_feature_window')
+             if 'unavailable_reasons' in f else pd.Series('incomplete_feature_window',index=f.index))
+    existing=f['exclusion_reason'].fillna('')
+    f.loc[unavailable,'exclusion_reason']=np.where(
+        existing[unavailable].eq(''),reasons[unavailable],
+        existing[unavailable]+';'+reasons[unavailable])
     eligible=f.features_ready & f.labels_ready
     f['split']='excluded'
     for name,start,end,next_start in [

@@ -1,5 +1,7 @@
 # Provisional validation evaluation
 
+2026-10-08 reproduction: all22 documented candidate fits rerun after strict input-gate repair. Selected return validation accuracy36.882%, macro-F1 .362892; selected risk60.675%, .577060. Earlier retained audited data reproduced exactly. This is not an accuracy improvement or new untouched-test claim. See training_data_repair.md for the original notebook's confirmed audit bypass and the unavailable newer input.
+
 Executed 2026-10-02 on the reconciled price-only research dataset. Models fit 58,157 training rows and were compared on the same 24,150 validation rows. **Test performance has not been calculated.** These are academic preliminary results, not a financial or screening approval.
 
 Macro-F1 averages how well a model identifies each of the three classes. It is not the percentage of predictions that are correct. Higher is better; the detailed reports also give accuracy, balanced accuracy, per-class results, confusion matrices and log loss.

@@ -49,9 +49,10 @@
   "eligible_rows": 118643,
   "excluded_rows": 7057,
   "excluded_reasons": {
-    "": 3263,
+    "incomplete_window_or_unresolved_action_or_basis": 3263,
     "split_boundary_purge": 1981,
-    "future_not_observed_or_gap_or_unresolved_action": 1813
+    "future_not_observed_or_gap_or_unresolved_action": 1080,
+    "future_not_observed_or_gap_or_unresolved_action;incomplete_window_or_unresolved_action_or_basis": 733
   },
   "methodology_status": "proposed_v1_1_research_not_approved",
   "screening_ready": false,

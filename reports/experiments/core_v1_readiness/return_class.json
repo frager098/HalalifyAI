@@ -913,7 +913,7 @@
       "log_loss": 1.0913206187480387
     }
   },
-  "model_artifact": "artifacts/core_v1_readiness/return_class.joblib",
+  "model_artifact": "artifacts\\core_v1_readiness\\return_class.joblib",
   "artifact_sha256": "c84d8a9222518fa9e42f029702e13f82e11f5927fbb9a4ae0fd94e4fc6ae02a6",
   "feature_names": [
     "ret_1d",
@@ -953,7 +953,7 @@
   "train_rows": 58157,
   "validation_rows": 24150,
   "test_evaluated": false,
+  "dataset_sha256": "c72ddccf7ce11e21676ee22f508004ec8030515fa62af7cc15012d722b3c875d",
   "methodology_status": "proposed_research_not_approved",
-  "screening_ready": false,
-  "verified_dataset_sha256": "c72ddccf7ce11e21676ee22f508004ec8030515fa62af7cc15012d722b3c875d"
+  "screening_ready": false
 }

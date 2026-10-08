@@ -1,5 +1,11 @@
 # HalalifyAI - shared project context and agent guidance
 
+## Training input repair 2026-10-08
+
+Read docs/training_data_repair.md before running the model notebook. Reviewed prototype commit 6c417db continued after failed action/audit commands and set absent verification flags True. Never retain that fallback. src/data/training_inputs.py requires explicit flags and audited-output routing; false/unknown evidence must exclude affected windows or stop preparation. The repaired notebook has no saved outputs and has not completed a full Colab/API/ONNX execution.
+
+Retained source reconstruction and audit reproduced the previous audited CSV exactly;118643 eligible rows. Full tests:59 passed; all22 documented train/validation classifier fits rerun. Return validation accuracy36.882%, macroF1 .362892; risk60.675%, .577060. No new test scoring, accuracy improvement, peer approval, deployment or screening approval claimed. Newer user Colab input SHA7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3bad69a5a1d070b0f3 remains unavailable locally/GitHub. Do not conflate snapshots. Original user checkout and GitHub remain unchanged until installation/publication is actually performed.
+
 Updated: 2026-10-03 | Handoff version: 2.1
 
 Status: dated evidence plus proposed research specifications. Published data-readiness branch cb0e2f0 was verified on 2026-10-02. New SEC evidence work is prepared on feature/sec-screening-evidence. No develop merge or domain approval is confirmed.

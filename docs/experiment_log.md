@@ -1,5 +1,9 @@
 # Experiment log
 
+## 2026-10-08 training input gate repair
+
+Reviewed prototype6c417db and data-processing72d014f. Failed audit commands were ignored, absent flags defaulted True, and audited output was not selected. Added fail-closed preparation, explicit source hashes/statuses, audited output routing, strict boolean parsing and nonblank feature exclusions.59 tests passed. Retained raw-page reconstruction and audit reproduced the earlier audited CSV exactly.22 documented train/validation fits rerun; selected return macro-F1 .362892 and risk .577060. The newer Colab input is unavailable; no exact before/after comparison or new test metrics. Original project/GitHub untouched; no peer/domain approval.
+
 ## 2026-10-02 — provisional core readiness
 
 Starting integration reference: published develop `255436b`. Dependencies: published reconciliation `741f60c`, context update `c720d57`, BAC identity verification `5640424`. Their changes were combined in an isolated feature branch; no develop merge or peer approval is claimed.
