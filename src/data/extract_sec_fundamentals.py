@@ -1,10 +1,13 @@
+"""Legacy long-form extraction. Prefer python -m src.data.prepare_sec for new work.
+This output is intermediate evidence, not reviewed financial totals or training data.
+"""
 import os
 import json
 import pandas as pd
 
 
 INPUT_FOLDER = "data/raw/sec"
-OUTPUT_FOLDER = "data/processed"
+OUTPUT_FOLDER = "data/interim"
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
@@ -84,7 +87,7 @@ for filename in os.listdir(INPUT_FOLDER):
 
                     form = observation.get("form")
 
-                    if form not in ["10-K", "10-Q"]:
+                    if form not in ["10-K", "10-Q", "10-K/A", "10-Q/A"]:
                         continue
 
 
@@ -143,7 +146,10 @@ else:
             "period_start",
             "period_end",
             "filing_date",
-            "value"
+            "value",
+            "unit",
+            "form",
+            "accession_number"
         ]
     )
 

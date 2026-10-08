@@ -1,0 +1,21 @@
+{
+  "evidence_version": "sec_2015_2025_v2",
+  "filing_date_start": "2015-01-01",
+  "filing_date_end": "2025-12-31",
+  "as_of_date": "2025-12-31",
+  "annual_forms": ["10-K", "10-K/A"],
+  "quarterly_forms": ["10-Q", "10-Q/A"],
+  "calendar": "XNYS",
+  "availability_rule": "Next session after later filing date or acceptance date in America/New_York",
+  "raw_archive": "data/raw/sec_screening_evidence/sec_sources_20261002.zip",
+  "standard_selected": false,
+  "business_mappings_approved": false,
+  "income_mappings_approved": false,
+  "study_xom_cik": "0000034088",
+  "related_issuer_candidates": [
+    {"ticker": "AVGO", "cik": "0001441634", "start": "2015-01-01", "end": "2016-02-01", "role": "historical_predecessor_candidate"},
+    {"ticker": "AVGO", "cik": "0001649338", "start": "2016-02-01", "end": "2018-04-04", "role": "historical_predecessor_candidate"},
+    {"ticker": "GOOGL", "cik": "0001288776", "start": "2015-01-01", "end": "2015-10-02", "role": "historical_predecessor_candidate"}
+  ],
+  "raw_run_names": ["annual_2015_2025_20261002", "quarterly_2015_2025_20261002", "avago_related_2015_2016_20261002", "broadcom_ltd_related_2016_2018_20261002", "google_related_2015_20261002"]
+}
