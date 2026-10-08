@@ -1,0 +1,1575 @@
+{
+  "study_name": "halalify_risk_return_v1__return_regression__ElasticNet",
+  "direction": "MINIMIZE",
+  "best_value": 0.22089371223086704,
+  "best_params": {
+    "alpha": 1.0,
+    "fit_intercept": true,
+    "l1_ratio": 0.5
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 1.0,
+        "fit_intercept": true,
+        "l1_ratio": 0.5
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 1.0,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.5,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.050841821000176424,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:09.322292",
+      "completed": "2026-10-03 18:01:09.415760",
+      "duration_seconds": 0.093468
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "value": 0.23777635352519283,
+      "params": {
+        "alpha": 0.0009915644566638397,
+        "fit_intercept": true,
+        "l1_ratio": 0.6187255599871848
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.0009915644566638397,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.6187255599871848,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.07170743099959509,
+        "validation_metrics": {
+          "rmse": 0.23777635352519283,
+          "mae": 0.07910757134151887,
+          "r2": -0.15916944051823712
+        }
+      },
+      "started": "2026-10-03 18:01:09.657872",
+      "completed": "2026-10-03 18:01:09.774455",
+      "duration_seconds": 0.116583
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "value": 0.25931790183336617,
+      "params": {
+        "alpha": 1.770716864353784e-05,
+        "fit_intercept": true,
+        "l1_ratio": 0.8728673384861885
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 1.770716864353784e-05,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.8728673384861885,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.12083896800049843,
+        "validation_metrics": {
+          "rmse": 0.25931790183336617,
+          "mae": 0.0813533397022763,
+          "r2": -0.37871530334211534
+        }
+      },
+      "started": "2026-10-03 18:01:09.996787",
+      "completed": "2026-10-03 18:01:10.160893",
+      "duration_seconds": 0.164106
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.06440507553993717,
+        "fit_intercept": true,
+        "l1_ratio": 0.9714143595538947
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.06440507553993717,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.9714143595538947,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04661835000024439,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:10.371464",
+      "completed": "2026-10-03 18:01:10.459258",
+      "duration_seconds": 0.087794
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 4.566054873446129,
+        "fit_intercept": true,
+        "l1_ratio": 0.22423428436076215
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 4.566054873446129,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.22423428436076215,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04860883299988927,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:10.675718",
+      "completed": "2026-10-03 18:01:10.767028",
+      "duration_seconds": 0.09131
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "value": 0.25466731710713814,
+      "params": {
+        "alpha": 0.000271605114465485,
+        "fit_intercept": true,
+        "l1_ratio": 0.32666768318813977
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.000271605114465485,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.32666768318813977,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.10763539599975047,
+        "validation_metrics": {
+          "rmse": 0.25466731710713814,
+          "mae": 0.08090765877905638,
+          "r2": -0.3297072120026836
+        }
+      },
+      "started": "2026-10-03 18:01:10.984042",
+      "completed": "2026-10-03 18:01:11.135456",
+      "duration_seconds": 0.151414
+    },
+    {
+      "number": 6,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 0.07849159562555087,
+        "fit_intercept": false,
+        "l1_ratio": 0.3980437511290071
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.07849159562555087,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.3980437511290071,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04875564499980101,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:11.349906",
+      "completed": "2026-10-03 18:01:11.441246",
+      "duration_seconds": 0.09134
+    },
+    {
+      "number": 7,
+      "state": "COMPLETE",
+      "value": 0.2320720960542226,
+      "params": {
+        "alpha": 0.0044520483657488515,
+        "fit_intercept": true,
+        "l1_ratio": 0.538522716492931
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.0044520483657488515,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.538522716492931,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05238867899970501,
+        "validation_metrics": {
+          "rmse": 0.2320720960542226,
+          "mae": 0.07806194623655066,
+          "r2": -0.10421958990595237
+        }
+      },
+      "started": "2026-10-03 18:01:11.671446",
+      "completed": "2026-10-03 18:01:11.764584",
+      "duration_seconds": 0.093138
+    },
+    {
+      "number": 8,
+      "state": "COMPLETE",
+      "value": 0.22271881385770673,
+      "params": {
+        "alpha": 0.054867674166009135,
+        "fit_intercept": false,
+        "l1_ratio": 0.21199791750292696
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.054867674166009135,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.21199791750292696,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05090166900026816,
+        "validation_metrics": {
+          "rmse": 0.22271881385770673,
+          "mae": 0.07502691516424974,
+          "r2": -0.01700574938366528
+        }
+      },
+      "started": "2026-10-03 18:01:11.989123",
+      "completed": "2026-10-03 18:01:12.081660",
+      "duration_seconds": 0.092537
+    },
+    {
+      "number": 9,
+      "state": "COMPLETE",
+      "value": 0.2596459646216789,
+      "params": {
+        "alpha": 3.3144597077512304e-06,
+        "fit_intercept": false,
+        "l1_ratio": 0.8179774807106381
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 3.3144597077512304e-06,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.8179774807106381,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.13766665299954184,
+        "validation_metrics": {
+          "rmse": 0.2596459646216789,
+          "mae": 0.08111347290914611,
+          "r2": -0.38220593232605826
+        }
+      },
+      "started": "2026-10-03 18:01:12.297650",
+      "completed": "2026-10-03 18:01:12.477914",
+      "duration_seconds": 0.180264
+    },
+    {
+      "number": 10,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 54.63450547513081,
+        "fit_intercept": true,
+        "l1_ratio": 0.7148812594255174
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 54.63450547513081,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.7148812594255174,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05022507899957418,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:12.689598",
+      "completed": "2026-10-03 18:01:12.796112",
+      "duration_seconds": 0.106514
+    },
+    {
+      "number": 11,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.21047803886165792,
+        "fit_intercept": true,
+        "l1_ratio": 0.8918621763574435
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.21047803886165792,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.8918621763574435,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05092157699982636,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:13.007534",
+      "completed": "2026-10-03 18:01:13.113078",
+      "duration_seconds": 0.105544
+    },
+    {
+      "number": 12,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.4803320096353466,
+        "fit_intercept": true,
+        "l1_ratio": 0.5496921560837036
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.4803320096353466,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.5496921560837036,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05056834200058802,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:13.324794",
+      "completed": "2026-10-03 18:01:13.431766",
+      "duration_seconds": 0.106972
+    },
+    {
+      "number": 13,
+      "state": "COMPLETE",
+      "value": 0.2250634572787433,
+      "params": {
+        "alpha": 0.007940023976053945,
+        "fit_intercept": true,
+        "l1_ratio": 0.9478774174369913
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.007940023976053945,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.9478774174369913,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.055228889000318304,
+        "validation_metrics": {
+          "rmse": 0.2250634572787433,
+          "mae": 0.07620935024188324,
+          "r2": -0.038531251774014175
+        }
+      },
+      "started": "2026-10-03 18:01:13.647749",
+      "completed": "2026-10-03 18:01:13.759947",
+      "duration_seconds": 0.112198
+    },
+    {
+      "number": 14,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 20.860283490067538,
+        "fit_intercept": true,
+        "l1_ratio": 0.9783030599765589
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 20.860283490067538,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.9783030599765589,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.0519355500000529,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:13.978078",
+      "completed": "2026-10-03 18:01:14.088242",
+      "duration_seconds": 0.110164
+    },
+    {
+      "number": 15,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 5.462152656772813,
+        "fit_intercept": false,
+        "l1_ratio": 0.7122981034230897
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 5.462152656772813,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.7122981034230897,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.052858527000353206,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:14.298346",
+      "completed": "2026-10-03 18:01:14.410082",
+      "duration_seconds": 0.111736
+    },
+    {
+      "number": 16,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 1.2697675911595385,
+        "fit_intercept": true,
+        "l1_ratio": 0.7622690544655046
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 1.2697675911595385,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.7622690544655046,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05188380999970832,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:14.628210",
+      "completed": "2026-10-03 18:01:14.735854",
+      "duration_seconds": 0.107644
+    },
+    {
+      "number": 17,
+      "state": "COMPLETE",
+      "value": 0.22323215842367705,
+      "params": {
+        "alpha": 0.012535130770420747,
+        "fit_intercept": false,
+        "l1_ratio": 0.8476355801990162
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.012535130770420747,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.8476355801990162,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.053298355999686464,
+        "validation_metrics": {
+          "rmse": 0.22323215842367705,
+          "mae": 0.07529820428452831,
+          "r2": -0.021699345138185944
+        }
+      },
+      "started": "2026-10-03 18:01:14.957968",
+      "completed": "2026-10-03 18:01:15.067565",
+      "duration_seconds": 0.109597
+    },
+    {
+      "number": 18,
+      "state": "COMPLETE",
+      "value": 0.2218689526822902,
+      "params": {
+        "alpha": 0.1319615376419145,
+        "fit_intercept": true,
+        "l1_ratio": 0.09727626306803061
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.1319615376419145,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.09727626306803061,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05122803600079351,
+        "validation_metrics": {
+          "rmse": 0.2218689526822902,
+          "mae": 0.07482752587780167,
+          "r2": -0.009259078667242848
+        }
+      },
+      "started": "2026-10-03 18:01:15.278118",
+      "completed": "2026-10-03 18:01:15.386689",
+      "duration_seconds": 0.108571
+    },
+    {
+      "number": 19,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 73.25644664525308,
+        "fit_intercept": true,
+        "l1_ratio": 0.5422512073811027
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 73.25644664525308,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.5422512073811027,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04812906600000133,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:15.600077",
+      "completed": "2026-10-03 18:01:15.706260",
+      "duration_seconds": 0.106183
+    },
+    {
+      "number": 20,
+      "state": "COMPLETE",
+      "value": 0.24878541199959658,
+      "params": {
+        "alpha": 0.00020310703770524562,
+        "fit_intercept": true,
+        "l1_ratio": 0.9970720012307883
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.00020310703770524562,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.9970720012307883,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.09135295200030669,
+        "validation_metrics": {
+          "rmse": 0.24878541199959658,
+          "mae": 0.08030635308706999,
+          "r2": -0.26899356639138383
+        }
+      },
+      "started": "2026-10-03 18:01:15.931344",
+      "completed": "2026-10-03 18:01:16.080470",
+      "duration_seconds": 0.149126
+    },
+    {
+      "number": 21,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 20.77075026742752,
+        "fit_intercept": true,
+        "l1_ratio": 0.32215583558302774
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 20.77075026742752,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.32215583558302774,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05083577899949887,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:16.304220",
+      "completed": "2026-10-03 18:01:16.415587",
+      "duration_seconds": 0.111367
+    },
+    {
+      "number": 22,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 57.32405204204088,
+        "fit_intercept": true,
+        "l1_ratio": 0.06970850966523817
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 57.32405204204088,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.06970850966523817,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.050716095000097994,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:16.650327",
+      "completed": "2026-10-03 18:01:16.763159",
+      "duration_seconds": 0.112832
+    },
+    {
+      "number": 23,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.9099228841046235,
+        "fit_intercept": true,
+        "l1_ratio": 0.2618533636449921
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.9099228841046235,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.2618533636449921,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05071344400039379,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:16.991650",
+      "completed": "2026-10-03 18:01:17.101122",
+      "duration_seconds": 0.109472
+    },
+    {
+      "number": 24,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 8.318384987882899,
+        "fit_intercept": false,
+        "l1_ratio": 0.1346214874195995
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 8.318384987882899,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.1346214874195995,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04930424399935873,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:17.331260",
+      "completed": "2026-10-03 18:01:17.439348",
+      "duration_seconds": 0.108088
+    },
+    {
+      "number": 25,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 9.258820006657446,
+        "fit_intercept": true,
+        "l1_ratio": 0.44487700127997687
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 9.258820006657446,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.44487700127997687,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05110330899969995,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:17.665361",
+      "completed": "2026-10-03 18:01:17.778357",
+      "duration_seconds": 0.112996
+    },
+    {
+      "number": 26,
+      "state": "COMPLETE",
+      "value": 0.22226556539545483,
+      "params": {
+        "alpha": 0.046689593979757825,
+        "fit_intercept": true,
+        "l1_ratio": 0.2631331344831265
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.046689593979757825,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.2631331344831265,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04857628499939892,
+        "validation_metrics": {
+          "rmse": 0.22226556539545483,
+          "mae": 0.07506507105402528,
+          "r2": -0.012870604760864213
+        }
+      },
+      "started": "2026-10-03 18:01:18.004313",
+      "completed": "2026-10-03 18:01:18.110764",
+      "duration_seconds": 0.106451
+    },
+    {
+      "number": 27,
+      "state": "COMPLETE",
+      "value": 0.23639580200940863,
+      "params": {
+        "alpha": 0.007955151651046582,
+        "fit_intercept": true,
+        "l1_ratio": 0.11240070700151794
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.007955151651046582,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.11240070700151794,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05736760099989624,
+        "validation_metrics": {
+          "rmse": 0.23639580200940863,
+          "mae": 0.07888844021982988,
+          "r2": -0.14574802682849364
+        }
+      },
+      "started": "2026-10-03 18:01:18.327941",
+      "completed": "2026-10-03 18:01:18.441843",
+      "duration_seconds": 0.113902
+    },
+    {
+      "number": 28,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 2.0541801089757663,
+        "fit_intercept": true,
+        "l1_ratio": 0.06278640580568914
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 2.0541801089757663,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.06278640580568914,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.049811941999905684,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:18.659747",
+      "completed": "2026-10-03 18:01:18.766045",
+      "duration_seconds": 0.106298
+    },
+    {
+      "number": 29,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 1.867812120186453,
+        "fit_intercept": false,
+        "l1_ratio": 0.3815004016069823
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 1.867812120186453,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.3815004016069823,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.04842310299954988,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:18.995215",
+      "completed": "2026-10-03 18:01:19.103414",
+      "duration_seconds": 0.108199
+    },
+    {
+      "number": 30,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 0.5028561726178902,
+        "fit_intercept": false,
+        "l1_ratio": 0.15728862505833108
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.5028561726178902,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.15728862505833108,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.047353896999993594,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:19.332652",
+      "completed": "2026-10-03 18:01:19.438364",
+      "duration_seconds": 0.105712
+    },
+    {
+      "number": 31,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 58.300984113997025,
+        "fit_intercept": true,
+        "l1_ratio": 0.8439798927141151
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 58.300984113997025,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.8439798927141151,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.051662439000210725,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:19.656425",
+      "completed": "2026-10-03 18:01:19.768932",
+      "duration_seconds": 0.112507
+    },
+    {
+      "number": 32,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 4.293184520911169,
+        "fit_intercept": true,
+        "l1_ratio": 0.892607240987879
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 4.293184520911169,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.892607240987879,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05105367100077274,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:19.998266",
+      "completed": "2026-10-03 18:01:20.110823",
+      "duration_seconds": 0.112557
+    },
+    {
+      "number": 33,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.04044198624468449,
+        "fit_intercept": true,
+        "l1_ratio": 0.7370644261875988
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.04044198624468449,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.7370644261875988,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05019049100064876,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:20.323661",
+      "completed": "2026-10-03 18:01:20.437514",
+      "duration_seconds": 0.113853
+    },
+    {
+      "number": 34,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 21.76963995106908,
+        "fit_intercept": true,
+        "l1_ratio": 0.7348951613373853
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 21.76963995106908,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.7348951613373853,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05269859399959387,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:20.654743",
+      "completed": "2026-10-03 18:01:20.771424",
+      "duration_seconds": 0.116681
+    },
+    {
+      "number": 35,
+      "state": "COMPLETE",
+      "value": 0.2213290748366155,
+      "params": {
+        "alpha": 0.23703157746840836,
+        "fit_intercept": false,
+        "l1_ratio": 0.653577649034312
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.23703157746840836,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.653577649034312,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05179291900003591,
+        "validation_metrics": {
+          "rmse": 0.2213290748366155,
+          "mae": 0.0735814337960075,
+          "r2": -0.004353356786464646
+        }
+      },
+      "started": "2026-10-03 18:01:20.996397",
+      "completed": "2026-10-03 18:01:21.112655",
+      "duration_seconds": 0.116258
+    },
+    {
+      "number": 36,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.8676103516284693,
+        "fit_intercept": true,
+        "l1_ratio": 0.9926097459341457
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.8676103516284693,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.9926097459341457,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05334306400072819,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:21.334675",
+      "completed": "2026-10-03 18:01:21.452326",
+      "duration_seconds": 0.117651
+    },
+    {
+      "number": 37,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.03282542154156104,
+        "fit_intercept": true,
+        "l1_ratio": 0.8225780588346943
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.03282542154156104,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.8225780588346943,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.05259251899951778,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:21.674003",
+      "completed": "2026-10-03 18:01:21.792054",
+      "duration_seconds": 0.118051
+    },
+    {
+      "number": 38,
+      "state": "COMPLETE",
+      "value": 0.2582987894450942,
+      "params": {
+        "alpha": 4.267302704320601e-05,
+        "fit_intercept": false,
+        "l1_ratio": 0.5520491083954487
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 4.267302704320601e-05,
+          "copy_X": true,
+          "fit_intercept": false,
+          "l1_ratio": 0.5520491083954487,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.1229191170004924,
+        "validation_metrics": {
+          "rmse": 0.2582987894450942,
+          "mae": 0.0809793298379463,
+          "r2": -0.3678999689582789
+        }
+      },
+      "started": "2026-10-03 18:01:22.012965",
+      "completed": "2026-10-03 18:01:22.198771",
+      "duration_seconds": 0.185806
+    },
+    {
+      "number": 39,
+      "state": "COMPLETE",
+      "value": 0.22089371223086704,
+      "params": {
+        "alpha": 0.21952395488395984,
+        "fit_intercept": true,
+        "l1_ratio": 0.31490443713515154
+      },
+      "distributions": {
+        "alpha": "FloatDistribution(high=100.0, log=True, low=1e-06, step=None)",
+        "fit_intercept": "CategoricalDistribution(choices=(True, False))",
+        "l1_ratio": "FloatDistribution(high=1.0, log=False, low=0.05, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "alpha": 0.21952395488395984,
+          "copy_X": true,
+          "fit_intercept": true,
+          "l1_ratio": 0.31490443713515154,
+          "max_iter": 5000,
+          "positive": false,
+          "precompute": false,
+          "random_state": 42,
+          "selection": "cyclic",
+          "tol": 0.0001,
+          "warm_start": false
+        },
+        "fit_seconds": 0.0505649850001646,
+        "validation_metrics": {
+          "rmse": 0.22089371223086704,
+          "mae": 0.07372809512831634,
+          "r2": -0.0004060412928099666
+        }
+      },
+      "started": "2026-10-03 18:01:22.435347",
+      "completed": "2026-10-03 18:01:22.547402",
+      "duration_seconds": 0.112055
+    }
+  ],
+  "objective_partition": "validation",
+  "fit_partition": "train",
+  "test_used": false
+}

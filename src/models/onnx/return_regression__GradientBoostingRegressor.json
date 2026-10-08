@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "file": "onnx/return_regression__GradientBoostingRegressor.onnx",
+  "sha256": "7a494aca58fab0f221e90d750ed1ca7c81f820e3fa6b51ba82a1c01c553b03fd",
+  "input_name": "features",
+  "input_dtype": "float32",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "outputs": [
+    {
+      "name": "variable",
+      "type": "tensor(float)",
+      "shape": [
+        null,
+        1
+      ]
+    }
+  ],
+  "parity": {
+    "max_absolute_difference": 1.124170537214475e-08,
+    "rtol": 0.001,
+    "atol": 1e-05,
+    "passed": true
+  },
+  "probe_rows": 256,
+  "probe_partition": "development",
+  "model_family": "GradientBoostingRegressor"
+}

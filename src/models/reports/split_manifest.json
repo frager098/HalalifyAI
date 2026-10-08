@@ -1,0 +1,23 @@
+{
+  "train": {
+    "rows": 58237,
+    "ticker_count": 50,
+    "first_feature_date": "2016-03-31T00:00:00",
+    "last_feature_date": "2020-12-02T00:00:00",
+    "last_label_date": "2020-12-31T00:00:00"
+  },
+  "validation": {
+    "rows": 24150,
+    "ticker_count": 50,
+    "first_feature_date": "2021-01-04T00:00:00",
+    "last_feature_date": "2022-12-01T00:00:00",
+    "last_label_date": "2022-12-30T00:00:00"
+  },
+  "test": {
+    "rows": 36600,
+    "ticker_count": 50,
+    "first_feature_date": "2023-01-03T00:00:00",
+    "last_feature_date": "2025-12-02T00:00:00",
+    "last_label_date": "2025-12-31T00:00:00"
+  }
+}

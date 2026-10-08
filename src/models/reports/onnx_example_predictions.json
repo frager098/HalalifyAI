@@ -1,0 +1,20 @@
+{
+  "risk_classification": {
+    "label": "Medium",
+    "class_id": 1,
+    "probabilities": {
+      "Low": 0.30646616220474243,
+      "Medium": 0.4351612627506256,
+      "High": 0.25837254524230957
+    }
+  },
+  "return_classification": {
+    "label": "Medium",
+    "class_id": 1,
+    "probabilities": {
+      "Low": 0.33257952332496643,
+      "Medium": 0.39085155725479126,
+      "High": 0.2765689492225647
+    }
+  }
+}

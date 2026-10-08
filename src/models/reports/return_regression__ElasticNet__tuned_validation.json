@@ -1,0 +1,84 @@
+{
+  "stage": "top2_tuned_validation",
+  "task": "return_regression",
+  "model_family": "ElasticNet",
+  "parameters": {
+    "alpha": 1.0,
+    "copy_X": true,
+    "fit_intercept": true,
+    "l1_ratio": 0.5,
+    "max_iter": 5000,
+    "positive": false,
+    "precompute": false,
+    "random_state": 42,
+    "selection": "cyclic",
+    "tol": 0.0001,
+    "warm_start": false
+  },
+  "pipeline_parameters": {
+    "memory": null,
+    "steps": [
+      [
+        "scaler",
+        "StandardScaler()"
+      ],
+      [
+        "model",
+        "ElasticNet(max_iter=5000, random_state=42)"
+      ]
+    ],
+    "transform_input": null,
+    "verbose": false,
+    "scaler": "StandardScaler()",
+    "model": "ElasticNet(max_iter=5000, random_state=42)",
+    "scaler__copy": true,
+    "scaler__with_mean": true,
+    "scaler__with_std": true,
+    "model__alpha": 1.0,
+    "model__copy_X": true,
+    "model__fit_intercept": true,
+    "model__l1_ratio": 0.5,
+    "model__max_iter": 5000,
+    "model__positive": false,
+    "model__precompute": false,
+    "model__random_state": 42,
+    "model__selection": "cyclic",
+    "model__tol": 0.0001,
+    "model__warm_start": false
+  },
+  "metrics": {
+    "rmse": 0.22089371223086704,
+    "mae": 0.07372809512831634,
+    "r2": -0.0004060412928099666
+  },
+  "fit_seconds": 0.03567311099959625,
+  "seed": 42,
+  "dataset_sha256": "7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3bad69a5a1d070b0f3",
+  "repo_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "test_used_for_selection": false,
+  "best_trial": 0,
+  "best_search_params": {
+    "alpha": 1.0,
+    "fit_intercept": true,
+    "l1_ratio": 0.5
+  },
+  "completed_trials": 40
+}

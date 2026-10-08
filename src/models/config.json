@@ -1,0 +1,62 @@
+{
+  "branch": "integrate-data-processing",
+  "reviewed_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "actual_commit": "72d014f0a4f3629e78cf54362dbe64cce980c8fd",
+  "seed": 42,
+  "n_trials": 40,
+  "n_jobs": 2,
+  "final_refit": true,
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "class_names": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "class_ids": [
+    0,
+    1,
+    2
+  ],
+  "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "lazypredict": "0.3.0",
+    "optuna": "5.0.0",
+    "onnx": "1.23.1",
+    "skl2onnx": "1.20.0",
+    "onnxruntime": "1.30.0",
+    "exchange-calendars": "4.13.2",
+    "joblib": "1.6.0",
+    "requests": "2.32.4",
+    "matplotlib": "3.10.0",
+    "gdown": "5.2.2",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.6.0"
+  },
+  "methodology_status": "requested_research_extension_not_domain_approved",
+  "screening_ready": false,
+  "selection": "validation RMSE for regression; validation macro-F1 for classification",
+  "candidate_scope": "8 sklearn families per task; explicitly limited to tunable ONNX-supported models",
+  "test_policy": "once after tuning/selection; never used to rank or tune models"
+}

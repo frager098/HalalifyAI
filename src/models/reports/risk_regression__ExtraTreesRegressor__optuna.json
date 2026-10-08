@@ -1,0 +1,2017 @@
+{
+  "study_name": "halalify_risk_return_v1__risk_regression__ExtraTreesRegressor",
+  "direction": "MINIMIZE",
+  "best_value": 0.6913524835942385,
+  "best_params": {
+    "max_depth": 4,
+    "min_samples_leaf": 73,
+    "min_samples_split": 10,
+    "max_features": 1.0,
+    "n_estimators": 400
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "value": 0.6953880134884911,
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "max_features": 1.0,
+        "n_estimators": 100
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 1,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 16.9328535020004,
+        "validation_metrics": {
+          "rmse": 0.6953880134884911,
+          "mae": 0.10460213853320281,
+          "r2": 0.0045734357623572475
+        }
+      },
+      "started": "2026-10-03 17:57:24.980091",
+      "completed": "2026-10-03 17:57:41.979629",
+      "duration_seconds": 16.999538
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "value": 0.6929142209695164,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 5,
+        "min_samples_split": 27,
+        "max_features": "sqrt",
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 5,
+          "min_samples_split": 27,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.8156734499998493,
+        "validation_metrics": {
+          "rmse": 0.6929142209695164,
+          "mae": 0.09698380637558311,
+          "r2": 0.011643154236375297
+        }
+      },
+      "started": "2026-10-03 17:57:42.201800",
+      "completed": "2026-10-03 17:57:44.071887",
+      "duration_seconds": 1.870087
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "value": 0.6929060415170019,
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 35,
+        "min_samples_split": 10,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 35,
+          "min_samples_split": 10,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 8.450147262000428,
+        "validation_metrics": {
+          "rmse": 0.6929060415170019,
+          "mae": 0.09800665588790843,
+          "r2": 0.011666488063068248
+        }
+      },
+      "started": "2026-10-03 17:57:44.286033",
+      "completed": "2026-10-03 17:57:52.791255",
+      "duration_seconds": 8.505222
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "value": 0.6918373881165879,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 49,
+        "min_samples_split": 6,
+        "max_features": 0.5,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 0.5,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 49,
+          "min_samples_split": 6,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.7929017899996325,
+        "validation_metrics": {
+          "rmse": 0.6918373881165879,
+          "mae": 0.0942020115629032,
+          "r2": 0.014712706277688947
+        }
+      },
+      "started": "2026-10-03 17:57:52.995708",
+      "completed": "2026-10-03 17:57:55.842872",
+      "duration_seconds": 2.847164
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "value": 0.6923063934540788,
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 3,
+        "min_samples_split": 28,
+        "max_features": "sqrt",
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 6,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 3,
+          "min_samples_split": 28,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.5464958800002933,
+        "validation_metrics": {
+          "rmse": 0.6923063934540788,
+          "mae": 0.09503802464238006,
+          "r2": 0.013376375974998744
+        }
+      },
+      "started": "2026-10-03 17:57:56.046085",
+      "completed": "2026-10-03 17:57:57.646891",
+      "duration_seconds": 1.600806
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "value": 0.6921446328637186,
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 48,
+        "min_samples_split": 28,
+        "max_features": "sqrt",
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 6,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 48,
+          "min_samples_split": 28,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.0452137649999713,
+        "validation_metrics": {
+          "rmse": 0.6921446328637186,
+          "mae": 0.09460929250445774,
+          "r2": 0.013837380455463011
+        }
+      },
+      "started": "2026-10-03 17:57:57.859626",
+      "completed": "2026-10-03 17:57:58.960925",
+      "duration_seconds": 1.101299
+    },
+    {
+      "number": 6,
+      "state": "COMPLETE",
+      "value": 0.6924638869000068,
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 12,
+        "min_samples_split": 25,
+        "max_features": "sqrt",
+        "n_estimators": 100
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 6,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 12,
+          "min_samples_split": 25,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 0.5616318660004254,
+        "validation_metrics": {
+          "rmse": 0.6924638869000068,
+          "mae": 0.09522820137934053,
+          "r2": 0.01292742900472088
+        }
+      },
+      "started": "2026-10-03 17:57:59.175092",
+      "completed": "2026-10-03 17:57:59.793991",
+      "duration_seconds": 0.618899
+    },
+    {
+      "number": 7,
+      "state": "COMPLETE",
+      "value": 0.6916147053813331,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 29,
+        "min_samples_split": 5,
+        "max_features": 1.0,
+        "n_estimators": 100
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 29,
+          "min_samples_split": 5,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 100,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.0132071079997331,
+        "validation_metrics": {
+          "rmse": 0.6916147053813331,
+          "mae": 0.09464434776846224,
+          "r2": 0.015346875991559816
+        }
+      },
+      "started": "2026-10-03 17:58:00.003042",
+      "completed": "2026-10-03 17:58:01.073095",
+      "duration_seconds": 1.070053
+    },
+    {
+      "number": 8,
+      "state": "COMPLETE",
+      "value": 0.6923949673289705,
+      "params": {
+        "max_depth": 12,
+        "min_samples_leaf": 10,
+        "min_samples_split": 22,
+        "max_features": 0.5,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 12,
+          "max_features": 0.5,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 10,
+          "min_samples_split": 22,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 5.462517107000167,
+        "validation_metrics": {
+          "rmse": 0.6923949673289705,
+          "mae": 0.09636514023018605,
+          "r2": 0.013123902016770272
+        }
+      },
+      "started": "2026-10-03 17:58:01.284185",
+      "completed": "2026-10-03 17:58:06.803357",
+      "duration_seconds": 5.519172
+    },
+    {
+      "number": 9,
+      "state": "COMPLETE",
+      "value": 0.6930183662907128,
+      "params": {
+        "max_depth": 20,
+        "min_samples_leaf": 26,
+        "min_samples_split": 16,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 20,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 26,
+          "min_samples_split": 16,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 17.785790820999864,
+        "validation_metrics": {
+          "rmse": 0.6930183662907128,
+          "mae": 0.09825654883603184,
+          "r2": 0.011346030946183472
+        }
+      },
+      "started": "2026-10-03 17:58:07.010980",
+      "completed": "2026-10-03 17:58:24.855530",
+      "duration_seconds": 17.84455
+    },
+    {
+      "number": 10,
+      "state": "COMPLETE",
+      "value": 0.6914081163103091,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 61,
+        "min_samples_split": 25,
+        "max_features": 1.0,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 61,
+          "min_samples_split": 25,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.807814894999865,
+        "validation_metrics": {
+          "rmse": 0.6914081163103091,
+          "mae": 0.09408764599045774,
+          "r2": 0.01593503061427226
+        }
+      },
+      "started": "2026-10-03 17:58:25.069674",
+      "completed": "2026-10-03 17:58:29.949802",
+      "duration_seconds": 4.880128
+    },
+    {
+      "number": 11,
+      "state": "COMPLETE",
+      "value": 0.691410497561044,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 56,
+        "min_samples_split": 29,
+        "max_features": 1.0,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 56,
+          "min_samples_split": 29,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.813974077000239,
+        "validation_metrics": {
+          "rmse": 0.691410497561044,
+          "mae": 0.09408571018255733,
+          "r2": 0.015928252245863028
+        }
+      },
+      "started": "2026-10-03 17:58:30.154090",
+      "completed": "2026-10-03 17:58:35.039131",
+      "duration_seconds": 4.885041
+    },
+    {
+      "number": 12,
+      "state": "COMPLETE",
+      "value": 0.6914292068321686,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 48,
+        "min_samples_split": 28,
+        "max_features": 1.0,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 48,
+          "min_samples_split": 28,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.8070114730007845,
+        "validation_metrics": {
+          "rmse": 0.6914292068321686,
+          "mae": 0.0941063299032411,
+          "r2": 0.015874994407573895
+        }
+      },
+      "started": "2026-10-03 17:58:35.243605",
+      "completed": "2026-10-03 17:58:40.121791",
+      "duration_seconds": 4.878186
+    },
+    {
+      "number": 13,
+      "state": "COMPLETE",
+      "value": 0.6913798472634121,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 77,
+        "min_samples_split": 30,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 77,
+          "min_samples_split": 30,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.92768612799955,
+        "validation_metrics": {
+          "rmse": 0.6913798472634121,
+          "mae": 0.09401094933465194,
+          "r2": 0.016015498313204812
+        }
+      },
+      "started": "2026-10-03 17:58:40.336297",
+      "completed": "2026-10-03 17:58:43.336245",
+      "duration_seconds": 2.999948
+    },
+    {
+      "number": 14,
+      "state": "COMPLETE",
+      "value": 0.6913937330911627,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 68,
+        "min_samples_split": 19,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 68,
+          "min_samples_split": 19,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.927310011999907,
+        "validation_metrics": {
+          "rmse": 0.6913937330911627,
+          "mae": 0.09412988839484937,
+          "r2": 0.015975972785917225
+        }
+      },
+      "started": "2026-10-03 17:58:43.544961",
+      "completed": "2026-10-03 17:58:46.540521",
+      "duration_seconds": 2.99556
+    },
+    {
+      "number": 15,
+      "state": "COMPLETE",
+      "value": 0.6913778620275919,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 80,
+        "min_samples_split": 18,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 80,
+          "min_samples_split": 18,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.92887777299984,
+        "validation_metrics": {
+          "rmse": 0.6913778620275919,
+          "mae": 0.09400681135809556,
+          "r2": 0.01602114915328179
+        }
+      },
+      "started": "2026-10-03 17:58:46.759387",
+      "completed": "2026-10-03 17:58:49.758081",
+      "duration_seconds": 2.998694
+    },
+    {
+      "number": 16,
+      "state": "COMPLETE",
+      "value": 0.6913524835942385,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 73,
+        "min_samples_split": 10,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 73,
+          "min_samples_split": 10,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.879024974999993,
+        "validation_metrics": {
+          "rmse": 0.6913524835942385,
+          "mae": 0.09398531543733721,
+          "r2": 0.016093385725314713
+        }
+      },
+      "started": "2026-10-03 17:58:49.967009",
+      "completed": "2026-10-03 17:58:53.921886",
+      "duration_seconds": 3.954877
+    },
+    {
+      "number": 17,
+      "state": "COMPLETE",
+      "value": 0.6920602276298691,
+      "params": {
+        "max_depth": 20,
+        "min_samples_leaf": 78,
+        "min_samples_split": 8,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 20,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 78,
+          "min_samples_split": 8,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 14.128111234999778,
+        "validation_metrics": {
+          "rmse": 0.6920602276298691,
+          "mae": 0.0959960921547647,
+          "r2": 0.014077885711963556
+        }
+      },
+      "started": "2026-10-03 17:58:54.141685",
+      "completed": "2026-10-03 17:59:08.341951",
+      "duration_seconds": 14.200266
+    },
+    {
+      "number": 18,
+      "state": "COMPLETE",
+      "value": 0.6917980732948779,
+      "params": {
+        "max_depth": 8,
+        "min_samples_leaf": 69,
+        "min_samples_split": 3,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 8,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 69,
+          "min_samples_split": 3,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 8.0968165029999,
+        "validation_metrics": {
+          "rmse": 0.6917980732948779,
+          "mae": 0.09536193295672082,
+          "r2": 0.014824684306979696
+        }
+      },
+      "started": "2026-10-03 17:59:08.564699",
+      "completed": "2026-10-03 17:59:16.742162",
+      "duration_seconds": 8.177463
+    },
+    {
+      "number": 19,
+      "state": "COMPLETE",
+      "value": 0.6928920601735612,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 79,
+        "min_samples_split": 7,
+        "max_features": "sqrt",
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 79,
+          "min_samples_split": 7,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.0984507459997985,
+        "validation_metrics": {
+          "rmse": 0.6928920601735612,
+          "mae": 0.0968351324861672,
+          "r2": 0.011706372520773445
+        }
+      },
+      "started": "2026-10-03 17:59:16.968941",
+      "completed": "2026-10-03 17:59:18.144050",
+      "duration_seconds": 1.175109
+    },
+    {
+      "number": 20,
+      "state": "COMPLETE",
+      "value": 0.6928408259748076,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 54,
+        "min_samples_split": 10,
+        "max_features": "sqrt",
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 54,
+          "min_samples_split": 10,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.460260326000025,
+        "validation_metrics": {
+          "rmse": 0.6928408259748076,
+          "mae": 0.09682756904747446,
+          "r2": 0.011852520999095728
+        }
+      },
+      "started": "2026-10-03 17:59:18.367199",
+      "completed": "2026-10-03 17:59:19.901763",
+      "duration_seconds": 1.534564
+    },
+    {
+      "number": 21,
+      "state": "COMPLETE",
+      "value": 0.6914203990696327,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 76,
+        "min_samples_split": 30,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 76,
+          "min_samples_split": 30,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.9966435820006154,
+        "validation_metrics": {
+          "rmse": 0.6914203990696327,
+          "mae": 0.09402793571932036,
+          "r2": 0.015900066776692756
+        }
+      },
+      "started": "2026-10-03 17:59:20.126631",
+      "completed": "2026-10-03 17:59:22.195575",
+      "duration_seconds": 2.068944
+    },
+    {
+      "number": 22,
+      "state": "COMPLETE",
+      "value": 0.6917461140634319,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 76,
+        "min_samples_split": 12,
+        "max_features": 0.5,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 0.5,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 76,
+          "min_samples_split": 12,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.2850022679995163,
+        "validation_metrics": {
+          "rmse": 0.6917461140634319,
+          "mae": 0.09391727652710183,
+          "r2": 0.014972666881321817
+        }
+      },
+      "started": "2026-10-03 17:59:22.421641",
+      "completed": "2026-10-03 17:59:24.781167",
+      "duration_seconds": 2.359526
+    },
+    {
+      "number": 23,
+      "state": "COMPLETE",
+      "value": 0.6921200599070807,
+      "params": {
+        "max_depth": 20,
+        "min_samples_leaf": 80,
+        "min_samples_split": 20,
+        "max_features": 1.0,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 20,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 80,
+          "min_samples_split": 20,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 17.61612851300015,
+        "validation_metrics": {
+          "rmse": 0.6921200599070807,
+          "mae": 0.09611827876984921,
+          "r2": 0.013907401950887466
+        }
+      },
+      "started": "2026-10-03 17:59:25.013690",
+      "completed": "2026-10-03 17:59:42.705515",
+      "duration_seconds": 17.691825
+    },
+    {
+      "number": 24,
+      "state": "COMPLETE",
+      "value": 0.6922390786544657,
+      "params": {
+        "max_depth": 12,
+        "min_samples_leaf": 55,
+        "min_samples_split": 26,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 12,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 55,
+          "min_samples_split": 26,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 9.166613022000092,
+        "validation_metrics": {
+          "rmse": 0.6922390786544657,
+          "mae": 0.09652682839241068,
+          "r2": 0.013568230747248444
+        }
+      },
+      "started": "2026-10-03 17:59:42.935595",
+      "completed": "2026-10-03 17:59:52.172934",
+      "duration_seconds": 9.237339
+    },
+    {
+      "number": 25,
+      "state": "COMPLETE",
+      "value": 0.6928855740133897,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 78,
+        "min_samples_split": 25,
+        "max_features": "sqrt",
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 78,
+          "min_samples_split": 25,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.0918985739999698,
+        "validation_metrics": {
+          "rmse": 0.6928855740133897,
+          "mae": 0.09682195469356347,
+          "r2": 0.011724875260607615
+        }
+      },
+      "started": "2026-10-03 17:59:52.392152",
+      "completed": "2026-10-03 17:59:53.556520",
+      "duration_seconds": 1.164368
+    },
+    {
+      "number": 26,
+      "state": "COMPLETE",
+      "value": 0.6913922216563293,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 69,
+        "min_samples_split": 11,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 69,
+          "min_samples_split": 11,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.9542106729995794,
+        "validation_metrics": {
+          "rmse": 0.6913922216563293,
+          "mae": 0.09411152784523234,
+          "r2": 0.015980275071271755
+        }
+      },
+      "started": "2026-10-03 17:59:53.776310",
+      "completed": "2026-10-03 17:59:56.805200",
+      "duration_seconds": 3.02889
+    },
+    {
+      "number": 27,
+      "state": "COMPLETE",
+      "value": 0.6919670748933455,
+      "params": {
+        "max_depth": 12,
+        "min_samples_leaf": 80,
+        "min_samples_split": 23,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 12,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 80,
+          "min_samples_split": 23,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 11.81130808099988,
+        "validation_metrics": {
+          "rmse": 0.6919670748933455,
+          "mae": 0.09597603873796105,
+          "r2": 0.014343282156554116
+        }
+      },
+      "started": "2026-10-03 17:59:57.018383",
+      "completed": "2026-10-03 18:00:08.902730",
+      "duration_seconds": 11.884347
+    },
+    {
+      "number": 28,
+      "state": "COMPLETE",
+      "value": 0.6921225745457191,
+      "params": {
+        "max_depth": 12,
+        "min_samples_leaf": 64,
+        "min_samples_split": 16,
+        "max_features": 1.0,
+        "n_estimators": 500
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 12,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 64,
+          "min_samples_split": 16,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 500,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 14.997743304000323,
+        "validation_metrics": {
+          "rmse": 0.6921225745457191,
+          "mae": 0.0961177066513351,
+          "r2": 0.013900236514725717
+        }
+      },
+      "started": "2026-10-03 18:00:09.129478",
+      "completed": "2026-10-03 18:00:24.196237",
+      "duration_seconds": 15.066759
+    },
+    {
+      "number": 29,
+      "state": "COMPLETE",
+      "value": 0.6916869667844462,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 77,
+        "min_samples_split": 14,
+        "max_features": 0.5,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 0.5,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 77,
+          "min_samples_split": 14,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.717512947000614,
+        "validation_metrics": {
+          "rmse": 0.6916869667844462,
+          "mae": 0.09382301092152405,
+          "r2": 0.015141107858389069
+        }
+      },
+      "started": "2026-10-03 18:00:24.398246",
+      "completed": "2026-10-03 18:00:26.185205",
+      "duration_seconds": 1.786959
+    },
+    {
+      "number": 30,
+      "state": "COMPLETE",
+      "value": 0.6920883318232954,
+      "params": {
+        "max_depth": 20,
+        "min_samples_leaf": 79,
+        "min_samples_split": 26,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 20,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 79,
+          "min_samples_split": 26,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 7.028726590000588,
+        "validation_metrics": {
+          "rmse": 0.6920883318232954,
+          "mae": 0.09614366008926543,
+          "r2": 0.013997808553035784
+        }
+      },
+      "started": "2026-10-03 18:00:26.402914",
+      "completed": "2026-10-03 18:00:33.503934",
+      "duration_seconds": 7.10102
+    },
+    {
+      "number": 31,
+      "state": "COMPLETE",
+      "value": 0.6914073866184448,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 80,
+        "min_samples_split": 17,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 80,
+          "min_samples_split": 17,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.9688886989997627,
+        "validation_metrics": {
+          "rmse": 0.6914073866184448,
+          "mae": 0.09398422836426196,
+          "r2": 0.015937107719837473
+        }
+      },
+      "started": "2026-10-03 18:00:33.711940",
+      "completed": "2026-10-03 18:00:35.751302",
+      "duration_seconds": 2.039362
+    },
+    {
+      "number": 32,
+      "state": "COMPLETE",
+      "value": 0.6914167268538939,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 67,
+        "min_samples_split": 11,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 67,
+          "min_samples_split": 11,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.958978424999259,
+        "validation_metrics": {
+          "rmse": 0.6914167268538939,
+          "mae": 0.09413721387818949,
+          "r2": 0.015910520091843794
+        }
+      },
+      "started": "2026-10-03 18:00:35.964516",
+      "completed": "2026-10-03 18:00:37.997281",
+      "duration_seconds": 2.032765
+    },
+    {
+      "number": 33,
+      "state": "COMPLETE",
+      "value": 0.6915120607393337,
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 75,
+        "min_samples_split": 28,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 6,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 75,
+          "min_samples_split": 28,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.458987549000085,
+        "validation_metrics": {
+          "rmse": 0.6915120607393337,
+          "mae": 0.09477103365528337,
+          "r2": 0.015639125033157564
+        }
+      },
+      "started": "2026-10-03 18:00:38.218549",
+      "completed": "2026-10-03 18:00:42.751983",
+      "duration_seconds": 4.533434
+    },
+    {
+      "number": 34,
+      "state": "COMPLETE",
+      "value": 0.6914400223904634,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 61,
+        "min_samples_split": 15,
+        "max_features": 1.0,
+        "n_estimators": 200
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 61,
+          "min_samples_split": 15,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 200,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.9563849669993942,
+        "validation_metrics": {
+          "rmse": 0.6914400223904634,
+          "mae": 0.09411690954632593,
+          "r2": 0.01584420616632054
+        }
+      },
+      "started": "2026-10-03 18:00:42.970202",
+      "completed": "2026-10-03 18:00:45.001168",
+      "duration_seconds": 2.030966
+    },
+    {
+      "number": 35,
+      "state": "COMPLETE",
+      "value": 0.6913586273504222,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 68,
+        "min_samples_split": 16,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 68,
+          "min_samples_split": 16,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.8727547480002613,
+        "validation_metrics": {
+          "rmse": 0.6913586273504222,
+          "mae": 0.09404277853800941,
+          "r2": 0.016075898526387356
+        }
+      },
+      "started": "2026-10-03 18:00:45.208579",
+      "completed": "2026-10-03 18:00:49.156314",
+      "duration_seconds": 3.947735
+    },
+    {
+      "number": 36,
+      "state": "COMPLETE",
+      "value": 0.6913798472634121,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 77,
+        "min_samples_split": 3,
+        "max_features": 1.0,
+        "n_estimators": 300
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 77,
+          "min_samples_split": 3,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 300,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.9204818919997706,
+        "validation_metrics": {
+          "rmse": 0.6913798472634121,
+          "mae": 0.09401094933465194,
+          "r2": 0.016015498313204812
+        }
+      },
+      "started": "2026-10-03 18:00:49.380565",
+      "completed": "2026-10-03 18:00:52.374504",
+      "duration_seconds": 2.993939
+    },
+    {
+      "number": 37,
+      "state": "COMPLETE",
+      "value": 0.6913596609700418,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 70,
+        "min_samples_split": 10,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 70,
+          "min_samples_split": 10,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.9130128899996635,
+        "validation_metrics": {
+          "rmse": 0.6913596609700418,
+          "mae": 0.09399747718105822,
+          "r2": 0.01607295648162088
+        }
+      },
+      "started": "2026-10-03 18:00:52.607163",
+      "completed": "2026-10-03 18:00:56.601500",
+      "duration_seconds": 3.994337
+    },
+    {
+      "number": 38,
+      "state": "COMPLETE",
+      "value": 0.6913596609700418,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 70,
+        "min_samples_split": 21,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 70,
+          "min_samples_split": 21,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.8864311629995427,
+        "validation_metrics": {
+          "rmse": 0.6913596609700418,
+          "mae": 0.09399747718105822,
+          "r2": 0.01607295648162088
+        }
+      },
+      "started": "2026-10-03 18:00:56.831103",
+      "completed": "2026-10-03 18:01:00.790037",
+      "duration_seconds": 3.958934
+    },
+    {
+      "number": 39,
+      "state": "COMPLETE",
+      "value": 0.6913716182233586,
+      "params": {
+        "max_depth": 4,
+        "min_samples_leaf": 64,
+        "min_samples_split": 7,
+        "max_features": 1.0,
+        "n_estimators": 400
+      },
+      "distributions": {
+        "max_depth": "CategoricalDistribution(choices=(None, 4, 6, 8, 12, 20))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=1, step=1)",
+        "min_samples_split": "IntDistribution(high=30, log=False, low=2, step=1)",
+        "max_features": "CategoricalDistribution(choices=(1.0, 'sqrt', 0.5))",
+        "n_estimators": "IntDistribution(high=500, log=False, low=100, step=100)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "bootstrap": false,
+          "ccp_alpha": 0.0,
+          "criterion": "squared_error",
+          "max_depth": 4,
+          "max_features": 1.0,
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 64,
+          "min_samples_split": 7,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 400,
+          "n_jobs": 2,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.8918402429999333,
+        "validation_metrics": {
+          "rmse": 0.6913716182233586,
+          "mae": 0.09404426616664212,
+          "r2": 0.016038921615808333
+        }
+      },
+      "started": "2026-10-03 18:01:01.030089",
+      "completed": "2026-10-03 18:01:04.998339",
+      "duration_seconds": 3.96825
+    }
+  ],
+  "objective_partition": "validation",
+  "fit_partition": "train",
+  "test_used": false
+}

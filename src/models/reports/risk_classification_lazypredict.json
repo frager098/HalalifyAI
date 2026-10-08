@@ -1,0 +1,1241 @@
+{
+  "ranking_metric": "macro_f1",
+  "ranking_order": "descending",
+  "requested_families": [
+    "LogisticRegression",
+    "DecisionTreeClassifier",
+    "RandomForestClassifier",
+    "ExtraTreesClassifier",
+    "GradientBoostingClassifier",
+    "HistGradientBoostingClassifier",
+    "GaussianNB",
+    "AdaBoostClassifier"
+  ],
+  "successful_families": [
+    "GradientBoostingClassifier",
+    "ExtraTreesClassifier",
+    "LogisticRegression",
+    "RandomForestClassifier",
+    "AdaBoostClassifier",
+    "HistGradientBoostingClassifier",
+    "GaussianNB",
+    "DecisionTreeClassifier"
+  ],
+  "failed_or_unscored_families": [],
+  "leaderboard": [
+    {
+      "Model": "GradientBoostingClassifier",
+      "Accuracy": 0.5942857142857143,
+      "Balanced Accuracy": 0.585250545176364,
+      "ROC AUC": 0.7759874668243208,
+      "F1 Score": 0.6022007070269989,
+      "Precision": 0.6190600280964512,
+      "Recall": 0.5942857142857143,
+      "macro_f1": 0.5648069635813607,
+      "Time Taken": 150.84577107429504
+    },
+    {
+      "Model": "ExtraTreesClassifier",
+      "Accuracy": 0.5960662525879917,
+      "Balanced Accuracy": 0.5767966883156808,
+      "ROC AUC": 0.7639492360609488,
+      "F1 Score": 0.5996176155568482,
+      "Precision": 0.6077522867834833,
+      "Recall": 0.5960662525879917,
+      "macro_f1": 0.5594745553790478,
+      "Time Taken": 8.24824070930481
+    },
+    {
+      "Model": "LogisticRegression",
+      "Accuracy": 0.5946583850931677,
+      "Balanced Accuracy": 0.585937027171508,
+      "ROC AUC": 0.7732705921285375,
+      "F1 Score": 0.5991508141482027,
+      "Precision": 0.6144843896034006,
+      "Recall": 0.5946583850931677,
+      "macro_f1": 0.5571549616465504,
+      "Time Taken": 0.3507199287414551
+    },
+    {
+      "Model": "RandomForestClassifier",
+      "Accuracy": 0.5889026915113872,
+      "Balanced Accuracy": 0.5632631850275565,
+      "ROC AUC": 0.7635971679003336,
+      "F1 Score": 0.5938694682604579,
+      "Precision": 0.6028078865885081,
+      "Recall": 0.5889026915113872,
+      "macro_f1": 0.5492046116751991,
+      "Time Taken": 41.17626333236694
+    },
+    {
+      "Model": "AdaBoostClassifier",
+      "Accuracy": 0.5836024844720497,
+      "Balanced Accuracy": 0.5764855551300844,
+      "ROC AUC": 0.7603954375045298,
+      "F1 Score": 0.5887809307636602,
+      "Precision": 0.6044651378694522,
+      "Recall": 0.5836024844720497,
+      "macro_f1": 0.5486873228198172,
+      "Time Taken": 9.224794387817383
+    },
+    {
+      "Model": "HistGradientBoostingClassifier",
+      "Accuracy": 0.5711801242236025,
+      "Balanced Accuracy": 0.5577407920697368,
+      "ROC AUC": 0.7528003832284995,
+      "F1 Score": 0.5784553910858711,
+      "Precision": 0.5938704422743375,
+      "Recall": 0.5711801242236025,
+      "macro_f1": 0.5374722649609708,
+      "Time Taken": 2.546987533569336
+    },
+    {
+      "Model": "GaussianNB",
+      "Accuracy": 0.5371428571428571,
+      "Balanced Accuracy": 0.5711031165800526,
+      "ROC AUC": 0.746478274777972,
+      "F1 Score": 0.5513068886850029,
+      "Precision": 0.61923844514338,
+      "Recall": 0.5371428571428571,
+      "macro_f1": 0.5286387596842168,
+      "Time Taken": 0.08347153663635254
+    },
+    {
+      "Model": "DecisionTreeClassifier",
+      "Accuracy": 0.47991718426501034,
+      "Balanced Accuracy": 0.45621640569154803,
+      "ROC AUC": 0.5996950161483677,
+      "F1 Score": 0.493180095896119,
+      "Precision": 0.5183389589083761,
+      "Recall": 0.47991718426501034,
+      "macro_f1": 0.44185497902098625,
+      "Time Taken": 2.3112664222717285
+    }
+  ],
+  "top5": [
+    "GradientBoostingClassifier",
+    "ExtraTreesClassifier",
+    "LogisticRegression",
+    "RandomForestClassifier",
+    "AdaBoostClassifier"
+  ],
+  "fitted_parameters": {
+    "GradientBoostingClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "GradientBoostingClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "GradientBoostingClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__ccp_alpha": 0.0,
+      "classifier__criterion": "friedman_mse",
+      "classifier__init": null,
+      "classifier__learning_rate": 0.1,
+      "classifier__loss": "log_loss",
+      "classifier__max_depth": 3,
+      "classifier__max_features": null,
+      "classifier__max_leaf_nodes": null,
+      "classifier__min_impurity_decrease": 0.0,
+      "classifier__min_samples_leaf": 1,
+      "classifier__min_samples_split": 2,
+      "classifier__min_weight_fraction_leaf": 0.0,
+      "classifier__n_estimators": 100,
+      "classifier__n_iter_no_change": null,
+      "classifier__random_state": 42,
+      "classifier__subsample": 1.0,
+      "classifier__tol": 0.0001,
+      "classifier__validation_fraction": 0.1,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    },
+    "ExtraTreesClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "ExtraTreesClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "ExtraTreesClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__bootstrap": false,
+      "classifier__ccp_alpha": 0.0,
+      "classifier__class_weight": null,
+      "classifier__criterion": "gini",
+      "classifier__max_depth": null,
+      "classifier__max_features": "sqrt",
+      "classifier__max_leaf_nodes": null,
+      "classifier__max_samples": null,
+      "classifier__min_impurity_decrease": 0.0,
+      "classifier__min_samples_leaf": 1,
+      "classifier__min_samples_split": 2,
+      "classifier__min_weight_fraction_leaf": 0.0,
+      "classifier__monotonic_cst": null,
+      "classifier__n_estimators": 100,
+      "classifier__n_jobs": null,
+      "classifier__oob_score": false,
+      "classifier__random_state": 42,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    },
+    "LogisticRegression": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "LogisticRegression(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "LogisticRegression(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__C": 1.0,
+      "classifier__class_weight": null,
+      "classifier__dual": false,
+      "classifier__fit_intercept": true,
+      "classifier__intercept_scaling": 1,
+      "classifier__l1_ratio": null,
+      "classifier__max_iter": 100,
+      "classifier__multi_class": "deprecated",
+      "classifier__n_jobs": null,
+      "classifier__penalty": "l2",
+      "classifier__random_state": 42,
+      "classifier__solver": "lbfgs",
+      "classifier__tol": 0.0001,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    },
+    "RandomForestClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "RandomForestClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "RandomForestClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__bootstrap": true,
+      "classifier__ccp_alpha": 0.0,
+      "classifier__class_weight": null,
+      "classifier__criterion": "gini",
+      "classifier__max_depth": null,
+      "classifier__max_features": "sqrt",
+      "classifier__max_leaf_nodes": null,
+      "classifier__max_samples": null,
+      "classifier__min_impurity_decrease": 0.0,
+      "classifier__min_samples_leaf": 1,
+      "classifier__min_samples_split": 2,
+      "classifier__min_weight_fraction_leaf": 0.0,
+      "classifier__monotonic_cst": null,
+      "classifier__n_estimators": 100,
+      "classifier__n_jobs": null,
+      "classifier__oob_score": false,
+      "classifier__random_state": 42,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    },
+    "AdaBoostClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "AdaBoostClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "AdaBoostClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__algorithm": "deprecated",
+      "classifier__estimator": null,
+      "classifier__learning_rate": 1.0,
+      "classifier__n_estimators": 50,
+      "classifier__random_state": 42
+    },
+    "HistGradientBoostingClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "HistGradientBoostingClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "HistGradientBoostingClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__categorical_features": "from_dtype",
+      "classifier__class_weight": null,
+      "classifier__early_stopping": "auto",
+      "classifier__interaction_cst": null,
+      "classifier__l2_regularization": 0.0,
+      "classifier__learning_rate": 0.1,
+      "classifier__loss": "log_loss",
+      "classifier__max_bins": 255,
+      "classifier__max_depth": null,
+      "classifier__max_features": 1.0,
+      "classifier__max_iter": 100,
+      "classifier__max_leaf_nodes": 31,
+      "classifier__min_samples_leaf": 20,
+      "classifier__monotonic_cst": null,
+      "classifier__n_iter_no_change": 10,
+      "classifier__random_state": 42,
+      "classifier__scoring": "loss",
+      "classifier__tol": 1e-07,
+      "classifier__validation_fraction": 0.1,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    },
+    "GaussianNB": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "GaussianNB()"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "GaussianNB()",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__priors": null,
+      "classifier__var_smoothing": 1e-09
+    },
+    "DecisionTreeClassifier": {
+      "memory": null,
+      "steps": [
+        [
+          "preprocessor",
+          "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])"
+        ],
+        [
+          "classifier",
+          "DecisionTreeClassifier(random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "preprocessor": "ColumnTransformer(transformers=[('numeric',\n                                 Pipeline(steps=[('imputer', SimpleImputer()),\n                                                 ('scaler', StandardScaler())]),\n                                 Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vo...\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False))]),\n                                 Index([], dtype='object')),\n                                ('categorical_high',\n                                 Pipeline(steps=[('imputer',\n                                                  SimpleImputer(fill_value='missing',\n                                                                strategy='constant')),\n                                                 ('encoding',\n                                                  OrdinalEncoder(handle_unknown='use_encoded_value',\n                                                                 unknown_value=-1))]),\n                                 Index([], dtype='object'))])",
+      "classifier": "DecisionTreeClassifier(random_state=42)",
+      "preprocessor__force_int_remainder_cols": true,
+      "preprocessor__n_jobs": null,
+      "preprocessor__remainder": "drop",
+      "preprocessor__sparse_threshold": 0.3,
+      "preprocessor__transformer_weights": null,
+      "preprocessor__transformers": [
+        [
+          "numeric",
+          "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+          "Index(['ret_1d', 'ret_5d', 'ret_20d', 'ret_60d', 'vol_20d', 'vol_60d',\n       'downside_dev_20d', 'max_drawdown_60d', 'price_sma20_ratio',\n       'price_sma50_ratio', 'rsi_14', 'volume_ratio_20d',\n       'log_dollar_volume_20d', 'beta_60d', 'market_ret_20d',\n       'market_vol_20d'],\n      dtype='object')"
+        ],
+        [
+          "categorical_low",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+          "Index([], dtype='object')"
+        ],
+        [
+          "categorical_high",
+          "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+          "Index([], dtype='object')"
+        ]
+      ],
+      "preprocessor__verbose": false,
+      "preprocessor__verbose_feature_names_out": true,
+      "preprocessor__numeric": "Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler())])",
+      "preprocessor__categorical_low": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])",
+      "preprocessor__categorical_high": "Pipeline(steps=[('imputer',\n                 SimpleImputer(fill_value='missing', strategy='constant')),\n                ('encoding',\n                 OrdinalEncoder(handle_unknown='use_encoded_value',\n                                unknown_value=-1))])",
+      "preprocessor__numeric__memory": null,
+      "preprocessor__numeric__steps": [
+        [
+          "imputer",
+          "SimpleImputer()"
+        ],
+        [
+          "scaler",
+          "StandardScaler()"
+        ]
+      ],
+      "preprocessor__numeric__transform_input": null,
+      "preprocessor__numeric__verbose": false,
+      "preprocessor__numeric__imputer": "SimpleImputer()",
+      "preprocessor__numeric__scaler": "StandardScaler()",
+      "preprocessor__numeric__imputer__add_indicator": false,
+      "preprocessor__numeric__imputer__copy": true,
+      "preprocessor__numeric__imputer__fill_value": null,
+      "preprocessor__numeric__imputer__keep_empty_features": false,
+      "preprocessor__numeric__imputer__missing_values": null,
+      "preprocessor__numeric__imputer__strategy": "mean",
+      "preprocessor__numeric__scaler__copy": true,
+      "preprocessor__numeric__scaler__with_mean": true,
+      "preprocessor__numeric__scaler__with_std": true,
+      "preprocessor__categorical_low__memory": null,
+      "preprocessor__categorical_low__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OneHotEncoder(handle_unknown='ignore', sparse_output=False)"
+        ]
+      ],
+      "preprocessor__categorical_low__transform_input": null,
+      "preprocessor__categorical_low__verbose": false,
+      "preprocessor__categorical_low__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_low__encoding": "OneHotEncoder(handle_unknown='ignore', sparse_output=False)",
+      "preprocessor__categorical_low__imputer__add_indicator": false,
+      "preprocessor__categorical_low__imputer__copy": true,
+      "preprocessor__categorical_low__imputer__fill_value": "missing",
+      "preprocessor__categorical_low__imputer__keep_empty_features": false,
+      "preprocessor__categorical_low__imputer__missing_values": null,
+      "preprocessor__categorical_low__imputer__strategy": "constant",
+      "preprocessor__categorical_low__encoding__categories": "auto",
+      "preprocessor__categorical_low__encoding__drop": null,
+      "preprocessor__categorical_low__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_low__encoding__feature_name_combiner": "concat",
+      "preprocessor__categorical_low__encoding__handle_unknown": "ignore",
+      "preprocessor__categorical_low__encoding__max_categories": null,
+      "preprocessor__categorical_low__encoding__min_frequency": null,
+      "preprocessor__categorical_low__encoding__sparse_output": false,
+      "preprocessor__categorical_high__memory": null,
+      "preprocessor__categorical_high__steps": [
+        [
+          "imputer",
+          "SimpleImputer(fill_value='missing', strategy='constant')"
+        ],
+        [
+          "encoding",
+          "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)"
+        ]
+      ],
+      "preprocessor__categorical_high__transform_input": null,
+      "preprocessor__categorical_high__verbose": false,
+      "preprocessor__categorical_high__imputer": "SimpleImputer(fill_value='missing', strategy='constant')",
+      "preprocessor__categorical_high__encoding": "OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)",
+      "preprocessor__categorical_high__imputer__add_indicator": false,
+      "preprocessor__categorical_high__imputer__copy": true,
+      "preprocessor__categorical_high__imputer__fill_value": "missing",
+      "preprocessor__categorical_high__imputer__keep_empty_features": false,
+      "preprocessor__categorical_high__imputer__missing_values": null,
+      "preprocessor__categorical_high__imputer__strategy": "constant",
+      "preprocessor__categorical_high__encoding__categories": "auto",
+      "preprocessor__categorical_high__encoding__dtype": "<class 'numpy.float64'>",
+      "preprocessor__categorical_high__encoding__encoded_missing_value": null,
+      "preprocessor__categorical_high__encoding__handle_unknown": "use_encoded_value",
+      "preprocessor__categorical_high__encoding__max_categories": null,
+      "preprocessor__categorical_high__encoding__min_frequency": null,
+      "preprocessor__categorical_high__encoding__unknown_value": -1,
+      "classifier__ccp_alpha": 0.0,
+      "classifier__class_weight": null,
+      "classifier__criterion": "gini",
+      "classifier__max_depth": null,
+      "classifier__max_features": null,
+      "classifier__max_leaf_nodes": null,
+      "classifier__min_impurity_decrease": 0.0,
+      "classifier__min_samples_leaf": 1,
+      "classifier__min_samples_split": 2,
+      "classifier__min_weight_fraction_leaf": 0.0,
+      "classifier__monotonic_cst": null,
+      "classifier__random_state": 42,
+      "classifier__splitter": "best"
+    }
+  },
+  "train_rows": 58237,
+  "validation_rows": 24150,
+  "test_used": false
+}

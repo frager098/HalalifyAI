@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "file": "onnx/return_classification__baseline.onnx",
+  "sha256": "d472e7f180c3b0b0a4109f1b2c3d4c9090868e3b405fe0da38ebf65fccf49f5f",
+  "input_name": "features",
+  "input_dtype": "float32",
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "outputs": [
+    {
+      "name": "label",
+      "type": "tensor(int64)",
+      "shape": [
+        null
+      ]
+    },
+    {
+      "name": "probabilities",
+      "type": "tensor(float)",
+      "shape": [
+        null,
+        3
+      ]
+    }
+  ],
+  "parity": {
+    "label_disagreement_rate": 0.0,
+    "max_probability_difference": 6.957928294637483e-08,
+    "probability_match": true,
+    "passed": true
+  },
+  "probe_rows": 256,
+  "probe_partition": "development",
+  "model_family": "LogisticRegression",
+  "probability_class_ids": [
+    0,
+    1,
+    2
+  ],
+  "class_id_to_label": {
+    "0": "Low",
+    "1": "Medium",
+    "2": "High"
+  }
+}

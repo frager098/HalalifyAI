@@ -1,0 +1,4177 @@
+{
+  "study_name": "halalify_risk_return_v1__return_classification__HistGradientBoostingClassifier",
+  "direction": "MAXIMIZE",
+  "best_value": 0.37221168173678726,
+  "best_params": {
+    "learning_rate": 0.012151617026673379,
+    "max_iter": 400,
+    "max_leaf_nodes": 7,
+    "min_samples_leaf": 58,
+    "l2_regularization": 4.4015249373960135
+  },
+  "trials": [
+    {
+      "number": 0,
+      "state": "COMPLETE",
+      "value": 0.3611099422108612,
+      "params": {
+        "learning_rate": 0.1,
+        "max_iter": 100,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.0
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 0.0,
+          "learning_rate": 0.1,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 20,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.9486720519998926,
+        "validation_metrics": {
+          "macro_f1": 0.3611099422108612,
+          "accuracy": 0.3686128364389234,
+          "balanced_accuracy": 0.3661630209519986,
+          "confusion_matrix": [
+            [
+              3365,
+              2256,
+              4509
+            ],
+            [
+              2019,
+              1802,
+              2210
+            ],
+            [
+              2574,
+              1680,
+              3735
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4228449359135461,
+              "recall": 0.3321816386969398,
+              "f1-score": 0.37206988058381246,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.314046706169397,
+              "recall": 0.2987895871331454,
+              "f1-score": 0.3062282266972555,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3572795102353166,
+              "recall": 0.46751783702591065,
+              "f1-score": 0.4050317193515155,
+              "support": 7989.0
+            },
+            "accuracy": 0.3686128364389234,
+            "macro avg": {
+              "precision": 0.36472371743941995,
+              "recall": 0.3661630209519986,
+              "f1-score": 0.3611099422108612,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3739851301441739,
+              "recall": 0.3686128364389234,
+              "f1-score": 0.3665312104109493,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1522656910268683
+        }
+      },
+      "started": "2026-10-03 21:05:22.387942",
+      "completed": "2026-10-03 21:05:24.392590",
+      "duration_seconds": 2.004648
+    },
+    {
+      "number": 1,
+      "state": "COMPLETE",
+      "value": 0.3647665544890146,
+      "params": {
+        "learning_rate": 0.030710573677773714,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 14,
+        "l2_regularization": 8.661761457749352
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.661761457749352,
+          "learning_rate": 0.030710573677773714,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 14,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.204037202001928,
+        "validation_metrics": {
+          "macro_f1": 0.3647665544890146,
+          "accuracy": 0.3708488612836439,
+          "balanced_accuracy": 0.37453924124087773,
+          "confusion_matrix": [
+            [
+              2941,
+              2285,
+              4904
+            ],
+            [
+              1780,
+              1978,
+              2273
+            ],
+            [
+              2265,
+              1687,
+              4037
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42098482679645005,
+              "recall": 0.2903257650542942,
+              "f1-score": 0.34365505959336295,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.33243697478991596,
+              "recall": 0.3279721439230642,
+              "f1-score": 0.33018946665553794,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3599964330301409,
+              "recall": 0.5053198147452748,
+              "f1-score": 0.420455137218143,
+              "support": 7989.0
+            },
+            "accuracy": 0.3708488612836439,
+            "macro avg": {
+              "precision": 0.3711394115388356,
+              "recall": 0.37453924124087773,
+              "f1-score": 0.3647665544890146,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.37869628132024086,
+              "recall": 0.3708488612836439,
+              "f1-score": 0.3656983237397955,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1030244202417328
+        }
+      },
+      "started": "2026-10-03 21:05:24.604013",
+      "completed": "2026-10-03 21:05:28.864598",
+      "duration_seconds": 4.260585
+    },
+    {
+      "number": 2,
+      "state": "COMPLETE",
+      "value": 0.36520136320565993,
+      "params": {
+        "learning_rate": 0.06054365855469246,
+        "max_iter": 300,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 22,
+        "l2_regularization": 1.8340450985343382
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 1.8340450985343382,
+          "learning_rate": 0.06054365855469246,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 15,
+          "min_samples_leaf": 22,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.960333613998955,
+        "validation_metrics": {
+          "macro_f1": 0.36520136320565993,
+          "accuracy": 0.37229813664596273,
+          "balanced_accuracy": 0.3713581488863223,
+          "confusion_matrix": [
+            [
+              3283,
+              2229,
+              4618
+            ],
+            [
+              1952,
+              1858,
+              2221
+            ],
+            [
+              2460,
+              1679,
+              3850
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4266406757634828,
+              "recall": 0.3240868706811451,
+              "f1-score": 0.36835904628330995,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.32223378425251475,
+              "recall": 0.30807494611175595,
+              "f1-score": 0.3149953377977452,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3601833660772757,
+              "recall": 0.48191262986606587,
+              "f1-score": 0.4122497055359246,
+              "support": 7989.0
+            },
+            "accuracy": 0.37229813664596273,
+            "macro avg": {
+              "precision": 0.3696859420310911,
+              "recall": 0.3713581488863223,
+              "f1-score": 0.36520136320565993,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3785824807412982,
+              "recall": 0.37229813664596273,
+              "f1-score": 0.3695518392809372,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1430272790408535
+        }
+      },
+      "started": "2026-10-03 21:05:29.067113",
+      "completed": "2026-10-03 21:05:33.084335",
+      "duration_seconds": 4.017222
+    },
+    {
+      "number": 3,
+      "state": "COMPLETE",
+      "value": 0.36343715856291503,
+      "params": {
+        "learning_rate": 0.024878734419814436,
+        "max_iter": 300,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 30,
+        "l2_regularization": 3.663618432936917
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 3.663618432936917,
+          "learning_rate": 0.024878734419814436,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 30,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 5.684361726998759,
+        "validation_metrics": {
+          "macro_f1": 0.36343715856291503,
+          "accuracy": 0.3694824016563147,
+          "balanced_accuracy": 0.3720442186806785,
+          "confusion_matrix": [
+            [
+              3034,
+              2325,
+              4771
+            ],
+            [
+              1804,
+              1956,
+              2271
+            ],
+            [
+              2294,
+              1762,
+              3933
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42540661805945035,
+              "recall": 0.29950641658440275,
+              "f1-score": 0.35152357780095006,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.32368029124606984,
+              "recall": 0.32432432432432434,
+              "f1-score": 0.3240019877422561,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3583599088838269,
+              "recall": 0.4923019151333083,
+              "f1-score": 0.4147859101455389,
+              "support": 7989.0
+            },
+            "accuracy": 0.3694824016563147,
+            "macro avg": {
+              "precision": 0.36914893939644905,
+              "recall": 0.3720442186806785,
+              "f1-score": 0.36343715856291503,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3778228649904834,
+              "recall": 0.3694824016563147,
+              "f1-score": 0.36557823881365964,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.134752511900482
+        }
+      },
+      "started": "2026-10-03 21:05:33.291050",
+      "completed": "2026-10-03 21:05:39.032951",
+      "duration_seconds": 5.741901
+    },
+    {
+      "number": 4,
+      "state": "COMPLETE",
+      "value": 0.3665883950788471,
+      "params": {
+        "learning_rate": 0.03920673972242137,
+        "max_iter": 400,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 53,
+        "l2_regularization": 1.7052412368729153
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 1.7052412368729153,
+          "learning_rate": 0.03920673972242137,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 53,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 6.96619734900014,
+        "validation_metrics": {
+          "macro_f1": 0.3665883950788471,
+          "accuracy": 0.37403726708074536,
+          "balanced_accuracy": 0.3727767293244484,
+          "confusion_matrix": [
+            [
+              3327,
+              2322,
+              4481
+            ],
+            [
+              1901,
+              1862,
+              2268
+            ],
+            [
+              2391,
+              1754,
+              3844
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.436671479196745,
+              "recall": 0.3284304047384008,
+              "f1-score": 0.37489436024564765,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.31357359380262717,
+              "recall": 0.30873818603879954,
+              "f1-score": 0.31113710418581336,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3628811479278769,
+              "recall": 0.4811615971961447,
+              "f1-score": 0.4137337208050802,
+              "support": 7989.0
+            },
+            "accuracy": 0.37403726708074536,
+            "macro avg": {
+              "precision": 0.3710420736424163,
+              "recall": 0.3727767293244484,
+              "f1-score": 0.3665883950788471,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38151974821045465,
+              "recall": 0.37403726708074536,
+              "f1-score": 0.37182055652773655,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1608194830596508
+        }
+      },
+      "started": "2026-10-03 21:05:39.249034",
+      "completed": "2026-10-03 21:05:46.271332",
+      "duration_seconds": 7.022298
+    },
+    {
+      "number": 5,
+      "state": "COMPLETE",
+      "value": 0.37221168173678726,
+      "params": {
+        "learning_rate": 0.012151617026673379,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 58,
+        "l2_regularization": 4.4015249373960135
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 4.4015249373960135,
+          "learning_rate": 0.012151617026673379,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 58,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.393633632000274,
+        "validation_metrics": {
+          "macro_f1": 0.37221168173678726,
+          "accuracy": 0.37925465838509315,
+          "balanced_accuracy": 0.38804857907661744,
+          "confusion_matrix": [
+            [
+              2623,
+              2324,
+              5183
+            ],
+            [
+              1497,
+              2143,
+              2391
+            ],
+            [
+              1906,
+              1690,
+              4393
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43528045137736476,
+              "recall": 0.25893385982231,
+              "f1-score": 0.3247090864075266,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34805911970115316,
+              "recall": 0.355330790913613,
+              "f1-score": 0.3516573679028553,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3670928386395922,
+              "recall": 0.5498810864939292,
+              "f1-score": 0.44026859089997994,
+              "support": 7989.0
+            },
+            "accuracy": 0.37925465838509315,
+            "macro avg": {
+              "precision": 0.38347746990603665,
+              "recall": 0.38804857907661744,
+              "f1-score": 0.37221168173678726,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3909416236547438,
+              "recall": 0.37925465838509315,
+              "f1-score": 0.3696668490198884,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0891544868946486
+        }
+      },
+      "started": "2026-10-03 21:05:46.482112",
+      "completed": "2026-10-03 21:05:50.932795",
+      "duration_seconds": 4.450683
+    },
+    {
+      "number": 6,
+      "state": "COMPLETE",
+      "value": 0.3644440141115557,
+      "params": {
+        "learning_rate": 0.014413697528610409,
+        "max_iter": 200,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 32,
+        "l2_regularization": 5.200680211778108
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 5.200680211778108,
+          "learning_rate": 0.014413697528610409,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 15,
+          "min_samples_leaf": 32,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.093733145000442,
+        "validation_metrics": {
+          "macro_f1": 0.3644440141115557,
+          "accuracy": 0.37287784679089025,
+          "balanced_accuracy": 0.37869160695752857,
+          "confusion_matrix": [
+            [
+              2682,
+              2237,
+              5211
+            ],
+            [
+              1612,
+              1965,
+              2454
+            ],
+            [
+              1993,
+              1638,
+              4358
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4265945602035947,
+              "recall": 0.26475814412635734,
+              "f1-score": 0.3267344825485777,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.336472602739726,
+              "recall": 0.32581661416017244,
+              "f1-score": 0.3310588829921658,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36247192880312734,
+              "recall": 0.5455000625860559,
+              "f1-score": 0.43553867679392366,
+              "support": 7989.0
+            },
+            "accuracy": 0.37287784679089025,
+            "macro avg": {
+              "precision": 0.375179697248816,
+              "recall": 0.37869160695752857,
+              "f1-score": 0.3644440141115557,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3828760828651713,
+              "recall": 0.37287784679089025,
+              "f1-score": 0.36380765716146996,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0948464485400478
+        }
+      },
+      "started": "2026-10-03 21:05:51.141957",
+      "completed": "2026-10-03 21:05:54.295434",
+      "duration_seconds": 3.153477
+    },
+    {
+      "number": 7,
+      "state": "COMPLETE",
+      "value": 0.3713645095365588,
+      "params": {
+        "learning_rate": 0.05143828405076928,
+        "max_iter": 100,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 52,
+        "l2_regularization": 9.218742350231167
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 9.218742350231167,
+          "learning_rate": 0.05143828405076928,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 52,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.1827297400013776,
+        "validation_metrics": {
+          "macro_f1": 0.3713645095365588,
+          "accuracy": 0.37863354037267083,
+          "balanced_accuracy": 0.3856625652559284,
+          "confusion_matrix": [
+            [
+              2712,
+              2266,
+              5152
+            ],
+            [
+              1588,
+              2071,
+              2372
+            ],
+            [
+              1979,
+              1649,
+              4361
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4319159101767797,
+              "recall": 0.26771964461994074,
+              "f1-score": 0.3305503077579377,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3459739391914467,
+              "recall": 0.34339247222682806,
+              "f1-score": 0.3446783723059,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36693310896087505,
+              "recall": 0.5458755789210163,
+              "f1-score": 0.4388648485458388,
+              "support": 7989.0
+            },
+            "accuracy": 0.37863354037267083,
+            "macro avg": {
+              "precision": 0.38160765277636716,
+              "recall": 0.3856625652559284,
+              "f1-score": 0.3713645095365588,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3889567538237194,
+              "recall": 0.37863354037267083,
+              "f1-score": 0.3699097787162525,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0899727697083974
+        }
+      },
+      "started": "2026-10-03 21:05:54.495211",
+      "completed": "2026-10-03 21:05:55.736274",
+      "duration_seconds": 1.241063
+    },
+    {
+      "number": 8,
+      "state": "COMPLETE",
+      "value": 0.3587664797509044,
+      "params": {
+        "learning_rate": 0.01303561122512888,
+        "max_iter": 100,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 68,
+        "l2_regularization": 3.567533266935893
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 3.567533266935893,
+          "learning_rate": 0.01303561122512888,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 68,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.316067023002688,
+        "validation_metrics": {
+          "macro_f1": 0.3587664797509044,
+          "accuracy": 0.36645962732919257,
+          "balanced_accuracy": 0.3730715913867244,
+          "confusion_matrix": [
+            [
+              2589,
+              2139,
+              5402
+            ],
+            [
+              1599,
+              1967,
+              2465
+            ],
+            [
+              2033,
+              1662,
+              4294
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4161710335958849,
+              "recall": 0.2555774925962488,
+              "f1-score": 0.31667787902880556,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34101941747572817,
+              "recall": 0.32614823412369426,
+              "f1-score": 0.33341808627849817,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3530959625030836,
+              "recall": 0.5374890474402303,
+              "f1-score": 0.4262034739454094,
+              "support": 7989.0
+            },
+            "accuracy": 0.36645962732919257,
+            "macro avg": {
+              "precision": 0.37009547119156555,
+              "recall": 0.3730715913867244,
+              "f1-score": 0.3587664797509044,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3765376530666487,
+              "recall": 0.36645962732919257,
+              "f1-score": 0.3570903083336356,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0996866096627216
+        }
+      },
+      "started": "2026-10-03 21:05:55.941099",
+      "completed": "2026-10-03 21:05:58.315712",
+      "duration_seconds": 2.374613
+    },
+    {
+      "number": 9,
+      "state": "COMPLETE",
+      "value": 0.3575783254595693,
+      "params": {
+        "learning_rate": 0.023200867504756827,
+        "max_iter": 300,
+        "max_leaf_nodes": 63,
+        "min_samples_leaf": 64,
+        "l2_regularization": 1.987156815341724
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 1.987156815341724,
+          "learning_rate": 0.023200867504756827,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 63,
+          "min_samples_leaf": 64,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 8.205700998001703,
+        "validation_metrics": {
+          "macro_f1": 0.3575783254595693,
+          "accuracy": 0.3644306418219462,
+          "balanced_accuracy": 0.3644518876833995,
+          "confusion_matrix": [
+            [
+              3138,
+              2269,
+              4723
+            ],
+            [
+              1882,
+              1839,
+              2310
+            ],
+            [
+              2459,
+              1706,
+              3824
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4195748094665062,
+              "recall": 0.3097729516288253,
+              "f1-score": 0.35640865466522803,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.31630546955624356,
+              "recall": 0.3049245564582988,
+              "f1-score": 0.310510764035458,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.352215160725799,
+              "recall": 0.47865815496307423,
+              "f1-score": 0.40581555767802185,
+              "support": 7989.0
+            },
+            "accuracy": 0.3644306418219462,
+            "macro avg": {
+              "precision": 0.3626984799161829,
+              "recall": 0.3644518876833995,
+              "f1-score": 0.3575783254595693,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.37150219568645215,
+              "recall": 0.3644306418219462,
+              "f1-score": 0.3612907072441542,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.155871638796723
+        }
+      },
+      "started": "2026-10-03 21:05:58.518074",
+      "completed": "2026-10-03 21:06:06.778344",
+      "duration_seconds": 8.26027
+    },
+    {
+      "number": 10,
+      "state": "COMPLETE",
+      "value": 0.3625658492945099,
+      "params": {
+        "learning_rate": 0.12798252641732744,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 49,
+        "l2_regularization": 2.8609662038542902
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 2.8609662038542902,
+          "learning_rate": 0.12798252641732744,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 49,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.173701032999816,
+        "validation_metrics": {
+          "macro_f1": 0.3625658492945099,
+          "accuracy": 0.3705175983436853,
+          "balanced_accuracy": 0.3690970879093631,
+          "confusion_matrix": [
+            [
+              3253,
+              2154,
+              4723
+            ],
+            [
+              1918,
+              1804,
+              2309
+            ],
+            [
+              2390,
+              1708,
+              3891
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4302340960190451,
+              "recall": 0.3211253701875617,
+              "f1-score": 0.36775761686733366,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.31839039887045534,
+              "recall": 0.29912120709666723,
+              "f1-score": 0.3084551594425921,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.356220818456468,
+              "recall": 0.4870446864438603,
+              "f1-score": 0.4114847715736041,
+              "support": 7989.0
+            },
+            "accuracy": 0.3705175983436853,
+            "macro avg": {
+              "precision": 0.3682817711153228,
+              "recall": 0.3690970879093631,
+              "f1-score": 0.3625658492945099,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.37781913072088474,
+              "recall": 0.3705175983436853,
+              "f1-score": 0.36741323252860814,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1535586512410427
+        }
+      },
+      "started": "2026-10-03 21:06:06.984141",
+      "completed": "2026-10-03 21:06:11.233076",
+      "duration_seconds": 4.248935
+    },
+    {
+      "number": 11,
+      "state": "COMPLETE",
+      "value": 0.37034723397450353,
+      "params": {
+        "learning_rate": 0.038292902967932016,
+        "max_iter": 100,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 54,
+        "l2_regularization": 6.6116838266179085
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 6.6116838266179085,
+          "learning_rate": 0.038292902967932016,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 54,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.222254840999085,
+        "validation_metrics": {
+          "macro_f1": 0.37034723397450353,
+          "accuracy": 0.37768115942028985,
+          "balanced_accuracy": 0.3869896282935376,
+          "confusion_matrix": [
+            [
+              2551,
+              2283,
+              5296
+            ],
+            [
+              1528,
+              2135,
+              2368
+            ],
+            [
+              1896,
+              1658,
+              4435
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42694560669456066,
+              "recall": 0.2518262586377098,
+              "f1-score": 0.3167960260788575,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3513824884792627,
+              "recall": 0.3540043110595258,
+              "f1-score": 0.3526885272982572,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36655921977022893,
+              "recall": 0.5551383151833772,
+              "f1-score": 0.4415571485463959,
+              "support": 7989.0
+            },
+            "accuracy": 0.37768115942028985,
+            "macro avg": {
+              "precision": 0.3816291049813508,
+              "recall": 0.3869896282935376,
+              "f1-score": 0.37034723397450353,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3880988981606083,
+              "recall": 0.37768115942028985,
+              "f1-score": 0.36703140008495955,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0882263087185478
+        }
+      },
+      "started": "2026-10-03 21:06:11.449399",
+      "completed": "2026-10-03 21:06:12.743915",
+      "duration_seconds": 1.294516
+    },
+    {
+      "number": 12,
+      "state": "COMPLETE",
+      "value": 0.36966009564468244,
+      "params": {
+        "learning_rate": 0.02127761948402164,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 74,
+        "l2_regularization": 8.0675214424685
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.0675214424685,
+          "learning_rate": 0.02127761948402164,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 74,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.2449857690007775,
+        "validation_metrics": {
+          "macro_f1": 0.36966009564468244,
+          "accuracy": 0.3760248447204969,
+          "balanced_accuracy": 0.38131643728551673,
+          "confusion_matrix": [
+            [
+              2853,
+              2284,
+              4993
+            ],
+            [
+              1694,
+              2036,
+              2301
+            ],
+            [
+              2149,
+              1648,
+              4192
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4260752688172043,
+              "recall": 0.28163869693978283,
+              "f1-score": 0.33911803161773446,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34115281501340483,
+              "recall": 0.3375891228651965,
+              "f1-score": 0.339361613467789,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3649660456207557,
+              "recall": 0.5247214920515709,
+              "f1-score": 0.43050064184852377,
+              "support": 7989.0
+            },
+            "accuracy": 0.3760248447204969,
+            "macro avg": {
+              "precision": 0.37739804315045494,
+              "recall": 0.38131643728551673,
+              "f1-score": 0.36966009564468244,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3846521258355421,
+              "recall": 0.3760248447204969,
+              "f1-score": 0.36940891009688365,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0949559515305929
+        }
+      },
+      "started": "2026-10-03 21:06:12.951798",
+      "completed": "2026-10-03 21:06:17.270143",
+      "duration_seconds": 4.318345
+    },
+    {
+      "number": 13,
+      "state": "COMPLETE",
+      "value": 0.3691479659056567,
+      "params": {
+        "learning_rate": 0.11613042798211337,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 47,
+        "l2_regularization": 8.028899152290117
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.028899152290117,
+          "learning_rate": 0.11613042798211337,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 47,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.1257426049996866,
+        "validation_metrics": {
+          "macro_f1": 0.3691479659056567,
+          "accuracy": 0.3751966873706004,
+          "balanced_accuracy": 0.3767795569785319,
+          "confusion_matrix": [
+            [
+              3173,
+              2266,
+              4691
+            ],
+            [
+              1832,
+              1971,
+              2228
+            ],
+            [
+              2285,
+              1787,
+              3917
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4352537722908093,
+              "recall": 0.31322803553800593,
+              "f1-score": 0.3642939150401837,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.32719123505976094,
+              "recall": 0.32681147405073785,
+              "f1-score": 0.3270012442969722,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36148025101513476,
+              "recall": 0.4902991613468519,
+              "f1-score": 0.4161487383798141,
+              "support": 7989.0
+            },
+            "accuracy": 0.3751966873706004,
+            "macro avg": {
+              "precision": 0.3746417527885683,
+              "recall": 0.3767795569785319,
+              "f1-score": 0.3691479659056567,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38386239243524756,
+              "recall": 0.3751966873706004,
+              "f1-score": 0.3721347467755045,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1212298833249903
+        }
+      },
+      "started": "2026-10-03 21:06:17.476559",
+      "completed": "2026-10-03 21:06:19.677057",
+      "duration_seconds": 2.200498
+    },
+    {
+      "number": 14,
+      "state": "COMPLETE",
+      "value": 0.370628653340515,
+      "params": {
+        "learning_rate": 0.012764127776032492,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 37,
+        "l2_regularization": 8.531662542024463
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.531662542024463,
+          "learning_rate": 0.012764127776032492,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 37,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.424304129999655,
+        "validation_metrics": {
+          "macro_f1": 0.370628653340515,
+          "accuracy": 0.3777639751552795,
+          "balanced_accuracy": 0.3857794860837016,
+          "confusion_matrix": [
+            [
+              2647,
+              2293,
+              5190
+            ],
+            [
+              1537,
+              2102,
+              2392
+            ],
+            [
+              1959,
+              1656,
+              4374
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43089695588474686,
+              "recall": 0.2613030602171767,
+              "f1-score": 0.3253241565783814,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3473805982482234,
+              "recall": 0.34853258166141604,
+              "f1-score": 0.34795563648402583,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.365841418534627,
+              "recall": 0.5475028163725122,
+              "f1-score": 0.4386061669591376,
+              "support": 7989.0
+            },
+            "accuracy": 0.3777639751552795,
+            "macro avg": {
+              "precision": 0.3813729908891991,
+              "recall": 0.3857794860837016,
+              "f1-score": 0.370628653340515,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38851948835696304,
+              "recall": 0.3777639751552795,
+              "f1-score": 0.3684504686381248,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0894421744917422
+        }
+      },
+      "started": "2026-10-03 21:06:19.883032",
+      "completed": "2026-10-03 21:06:24.383422",
+      "duration_seconds": 4.50039
+    },
+    {
+      "number": 15,
+      "state": "COMPLETE",
+      "value": 0.35226920813270596,
+      "params": {
+        "learning_rate": 0.010354350755634395,
+        "max_iter": 100,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 41,
+        "l2_regularization": 1.26582499175256
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 1.26582499175256,
+          "learning_rate": 0.010354350755634395,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 41,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.3236648789970786,
+        "validation_metrics": {
+          "macro_f1": 0.35226920813270596,
+          "accuracy": 0.36314699792960664,
+          "balanced_accuracy": 0.37745675378586047,
+          "confusion_matrix": [
+            [
+              2002,
+              2278,
+              5850
+            ],
+            [
+              1255,
+              2155,
+              2621
+            ],
+            [
+              1573,
+              1803,
+              4613
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4144927536231884,
+              "recall": 0.19763079960513327,
+              "f1-score": 0.2676470588235294,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3455740859525337,
+              "recall": 0.3573205106947438,
+              "f1-score": 0.35134914812097495,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.35256802201161724,
+              "recall": 0.5774189510577044,
+              "f1-score": 0.4378114174536136,
+              "support": 7989.0
+            },
+            "accuracy": 0.36314699792960664,
+            "macro avg": {
+              "precision": 0.3708782871957798,
+              "recall": 0.37745675378586047,
+              "f1-score": 0.35226920813270596,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3767964734755047,
+              "recall": 0.36314699792960664,
+              "f1-score": 0.3448416907758539,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0870076384684066
+        }
+      },
+      "started": "2026-10-03 21:06:24.591639",
+      "completed": "2026-10-03 21:06:25.989249",
+      "duration_seconds": 1.39761
+    },
+    {
+      "number": 16,
+      "state": "COMPLETE",
+      "value": 0.3712401369018272,
+      "params": {
+        "learning_rate": 0.010943066936948867,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 62,
+        "l2_regularization": 4.968334750142918
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 4.968334750142918,
+          "learning_rate": 0.010943066936948867,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 62,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.406093271001737,
+        "validation_metrics": {
+          "macro_f1": 0.3712401369018272,
+          "accuracy": 0.37855072463768114,
+          "balanced_accuracy": 0.3877137374390447,
+          "confusion_matrix": [
+            [
+              2579,
+              2324,
+              5227
+            ],
+            [
+              1481,
+              2142,
+              2408
+            ],
+            [
+              1887,
+              1681,
+              4421
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4336640322851858,
+              "recall": 0.2545903257650543,
+              "f1-score": 0.32083100080860855,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3484626647144949,
+              "recall": 0.3551649809318521,
+              "f1-score": 0.3517819017901133,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36670537491705374,
+              "recall": 0.5533859056202278,
+              "f1-score": 0.4411075081067598,
+              "support": 7989.0
+            },
+            "accuracy": 0.37855072463768114,
+            "macro avg": {
+              "precision": 0.3829440239722448,
+              "recall": 0.3877137374390447,
+              "f1-score": 0.3712401369018272,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.39023619950949867,
+              "recall": 0.37855072463768114,
+              "f1-score": 0.36834876066883154,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0881251769459626
+        }
+      },
+      "started": "2026-10-03 21:06:26.199335",
+      "completed": "2026-10-03 21:06:30.680690",
+      "duration_seconds": 4.481355
+    },
+    {
+      "number": 17,
+      "state": "COMPLETE",
+      "value": 0.3646713651525122,
+      "params": {
+        "learning_rate": 0.058193821364952734,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 51,
+        "l2_regularization": 7.140123277921271
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.140123277921271,
+          "learning_rate": 0.058193821364952734,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 51,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.179913497999223,
+        "validation_metrics": {
+          "macro_f1": 0.3646713651525122,
+          "accuracy": 0.37130434782608696,
+          "balanced_accuracy": 0.3726938528042984,
+          "confusion_matrix": [
+            [
+              3104,
+              2238,
+              4788
+            ],
+            [
+              1864,
+              1914,
+              2253
+            ],
+            [
+              2298,
+              1742,
+              3949
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42719515551885495,
+              "recall": 0.3064165844027641,
+              "f1-score": 0.35686364681535987,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.32473702069901594,
+              "recall": 0.31736030509036645,
+              "f1-score": 0.3210062893081761,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.35932666060054597,
+              "recall": 0.49430466891976466,
+              "f1-score": 0.41614415933400073,
+              "support": 7989.0
+            },
+            "accuracy": 0.37130434782608696,
+            "macro avg": {
+              "precision": 0.3704196122728056,
+              "recall": 0.3726938528042984,
+              "f1-score": 0.3646713651525122,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3791567945664401,
+              "recall": 0.37130434782608696,
+              "f1-score": 0.3675193938706641,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1196359306475758
+        }
+      },
+      "started": "2026-10-03 21:06:30.893960",
+      "completed": "2026-10-03 21:06:35.149609",
+      "duration_seconds": 4.255649
+    },
+    {
+      "number": 18,
+      "state": "COMPLETE",
+      "value": 0.3619654751164658,
+      "params": {
+        "learning_rate": 0.01939051907688648,
+        "max_iter": 100,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 53,
+        "l2_regularization": 2.809768538224831
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 2.809768538224831,
+          "learning_rate": 0.01939051907688648,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 100,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 53,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 1.2706824590022734,
+        "validation_metrics": {
+          "macro_f1": 0.3619654751164658,
+          "accuracy": 0.3729192546583851,
+          "balanced_accuracy": 0.3857883937228208,
+          "confusion_matrix": [
+            [
+              2160,
+              2257,
+              5713
+            ],
+            [
+              1283,
+              2146,
+              2602
+            ],
+            [
+              1562,
+              1727,
+              4700
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43156843156843155,
+              "recall": 0.21322803553800593,
+              "f1-score": 0.28543111992071357,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3500815660685155,
+              "recall": 0.3558282208588957,
+              "f1-score": 0.35293150234355725,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36112178255858624,
+              "recall": 0.5883089247715609,
+              "f1-score": 0.44753380308512664,
+              "support": 7989.0
+            },
+            "accuracy": 0.3729192546583851,
+            "macro avg": {
+              "precision": 0.38092392673184444,
+              "recall": 0.3857883937228208,
+              "f1-score": 0.3619654751164658,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38791437091544406,
+              "recall": 0.3729192546583851,
+              "f1-score": 0.355912823531176,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0880498200770587
+        }
+      },
+      "started": "2026-10-03 21:06:35.353606",
+      "completed": "2026-10-03 21:06:36.695277",
+      "duration_seconds": 1.341671
+    },
+    {
+      "number": 19,
+      "state": "COMPLETE",
+      "value": 0.3718456556470094,
+      "params": {
+        "learning_rate": 0.018771478157009813,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 57,
+        "l2_regularization": 9.353223605564335
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 9.353223605564335,
+          "learning_rate": 0.018771478157009813,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 57,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.3447535390005214,
+        "validation_metrics": {
+          "macro_f1": 0.3718456556470094,
+          "accuracy": 0.3789233954451346,
+          "balanced_accuracy": 0.3864891983645438,
+          "confusion_matrix": [
+            [
+              2699,
+              2326,
+              5105
+            ],
+            [
+              1551,
+              2102,
+              2378
+            ],
+            [
+              1951,
+              1688,
+              4350
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43525237864860505,
+              "recall": 0.26643632773938797,
+              "f1-score": 0.3305370154920091,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3436886854153041,
+              "recall": 0.34853258166141604,
+              "f1-score": 0.3460936856837079,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36761598918279387,
+              "recall": 0.5444986856928277,
+              "f1-score": 0.4389062657653113,
+              "support": 7989.0
+            },
+            "accuracy": 0.3789233954451346,
+            "macro avg": {
+              "precision": 0.3821856844155677,
+              "recall": 0.3864891983645438,
+              "f1-score": 0.3718456556470094,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3900114780551308,
+              "recall": 0.3789233954451346,
+              "f1-score": 0.3702713516559655,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0905714320238553
+        }
+      },
+      "started": "2026-10-03 21:06:36.906797",
+      "completed": "2026-10-03 21:06:40.323966",
+      "duration_seconds": 3.417169
+    },
+    {
+      "number": 20,
+      "state": "COMPLETE",
+      "value": 0.3711543997071986,
+      "params": {
+        "learning_rate": 0.016076700041472325,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 50,
+        "l2_regularization": 8.46865692299652
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.46865692299652,
+          "learning_rate": 0.016076700041472325,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 50,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.334444127001916,
+        "validation_metrics": {
+          "macro_f1": 0.3711543997071986,
+          "accuracy": 0.37855072463768114,
+          "balanced_accuracy": 0.3867804317083305,
+          "confusion_matrix": [
+            [
+              2628,
+              2287,
+              5215
+            ],
+            [
+              1539,
+              2105,
+              2387
+            ],
+            [
+              1924,
+              1656,
+              4409
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4314562469216877,
+              "recall": 0.25942744323790723,
+              "f1-score": 0.3240244127982245,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3480489417989418,
+              "recall": 0.3490300116066987,
+              "f1-score": 0.34853878632337115,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3670801765048705,
+              "recall": 0.5518838402803855,
+              "f1-score": 0.4409,
+              "support": 7989.0
+            },
+            "accuracy": 0.37855072463768114,
+            "macro avg": {
+              "precision": 0.38219512174183334,
+              "recall": 0.3867804317083305,
+              "f1-score": 0.3711543997071986,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3893307858966263,
+              "recall": 0.37855072463768114,
+              "f1-score": 0.3688097234766984,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0883577310917434
+        }
+      },
+      "started": "2026-10-03 21:06:40.531344",
+      "completed": "2026-10-03 21:06:43.939855",
+      "duration_seconds": 3.408511
+    },
+    {
+      "number": 21,
+      "state": "COMPLETE",
+      "value": 0.3719835262579794,
+      "params": {
+        "learning_rate": 0.024978995799778837,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 64,
+        "l2_regularization": 7.023031376767089
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.023031376767089,
+          "learning_rate": 0.024978995799778837,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 64,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.2766901060022064,
+        "validation_metrics": {
+          "macro_f1": 0.3719835262579794,
+          "accuracy": 0.3783022774327122,
+          "balanced_accuracy": 0.38378990270911334,
+          "confusion_matrix": [
+            [
+              2865,
+              2296,
+              4969
+            ],
+            [
+              1687,
+              2057,
+              2287
+            ],
+            [
+              2130,
+              1645,
+              4214
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4287638431607303,
+              "recall": 0.2828232971372162,
+              "f1-score": 0.3408279800142755,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34294764921640547,
+              "recall": 0.3410711324821754,
+              "f1-score": 0.3420068168592568,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36739319965126416,
+              "recall": 0.5274752785079484,
+              "f1-score": 0.433115781900406,
+              "support": 7989.0
+            },
+            "accuracy": 0.3783022774327122,
+            "macro avg": {
+              "precision": 0.3797015640094667,
+              "recall": 0.38378990270911334,
+              "f1-score": 0.3719835262579794,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3870310259070927,
+              "recall": 0.3783022774327122,
+              "f1-score": 0.37165186466356653,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0921658737133528
+        }
+      },
+      "started": "2026-10-03 21:06:44.150768",
+      "completed": "2026-10-03 21:06:47.499208",
+      "duration_seconds": 3.34844
+    },
+    {
+      "number": 22,
+      "state": "COMPLETE",
+      "value": 0.37014324556040873,
+      "params": {
+        "learning_rate": 0.03160080153789087,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 69,
+        "l2_regularization": 9.642920023000631
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 9.642920023000631,
+          "learning_rate": 0.03160080153789087,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 69,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.232852370998444,
+        "validation_metrics": {
+          "macro_f1": 0.37014324556040873,
+          "accuracy": 0.37635610766045546,
+          "balanced_accuracy": 0.3812568526660311,
+          "confusion_matrix": [
+            [
+              2893,
+              2279,
+              4958
+            ],
+            [
+              1728,
+              2033,
+              2270
+            ],
+            [
+              2171,
+              1655,
+              4163
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42594228504122494,
+              "recall": 0.2855873642645607,
+              "f1-score": 0.3419217586573691,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3407072230601642,
+              "recall": 0.33709169291991375,
+              "f1-score": 0.33888981496916154,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3654639627776315,
+              "recall": 0.5210915008136188,
+              "f1-score": 0.4296181630546956,
+              "support": 7989.0
+            },
+            "accuracy": 0.37635610766045546,
+            "macro avg": {
+              "precision": 0.37737115695967355,
+              "recall": 0.3812568526660311,
+              "f1-score": 0.37014324556040873,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38464978088505003,
+              "recall": 0.37635610766045546,
+              "f1-score": 0.3701752129988458,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0955259221938756
+        }
+      },
+      "started": "2026-10-03 21:06:47.707058",
+      "completed": "2026-10-03 21:06:51.014932",
+      "duration_seconds": 3.307874
+    },
+    {
+      "number": 23,
+      "state": "COMPLETE",
+      "value": 0.36575618993188147,
+      "params": {
+        "learning_rate": 0.04151768716475578,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 65,
+        "l2_regularization": 7.739285896007411
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.739285896007411,
+          "learning_rate": 0.04151768716475578,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 65,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.193310882001242,
+        "validation_metrics": {
+          "macro_f1": 0.36575618993188147,
+          "accuracy": 0.37180124223602484,
+          "balanced_accuracy": 0.37607500538638533,
+          "confusion_matrix": [
+            [
+              2911,
+              2297,
+              4922
+            ],
+            [
+              1771,
+              2001,
+              2259
+            ],
+            [
+              2216,
+              1706,
+              4067
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4220063786604813,
+              "recall": 0.28736426456071074,
+              "f1-score": 0.34190744655860933,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3332778147901399,
+              "recall": 0.3317857735035649,
+              "f1-score": 0.3325301204819277,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36157539118065435,
+              "recall": 0.5090749780948804,
+              "f1-score": 0.4228310027551073,
+              "support": 7989.0
+            },
+            "accuracy": 0.37180124223602484,
+            "macro avg": {
+              "precision": 0.3722865282104251,
+              "recall": 0.37607500538638533,
+              "f1-score": 0.36575618993188147,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3798570980112736,
+              "recall": 0.37180124223602484,
+              "f1-score": 0.3663357545041727,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.1032578856595368
+        }
+      },
+      "started": "2026-10-03 21:06:51.239894",
+      "completed": "2026-10-03 21:06:54.510699",
+      "duration_seconds": 3.270805
+    },
+    {
+      "number": 24,
+      "state": "COMPLETE",
+      "value": 0.36772743422034754,
+      "params": {
+        "learning_rate": 0.02325004030867077,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 55,
+        "l2_regularization": 6.671140281169643
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 6.671140281169643,
+          "learning_rate": 0.02325004030867077,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 55,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.254055658002471,
+        "validation_metrics": {
+          "macro_f1": 0.36772743422034754,
+          "accuracy": 0.37490683229813665,
+          "balanced_accuracy": 0.3793872223244072,
+          "confusion_matrix": [
+            [
+              2858,
+              2276,
+              4996
+            ],
+            [
+              1734,
+              1980,
+              2317
+            ],
+            [
+              2136,
+              1637,
+              4216
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42479191438763375,
+              "recall": 0.28213228035538007,
+              "f1-score": 0.3390675050421165,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3359918547429153,
+              "recall": 0.328303763886586,
+              "f1-score": 0.33210332103321033,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3656865296209558,
+              "recall": 0.5277256227312555,
+              "f1-score": 0.43201147658571576,
+              "support": 7989.0
+            },
+            "accuracy": 0.37490683229813665,
+            "macro avg": {
+              "precision": 0.3754900995838349,
+              "recall": 0.3793872223244072,
+              "f1-score": 0.36772743422034754,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38306329829577923,
+              "recall": 0.37490683229813665,
+              "f1-score": 0.36807489199466725,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0959130055498603
+        }
+      },
+      "started": "2026-10-03 21:06:54.733702",
+      "completed": "2026-10-03 21:06:59.060003",
+      "duration_seconds": 4.326301
+    },
+    {
+      "number": 25,
+      "state": "COMPLETE",
+      "value": 0.37211656503187723,
+      "params": {
+        "learning_rate": 0.010752692181396127,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 44,
+        "l2_regularization": 7.144155525753018
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.144155525753018,
+          "learning_rate": 0.010752692181396127,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 44,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.4631310269978712,
+        "validation_metrics": {
+          "macro_f1": 0.37211656503187723,
+          "accuracy": 0.3806211180124224,
+          "balanced_accuracy": 0.39086733931592016,
+          "confusion_matrix": [
+            [
+              2481,
+              2296,
+              5353
+            ],
+            [
+              1434,
+              2157,
+              2440
+            ],
+            [
+              1730,
+              1705,
+              4554
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4395039858281665,
+              "recall": 0.24491609081934848,
+              "f1-score": 0.31454833597464343,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3502760636570315,
+              "recall": 0.3576521306582656,
+              "f1-score": 0.35392567068668473,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3688345347047866,
+              "recall": 0.5700337964701464,
+              "f1-score": 0.4478756884343037,
+              "support": 7989.0
+            },
+            "accuracy": 0.3806211180124224,
+            "macro avg": {
+              "precision": 0.38620486139666155,
+              "recall": 0.39086733931592016,
+              "f1-score": 0.37211656503187723,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3938430399217981,
+              "recall": 0.3806211180124224,
+              "f1-score": 0.36848775313607396,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0873183628989427
+        }
+      },
+      "started": "2026-10-03 21:06:59.284327",
+      "completed": "2026-10-03 21:07:02.821567",
+      "duration_seconds": 3.53724
+    },
+    {
+      "number": 26,
+      "state": "COMPLETE",
+      "value": 0.3685524349945177,
+      "params": {
+        "learning_rate": 0.029563543564666096,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 48,
+        "l2_regularization": 7.10965051909267
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.10965051909267,
+          "learning_rate": 0.029563543564666096,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 48,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.255501750998519,
+        "validation_metrics": {
+          "macro_f1": 0.3685524349945177,
+          "accuracy": 0.3754865424430642,
+          "balanced_accuracy": 0.3803758280919182,
+          "confusion_matrix": [
+            [
+              2849,
+              2295,
+              4986
+            ],
+            [
+              1708,
+              2004,
+              2319
+            ],
+            [
+              2130,
+              1644,
+              4215
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42605054583520263,
+              "recall": 0.28124383020730503,
+              "f1-score": 0.33882380924064937,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.337203432609793,
+              "recall": 0.3322832034488476,
+              "f1-score": 0.3347252380157007,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3658854166666667,
+              "recall": 0.5276004506196019,
+              "f1-score": 0.43210825772720285,
+              "support": 7989.0
+            },
+            "accuracy": 0.3754865424430642,
+            "macro avg": {
+              "precision": 0.37637979837055413,
+              "recall": 0.3803758280919182,
+              "f1-score": 0.3685524349945177,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38395960766584947,
+              "recall": 0.3754865424430642,
+              "f1-score": 0.3686594604166912,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.09524076468638
+        }
+      },
+      "started": "2026-10-03 21:07:03.058728",
+      "completed": "2026-10-03 21:07:06.392776",
+      "duration_seconds": 3.334048
+    },
+    {
+      "number": 27,
+      "state": "COMPLETE",
+      "value": 0.3694350345425926,
+      "params": {
+        "learning_rate": 0.021223411809600634,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 52,
+        "l2_regularization": 6.844157319417428
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 6.844157319417428,
+          "learning_rate": 0.021223411809600634,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 52,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.419886988001963,
+        "validation_metrics": {
+          "macro_f1": 0.3694350345425926,
+          "accuracy": 0.37693581780538304,
+          "balanced_accuracy": 0.38688461823766707,
+          "confusion_matrix": [
+            [
+              2510,
+              2356,
+              5264
+            ],
+            [
+              1468,
+              2156,
+              2407
+            ],
+            [
+              1853,
+              1699,
+              4437
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43045789744469215,
+              "recall": 0.24777887462981243,
+              "f1-score": 0.3145166342960967,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34712606665593304,
+              "recall": 0.3574863206765047,
+              "f1-score": 0.35223002777323964,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36645193260654113,
+              "recall": 0.5553886594066841,
+              "f1-score": 0.44155844155844154,
+              "support": 7989.0
+            },
+            "accuracy": 0.37693581780538304,
+            "macro avg": {
+              "precision": 0.38134529890238883,
+              "recall": 0.38688461823766707,
+              "f1-score": 0.3694350345425926,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3884737183730982,
+              "recall": 0.37693581780538304,
+              "f1-score": 0.3659612088004247,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.088423641419583
+        }
+      },
+      "started": "2026-10-03 21:07:06.626715",
+      "completed": "2026-10-03 21:07:09.122524",
+      "duration_seconds": 2.495809
+    },
+    {
+      "number": 28,
+      "state": "COMPLETE",
+      "value": 0.3703261934089528,
+      "params": {
+        "learning_rate": 0.01049168524183,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 37,
+        "l2_regularization": 3.825193347944293
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 3.825193347944293,
+          "learning_rate": 0.01049168524183,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 37,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.468270107998251,
+        "validation_metrics": {
+          "macro_f1": 0.3703261934089528,
+          "accuracy": 0.3779710144927536,
+          "balanced_accuracy": 0.3874946129520767,
+          "confusion_matrix": [
+            [
+              2533,
+              2309,
+              5288
+            ],
+            [
+              1479,
+              2139,
+              2413
+            ],
+            [
+              1858,
+              1675,
+              4456
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43151618398637137,
+              "recall": 0.2500493583415597,
+              "f1-score": 0.316625,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3493385595296423,
+              "recall": 0.3546675509865694,
+              "f1-score": 0.35198288629257857,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3665377971539031,
+              "recall": 0.5577669295281011,
+              "f1-score": 0.44237069393427975,
+              "support": 7989.0
+            },
+            "accuracy": 0.3779710144927536,
+            "macro avg": {
+              "precision": 0.3824641802233056,
+              "recall": 0.3874946129520767,
+              "f1-score": 0.3703261934089528,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3894985613982504,
+              "recall": 0.3779710144927536,
+              "f1-score": 0.36705256774623196,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0873485212500213
+        }
+      },
+      "started": "2026-10-03 21:07:09.356998",
+      "completed": "2026-10-03 21:07:13.902387",
+      "duration_seconds": 4.545389
+    },
+    {
+      "number": 29,
+      "state": "COMPLETE",
+      "value": 0.3680444646000233,
+      "params": {
+        "learning_rate": 0.01915438048153716,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 76,
+        "l2_regularization": 5.8791718079040844
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 5.8791718079040844,
+          "learning_rate": 0.01915438048153716,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 76,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.372029157002544,
+        "validation_metrics": {
+          "macro_f1": 0.3680444646000233,
+          "accuracy": 0.3747412008281574,
+          "balanced_accuracy": 0.38050546238207167,
+          "confusion_matrix": [
+            [
+              2786,
+              2265,
+              5079
+            ],
+            [
+              1664,
+              2028,
+              2339
+            ],
+            [
+              2116,
+              1637,
+              4236
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42430703624733473,
+              "recall": 0.2750246791707799,
+              "f1-score": 0.3337326305701965,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34198988195615515,
+              "recall": 0.33626264301110925,
+              "f1-score": 0.33910208176573864,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36348035009438817,
+              "recall": 0.530229064964326,
+              "f1-score": 0.4312986814641348,
+              "support": 7989.0
+            },
+            "accuracy": 0.3747412008281574,
+            "macro avg": {
+              "precision": 0.37659242276595933,
+              "recall": 0.38050546238207167,
+              "f1-score": 0.3680444646000233,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38362798228435363,
+              "recall": 0.3747412008281574,
+              "f1-score": 0.3673491250112726,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0933795832125024
+        }
+      },
+      "started": "2026-10-03 21:07:14.138543",
+      "completed": "2026-10-03 21:07:18.588481",
+      "duration_seconds": 4.449938
+    },
+    {
+      "number": 30,
+      "state": "COMPLETE",
+      "value": 0.37148049299681674,
+      "params": {
+        "learning_rate": 0.012555000747754744,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 62,
+        "l2_regularization": 7.941853765191052
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.941853765191052,
+          "learning_rate": 0.012555000747754744,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 62,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.4687320119992364,
+        "validation_metrics": {
+          "macro_f1": 0.37148049299681674,
+          "accuracy": 0.3796687370600414,
+          "balanced_accuracy": 0.3897760458021103,
+          "confusion_matrix": [
+            [
+              2499,
+              2345,
+              5286
+            ],
+            [
+              1452,
+              2159,
+              2420
+            ],
+            [
+              1763,
+              1715,
+              4511
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4373468673433672,
+              "recall": 0.24669299111549853,
+              "f1-score": 0.315450643776824,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3471619231387683,
+              "recall": 0.35798375062178744,
+              "f1-score": 0.3524897959183673,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36923958418597036,
+              "recall": 0.564651395669045,
+              "f1-score": 0.44650103929525886,
+              "support": 7989.0
+            },
+            "accuracy": 0.3796687370600414,
+            "macro avg": {
+              "precision": 0.3845827915560353,
+              "recall": 0.3897760458021103,
+              "f1-score": 0.37148049299681674,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3922945077722542,
+              "recall": 0.3796687370600414,
+              "f1-score": 0.36805291029286635,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.087083201705524
+        }
+      },
+      "started": "2026-10-03 21:07:18.825338",
+      "completed": "2026-10-03 21:07:22.376203",
+      "duration_seconds": 3.550865
+    },
+    {
+      "number": 31,
+      "state": "COMPLETE",
+      "value": 0.371086655220845,
+      "params": {
+        "learning_rate": 0.01739681321603609,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 68,
+        "l2_regularization": 3.9327601201666433
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 3.9327601201666433,
+          "learning_rate": 0.01739681321603609,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 68,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.3663542799986317,
+        "validation_metrics": {
+          "macro_f1": 0.371086655220845,
+          "accuracy": 0.37805383022774325,
+          "balanced_accuracy": 0.38672139586750226,
+          "confusion_matrix": [
+            [
+              2624,
+              2339,
+              5167
+            ],
+            [
+              1525,
+              2135,
+              2371
+            ],
+            [
+              1924,
+              1694,
+              4371
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43207640375432244,
+              "recall": 0.25903257650542943,
+              "f1-score": 0.32389063753625874,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3461413748378729,
+              "recall": 0.3540043110595258,
+              "f1-score": 0.35002869087630134,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3670333361323369,
+              "recall": 0.5471273000375516,
+              "f1-score": 0.43934063724997485,
+              "support": 7989.0
+            },
+            "accuracy": 0.37805383022774325,
+            "macro avg": {
+              "precision": 0.38175037157484404,
+              "recall": 0.38672139586750226,
+              "f1-score": 0.371086655220845,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38909904447369514,
+              "recall": 0.37805383022774325,
+              "f1-score": 0.3686098361866387,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.089638729304796
+        }
+      },
+      "started": "2026-10-03 21:07:22.604955",
+      "completed": "2026-10-03 21:07:26.051378",
+      "duration_seconds": 3.446423
+    },
+    {
+      "number": 32,
+      "state": "COMPLETE",
+      "value": 0.36792839132414695,
+      "params": {
+        "learning_rate": 0.03256452965960353,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 54,
+        "l2_regularization": 4.9695379333003284
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 4.9695379333003284,
+          "learning_rate": 0.03256452965960353,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 54,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.260440108999319,
+        "validation_metrics": {
+          "macro_f1": 0.36792839132414695,
+          "accuracy": 0.3749482401656315,
+          "balanced_accuracy": 0.378594281237053,
+          "confusion_matrix": [
+            [
+              2925,
+              2244,
+              4961
+            ],
+            [
+              1739,
+              1962,
+              2330
+            ],
+            [
+              2200,
+              1621,
+              4168
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42613636363636365,
+              "recall": 0.288746298124383,
+              "f1-score": 0.3442391432270213,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3367084262914021,
+              "recall": 0.32531918421488976,
+              "f1-score": 0.3309158374093439,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3637315647089624,
+              "recall": 0.5217173613718863,
+              "f1-score": 0.4286301933360757,
+              "support": 7989.0
+            },
+            "accuracy": 0.3749482401656315,
+            "macro avg": {
+              "precision": 0.375525451545576,
+              "recall": 0.378594281237053,
+              "f1-score": 0.36792839132414695,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3831594763171723,
+              "recall": 0.3749482401656315,
+              "f1-score": 0.36882909113322515,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0964538746222194
+        }
+      },
+      "started": "2026-10-03 21:07:26.285979",
+      "completed": "2026-10-03 21:07:29.624625",
+      "duration_seconds": 3.338646
+    },
+    {
+      "number": 33,
+      "state": "COMPLETE",
+      "value": 0.3710498375186961,
+      "params": {
+        "learning_rate": 0.02801372112906388,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 69,
+        "l2_regularization": 8.243307157421206
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.243307157421206,
+          "learning_rate": 0.02801372112906388,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 69,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.423090227002831,
+        "validation_metrics": {
+          "macro_f1": 0.3710498375186961,
+          "accuracy": 0.3773913043478261,
+          "balanced_accuracy": 0.3843025687977873,
+          "confusion_matrix": [
+            [
+              2755,
+              2303,
+              5072
+            ],
+            [
+              1598,
+              2091,
+              2342
+            ],
+            [
+              2074,
+              1647,
+              4268
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4286603391940252,
+              "recall": 0.271964461994077,
+              "f1-score": 0.3327897565984176,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3461347459029962,
+              "recall": 0.34670867186204607,
+              "f1-score": 0.34642147117296224,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3653483992467043,
+              "recall": 0.5342345725372387,
+              "f1-score": 0.4339382847847085,
+              "support": 7989.0
+            },
+            "accuracy": 0.3773913043478261,
+            "macro avg": {
+              "precision": 0.3800478281145752,
+              "recall": 0.3843025687977873,
+              "f1-score": 0.3710498375186961,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3871070911038661,
+              "recall": 0.3773913043478261,
+              "f1-score": 0.3696547032766518,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0903441722564347
+        }
+      },
+      "started": "2026-10-03 21:07:29.860376",
+      "completed": "2026-10-03 21:07:32.362905",
+      "duration_seconds": 2.502529
+    },
+    {
+      "number": 34,
+      "state": "COMPLETE",
+      "value": 0.3707379478867488,
+      "params": {
+        "learning_rate": 0.010448928871333736,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 53,
+        "l2_regularization": 9.396531821913396
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 9.396531821913396,
+          "learning_rate": 0.010448928871333736,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 53,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.5297953730005247,
+        "validation_metrics": {
+          "macro_f1": 0.3707379478867488,
+          "accuracy": 0.3789648033126294,
+          "balanced_accuracy": 0.3895325713506721,
+          "confusion_matrix": [
+            [
+              2460,
+              2309,
+              5361
+            ],
+            [
+              1439,
+              2168,
+              2424
+            ],
+            [
+              1740,
+              1725,
+              4524
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4362475616244015,
+              "recall": 0.2428430404738401,
+              "f1-score": 0.3120045659204769,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3495646565623992,
+              "recall": 0.35947604045763554,
+              "f1-score": 0.3544510749611706,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3675359493053863,
+              "recall": 0.5662786331205407,
+              "f1-score": 0.4457582027785989,
+              "support": 7989.0
+            },
+            "accuracy": 0.3789648033126294,
+            "macro avg": {
+              "precision": 0.38444938916406235,
+              "recall": 0.3895325713506721,
+              "f1-score": 0.3707379478867488,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.39186985267013447,
+              "recall": 0.3789648033126294,
+              "f1-score": 0.3668514686485912,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0876471338571605
+        }
+      },
+      "started": "2026-10-03 21:07:32.607219",
+      "completed": "2026-10-03 21:07:36.217450",
+      "duration_seconds": 3.610231
+    },
+    {
+      "number": 35,
+      "state": "COMPLETE",
+      "value": 0.3714292648001771,
+      "params": {
+        "learning_rate": 0.015245455513005015,
+        "max_iter": 400,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 44,
+        "l2_regularization": 6.880137092324468
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 6.880137092324468,
+          "learning_rate": 0.015245455513005015,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 400,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 44,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 4.418854349001776,
+        "validation_metrics": {
+          "macro_f1": 0.3714292648001771,
+          "accuracy": 0.37863354037267083,
+          "balanced_accuracy": 0.3854191024337264,
+          "confusion_matrix": [
+            [
+              2735,
+              2256,
+              5139
+            ],
+            [
+              1579,
+              2068,
+              2384
+            ],
+            [
+              1970,
+              1678,
+              4341
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.43523233609166134,
+              "recall": 0.26999012833168806,
+              "f1-score": 0.33325210186426224,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3445518160613129,
+              "recall": 0.3428950422815453,
+              "f1-score": 0.34372143272666833,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3658968307484828,
+              "recall": 0.5433721366879459,
+              "f1-score": 0.4373142598096006,
+              "support": 7989.0
+            },
+            "accuracy": 0.37863354037267083,
+            "macro avg": {
+              "precision": 0.3818936609671524,
+              "recall": 0.3854191024337264,
+              "f1-score": 0.3714292648001771,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3896499108954011,
+              "recall": 0.37863354037267083,
+              "f1-score": 0.37029115421442704,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0908707037917411
+        }
+      },
+      "started": "2026-10-03 21:07:36.449252",
+      "completed": "2026-10-03 21:07:40.942338",
+      "duration_seconds": 4.493086
+    },
+    {
+      "number": 36,
+      "state": "COMPLETE",
+      "value": 0.37087080964030217,
+      "params": {
+        "learning_rate": 0.013153259765418361,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 52,
+        "l2_regularization": 3.4707816960389315
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 3.4707816960389315,
+          "learning_rate": 0.013153259765418361,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 52,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.450250046000292,
+        "validation_metrics": {
+          "macro_f1": 0.37087080964030217,
+          "accuracy": 0.37908902691511387,
+          "balanced_accuracy": 0.3891663624238258,
+          "confusion_matrix": [
+            [
+              2485,
+              2291,
+              5354
+            ],
+            [
+              1476,
+              2148,
+              2407
+            ],
+            [
+              1775,
+              1692,
+              4522
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4332287308228731,
+              "recall": 0.24531095755182625,
+              "f1-score": 0.31324845581747135,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3503506768879465,
+              "recall": 0.35615984082241753,
+              "f1-score": 0.3532313764183522,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3681511031506961,
+              "recall": 0.5660282888972337,
+              "f1-score": 0.44613259668508287,
+              "support": 7989.0
+            },
+            "accuracy": 0.37908902691511387,
+            "macro avg": {
+              "precision": 0.3839101702871719,
+              "recall": 0.3891663624238258,
+              "f1-score": 0.37087080964030217,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.39100335977713546,
+              "recall": 0.37908902691511387,
+              "f1-score": 0.36719248875889,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0873689886920423
+        }
+      },
+      "started": "2026-10-03 21:07:41.175654",
+      "completed": "2026-10-03 21:07:44.699941",
+      "duration_seconds": 3.524287
+    },
+    {
+      "number": 37,
+      "state": "COMPLETE",
+      "value": 0.37168437389538905,
+      "params": {
+        "learning_rate": 0.018435551740097676,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 44,
+        "l2_regularization": 9.542880330214352
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 9.542880330214352,
+          "learning_rate": 0.018435551740097676,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 44,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.3392488610006694,
+        "validation_metrics": {
+          "macro_f1": 0.37168437389538905,
+          "accuracy": 0.37975155279503103,
+          "balanced_accuracy": 0.3891958343101392,
+          "confusion_matrix": [
+            [
+              2542,
+              2311,
+              5277
+            ],
+            [
+              1482,
+              2138,
+              2411
+            ],
+            [
+              1789,
+              1709,
+              4491
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4372957164975056,
+              "recall": 0.25093780848963476,
+              "f1-score": 0.31888603148717304,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34719064631373825,
+              "recall": 0.35450174100480847,
+              "f1-score": 0.35080810566904586,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.3687494868215781,
+              "recall": 0.5621479534359745,
+              "f1-score": 0.44535898452994843,
+              "support": 7989.0
+            },
+            "accuracy": 0.37975155279503103,
+            "macro avg": {
+              "precision": 0.3844119498776073,
+              "recall": 0.3891958343101392,
+              "f1-score": 0.37168437389538905,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3921180971534358,
+              "recall": 0.37975155279503103,
+              "f1-score": 0.36869615369212577,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0872096352390743
+        }
+      },
+      "started": "2026-10-03 21:07:44.930010",
+      "completed": "2026-10-03 21:07:47.350293",
+      "duration_seconds": 2.420283
+    },
+    {
+      "number": 38,
+      "state": "COMPLETE",
+      "value": 0.36574869005910066,
+      "params": {
+        "learning_rate": 0.013023855068747047,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 47,
+        "l2_regularization": 7.527129615743856
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 7.527129615743856,
+          "learning_rate": 0.013023855068747047,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 47,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 2.396371482998802,
+        "validation_metrics": {
+          "macro_f1": 0.36574869005910066,
+          "accuracy": 0.37490683229813665,
+          "balanced_accuracy": 0.38639564673210813,
+          "confusion_matrix": [
+            [
+              2329,
+              2306,
+              5495
+            ],
+            [
+              1385,
+              2153,
+              2493
+            ],
+            [
+              1684,
+              1733,
+              4572
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.4314560948499444,
+              "recall": 0.2299111549851925,
+              "f1-score": 0.29997424008243173,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.3477067183462532,
+              "recall": 0.35698889073122203,
+              "f1-score": 0.3522866726662849,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.36401273885350316,
+              "recall": 0.5722868944799099,
+              "f1-score": 0.44498515742858535,
+              "support": 7989.0
+            },
+            "accuracy": 0.37490683229813665,
+            "macro avg": {
+              "precision": 0.3810585173499003,
+              "recall": 0.38639564673210813,
+              "f1-score": 0.36574869005910066,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.38823052711705286,
+              "recall": 0.37490683229813665,
+              "f1-score": 0.36100896056241677,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0875732556066289
+        }
+      },
+      "started": "2026-10-03 21:07:47.584867",
+      "completed": "2026-10-03 21:07:50.056898",
+      "duration_seconds": 2.472031
+    },
+    {
+      "number": 39,
+      "state": "COMPLETE",
+      "value": 0.36901517123200495,
+      "params": {
+        "learning_rate": 0.02289012155784678,
+        "max_iter": 300,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 54,
+        "l2_regularization": 8.249032123680248
+      },
+      "distributions": {
+        "learning_rate": "FloatDistribution(high=0.2, log=True, low=0.01, step=None)",
+        "max_iter": "IntDistribution(high=400, log=False, low=100, step=100)",
+        "max_leaf_nodes": "CategoricalDistribution(choices=(7, 15, 31, 63))",
+        "min_samples_leaf": "IntDistribution(high=80, log=False, low=10, step=1)",
+        "l2_regularization": "FloatDistribution(high=10.0, log=False, low=0.0, step=None)"
+      },
+      "user_attrs": {
+        "effective_parameters": {
+          "categorical_features": "from_dtype",
+          "class_weight": null,
+          "early_stopping": false,
+          "interaction_cst": null,
+          "l2_regularization": 8.249032123680248,
+          "learning_rate": 0.02289012155784678,
+          "loss": "log_loss",
+          "max_bins": 255,
+          "max_depth": null,
+          "max_features": 1.0,
+          "max_iter": 300,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 54,
+          "monotonic_cst": null,
+          "n_iter_no_change": 10,
+          "random_state": 42,
+          "scoring": "loss",
+          "tol": 1e-07,
+          "validation_fraction": 0.1,
+          "verbose": 0,
+          "warm_start": false
+        },
+        "fit_seconds": 3.3062901830016926,
+        "validation_metrics": {
+          "macro_f1": 0.36901517123200495,
+          "accuracy": 0.37610766045548655,
+          "balanced_accuracy": 0.3829589385008642,
+          "confusion_matrix": [
+            [
+              2710,
+              2301,
+              5119
+            ],
+            [
+              1609,
+              2058,
+              2364
+            ],
+            [
+              2026,
+              1648,
+              4315
+            ]
+          ],
+          "per_class": {
+            "Low": {
+              "precision": 0.42710795902285265,
+              "recall": 0.2675222112537019,
+              "f1-score": 0.3289833080424886,
+              "support": 10130.0
+            },
+            "Medium": {
+              "precision": 0.34260029965040784,
+              "recall": 0.3412369424639363,
+              "f1-score": 0.3419172620036551,
+              "support": 6031.0
+            },
+            "High": {
+              "precision": 0.365739955924733,
+              "recall": 0.5401176617849544,
+              "f1-score": 0.4361449436498711,
+              "support": 7989.0
+            },
+            "accuracy": 0.37610766045548655,
+            "macro avg": {
+              "precision": 0.37848273819933115,
+              "recall": 0.3829589385008642,
+              "f1-score": 0.36901517123200495,
+              "support": 24150.0
+            },
+            "weighted avg": {
+              "precision": 0.3857027966863685,
+              "recall": 0.37610766045548655,
+              "f1-score": 0.36766318312353097,
+              "support": 24150.0
+            }
+          },
+          "log_loss": 1.0916853074669686
+        }
+      },
+      "started": "2026-10-03 21:07:50.288057",
+      "completed": "2026-10-03 21:07:53.668523",
+      "duration_seconds": 3.380466
+    }
+  ],
+  "objective_partition": "validation",
+  "fit_partition": "train",
+  "test_used": false
+}
