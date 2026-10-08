@@ -24,3 +24,8 @@ The newer Colab input has SHA256 7726381a459599eb5bf8e3ee5aa202a74cdb26fa4a2b2e3
 Original user project and GitHub branches remain unchanged by this isolated preparation. The repair branch is feature/training-data-repair based on develop, with the existing unmerged integrate-data-processing dependency history explicitly merged locally. No peer approval, release, deployment or Shariah approval is claimed.
 
 Executed evidence: 59 tests passed in the existing isolated Python 3.12 environment, one upstream deprecation warning. Original response reconstruction and price audit reproduced the prior audited CSV hash exactly. Research rows: 118,643, split into 58,157 train, 24,150 validation and 36,336 test. All 22 documented classifier fits were rerun using train/validation only. Selected return validation accuracy 36.882%, macro-F1 0.362892; selected risk validation accuracy 60.675%, macro-F1 0.577060. These reproduce earlier provisional results; they are not improved final-test claims. The full repaired Colab/API/ONNX notebook and fresh dependency installation were not run. Publish/install the repair branch before using its GitHub-cloning Colab setup; it is currently local only.
+
+## Retrospective training review, 2026-10-08
+
+Current executed classification results and limits are in [audited_training_results.md](audited_training_results.md). The frozen return/risk classifiers were refitted and evaluated retrospectively on 2023-2025; older statements that test evaluation is pending are superseded for these two classifiers only. No independent new holdout, regression re-evaluation, calibration, backtest or Shariah approval is claimed. All 62 tests pass in the existing isolated Python 3.12 environment.
+

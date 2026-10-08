@@ -13,3 +13,8 @@ Training: 58,157 rows in 2016â€“2020. Selection: 24,150 validation rows in 2021â
 Limitations: probabilities are uncalibrated; the final test has not been scored; no final train+validation refit has been performed. There is no production acceptance threshold or live monitoring evidence. Classes are relative to training thresholds, not guarantees of profit or safety. The proposed experiment still needs project/domain agreement.
 
 Artifacts are local under `artifacts/core_v1_readiness/` and ignored by Git. Reports retain their SHA-256 checksums, feature order, parameters, seed and thresholds. Only load trusted joblib files. A teammate must reproduce the result before milestone sign-off.
+
+## Retrospective training review, 2026-10-08
+
+Current executed classification results and limits are in [audited_training_results.md](audited_training_results.md). The frozen return/risk classifiers were refitted and evaluated retrospectively on 2023-2025; older statements that test evaluation is pending are superseded for these two classifiers only. No independent new holdout, regression re-evaluation, calibration, backtest or Shariah approval is claimed. All 62 tests pass in the existing isolated Python 3.12 environment.
+

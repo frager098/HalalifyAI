@@ -112,3 +112,6 @@ Follow [the reconciled experiment](docs/experiment_design.md), [the dictionary](
 The [executed data-readiness guide](docs/data_readiness.md) records the new price audit, 16 features, future targets, chronological partitions and provisional model comparisons. The [screening methodology status](docs/screening_methodology.md) records the user's confirmation that the standard is still undecided. Follow that guide for current reproduction commands and limits.
 
 The [SEC screening evidence guide](docs/sec_screening_evidence.md) adds saved annual and quarterly reports, dated business descriptions, segment-revenue candidates and distinct income categories. Original documents and large intermediate records remain local; the review index and validation summary are versioned in `reports/validation/screening_evidence/sec_2015_2025_v2/`. Read the guide before interpreting a candidate amount as a screening metric.
+
+Latest retained-data rerun: see docs/audited_training_results.md for retrospective classifier results and reproduction. Do not interpret earlier pending-test statements as the current classification status.
+

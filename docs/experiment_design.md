@@ -407,3 +407,8 @@ Sources checked on 2026-09-25. These links support factual descriptions; the cho
 | Version | Date | Change |
 | --- | --- | --- |
 | 1.0 | 2026-09-25 | Initial complete Day 2 specification; preserves the classifier-first plan, removes duplicate momentum fields, adds date-based purging, and defines historical-screening evidence limits. |
+
+## Retrospective training review, 2026-10-08
+
+Current executed classification results and limits are in [audited_training_results.md](audited_training_results.md). The frozen return/risk classifiers were refitted and evaluated retrospectively on 2023-2025; older statements that test evaluation is pending are superseded for these two classifiers only. No independent new holdout, regression re-evaluation, calibration, backtest or Shariah approval is claimed. All 62 tests pass in the existing isolated Python 3.12 environment.
+

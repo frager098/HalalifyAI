@@ -18,3 +18,8 @@ Models are currently fitted on initial training rows only. Training-fitted featu
 In a fresh Python 3.12 virtual environment, 35 tests passed and `pip check` found no broken requirements. The full rebuilt dataset matched exactly, and refitting the two selected configurations reproduced validation probabilities within 1e-12 and macro-F1. The complete 22-candidate grid was not rerun in the fresh environment. One Starlette test-client deprecation warning does not change the passing checks. Installed versions are saved with the verification report.
 
 The five unsupported spin-off transitions and incomplete windows are excluded. Classes can be imbalanced across years; no significance test or guarantee of useful live performance is claimed. Probabilities are uncalibrated. Methodology acceptance, final refit, untouched-test evaluation, screening evidence and portfolio backtesting remain pending.
+
+## Retrospective training review, 2026-10-08
+
+Current executed classification results and limits are in [audited_training_results.md](audited_training_results.md). The frozen return/risk classifiers were refitted and evaluated retrospectively on 2023-2025; older statements that test evaluation is pending are superseded for these two classifiers only. No independent new holdout, regression re-evaluation, calibration, backtest or Shariah approval is claimed. All 62 tests pass in the existing isolated Python 3.12 environment.
+
