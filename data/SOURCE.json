@@ -1,0 +1,31 @@
+{
+  "repository": "frager098/HalalifyAI",
+  "branch": "integrate-data-processing",
+  "copied_on": "2026-10-09",
+  "files": [
+    {
+      "path": "src/data/download_alpaca.py",
+      "git_blob_sha": "f92d46585bf93e2fe84e0f4a05b208bbbb2bf319"
+    },
+    {
+      "path": "src/data/download_sec.py",
+      "git_blob_sha": "691dc4498fea40ec2ccb7ea0b4fc53ec2cdc9dd8"
+    },
+    {
+      "path": "src/data/download_spy.py",
+      "git_blob_sha": "c3c491e0174bae30594f7e2f86a0848cc59d05fb"
+    },
+    {
+      "path": "src/data/collect_price_bases.py",
+      "git_blob_sha": "948da024281e43d933f248b20f1d523cad9f6a3b"
+    },
+    {
+      "path": "src/data/collect_sec_snapshot.py",
+      "git_blob_sha": "1820379e9485db045abd58f60da50ff7c5bba33f"
+    },
+    {
+      "path": "src/data/reconciliation.py",
+      "git_blob_sha": "ec06147f5266748848a018dc4bf6571443a05cf3"
+    }
+  ]
+}
