@@ -7,6 +7,8 @@ from pathlib import Path
 
 from src.data.reconciliation import save_json, sha256
 from .yasaar import overall
+from .accounting_bounds import validate_upper_proof
+from .business_revenue import validate_business_revenue
 
 
 def validate_results(result, universe):
@@ -19,6 +21,10 @@ def validate_results(result, universe):
         raise ValueError('Summary counts do not match the company records')
     if sum(summary['counts'].values()) != 50 or summary['companies'] != 50:
         raise ValueError('Summary total is not the registered cohort')
+    if 'financial_check_counts' in summary:
+        for key,expected in summary['financial_check_counts'].items():
+            if dict(Counter(r['checks'][key]['status'] for r in rows))!=expected:
+                raise ValueError('Financial check counts differ from records')
     eligible = 0
     for record in rows:
         if (record['as_of_date'] != summary['evidence_as_of']
@@ -36,8 +42,13 @@ def validate_results(result, universe):
             raise ValueError('Unsafe portfolio eligibility flag')
         eligible += allowed
         assets = record['checks']['assets']
+        if record['business'].get('prohibited_revenue_minimum_ratio'):
+            validate_business_revenue(record['business'], summary['profile']['prohibited_business_revenue_limit'])
         for key in ['debt', 'cash_and_interest_items', 'receivables_and_cash']:
             check = record['checks'][key]
+            if check.get('upper_bound_proof'):
+                limit_key={'debt':'debt_assets_limit','cash_and_interest_items':'cash_items_assets_limit','receivables_and_cash':'receivables_cash_assets_limit'}[key]
+                validate_upper_proof(check,summary['profile'][limit_key],record['reporting_date'])
             if check['ratio'] is None:
                 continue
             numerator = sum(Decimal(c['value']) for c in check['components'])
@@ -73,6 +84,11 @@ def main():
             for key in ['debt', 'cash_and_interest_items', 'receivables_and_cash']:
                 if old['checks'][key]['ratio'] != record['checks'][key]['ratio']:
                     raise ValueError('Reproduction changed a financial ratio')
+                for field in ['status','maximum_ratio','upper_bound_proof']:
+                    if old['checks'][key].get(field)!=record['checks'][key].get(field):
+                        raise ValueError('Reproduction changed a financial proof or decision')
+            if old['business']!=record['business']:
+                raise ValueError('Reproduction changed the business evidence')
         verified['prior_retained_source_decisions_and_ratios_reproduced'] = True
     config=json.loads((args.repo/'configs/yasaar_research.json').read_text())
     save_json(args.repo/config.get('validation_output','reports/validation/screening_20261020')/'result_checks.json', verified)

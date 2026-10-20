@@ -15,6 +15,8 @@ from .source_facts import read_facts,mapped_research_facts
 from .yasaar import balance_checks,overall
 from .presentation import write_html
 from .field_recovery import recovered_balance,recover_income_check,recover_reviewed_debt
+from .accounting_bounds import apply_accounting_bounds
+from .business_revenue import reviewed_revenue_failure
 
 def select_latest(catalog,asof,calendar):
     result={};amends=[]
@@ -84,6 +86,17 @@ def income_checks(path,annual,asof):
         out[t]=check
     return out
 
+
+def remaining_tasks(record):
+    missing=record['missing_or_incomplete_checks'];actions=[]
+    if any(key in missing for key in ['debt','cash_and_interest_items','receivables_and_cash']):
+        actions.append('Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.')
+    if 'business_revenue_exposure' in missing:
+        actions.append('Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.')
+    if 'income' in missing:
+        actions.append('Establish gross interest plus all prohibited income with a consistent total-revenue denominator.')
+    return actions
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--archive',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--repo',type=Path,default=Path.cwd())
     p.add_argument('--notes',type=Path);p.add_argument('--api',type=Path)
@@ -104,6 +117,8 @@ def main():
             raise ValueError('All 50 registered SEC API responses are required')
     assessments_path=a.repo/'configs/business_research_assessments.json'
     assessments=json.loads(assessments_path.read_text())['reviews']
+    numeric_assessments_path=a.repo/'configs/business_numeric_assessments.json'
+    numeric_assessments=json.loads(numeric_assessments_path.read_text())['reviews']
     universe=json.loads((a.repo/'configs/screening_universe.json').read_text())['company_tickers']
     if len(universe)!=50 or len(set(universe))!=50 or set(universe)!=set(COMPANY_SYMBOLS):
         raise ValueError('Screening requires exactly the registered 50 companies; SPY is not a company candidate')
@@ -165,7 +180,14 @@ def main():
             if packet['annual']['accession_number']!=annual[t][1]['accession_number']:
                 raise ValueError('Recovered annual income uses a different report: '+t)
             checks['income']=recover_income_check(checks['income'],packet['annual'],recovery_mappings['manual_annual_disclosures'])
+        if config.get('accounting_bounds_enabled') is True:
+            checks=apply_accounting_bounds(checks,all_facts,r['report_date'],config)
         b=business_review(business.get(t,dict(ticker=t,text='')),assessments)
+        if t in numeric_assessments:
+            annual_prefix,annual_record=annual[t]
+            annual_content=z.read(annual_prefix+'/'+annual_record['file'])
+            b=reviewed_revenue_failure(b,annual_record,annual_content,
+                                      numeric_assessments[t],config['prohibited_business_revenue_limit'])
         amendments=[v['accession_number'] for _,v in amends if v['ticker']==t and v['report_date']>=r['report_date']]
         financial_age=(date.fromisoformat(asof)-date.fromisoformat(r['report_date'])).days
         business_age=((date.fromisoformat(asof)-date.fromisoformat(b['filing_date'])).days
@@ -180,18 +202,26 @@ def main():
         record=dict(ticker=t,as_of_date=asof,reporting_date=r['report_date'],filing_date=r['filing_date'],available_from_session=next_session(r['filing_date'],calendar,r.get('acceptance_datetime')),source_url=source_url,source_sha256=source_hash,accession_number=r['accession_number'],cik=r['cik'],research_status=status,failed_checks=failed,checks=checks,business=b,amendments_requiring_review=amendments,financial_age_days=financial_age,business_disclosure_age_days=business_age,stale_evidence=stale,missing_or_incomplete_checks=missing,portfolio_eligible=eligible,domain_approved=config['domain_approved'])
         details.append(record)
         flat.append(dict(ticker=t,reporting_date=r['report_date'],research_status=status,failed_checks='; '.join(failed),debt_minimum_percent=round(Decimal(checks['debt']['ratio'])*100,4) if checks['debt']['ratio'] else '',cash_items_minimum_percent=round(Decimal(checks['cash_and_interest_items']['ratio'])*100,4) if checks['cash_and_interest_items']['ratio'] else '',receivables_cash_minimum_percent=round(Decimal(checks['receivables_and_cash']['ratio'])*100,4) if checks['receivables_and_cash']['ratio'] else '',income_status=income[t]['status'],business_status=b['status'],source_url=source_url))
+        for key in ['debt','cash_and_interest_items','receivables_and_cash']:
+            flat[-1][key+'_status']=checks[key]['status']
+            maximum=checks[key].get('maximum_ratio')
+            flat[-1][key+'_maximum_percent']=round(Decimal(maximum)*100,4) if maximum is not None else ''
+        flat[-1]['financial_checks_cleared']=sum(checks[k]['status']=='passes_filter'
+            for k in ['debt','cash_and_interest_items','receivables_and_cash','income'])
     target=a.repo/'reports/screening/ftse_yasaar_2025';target.mkdir(parents=True,exist_ok=True)
     hashes=dict(**actual_hashes,config=sha256(a.repo/'configs/yasaar_research.json'),business_assessments=sha256(assessments_path),universe=sha256(a.repo/'configs/screening_universe.json'))
+    hashes['business_numeric_assessments']=sha256(numeric_assessments_path)
     if recovery_manifest:hashes.update(recovery_hashes)
     counts={label:sum(r['research_status']==label for r in details) for label in ['passes_research_filters','fails_initial_filters','needs_review']}
     executed_on=datetime.now(ZoneInfo('Asia/Karachi')).date().isoformat()
-    summary=dict(profile=config,companies=len(details),counts=counts,portfolio_eligible=sum(r['portfolio_eligible'] for r in details),input_hashes=hashes,executed_on=executed_on,run_finished_at_utc=datetime.now(timezone.utc).isoformat(),evidence_as_of=asof,not_current_market_screen=True,python=sys.version,packages={name:importlib.metadata.version(name) for name in ['lxml','pandas','exchange_calendars']},limitation='Initial-entry research filters; not official membership, continuing-member monitoring or a religious approval. Minimum ratios below limits are not passes. Gross interest plus all non-compliant income remains incomplete in the retained evidence.')
+    summary=dict(profile=config,companies=len(details),counts=counts,portfolio_eligible=sum(r['portfolio_eligible'] for r in details),input_hashes=hashes,executed_on=executed_on,run_finished_at_utc=datetime.now(timezone.utc).isoformat(),evidence_as_of=asof,not_current_market_screen=True,python=sys.version,packages={name:importlib.metadata.version(name) for name in ['lxml','pandas','exchange_calendars']},limitation='Initial-entry research filters; not official membership, continuing-member monitoring or a religious approval. Minimum ratios alone cannot prove a pass; a source-backed maximum below a limit can clear that individual financial check. Complete non-compliant income/business evidence remains required.')
+    summary['financial_check_counts']={key:dict(Counter(r['checks'][key]['status'] for r in details)) for key in ['debt','cash_and_interest_items','receivables_and_cash','income']}
     save_json(a.repo/'data/interim/screening/ftse_yasaar_2025/field_candidates.json',dict(companies=recovery))
     save_json(target/'results.json',dict(summary=summary,companies=details))
     with (target/'results.csv').open('w',newline='',encoding='utf8') as f:
         writer=csv.DictWriter(f,fieldnames=list(flat[0]));writer.writeheader();writer.writerows(flat)
-    lines=['# FTSE Yasaar research screen','',f'Executed {executed_on} with evidence available as of {asof}. Fixed 2026 version, retrospective initial-entry filters.','',f"Complete research passes: {counts['passes_research_filters']}; fail a filter: {counts['fails_initial_filters']}; need review: {counts['needs_review']}.",'','Needs review means insufficient evidence, not a halal verdict or a failure.','All companies remain excluded from approved portfolios until evidence and domain review are complete.','', '| Ticker | Research result | Failing filters | Minimum debt % |','|---|---|---|---|']
-    for row in flat:lines.append(f"| {row['ticker']} | {row['research_status']} | {row['failed_checks'] or 'Incomplete evidence'} | {row['debt_minimum_percent']} |")
+    lines=['# FTSE Yasaar research screen','',f'Executed {executed_on} with evidence available as of {asof}. Fixed 2026 version, retrospective initial-entry filters.','',f"Complete research passes: {counts['passes_research_filters']}; fail a filter: {counts['fails_initial_filters']}; need review: {counts['needs_review']}.",'','Needs review means insufficient evidence, not a halal verdict or a failure.','A maximum below a financial limit can clear that check; a minimum below it cannot. The checks-cleared column counts individual financial tests, not whole-stock passes.','All companies remain excluded from approved portfolios until evidence and domain review are complete.','', '| Ticker | Research result | Failing filters | Financial checks cleared / 4 | Minimum debt % | Maximum debt % |','|---|---|---|---|---|---|']
+    for row in flat:lines.append(f"| {row['ticker']} | {row['research_status']} | {row['failed_checks'] or 'Incomplete evidence'} | {row['financial_checks_cleared']} | {row['debt_minimum_percent']} | {row['debt_maximum_percent']} |")
     (target/'results.md').write_text('\n'.join(lines),encoding='utf8')
     write_html(target,details)
     coverage=[]
@@ -199,7 +229,7 @@ def main():
         c=record['checks']
         coverage.append(dict(ticker=record['ticker'],assets_found=bool(c['assets']),debt_amount_found=bool(c['debt'].get('components')),cash_amount_found=bool(c['cash_and_interest_items'].get('components')),receivable_amount_found=any('Receivable' in x['concept'] for x in c['receivables_and_cash'].get('components',[])),annual_revenue_candidate_found=bool(c['income'].get('revenue_candidate')),gross_interest_candidate_found=bool(c['income'].get('interest_candidate')),complete_prohibited_income=False))
     save_json(target/'field_coverage.json',dict(companies=coverage,counts={k:sum(bool(r[k]) for r in coverage) for k in coverage[0] if k!='ticker'}))
-    save_json(target/'remaining_review.json',dict(companies=[dict(ticker=r['ticker'],research_status=r['research_status'],missing_or_incomplete_checks=r['missing_or_incomplete_checks'],financial_source=r['source_url'],business_source=r['business'].get('source_url'),next_actions=['Reconcile all borrowing components and investment types against original notes.','Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.','Establish gross interest plus all prohibited income with a consistent total-revenue denominator.'],amendments=r['amendments_requiring_review'],stale_evidence=r['stale_evidence']) for r in details]))
+    save_json(target/'remaining_review.json',dict(companies=[dict(ticker=r['ticker'],research_status=r['research_status'],missing_or_incomplete_checks=r['missing_or_incomplete_checks'],financial_source=r['source_url'],business_source=r['business'].get('source_url'),next_actions=remaining_tasks(r),amendments=r['amendments_requiring_review'],stale_evidence=r['stale_evidence']) for r in details]))
     z.close()
     print(json.dumps(summary,indent=2))
 

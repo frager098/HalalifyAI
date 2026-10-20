@@ -10,3 +10,7 @@ A live/backend contract remains to be agreed and tested with HalalifyAPI. Displa
 ## Latest follow-up — 20 October 2026
 
 Read [data_completion_20261020.md](data_completion_20261020.md) for the executed source search and price rebuild. V5 screening is 0 complete passes / 20 failures / 30 reviews, with 37 gross-interest candidates. Earlier V4 counts and claims that the training notebook was unchanged apply only to that earlier task. The new 118,643-row price research dataset and repaired notebook are separate from screening. No full Colab model fit, higher accuracy, live screening API, domain approval or portfolio backtest is claimed.
+
+## Current V6 screening override
+
+[screening_gap_resolution_20261020.md](screening_gap_resolution_20261020.md) supersedes prior screening counts: 0 complete passes / 21 failures / 29 reviews, all portfolio flags false. Maximum proofs clear 52 individual financial tests; GE insurance establishes one further research failure. No historical provider report or complete income clearance is claimed. Return/risk training, live API integration and historical portfolio backtesting are not performed by this continuation.

@@ -1,0 +1,37 @@
+{
+  "before": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 20,
+    "needs_review": 30
+  },
+  "after": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 21,
+    "needs_review": 29
+  },
+  "newly_cleared_financial_tests": {
+    "debt": 2,
+    "cash_and_interest_items": 16,
+    "receivables_and_cash": 34,
+    "income": 0
+  },
+  "newly_cleared_financial_test_total": 52,
+  "changed_stock_decisions": [
+    {
+      "ticker": "GE",
+      "before": "needs_review",
+      "after": "fails_initial_filters",
+      "reason": "Original annual insurance disclosures establish conventional insurance operations. Their reported revenue alone is about 9.25% of consolidated total revenue, above the 5% business ceiling; classification is a research assessment."
+    }
+  ],
+  "unresolved_companies": 29,
+  "all_required_gaps_closed": false,
+  "missing_income_not_imputed": true,
+  "provider_data_received": false,
+  "provider_contact_sent": false,
+  "purchase_made": false,
+  "results_sha256": "45d423bf303b4cac1ad1de9a59833893e5c7fb5fd999bac30431f9576e894c7d",
+  "provider_contact_attempted": true,
+  "provider_contact_delivery_confirmed": false,
+  "provider_contact_status": "Official contact form displayed Error: 404 https://www.yasaar.org/forms/contact.php"
+}

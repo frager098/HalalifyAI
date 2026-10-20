@@ -102,7 +102,7 @@ Never commit:
 
 ## Screening implementation — 20 October 2026
 
-The current screening implementation and source review are documented in [screening_methodology.md](docs/screening_methodology.md). The executed retained-data screen covers all 50 stocks as of **31 December 2025**: **0 complete evidenced research passes, 20 initial-filter failures and 30 requiring review**. These are not current-market or official Yasaar verdicts.
+The current screening implementation and source review are documented in [screening_methodology.md](docs/screening_methodology.md). The executed retained-data screen covers all 50 stocks as of **31 December 2025**: **0 complete evidenced research passes, 21 initial-filter failures and 29 requiring review**. These are not current-market or official Yasaar verdicts.
 
 Read [the simple result explanation](docs/screening_results_20261020.md) or [all 50 result rows](reports/screening/ftse_yasaar_2025/results.md). Rule code is in `src/screening/`; versioned limits and the exact cohort are in `configs/`. Install `requirements-screening.txt` after the main requirements to reproduce. The source ZIP and candidate datasets stay local and are shared separately.
 
@@ -113,3 +113,5 @@ Follow-up recovery downloaded SEC CompanyFacts for all 50 and re-examined origin
 The latest source review also recovered four annual interest-income entries and Union Pacific's separate finance-lease liability. The new price research dataset contains 118,643 eligible rows for 50 companies, with SPY as a separate benchmark. All retained targets were independently checked; no new training accuracy is claimed. Use the source-checked `audited_prices.csv` with the repaired notebook rather than the older table's unverified review flags.
 
 Latest source search, actual price rebuild and V5 screening findings: [data_completion_20261020.md](docs/data_completion_20261020.md). Earlier V3/V4 execution notes are historical.
+
+The latest V6 [gap investigation](docs/screening_gap_resolution_20261020.md) clears 52 individual financial tests with source-backed maximum amounts and establishes GE's insurance business failure. This supersedes V5 screening counts. All 81 software tests pass; these are software tests, not passing stocks. Business/income gaps remain for 29 companies. The exact [data request](reports/screening/ftse_yasaar_2025/data_request.csv) and a prepared specialist enquiry (form delivery unconfirmed) are ready; no historical provider access or purchase is claimed.

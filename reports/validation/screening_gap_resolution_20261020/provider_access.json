@@ -1,0 +1,16 @@
+{
+  "authorization_date": "2026-10-21",
+  "authorization": "User explicitly authorized the historical data enquiry and supplied a private reply address",
+  "provider": "Yasaar Research Limited",
+  "contact_url": "https://www.yasaar.org/#contact",
+  "contact_attempted": true,
+  "delivery_confirmed": false,
+  "delivery_status": "Official contact form displayed Error: 404 https://www.yasaar.org/forms/contact.php",
+  "confirmation_observed": "No success confirmation",
+  "email_fallback": "Gmail integration discovered but connection not confirmed",
+  "private_email_and_screenshot_excluded_from_public_repository": true,
+  "provider_data_received": false,
+  "quote_received": false,
+  "purchase_made": false,
+  "cost_authorized": false
+}

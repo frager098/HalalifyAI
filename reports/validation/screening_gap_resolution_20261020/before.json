@@ -1,0 +1,556 @@
+{
+  "summary_counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 20,
+    "needs_review": 30
+  },
+  "financial_check_counts": {
+    "debt": {
+      "not_failed_on_available_amounts": 35,
+      "fails_initial_filter": 14,
+      "needs_review": 1
+    },
+    "cash_and_interest_items": {
+      "fails_initial_filter": 2,
+      "not_failed_on_available_amounts": 48
+    },
+    "receivables_and_cash": {
+      "not_failed_on_available_amounts": 50
+    },
+    "income": {
+      "needs_review": 50
+    }
+  },
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "AMD",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "AVGO",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "ORCL",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "ADBE",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "CRM",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "CSCO",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "META",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "HD",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "LOW",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "NKE",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "SBUX",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "MCD",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "COST",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "WMT",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "JNJ",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "LLY",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "ABBV",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "MRK",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "TMO",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "ABT",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "DHR",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "CAT",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "DE",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "HON",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "UPS",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "UNP",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "GE",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "CVX",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "COP",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "SLB",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "JPM",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ]
+    },
+    {
+      "ticker": "BAC",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ]
+    },
+    {
+      "ticker": "GS",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ]
+    },
+    {
+      "ticker": "MS",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ]
+    },
+    {
+      "ticker": "V",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "MA",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "PG",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "KO",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "PEP",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "LIN",
+      "research_status": "needs_review",
+      "missing_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    },
+    {
+      "ticker": "NEE",
+      "research_status": "fails_initial_filters",
+      "missing_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ]
+    }
+  ]
+}

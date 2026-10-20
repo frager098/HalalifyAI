@@ -1,7 +1,7 @@
 # Halalify screening methodology
 
 Implemented and source-checked on 20 October 2026. Profile:
-`HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V4` (the same-day V3 run is retained in Git history).
+`HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V6` (the same-day V3 run is retained in Git history).
 
 ## What is authentic, and what is implemented
 
@@ -43,7 +43,7 @@ JPM, BAC, GS and MS have source-specific research activity assessments based on 
 
 ## Results and portfolio safety
 
-`passes_research_filters` requires all four financial checks and the business check to pass with complete reviewed amounts. `fails_initial_filters` means at least one evidenced initial filter fails. `needs_review` means the available information cannot support a decision or a blocking amendment/stale source exists. The engine can pass a complete packet; the synthetic test fixture proves this without inventing real-company data. The retained-source adapter cannot assert completeness from tag presence alone.
+`passes_research_filters` requires all four financial checks and the business check to pass with complete reviewed amounts or valid source-backed proofs for the balance-sheet limits. `fails_initial_filters` means at least one evidenced initial filter fails. `needs_review` means the available information cannot support a decision or a blocking amendment/stale source exists. The engine can pass a complete packet; the synthetic test fixture proves this without inventing real-company data. The retained-source adapter cannot assert completeness from tag presence alone.
 
 `portfolio_eligible` requires a complete research pass **and** the configured domain approval. All 50 flags are false in this run. This enforces the SRS FR-4.1/4.2 calculations and FR-4.4/FR-5.1 exclusion boundary at the result layer. Dashboard display, optimizer integration and approved production eligibility are not claimed complete.
 
@@ -76,3 +76,9 @@ See [screening_results_20261020.md](screening_results_20261020.md) for the execu
 ## Latest follow-up — 20 October 2026
 
 Read [data_completion_20261020.md](data_completion_20261020.md) for the executed source search and price rebuild. V5 screening is 0 complete passes / 20 failures / 30 reviews, with 37 gross-interest candidates. Earlier V4 counts and claims that the training notebook was unchanged apply only to that earlier task. The new 118,643-row price research dataset and repaired notebook are separate from screening. No full Colab model fit, higher accuracy, live screening API, domain approval or portfolio backtest is claimed.
+
+## V6 source-backed maximum proofs and business revenue review
+
+Read [screening_gap_resolution_20261020.md](screening_gap_resolution_20261020.md) for the current 0-pass/21-failure/29-review run. Earlier V5 counts above are historical. Recognized debt carrying amounts cannot exceed explicit total recognized liabilities. Cash/interest-bearing financial items and receivables/cash fit within total assets after subtracting disjoint nonfinancial asset classes. Worst-case declared precision, same-period consolidated standard USD facts and non-overlapping alternatives are mandatory; missing precision or conflicting bounds cannot clear a check. These proofs clear 52 individual financial tests without imputing exact component totals. They are research carrying-amount bounds, not a substitute for a different face-value methodology or undisclosed commitments.
+
+GE's source-bound annual insurance category alone exceeds the 5% business revenue ceiling. Its issuer, accession, original file hash, annual dates, descriptive markers and both reported amounts must match the reviewed registry. The conservative precision-bound share must exceed the threshold. The interpretation is explicit research work, not domain approval. Netflix's entertainment interpretation and all other unreviewed activity categories remain unresolved. No current provider label, randomized sandbox data or incompatible standard is admitted. Historical provider availability and a quote are pending; the exact prepared enquiry is in the V6 document.

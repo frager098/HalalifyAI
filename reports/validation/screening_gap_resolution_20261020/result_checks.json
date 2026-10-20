@@ -1,0 +1,15 @@
+{
+  "companies": 50,
+  "counts": {
+    "fails_initial_filters": 21,
+    "needs_review": 29
+  },
+  "portfolio_eligible": 0,
+  "universe_exact": true,
+  "no_duplicate_tickers": true,
+  "arithmetic_matches": true,
+  "decisions_recomputed": true,
+  "no_future_selected_sources": true,
+  "unsafe_eligibility_flags": false,
+  "results_sha256": "45d423bf303b4cac1ad1de9a59833893e5c7fb5fd999bac30431f9576e894c7d"
+}

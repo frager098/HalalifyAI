@@ -1,0 +1,18 @@
+{
+  "not_domain_approved": true,
+  "reviews": {
+    "GE": {
+      "cik": "0000040545",
+      "accession_number": "0000040545-25-000015",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "source_sha256": "c1803c780a00587f0aa5b8eeae281bdfd03f9fbe0bc9e2dc6847a233f96db0d4",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "category": "conventional_insurance",
+      "required_source_markers": ["Employers Reassurance Corporation", "Union Fidelity Life Insurance Company", "Insurance revenue is comprised primarily of premiums and investment income"],
+      "numerator": {"concept": "InsuranceServicesRevenue", "expected_value": "3581000000"},
+      "denominator": {"concept": "Revenues", "expected_value": "38702000000"},
+      "reason": "Original annual insurance disclosures establish conventional insurance operations. Their reported revenue alone is about 9.25% of consolidated total revenue, above the 5% business ceiling; classification is a research assessment."
+    }
+  }
+}
