@@ -1,7 +1,7 @@
 # Halalify screening methodology
 
 Implemented and source-checked on 20 October 2026. Profile:
-`HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V3`.
+`HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V4` (the same-day V3 run is retained in Git history).
 
 ## What is authentic, and what is implemented
 
@@ -46,6 +46,18 @@ JPM, BAC, GS and MS have source-specific research activity assessments based on 
 `passes_research_filters` requires all four financial checks and the business check to pass with complete reviewed amounts. `fails_initial_filters` means at least one evidenced initial filter fails. `needs_review` means the available information cannot support a decision or a blocking amendment/stale source exists. The engine can pass a complete packet; the synthetic test fixture proves this without inventing real-company data. The retained-source adapter cannot assert completeness from tag presence alone.
 
 `portfolio_eligible` requires a complete research pass **and** the configured domain approval. All 50 flags are false in this run. This enforces the SRS FR-4.1/4.2 calculations and FR-4.4/FR-5.1 exclusion boundary at the result layer. Dashboard display, optimizer integration and approved production eligibility are not claimed complete.
+
+## V4 missing-field recovery
+
+The follow-up user request authorized further source/API exploration without another branch. All 50 new SEC CompanyFacts requests succeeded. Each current response is preserved with issuer, URL, retrieval time and checksum. It is supplementary evidence: matching uses the exact original accession, period and value and excludes future filings; current or restated API values never overwrite the original historical reports. The source archive's latest eligible financial and annual reports were re-inventoried with custom and dimensional contexts retained as candidates.
+
+For balance decisions, only standard concepts and specifically permitted debt-instrument/type contexts can add a lower bound. Business-segment and fair-value-measurement contexts are not silently consolidated. Rounded and detailed observations may be reconciled only when their explicitly declared XBRL precision intervals intersect; incompatible values remain unknown. A broad custom tag is not approved merely because its local name resembles US-GAAP.
+
+Debt-securities observations may strengthen the cash/items lower bound, but cash and securities are not blindly added because cash equivalents can occur in both. Apple's original classification table supports an explicit source-bound overlap subtraction before adding cash. The resulting initial cash/items diagnostic is 36.6233% of assets. NVIDIA's reported securities subtotal alone is 34.1003%; no extra cash is added. Lowe's original note explicitly excludes finance leases from its unsecured-note carrying amount; that component alone is 70.1813% of assets. These three source-backed findings change the count from 16 to 19 initial-filter failures.
+
+Source-bound original annual table mappings recover Costco's USD469 million and McDonald's USD103 million interest-income candidates. McDonald's displays that income as an offset to interest expense; its positive income amount is preserved. Microsoft's USD2,647 million remains **combined interest and dividends**, not a fabricated separate gross-interest figure. Income candidates do not clear the full prohibited-income test or establish prohibited business revenue as zero. All three reviewed mappings bind exact issuer, accession, source hash, row cells, scale and annual period.
+
+Additional retained inputs are `data/raw/screening_recovery_20261020/companyfacts/` and `data/interim/screening/recovery_notes_20261020/`. Their manifest hashes and the source-specific mapping hash are registered in the V4 profile. Reproduction requires these exact retained files in addition to the original archive and extracted candidate set; a later fresh API download can differ and requires a new reviewed registration. Completed collection reuse verifies every retained file and does not rewrite its original metadata. See [screening_field_recovery_20261020.md](screening_field_recovery_20261020.md) for the limitations and collection commands.
 
 ## Reproduce
 

@@ -1,5 +1,5 @@
 {
-  "profile_id": "HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V3",
+  "profile_id": "HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V4",
   "reference": "FTSE Yasaar v4.6 February 2026 rules 4.3.1 and 4.3.2",
   "source_url": "https://www.lseg.com/content/dam/ftse-russell/en_us/documents/ground-rules/ftse-yasaar-global-equity-shariah-index-series-ground-rules.pdf",
   "as_of_date": "2025-12-31",
@@ -36,5 +36,12 @@
   "financial_max_age_days": 180,
   "business_max_age_days": 450,
   "freshness_policy_status": "project_controls_not_FTSE_thresholds",
-  "public_screening_only": true
+  "public_screening_only": true,
+  "field_recovery_enabled": true,
+  "validation_output": "reports/validation/screening_field_recovery_20261020",
+  "supplemental_source_hashes": {
+    "notes_manifest": "4007d2db8f492e704cd0dc0016954764b8aebb239b7c19b724084a5af0869ef3",
+    "api_manifest": "8566b85ac57d0ed832a039d44b203ff1546b747b5de72f97049d39c067a77ff0",
+    "mappings": "a655ff2c26b35e9f21dc417b734ab9d4e875e6e016d57ee7f5dc981dce8af3de"
+  }
 }

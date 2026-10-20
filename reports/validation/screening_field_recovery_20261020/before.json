@@ -1,0 +1,541 @@
+{
+  "counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 16,
+    "needs_review": 34
+  },
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2524155093655790959272466116",
+        "cash_and_interest_items": "0.1000275581016643423217283105",
+        "receivables_and_cash": "0.2107526702130324768052644325"
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.06789963400701813936019586675",
+        "cash_and_interest_items": "0.04533504308156976259957162007",
+        "receivables_and_cash": "0.1284558364801815350333385192"
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.05254176285154019907166083352",
+        "cash_and_interest_items": "0.07127609402536798470970784620",
+        "receivables_and_cash": "0.2784831335170154144016680319"
+      }
+    },
+    {
+      "ticker": "AMD",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.04187746290203014657112015711",
+        "cash_and_interest_items": "0.06253007504129221885526264452",
+        "receivables_and_cash": "0.1431767046858540011184664005"
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3923035559815771631636780212",
+        "cash_and_interest_items": "0.09455731419353330371963621911",
+        "receivables_and_cash": "0.1363184719332289060856147570"
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.5272362720992857979159349022",
+        "cash_and_interest_items": "0.09386586270147913983530421887",
+        "receivables_and_cash": "0.1399182375209772470046442649"
+      }
+    },
+    {
+      "ticker": "ADBE",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2156221743061834875147805523",
+        "cash_and_interest_items": "0.1732628503860332475481672115",
+        "receivables_and_cash": "0.1732628503860332475481672115"
+      }
+    },
+    {
+      "ticker": "CRM",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.08868662238291431934751534516",
+        "cash_and_interest_items": "0.09436222988312452703270831582",
+        "receivables_and_cash": "0.1518960733204405953081644665"
+      }
+    },
+    {
+      "ticker": "CSCO",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2319449720070684216610790904",
+        "cash_and_interest_items": "0.06936301630030883057257518456",
+        "receivables_and_cash": "0.06936301630030883057257518456"
+      }
+    },
+    {
+      "ticker": "INTC",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2276274484876340983991315998",
+        "cash_and_interest_items": "0.05447548823063457758393068445",
+        "receivables_and_cash": "0.07013211809460477033357129585"
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.04399508638896189714596742775",
+        "cash_and_interest_items": "0.04304069759855648695451181709",
+        "receivables_and_cash": "0.1495668901651353573086236111"
+      }
+    },
+    {
+      "ticker": "META",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.09489738155105909611511170206",
+        "cash_and_interest_items": "0.03352707310330301075551927963",
+        "receivables_and_cash": "0.09045431208119956293361066863"
+      }
+    },
+    {
+      "ticker": "NFLX",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2632759341135729269051231336",
+        "cash_and_interest_items": "0.1690600690800290926513204236",
+        "receivables_and_cash": "0.1690600690800290926513204236"
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.07569090601864762797061769066",
+        "cash_and_interest_items": "0.09193580072562819316931370300",
+        "receivables_and_cash": "0.1759765139348912862796924392"
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.04194115227876023479268703032",
+        "cash_and_interest_items": "0.1367555239839982054062137810",
+        "receivables_and_cash": "0.1719220847197816577560100198"
+      }
+    },
+    {
+      "ticker": "HD",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.4078137644202721267666597663",
+        "cash_and_interest_items": "0.01584583247078307017708941039",
+        "receivables_and_cash": "0.07950204189171387169015939929"
+      }
+    },
+    {
+      "ticker": "LOW",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": null,
+        "cash_and_interest_items": "0.01161768282416328363234991488",
+        "receivables_and_cash": "0.03436663985183245093820739715"
+      }
+    },
+    {
+      "ticker": "NKE",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2121099849154471114404424802",
+        "cash_and_interest_items": "0.1845608277979199195490512610",
+        "receivables_and_cash": "0.3364119935427527985815227459"
+      }
+    },
+    {
+      "ticker": "SBUX",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.5020284387423992104860445288",
+        "cash_and_interest_items": "0.1005568446924861881903952879",
+        "receivables_and_cash": "0.1404541579090372489436190845"
+      }
+    },
+    {
+      "ticker": "MCD",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.6514486536430834213305174234",
+        "cash_and_interest_items": "0.03981322597676874340021119324",
+        "receivables_and_cash": "0.08236536430834213305174234424"
+      }
+    },
+    {
+      "ticker": "COST",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.06928372991907235173330112332",
+        "cash_and_interest_items": "0.1958811450658292064258968474",
+        "receivables_and_cash": "0.2349075975359342915811088296"
+      }
+    },
+    {
+      "ticker": "WMT",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.1315341844069910446727061717",
+        "cash_and_interest_items": "0.03665968024111829000017321716",
+        "receivables_and_cash": "0.07863019868008522284387937157"
+      }
+    },
+    {
+      "ticker": "JNJ",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2043813791386606920587503112",
+        "cash_and_interest_items": "0.09455128205128205128205128205",
+        "receivables_and_cash": "0.1858870633142477802671977429"
+      }
+    },
+    {
+      "ticker": "LLY",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3698303568787336190590540425",
+        "cash_and_interest_items": "0.08519481378235078139546214656",
+        "receivables_and_cash": "0.2253378854556559597826257184"
+      }
+    },
+    {
+      "ticker": "ABBV",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.02830512778383545684028140824",
+        "cash_and_interest_items": "0.04203946287472553734932560606",
+        "receivables_and_cash": "0.1374030978804761833634557648"
+      }
+    },
+    {
+      "ticker": "MRK",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.3195776017785188272891482562",
+        "cash_and_interest_items": "0.1402513392926064872709307891",
+        "receivables_and_cash": "0.2338088401031293903323915829"
+      }
+    },
+    {
+      "ticker": "TMO",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3444379732090856144437973209",
+        "cash_and_interest_items": "0.01923898272180159192389827218",
+        "receivables_and_cash": "0.1057367501456027955736750146"
+      }
+    },
+    {
+      "ticker": "ABT",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.1537282759767643530012710707",
+        "cash_and_interest_items": "0.08922440930851379765030113684",
+        "receivables_and_cash": "0.1858970551549637091505209014"
+      }
+    },
+    {
+      "ticker": "DHR",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2109716259684343592375183048",
+        "cash_and_interest_items": "0.01912462295205076536040151695",
+        "receivables_and_cash": "0.06612263288984567630824686784"
+      }
+    },
+    {
+      "ticker": "CAT",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": null,
+        "cash_and_interest_items": "0.08042935490066366488124453170",
+        "receivables_and_cash": "0.1886856874586543180896694479"
+      }
+    },
+    {
+      "ticker": "DE",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.4097513113702403864296765916",
+        "cash_and_interest_items": "0.07807841805351145326238725990",
+        "receivables_and_cash": "0.1282406883278614287331597419"
+      }
+    },
+    {
+      "ticker": "HON",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3727770431429736643721344093",
+        "cash_and_interest_items": "0.1597933685134149807827774139",
+        "receivables_and_cash": "0.2700668586329201527491132889"
+      }
+    },
+    {
+      "ticker": "UPS",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3384692962796952039444195428",
+        "cash_and_interest_items": "0.09474450918870461676378305693",
+        "receivables_and_cash": "0.2343539892424921559838637382"
+      }
+    },
+    {
+      "ticker": "UNP",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0",
+        "cash_and_interest_items": "0.01177036141419144318032834647",
+        "receivables_and_cash": "0.03975410433085204014742086326"
+      }
+    },
+    {
+      "ticker": "GE",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.1624884009263663513798024064",
+        "cash_and_interest_items": "0.09747900470201102594293645657",
+        "receivables_and_cash": "0.1806882246984240855251358749"
+      }
+    },
+    {
+      "ticker": "XOM",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.02027556455517894088127833781",
+        "cash_and_interest_items": "0.03040454285336972311484791126",
+        "receivables_and_cash": "0.1300765946207685874015054805"
+      }
+    },
+    {
+      "ticker": "CVX",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.01099843492056685890701713012",
+        "cash_and_interest_items": "0.02690037702794172146486534498",
+        "receivables_and_cash": "0.07590482111846518081108480525"
+      }
+    },
+    {
+      "ticker": "COP",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.008295773727872493304592070024",
+        "cash_and_interest_items": "0.04294859233130838069109674048",
+        "receivables_and_cash": "0.08048370239728264419622444314"
+      }
+    },
+    {
+      "ticker": "SLB",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.1968126622256911041330114534",
+        "cash_and_interest_items": "0.05470749460003993247781024813",
+        "receivables_and_cash": "0.2199008948505254751057303106"
+      }
+    },
+    {
+      "ticker": "JPM",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "business"
+      ],
+      "ratios": {
+        "debt": "0.01520874609803725928987841555",
+        "cash_and_interest_items": "0.06653999107496263874102151109",
+        "receivables_and_cash": "0.06653999107496263874102151109"
+      }
+    },
+    {
+      "ticker": "BAC",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "business"
+      ],
+      "ratios": {
+        "debt": "0.09151292293481594821659621426",
+        "cash_and_interest_items": "0.07242290484870065540133195602",
+        "receivables_and_cash": "0.07242290484870065540133195602"
+      }
+    },
+    {
+      "ticker": "GS",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "business"
+      ],
+      "ratios": {
+        "debt": "0.1931982729916558903794396183",
+        "cash_and_interest_items": "0.09379352228064217453492346716",
+        "receivables_and_cash": "0.09379352228064217453492346716"
+      }
+    },
+    {
+      "ticker": "MS",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "business"
+      ],
+      "ratios": {
+        "debt": "0.2430228178949975307845950267",
+        "cash_and_interest_items": "0.07600640677136530759683061182",
+        "receivables_and_cash": "0.07600640677136530759683061182"
+      }
+    },
+    {
+      "ticker": "V",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2526523934274845172493400383",
+        "cash_and_interest_items": "0.1722826141507824184207092455",
+        "receivables_and_cash": "0.2036596504963513906872634928"
+      }
+    },
+    {
+      "ticker": "MA",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.3562273639963219426147985513",
+        "cash_and_interest_items": "0.1935296214978701045243858958",
+        "receivables_and_cash": "0.2732271200435361894574865357"
+      }
+    },
+    {
+      "ticker": "PG",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.2817106717137281640138245598",
+        "cash_and_interest_items": "0.08754770805413835531626423405",
+        "receivables_and_cash": "0.1383866644722921026026849740"
+      }
+    },
+    {
+      "ticker": "KO",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.01878447828751944929039558678",
+        "cash_and_interest_items": "0.1200622377292658776934320336",
+        "receivables_and_cash": "0.1572728558630769956150690744"
+      }
+    },
+    {
+      "ticker": "PEP",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.06321439966966346965971583551",
+        "cash_and_interest_items": "0.07625893879389628183712156760",
+        "receivables_and_cash": "0.1948234764165994106495992793"
+      }
+    },
+    {
+      "ticker": "LIN",
+      "research_status": "needs_review",
+      "failed_checks": [],
+      "ratios": {
+        "debt": "0.3014780272812903375856174340",
+        "cash_and_interest_items": "0.05243450048259742072029118649",
+        "receivables_and_cash": "0.1144279185515100066284465015"
+      }
+    },
+    {
+      "ticker": "NEE",
+      "research_status": "fails_initial_filters",
+      "failed_checks": [
+        "debt"
+      ],
+      "ratios": {
+        "debt": "0.4294508548890650537792262447",
+        "cash_and_interest_items": "0.01170028479990604539182007693",
+        "receivables_and_cash": "0.03099034029184650165888605068"
+      }
+    }
+  ]
+}

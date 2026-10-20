@@ -2,10 +2,9 @@
   "companies": [
     {
       "ticker": "AAPL",
-      "research_status": "needs_review",
+      "research_status": "fails_initial_filters",
       "missing_or_incomplete_checks": [
         "debt",
-        "cash_and_interest_items",
         "receivables_and_cash",
         "income",
         "business_revenue_exposure"
@@ -42,10 +41,9 @@
     },
     {
       "ticker": "NVDA",
-      "research_status": "needs_review",
+      "research_status": "fails_initial_filters",
       "missing_or_incomplete_checks": [
         "debt",
-        "cash_and_interest_items",
         "receivables_and_cash",
         "income",
         "business_revenue_exposure"
@@ -319,9 +317,8 @@
     },
     {
       "ticker": "LOW",
-      "research_status": "needs_review",
+      "research_status": "fails_initial_filters",
       "missing_or_incomplete_checks": [
-        "debt",
         "cash_and_interest_items",
         "receivables_and_cash",
         "income",

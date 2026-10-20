@@ -1,0 +1,105 @@
+{
+  "profile_id": "SCREENING_SOURCE_RECOVERY_20261020",
+  "company_overrides": {
+    "AAPL": {
+      "cik": "0000320193",
+      "accession_number": "0000320193-25-000079",
+      "source_sha256": "cbf9f7f27fb8d7c8ae977e6d41a877f7b8f8b172f9c872a9c96030b29c7bc1e3",
+      "recover_apple_classification_table": true,
+      "explanation": "Original annual financial-instruments table reports all Level-2 debt securities and the part classified as cash equivalents separately. Subtract that part before adding total cash."
+    }
+  },
+  "manual_annual_disclosures": [
+    {
+      "ticker": "COST",
+      "cik": "0000909832",
+      "accession_number": "0000909832-25-000101",
+      "source_sha256": "fed2e8096f5fe5a57fc20bada924f76309de55f984128845c75dd22a71a66f1b",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "row_ordinal": 170,
+      "expected_cells": [
+        "Interest income",
+        "$",
+        "469",
+        "",
+        "",
+        "$",
+        "533",
+        "",
+        "",
+        "$",
+        "470",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "reported_display": "469",
+      "value_decimal": "469000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-09-02",
+      "period_end": "2025-08-31",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "First annual comparison column. Parentheses for MCD present earned interest as an offset to expense; recovered as positive income, not as a negative prohibited-income amount. Combined Microsoft interest/dividends is not reclassified as pure interest."
+    },
+    {
+      "ticker": "MCD",
+      "cik": "0000063908",
+      "accession_number": "0000063908-25-000012",
+      "source_sha256": "d02ea39071383b9f54effe563a2224be352076311a9e2f314087891b441f85d3",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+      "row_ordinal": 239,
+      "expected_cells": [
+        "Interest income",
+        "",
+        "$",
+        "(103)",
+        "",
+        "",
+        "$",
+        "(187)",
+        "",
+        "",
+        "$",
+        "(44)",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "reported_display": "(103)",
+      "value_decimal": "103000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "First annual comparison column. Parentheses for MCD present earned interest as an offset to expense; recovered as positive income, not as a negative prohibited-income amount. Combined Microsoft interest/dividends is not reclassified as pure interest."
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "accession_number": "0000950170-25-100235",
+      "source_sha256": "db364d7321b3a8e89a9968915cdf1e4a524ba18bca36b38cb5ec850ea0aeb651",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "row_ordinal": 246,
+      "expected_cells": [
+        "Interest and dividends income",
+        "",
+        "$",
+        "2,647",
+        "",
+        "",
+        "$",
+        "3,157",
+        ""
+      ],
+      "reported_label": "Interest and dividends income",
+      "reported_display": "2,647",
+      "value_decimal": "2647000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-07-01",
+      "period_end": "2025-06-30",
+      "classification": "combined_interest_and_dividends_not_separate_gross_interest",
+      "interpretation": "First annual comparison column. Parentheses for MCD present earned interest as an offset to expense; recovered as positive income, not as a negative prohibited-income amount. Combined Microsoft interest/dividends is not reclassified as pure interest."
+    }
+  ]
+}

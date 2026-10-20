@@ -14,6 +14,7 @@ from src.data.screening_disclosures import next_session
 from .source_facts import read_facts,mapped_research_facts
 from .yasaar import balance_checks,overall
 from .presentation import write_html
+from .field_recovery import recovered_balance,recover_income_check
 
 def select_latest(catalog,asof,calendar):
     result={};amends=[]
@@ -84,8 +85,23 @@ def income_checks(path,annual,asof):
     return out
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--archive',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--repo',type=Path,default=Path.cwd());a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--archive',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--repo',type=Path,default=Path.cwd())
+    p.add_argument('--notes',type=Path);p.add_argument('--api',type=Path)
+    a=p.parse_args()
     config=json.loads((a.repo/'configs/yasaar_research.json').read_text());asof=config['as_of_date']
+    recovery_manifest=None;api_manifest=None;recovery_mappings={}
+    if config.get('field_recovery_enabled'):
+        notes=a.notes or a.repo/'data/interim/screening/recovery_notes_20261020'
+        api=a.api or a.repo/'data/raw/screening_recovery_20261020/companyfacts'
+        mapping_path=a.repo/'configs/screening_recovery_mappings.json'
+        recovery_hashes=dict(notes_manifest=sha256(notes/'manifest.json'),api_manifest=sha256(api/'metadata.json'),mappings=sha256(mapping_path))
+        if recovery_hashes!=config['supplemental_source_hashes']:
+            raise ValueError('Supplementary recovery sources differ from registered versions')
+        recovery_manifest=json.loads((notes/'manifest.json').read_text())
+        api_manifest=json.loads((api/'metadata.json').read_text())
+        recovery_mappings=json.loads(mapping_path.read_text())
+        if api_manifest.get('status')!='complete' or api_manifest.get('downloaded')!=50:
+            raise ValueError('All 50 registered SEC API responses are required')
     assessments_path=a.repo/'configs/business_research_assessments.json'
     assessments=json.loads(assessments_path.read_text())['reviews']
     universe=json.loads((a.repo/'configs/screening_universe.json').read_text())['company_tickers']
@@ -129,6 +145,25 @@ def main():
         recovery.append(dict(ticker=t,source_url=source_url,source_sha256=source_hash,reporting_date=r['report_date'],candidates=candidates,note='Reported candidates, not approved totals. Custom concepts, mixed leases, investment types and overlapping totals need source-specific mapping. Missing gross income is never zero.'))
         facts=mapped_research_facts(facts,all_facts,t,r['cik'],config.get('research_custom_mappings',[]))
         checks=balance_checks(facts,r['report_date'],config);checks['income']=income[t]
+        if recovery_manifest:
+            note_entry=recovery_manifest['companies'][t];note_path=notes/note_entry['file']
+            if sha256(note_path)!=note_entry['sha256']:raise ValueError('Recovered original notes changed: '+t)
+            if sha256(api/(t+'_companyfacts.json'))!=api_manifest['files'][t]['sha256']:
+                raise ValueError('Retained supplementary API response changed: '+t)
+            packet=json.loads(note_path.read_text());financial=packet['financial']
+            if (financial['accession_number']!=r['accession_number'] or financial['source_sha256']!=r['sha256']
+                    or financial['cik']!=r['cik']):
+                raise ValueError('Recovered facts belong to a different financial filing: '+t)
+            company_config=dict(config,recover_apple_classification_table=False)
+            override=recovery_mappings.get('company_overrides',{}).get(t)
+            if override:
+                if any(override[key]!=financial[key] for key in ['cik','accession_number','source_sha256']):
+                    raise ValueError('Source-specific classification review does not match filing: '+t)
+                company_config.update(override)
+            checks=recovered_balance(financial['facts'],r['report_date'],checks,company_config)
+            if packet['annual']['accession_number']!=annual[t][1]['accession_number']:
+                raise ValueError('Recovered annual income uses a different report: '+t)
+            checks['income']=recover_income_check(checks['income'],packet['annual'],recovery_mappings['manual_annual_disclosures'])
         b=business_review(business.get(t,dict(ticker=t,text='')),assessments)
         amendments=[v['accession_number'] for _,v in amends if v['ticker']==t and v['report_date']>=r['report_date']]
         financial_age=(date.fromisoformat(asof)-date.fromisoformat(r['report_date'])).days
@@ -146,6 +181,7 @@ def main():
         flat.append(dict(ticker=t,reporting_date=r['report_date'],research_status=status,failed_checks='; '.join(failed),debt_minimum_percent=round(Decimal(checks['debt']['ratio'])*100,4) if checks['debt']['ratio'] else '',cash_items_minimum_percent=round(Decimal(checks['cash_and_interest_items']['ratio'])*100,4) if checks['cash_and_interest_items']['ratio'] else '',receivables_cash_minimum_percent=round(Decimal(checks['receivables_and_cash']['ratio'])*100,4) if checks['receivables_and_cash']['ratio'] else '',income_status=income[t]['status'],business_status=b['status'],source_url=source_url))
     target=a.repo/'reports/screening/ftse_yasaar_2025';target.mkdir(parents=True,exist_ok=True)
     hashes=dict(**actual_hashes,config=sha256(a.repo/'configs/yasaar_research.json'),business_assessments=sha256(assessments_path),universe=sha256(a.repo/'configs/screening_universe.json'))
+    if recovery_manifest:hashes.update(recovery_hashes)
     counts={label:sum(r['research_status']==label for r in details) for label in ['passes_research_filters','fails_initial_filters','needs_review']}
     executed_on=datetime.now(ZoneInfo('Asia/Karachi')).date().isoformat()
     summary=dict(profile=config,companies=len(details),counts=counts,portfolio_eligible=sum(r['portfolio_eligible'] for r in details),input_hashes=hashes,executed_on=executed_on,run_finished_at_utc=datetime.now(timezone.utc).isoformat(),evidence_as_of=asof,not_current_market_screen=True,python=sys.version,packages={name:importlib.metadata.version(name) for name in ['lxml','pandas','exchange_calendars']},limitation='Initial-entry research filters; not official membership, continuing-member monitoring or a religious approval. Minimum ratios below limits are not passes. Gross interest plus all non-compliant income remains incomplete in the retained evidence.')

@@ -1,6 +1,6 @@
 # Screening data dictionary
 
-Scope: screening profile V3, implemented 20 October 2026. This documents screening inputs/outputs; the teammate's existing modeling data schema is documented separately in `MODELING_WORKSPACE.md` and has not been redefined here.
+Scope: screening profile V4, revised 20 October 2026 after the API/original-note recovery. This documents screening inputs/outputs; the teammate's existing modeling data schema is documented separately in `MODELING_WORKSPACE.md` and has not been redefined here.
 
 | Field | Meaning |
 | --- | --- |
@@ -25,3 +25,7 @@ Scope: screening profile V3, implemented 20 October 2026. This documents screeni
 Income candidates preserve original units, annual start/end dates, issuer, dimensions, numeric transformation status, source hashes and availability. Revenue/interest diagnostics do not become final income ratios while full categories or denominator remain unestablished. Numeric zeros must be explicitly reported or supported by the XBRL transformation; missing observations are never zero-filled.
 
 Inputs: immutable SEC ZIP in `data/raw/sec_screening_evidence/` and extracted candidates in `data/interim/screening_evidence/sec_2015_2025_v2/`, with exact hashes in the profile. Output CSV percentages are display values only; decisions use unrounded decimals in the JSON. Candidate inventories belong in ignored `data/interim/screening/`; selected evidence and audit reports belong in `reports/`.
+
+V4 additionally retains 50 current SEC API snapshots and 50 original-note inventories, with exact manifest hashes. `reported_decimals`, `reported_values`, `lower_bound`, `upper_bound` and `rounding_reconciled` explain reconciliation of the same fiscal fact at different declared precision; they do not certify a complete financial category. `dimensions` remains explicit. Only specified instrument/type scopes can strengthen debt floors; product/segment contexts are not silently treated as consolidated totals.
+
+`checks.income.recovered_interest_disclosures` distinguishes reported gross-interest candidates from net interest, combined interest/dividends and other combined/partial income. A matching report table can supply a reviewed positive earned-interest figure even when shown as an expense offset. A missing or combined observation never becomes zero or a complete prohibited-income numerator. `api_crosscheck.json` counts exact historical fact representations across financial/annual roles; the roles can overlap, so that count is not a claim of unique economic observations.

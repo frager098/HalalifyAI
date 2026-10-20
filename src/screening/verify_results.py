@@ -74,7 +74,8 @@ def main():
                 if old['checks'][key]['ratio'] != record['checks'][key]['ratio']:
                     raise ValueError('Reproduction changed a financial ratio')
         verified['prior_retained_source_decisions_and_ratios_reproduced'] = True
-    save_json(args.repo/'reports/validation/screening_20261020/result_checks.json', verified)
+    config=json.loads((args.repo/'configs/yasaar_research.json').read_text())
+    save_json(args.repo/config.get('validation_output','reports/validation/screening_20261020')/'result_checks.json', verified)
     print(json.dumps(verified, indent=2))
 
 

@@ -5,7 +5,7 @@ import hashlib
 from lxml import etree
 from src.data.screening_disclosures import resources,local_name,numeric_value,table_row_label
 
-def read_facts(content,cik,xml=False, include_custom=False):
+def read_facts(content,cik,xml=False, include_custom=False, include_dimensions=False):
     parser=etree.XMLParser(huge_tree=True,no_network=True,resolve_entities=False) if xml else etree.HTMLParser(huge_tree=True,no_network=True)
     root=etree.fromstring(content,parser)
     contexts,units=resources(root); out=[]
@@ -15,7 +15,8 @@ def read_facts(content,cik,xml=False, include_custom=False):
         if not context_id or (not xml and not inline):continue
         ctx=contexts.get(context_id,{})
         identifier=ctx.get('entity_identifier')
-        if not identifier or not identifier.isdigit() or int(identifier)!=int(cik) or ctx.get('dimensions'):continue
+        if not identifier or not identifier.isdigit() or int(identifier)!=int(cik):continue
+        if ctx.get('dimensions') and not include_dimensions:continue
         unit=units.get(node.get('unitRef') if xml else node.get('unitref'))
         if unit!='USD':continue
         if inline:
@@ -39,11 +40,11 @@ def read_facts(content,cik,xml=False, include_custom=False):
         if status!='parsed' or value is None:continue
         amount=Decimal(value)
         if not amount.is_finite():continue
-        out.append(dict(namespace=namespace,concept=concept,value=str(amount),period_start=ctx.get('period_start'),period_end=ctx.get('period_end'),context_id=context_id,unit=unit,row_label=table_row_label(node) if inline else None))
+        out.append(dict(namespace=namespace,concept=concept,value=str(amount),period_start=ctx.get('period_start'),period_end=ctx.get('period_end'),context_id=context_id,unit=unit,row_label=table_row_label(node) if inline else None,dimensions=ctx.get('dimensions',[]),reported_decimals=node.get('decimals')))
     return out
 
 def unique_amount(facts,concept,end):
-    rows=[r for r in facts if r['concept']==concept and not r['period_start'] and r['period_end']==end]
+    rows=[r for r in facts if r['concept']==concept and not r['period_start'] and r['period_end']==end and not r.get('dimensions')]
     vals={Decimal(r['value']) for r in rows}
     if len(vals)!=1:return None
     value=next(iter(vals))

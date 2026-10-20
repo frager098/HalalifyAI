@@ -1,0 +1,1066 @@
+{
+  "summary": {
+    "before": {
+      "passes_research_filters": 0,
+      "fails_initial_filters": 16,
+      "needs_review": 34
+    },
+    "after": {
+      "passes_research_filters": 0,
+      "fails_initial_filters": 19,
+      "needs_review": 31
+    },
+    "api_files_downloaded": 50,
+    "original_facts_crossmatched_to_api": 12482,
+    "field_coverage": {
+      "assets_found": 50,
+      "debt_amount_found": 49,
+      "cash_amount_found": 50,
+      "receivable_amount_found": 47,
+      "annual_revenue_candidate_found": 48,
+      "gross_interest_candidate_found": 33,
+      "complete_prohibited_income": 0
+    },
+    "changed_companies": [
+      "AAPL",
+      "NVDA",
+      "LOW"
+    ],
+    "all_required_fields_complete": false,
+    "original_historical_inputs_changed": false,
+    "limitation": "Some product-level prohibited revenue and complete income breakdowns cannot be established from reviewed public sources. The SEC API does not supply an official Yasaar verdict."
+  },
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "previous_status": "needs_review",
+      "current_status": "fails_initial_filters",
+      "changed": true,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 0,
+      "unresolved_checks": [
+        "debt",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "MSFT",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 1,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "NVDA",
+      "previous_status": "needs_review",
+      "current_status": "fails_initial_filters",
+      "changed": true,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "AMD",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "AVGO",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "ORCL",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525315925/orcl-20251130.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/orcl-20250531.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "ADBE",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000107/adbe-20250829.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+      "rounded_receivable_reconciled": true,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "CRM",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000238/crm-20251031.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000006/crm-20250131.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "CSCO",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000171/csco-20251025.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+      "rounded_receivable_reconciled": true,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "INTC",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000179/intc-20250927.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000009/intc-20241228.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "GOOGL",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/goog-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 1,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "META",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "NFLX",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "AMZN",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000123/amzn-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 1,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "TSLA",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025045968/tsla-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 6,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "HD",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/354950/000162828025053868/hd-20251102.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "LOW",
+      "previous_status": "needs_review",
+      "current_status": "fails_initial_filters",
+      "changed": true,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000210/low-20251031.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "NKE",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000151/nke-20251130.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "SBUX",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "MCD",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000059/mcd-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "COST",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000169/cost-20251123.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "WMT",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000191/wmt-20251031.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 6,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "JNJ",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000038/jnj-20241229.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "LLY",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000254/lly-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "ABBV",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000049/abbv-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "MRK",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/310158/000031015825000059/mrk-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "TMO",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000159/tmo-20250927.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/tmo-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 5,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "ABT",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1800/000162828025047131/abt-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1800/000162828025007110/abt-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "DHR",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000182/dhr-20250926.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000043/dhr-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "CAT",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "DE",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "HON",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000010/hon-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "UPS",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1090727/000162828025049661/ups-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/ups-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 1,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "UNP",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000042/unp-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "GE",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000132/ge-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 6,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "XOM",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000061/xom-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000010/xom-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "CVX",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000108/cvx-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/cvx-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "COP",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000058/cop-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000012/cop-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "SLB",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/87347/000119312525246028/slb-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/87347/000095017025007638/slb-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "JPM",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/19617/000162828025048859/jpm-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 14,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "BAC",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 10,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "GS",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/886982/000088698225001411/gs-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/886982/000088698225000005/gs-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 11,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "MS",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000539/ms-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000304/ms-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 15,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "V",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "MA",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000193/ma-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000011/ma-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 3,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "PG",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000245/pg-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 4,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "KO",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/21344/000162828025046054/ko-20250926.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "PEP",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000053/pep-20250906.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000007/pep-20241228.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "LIN",
+      "previous_status": "needs_review",
+      "current_status": "needs_review",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025047710/lin-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025007990/lin-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": true,
+      "combined_or_net_interest_only": false,
+      "original_interest_disclosures_examined": 6,
+      "unresolved_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    },
+    {
+      "ticker": "NEE",
+      "previous_status": "fails_initial_filters",
+      "current_status": "fails_initial_filters",
+      "changed": false,
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000056/nee-20250930.htm",
+      "annual_source": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000011/nee-20241231.htm",
+      "rounded_receivable_reconciled": false,
+      "separate_gross_interest_candidate": false,
+      "combined_or_net_interest_only": true,
+      "original_interest_disclosures_examined": 2,
+      "unresolved_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "unresolved_income_reason": "Complete prohibited-activity revenue and income are not established; neither missing nor combined/net income is zero.",
+      "decision_basis": "Only original historical filings determine ratios; current API observations do not replace them."
+    }
+  ]
+}

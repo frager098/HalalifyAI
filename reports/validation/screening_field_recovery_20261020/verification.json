@@ -1,0 +1,27 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "tests_passed": 56,
+  "software_tests_not_stock_passes": true,
+  "tests_failed": 0,
+  "upstream_warnings": 2,
+  "pip_check": "passed",
+  "isolated_environment": true,
+  "new_dependencies_required": false,
+  "live_SEC_API_downloads": 50,
+  "failed_API_downloads": 0,
+  "exact_historical_fact_representations_crosschecked": 12482,
+  "package_verified_against_all_100_source_file_hashes": true,
+  "completed_collection_metadata_unchanged_on_reuse": true,
+  "original_historical_inputs_unchanged": true,
+  "teammate_modeling_data_and_notebooks_unchanged": true,
+  "all_required_fields_complete": false,
+  "final_counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 19,
+    "needs_review": 31
+  },
+  "cutoff": "2025-12-31",
+  "current_2026_screen": false,
+  "domain_or_peer_approval": false,
+  "result_sha256": "e2749adf5fad3c536c430fa5dc740c410f7a6da038a5fc56f0af45898673138b"
+}

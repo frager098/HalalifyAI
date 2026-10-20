@@ -1,0 +1,15 @@
+{
+  "package": "Halalify-screening-recovery-evidence-20261020.zip",
+  "sha256": "be0e7a73cad97216af10762f1055bacc25602f04ed98271d6a0c737c0dd39c14",
+  "bytes": 18364928,
+  "files": 102,
+  "contains": [
+    "50 immutable SEC CompanyFacts responses and retrieval manifest",
+    "50 full original-note inventories and manifest"
+  ],
+  "does_not_contain": [
+    "API credentials",
+    "original 666MB SEC archive already shared separately"
+  ],
+  "destination": "Merge the data folder into the repository root. Preserve existing differently versioned datasets. Exact source files are required for profile V4 reproduction."
+}
