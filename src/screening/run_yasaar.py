@@ -14,7 +14,7 @@ from src.data.screening_disclosures import next_session
 from .source_facts import read_facts,mapped_research_facts
 from .yasaar import balance_checks,overall
 from .presentation import write_html
-from .field_recovery import recovered_balance,recover_income_check
+from .field_recovery import recovered_balance,recover_income_check,recover_reviewed_debt
 
 def select_latest(catalog,asof,calendar):
     result={};amends=[]
@@ -161,6 +161,7 @@ def main():
                     raise ValueError('Source-specific classification review does not match filing: '+t)
                 company_config.update(override)
             checks=recovered_balance(financial['facts'],r['report_date'],checks,company_config)
+            checks=recover_reviewed_debt(checks,financial,recovery_mappings.get('manual_financial_disclosures',[]),content,company_config)
             if packet['annual']['accession_number']!=annual[t][1]['accession_number']:
                 raise ValueError('Recovered annual income uses a different report: '+t)
             checks['income']=recover_income_check(checks['income'],packet['annual'],recovery_mappings['manual_annual_disclosures'])

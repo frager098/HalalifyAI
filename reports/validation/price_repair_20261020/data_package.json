@@ -1,0 +1,27 @@
+{
+  "archive": "C:\\Users\\Muhiddin\\Documents\\Codex\\2026-09-30\\djs\\outputs\\Halalify-price-repair-20261020.zip",
+  "archive_sha256": "1e4fc65f0ba28aefbec22549e0c055f30d5e1950627cc02c9fad230714127180",
+  "bytes": 43763640,
+  "files": [
+    {
+      "path": "data/interim/prices/price_repair_20261020/audited_prices.csv",
+      "sha256": "3eff4484f22a4e9b5c921541adbadfe3b37022a0d11c52c4742af3fbd7767df1",
+      "bytes": 19165919
+    },
+    {
+      "path": "data/processed/price_repair_20261020/feature_target_audit.csv",
+      "sha256": "7a4fbce26e76e5ac2eeff9f187e3240f78ca673aaea6ccdf33595022f6074d0d",
+      "bytes": 72109421
+    },
+    {
+      "path": "data/processed/price_repair_20261020/research_rows.csv",
+      "sha256": "27fa1e9de9a787bc725ccf5e5afed74cba7accb0c29bfc78eb5eda24a8866aa7",
+      "bytes": 68916927
+    },
+    {
+      "path": "data/processed/price_repair_20261020/metadata.json",
+      "sha256": "2ee3486e247304a3317c95a49fce0108579d750a37a24730c0eef65704c0fe98",
+      "bytes": 3216
+    }
+  ]
+}

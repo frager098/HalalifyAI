@@ -5,6 +5,46 @@ import json
 from .yasaar import minimum_check
 
 
+def recover_reviewed_debt(checks, financial, mappings, source_content, config):
+    """Use a reviewed source footnote to remove leases from mixed debt.
+
+    Each mapping binds issuer, accession, file hash, exact original narrative and
+    the mixed-debt concepts. It cannot authorize arbitrary segment aggregation.
+    """
+    from lxml import html
+    import hashlib
+    text=None
+    for mapping in mappings:
+        if mapping['ticker'] != financial['ticker']:
+            continue
+        if any(mapping[key] != financial[key] for key in ['cik','accession_number','source_sha256','report_date']):
+            raise ValueError('Reviewed debt source does not match financial filing')
+        if hashlib.sha256(source_content).hexdigest() != mapping['source_sha256']:
+            raise ValueError('Reviewed debt original file hash mismatch')
+        if text is None:
+            text=' '.join(' '.join(html.fromstring(source_content).itertext()).split())
+        if mapping['expected_narrative'] not in text:
+            raise ValueError('Reviewed lease liability footnote changed')
+        facts=[f for f in financial['facts'] if f['namespace']=='us-gaap']
+        parts=[reconcile_amount(facts, tag, financial['report_date']) for tag in mapping['mixed_debt_concepts']]
+        if not all(parts):
+            raise ValueError('Reviewed mixed-debt carrying amounts missing or conflicting')
+        lease=Decimal(mapping['finance_lease_liability_usd'])
+        if not lease.is_finite() or lease < 0:
+            raise ValueError('Invalid reviewed finance-lease liability')
+        value=sum(Decimal(p['value']) for p in parts)-lease
+        if value < 0:
+            raise ValueError('Lease liability exceeds mixed debt')
+        component=dict(value=str(value),concept='SourceReviewedDebtLessFinanceLeases',
+            reported_components=parts,finance_lease_liability_subtracted=str(lease),
+            source_url=financial['source_url'],source_sha256=mapping['source_sha256'],
+            accession_number=mapping['accession_number'],evidence_note=mapping['interpretation'])
+        previous=checks['debt'].get('minimum_amount')
+        if previous is None or value > Decimal(previous):
+            checks['debt']=minimum_check([component],checks['assets'],config['debt_assets_limit'])
+    return checks
+
+
 def dimensions_key(dimensions):
     return tuple(sorted((d['axis'],d['member']) for d in dimensions))
 

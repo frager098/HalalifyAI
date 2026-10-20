@@ -1,0 +1,334 @@
+{
+  "public_candidate_downloads": {
+    "sources": {
+      "halalwallet_screening": {
+        "url": "https://www.halalwallet.us/api/data/halal-stock-screening-data-us.json",
+        "retrieved_at_utc": "2026-10-20T17:56:02.461039+00:00",
+        "http_status": 200,
+        "content_type": "application/json; charset=utf-8",
+        "file": "halalwallet_screening.json",
+        "sha256": "8e61f87491686e5e3f2159cce03c10634c1d5f74fda0e0826e8e4670f59762a1",
+        "bytes": 502353,
+        "status": "downloaded_candidate_not_approved",
+        "record_count": 438,
+        "publisher_license": "CC BY 4.0",
+        "publisher_dataset_url": "https://www.halalwallet.us/data/halal-stock-screening-data-us",
+        "publisher_modified": "2026-06-30"
+      },
+      "halalwallet_standard_comparison": {
+        "url": "https://www.halalwallet.us/api/data/halal-screening-standard-divergence-us.json",
+        "retrieved_at_utc": "2026-10-20T17:56:03.143470+00:00",
+        "http_status": 200,
+        "content_type": "application/json; charset=utf-8",
+        "file": "halalwallet_standard_comparison.json",
+        "sha256": "0243f120be87400731dab2de25ce53ff6cce216e0c9f3b9dc3180eb692a82032",
+        "bytes": 292527,
+        "status": "downloaded_candidate_not_approved",
+        "record_count": 301,
+        "publisher_license": "CC BY 4.0",
+        "publisher_dataset_url": "https://www.halalwallet.us/data/halal-screening-standard-divergence-us",
+        "publisher_modified": "2026-06-30"
+      },
+      "kaggle_fundamentals_search": {
+        "url": "https://www.kaggle.com/api/v1/datasets/list?search=US+financial+statements+2025&pageSize=12",
+        "retrieved_at_utc": "2026-10-20T17:56:03.710314+00:00",
+        "http_status": 200,
+        "content_type": "application/json",
+        "file": "kaggle_fundamentals_search.json",
+        "sha256": "80c70e3a9f8b1b56232ce9bc5ee44e80a9aaa3edc3245bdc00156ef0960f0ccf",
+        "bytes": 5144,
+        "status": "downloaded_candidate_not_approved",
+        "datasets": [
+          {
+            "ref": "aiamond/sec-8k-event-dataset-sample",
+            "title": "SEC 8-K Event Dataset (sample)",
+            "url": "https://www.kaggle.com/datasets/aiamond/sec-8k-event-dataset-sample",
+            "last_updated": "2026-09-18T22:24:13.677Z",
+            "total_bytes": 8784
+          }
+        ]
+      },
+      "kaggle_us_fundamentals": {
+        "url": "https://www.kaggle.com/api/v1/datasets/list?search=US+stocks+fundamentals&pageSize=12",
+        "retrieved_at_utc": "2026-10-20T17:56:04.207557+00:00",
+        "http_status": 200,
+        "content_type": "application/json",
+        "file": "kaggle_us_fundamentals.json",
+        "sha256": "1bdb1c93cb0e85d2f9329cddc906de0660cd2bf30c01195014e8b1c49fdb54c0",
+        "bytes": 40148,
+        "status": "downloaded_candidate_not_approved",
+        "datasets": [
+          {
+            "ref": "usfundamentals/us-stocks-fundamentals",
+            "title": "US Stocks Fundamentals (XBRL)",
+            "url": "https://www.kaggle.com/datasets/usfundamentals/us-stocks-fundamentals",
+            "last_updated": "2019-11-14T06:20:39.677Z",
+            "total_bytes": 32878628
+          },
+          {
+            "ref": "mohammedobeidat/us-stock-market-data",
+            "title": "US Stock Market Data",
+            "url": "https://www.kaggle.com/datasets/mohammedobeidat/us-stock-market-data",
+            "last_updated": "2023-01-14T09:45:40.553Z",
+            "total_bytes": 42432995
+          },
+          {
+            "ref": "parampratap/ecommerce-dataset",
+            "title": "Ecommerce-Dataset",
+            "url": "https://www.kaggle.com/datasets/parampratap/ecommerce-dataset",
+            "last_updated": "2026-05-14T06:01:09.337Z",
+            "total_bytes": 2104283
+          },
+          {
+            "ref": "timontunes/nse-india-adjusted-equity-panel",
+            "title": "NSE India Stocks 2016-2026: Adjusted Panel",
+            "url": "https://www.kaggle.com/datasets/timontunes/nse-india-adjusted-equity-panel",
+            "last_updated": "2026-10-13T20:51:58.773Z",
+            "total_bytes": 0
+          },
+          {
+            "ref": "franekwodarczyk/trading-dataset-us-stocks-various-sectors-from-09",
+            "title": "Trading Dataset US Stocks various sectors from 09",
+            "url": "https://www.kaggle.com/datasets/franekwodarczyk/trading-dataset-us-stocks-various-sectors-from-09",
+            "last_updated": "2026-04-18T17:11:50.39Z",
+            "total_bytes": 8948243
+          },
+          {
+            "ref": "sovairesearch/bankruptcy",
+            "title": "Bankruptcy Predictions",
+            "url": "https://www.kaggle.com/datasets/sovairesearch/bankruptcy",
+            "last_updated": "2024-11-11T15:30:15.987Z",
+            "total_bytes": 80210444
+          },
+          {
+            "ref": "getstockcheck/stock-valuation-quantile-cn-hk-us",
+            "title": "A-share/HK/US Valuation Quantiles",
+            "url": "https://www.kaggle.com/datasets/getstockcheck/stock-valuation-quantile-cn-hk-us",
+            "last_updated": "2026-09-08T03:27:20.177Z",
+            "total_bytes": 8763755
+          },
+          {
+            "ref": "atlasfreedomcoreio/atlas-market-pulse",
+            "title": "Atlas Market Pulse",
+            "url": "https://www.kaggle.com/datasets/atlasfreedomcoreio/atlas-market-pulse",
+            "last_updated": "2026-08-17T06:15:28.97Z",
+            "total_bytes": 1012
+          },
+          {
+            "ref": "cybermaxtools/figurewell-sec-xbrl-financials",
+            "title": "SEC XBRL Financial Statements: All US Filers",
+            "url": "https://www.kaggle.com/datasets/cybermaxtools/figurewell-sec-xbrl-financials",
+            "last_updated": "2026-10-09T03:56:51.023Z",
+            "total_bytes": 66874973
+          },
+          {
+            "ref": "satgunsinghsodhi/openstax-principles-of-finance-textbook",
+            "title": "openstax-principles-of-finance-textbook",
+            "url": "https://www.kaggle.com/datasets/satgunsinghsodhi/openstax-principles-of-finance-textbook",
+            "last_updated": "2025-11-03T12:26:11.47Z",
+            "total_bytes": 21664
+          }
+        ]
+      },
+      "kaggle_financial_statements": {
+        "url": "https://www.kaggle.com/api/v1/datasets/list?search=financial+statements&pageSize=12",
+        "retrieved_at_utc": "2026-10-20T17:56:05.127130+00:00",
+        "http_status": 200,
+        "content_type": "application/json",
+        "file": "kaggle_financial_statements.json",
+        "sha256": "6553da34146d06ba8cde75e8e4705d3f984d148e9d029ed3d23e32a46b6fae91",
+        "bytes": 76449,
+        "status": "downloaded_candidate_not_approved",
+        "datasets": [
+          {
+            "ref": "mikhail1681/mcdonalds-financial-statements-2002-2022",
+            "title": "McDonald's financial statements (2002-2022)",
+            "url": "https://www.kaggle.com/datasets/mikhail1681/mcdonalds-financial-statements-2002-2022",
+            "last_updated": "2024-06-07T06:09:08.487Z",
+            "total_bytes": 1316
+          },
+          {
+            "ref": "rish59/financial-statements-of-major-companies2009-2023",
+            "title": "Financial Statements of Major Companies(2009-2023)",
+            "url": "https://www.kaggle.com/datasets/rish59/financial-statements-of-major-companies2009-2023",
+            "last_updated": "2023-11-30T07:01:09.24Z",
+            "total_bytes": 11580
+          },
+          {
+            "ref": "emranalbiek/companies-financial-income-statements",
+            "title": "Corporate Financials Statements (AlphaVantage)",
+            "url": "https://www.kaggle.com/datasets/emranalbiek/companies-financial-income-statements",
+            "last_updated": "2026-02-07T12:30:49.45Z",
+            "total_bytes": 98987
+          },
+          {
+            "ref": "pacificrm/financial-sheets",
+            "title": "Financial Sheets Dataset",
+            "url": "https://www.kaggle.com/datasets/pacificrm/financial-sheets",
+            "last_updated": "2024-11-23T14:02:14.37Z",
+            "total_bytes": 5060257
+          },
+          {
+            "ref": "arianrios/evaluacin-de-estados-financieros",
+            "title": "Evaluation of financial statements",
+            "url": "https://www.kaggle.com/datasets/arianrios/evaluacin-de-estados-financieros",
+            "last_updated": "2022-01-21T20:25:46.563Z",
+            "total_bytes": 921
+          },
+          {
+            "ref": "blixture/apple-stocks",
+            "title": "Apple Inc. (AAPL) \u2014 SEC Financial Facts and Filing",
+            "url": "https://www.kaggle.com/datasets/blixture/apple-stocks",
+            "last_updated": "2026-10-20T10:39:42.227Z",
+            "total_bytes": 1097037
+          },
+          {
+            "ref": "kuantinglai/twse-fs",
+            "title": "TWSE Financial Statements",
+            "url": "https://www.kaggle.com/datasets/kuantinglai/twse-fs",
+            "last_updated": "2022-06-28T10:47:56.247Z",
+            "total_bytes": 122073694
+          },
+          {
+            "ref": "harishthakur995/mcdonalds-finanacial-data-2021-2024",
+            "title": "Mcdonalds finanacial data 2021-2024",
+            "url": "https://www.kaggle.com/datasets/harishthakur995/mcdonalds-finanacial-data-2021-2024",
+            "last_updated": "2025-07-08T12:28:07.54Z",
+            "total_bytes": 29483
+          },
+          {
+            "ref": "jek1wantaufik/astra-graphia-asgr-2005-2026",
+            "title": "Astra Graphia (ASGR) 29 Sep 2005 to 19 May 2026",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/astra-graphia-asgr-2005-2026",
+            "last_updated": "2026-05-19T19:11:04.993Z",
+            "total_bytes": 77229
+          },
+          {
+            "ref": "jek1wantaufik/astra-otoparts-auto-2000-2026",
+            "title": "Astra Otoparts (AUTO) 14 Dec 2000 to 19 May 2026",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/astra-otoparts-auto-2000-2026",
+            "last_updated": "2026-05-19T19:20:46.807Z",
+            "total_bytes": 105802
+          },
+          {
+            "ref": "jek1wantaufik/aneka-tambang-antm-2005-2026",
+            "title": "Aneka Tambang (ANTM) 29 Sep 2005 to 19 May 2026",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/aneka-tambang-antm-2005-2026",
+            "last_updated": "2026-05-19T18:59:07.907Z",
+            "total_bytes": 96603
+          },
+          {
+            "ref": "semerazzabi/tunisian-banks-financial-statements",
+            "title": "Tunisian Banks Financial statements",
+            "url": "https://www.kaggle.com/datasets/semerazzabi/tunisian-banks-financial-statements",
+            "last_updated": "2023-10-20T21:23:08.383Z",
+            "total_bytes": 2428554
+          },
+          {
+            "ref": "zkskhurram/global-civil-aviation-disruption2026-iranus-war",
+            "title": "\u2708\ufe0f Global Civil Aviation Disruption2026 IranUS War",
+            "url": "https://www.kaggle.com/datasets/zkskhurram/global-civil-aviation-disruption2026-iranus-war",
+            "last_updated": "2026-06-08T12:46:02.56Z",
+            "total_bytes": 103310
+          },
+          {
+            "ref": "emrekaany/google-googl-financial-news-from-2000-to-today",
+            "title": " GOOGLE Stock Financial News: 2000\u2013Today",
+            "url": "https://www.kaggle.com/datasets/emrekaany/google-googl-financial-news-from-2000-to-today",
+            "last_updated": "2026-10-20T12:41:01.733Z",
+            "total_bytes": 183
+          },
+          {
+            "ref": "jek1wantaufik/bukit-asam-ptba-2002-present",
+            "title": "Bukit Asam (PTBA) 2002 to Present",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/bukit-asam-ptba-2002-present",
+            "last_updated": "2026-08-16T04:45:13.89Z",
+            "total_bytes": 234908
+          },
+          {
+            "ref": "jek1wantaufik/pertamina-geothermal-pgeo-2023-present",
+            "title": "Geothermal (PGEO) 2023 to Present",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/pertamina-geothermal-pgeo-2023-present",
+            "last_updated": "2026-08-16T04:44:15.173Z",
+            "total_bytes": 26896
+          },
+          {
+            "ref": "pranjalverma08/sec-edgar-annual-financial-filings-2021",
+            "title": "SEC Edgar Annual Financial Filings - 2021",
+            "url": "https://www.kaggle.com/datasets/pranjalverma08/sec-edgar-annual-financial-filings-2021",
+            "last_updated": "2022-04-14T10:23:31.763Z",
+            "total_bytes": 65823210
+          },
+          {
+            "ref": "jek1wantaufik/gas-negara-pgas-2003-present",
+            "title": "Gas Negara (PGAS) 2003 to Present",
+            "url": "https://www.kaggle.com/datasets/jek1wantaufik/gas-negara-pgas-2003-present",
+            "last_updated": "2026-08-16T04:46:14.147Z",
+            "total_bytes": 101623
+          },
+          {
+            "ref": "securities-exchange-commission/financial-statement-extracts",
+            "title": "Financial Statement Extracts",
+            "url": "https://www.kaggle.com/datasets/securities-exchange-commission/financial-statement-extracts",
+            "last_updated": "2017-09-13T22:27:01.073Z",
+            "total_bytes": 354636007
+          },
+          {
+            "ref": "emrekaany/google-daily-stock-prices-2004-today",
+            "title": "GOOGLE STOCK PRICES (2004 - TODAY)",
+            "url": "https://www.kaggle.com/datasets/emrekaany/google-daily-stock-prices-2004-today",
+            "last_updated": "2025-11-21T17:56:26.05Z",
+            "total_bytes": 99259
+          }
+        ]
+      }
+    },
+    "decision_use": "none_without_company_date_and_definition_validation"
+  },
+  "figurewell_retrieval": {
+    "metadata": {
+      "url": "https://www.kaggle.com/api/v1/datasets/view/cybermaxtools/figurewell-sec-xbrl-financials",
+      "retrieved_at_utc": "2026-10-20T17:56:58.976928+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "file": "metadata_response.json",
+      "sha256": "c9f9beeb83305006c695af24bd2a3168753ebf140cd03173a8c0d378f9fc2d6c",
+      "bytes": 39696,
+      "status": "downloaded_candidate"
+    },
+    "archive": {
+      "url": "https://www.kaggle.com/api/v1/datasets/download/cybermaxtools/figurewell-sec-xbrl-financials",
+      "retrieved_at_utc": "2026-10-20T17:56:59.705261+00:00",
+      "http_status": 200,
+      "content_type": "application/zip",
+      "file": "download.zip",
+      "sha256": "86d31af3313af8c39d1d3b32347c370eff0f0f4c7ba17e0675b96afd21f34e4a",
+      "bytes": 66874973,
+      "status": "downloaded_candidate",
+      "members": [
+        {
+          "file": "facts.parquet",
+          "bytes": 60604169
+        },
+        {
+          "file": "filings.parquet",
+          "bytes": 1044838
+        },
+        {
+          "file": "key_metrics.csv",
+          "bytes": 9274608,
+          "header": "adsh,cik,ticker,company_name,form,fiscal_year,fiscal_period,period_end,filed_date,currency,revenue,cost_of_revenue,gross_profit,operating_income,net_income,eps_basic,eps_diluted,diluted_shares,total_assets,current_assets,total_liabilities,current_liabilities,stockholders_equity,cash,long_term_debt,operating_cash_flow_ytd,capex_ytd,dividends_paid_ytd,cash_flow_quarters,free_cash_flow_ytd,gross_margin,net_margin,sic,filer_status,business_country,business_state,amended_later,filing_url,source_quarter"
+        },
+        {
+          "file": "key_metrics.parquet",
+          "bytes": 3267537
+        },
+        {
+          "file": "meta.json",
+          "bytes": 1045
+        }
+      ]
+    }
+  },
+  "purpose": "Source discovery; candidates not approved for historical replacement"
+}

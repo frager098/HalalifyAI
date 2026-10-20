@@ -71,3 +71,8 @@ python -m pytest -q
 Reports are in `reports/screening/ftse_yasaar_2025/`: readable Markdown/HTML, per-stock CSV, full selected evidence JSON, field coverage and specific remaining-review tasks. Intermediate source candidate inventories stay in ignored `data/interim/screening/`. Raw files remain immutable and ignored. The original SEC archive and extracted candidate files are shared separately; a Git pull installs code/reports, not those large inputs.
 
 See [screening_results_20261020.md](screening_results_20261020.md) for the executed counts and [data_dictionary.md](data_dictionary.md) for result fields. The plan layout is followed: configs, src/data, src/screening, data/samples, tests, docs and reports. The user explicitly requested this task on existing `develop` without another branch; the usual feature-branch workflow is overridden for this task only.
+
+
+## Latest follow-up — 20 October 2026
+
+Read [data_completion_20261020.md](data_completion_20261020.md) for the executed source search and price rebuild. V5 screening is 0 complete passes / 20 failures / 30 reviews, with 37 gross-interest candidates. Earlier V4 counts and claims that the training notebook was unchanged apply only to that earlier task. The new 118,643-row price research dataset and repaired notebook are separate from screening. No full Colab model fit, higher accuracy, live screening API, domain approval or portfolio backtest is claimed.

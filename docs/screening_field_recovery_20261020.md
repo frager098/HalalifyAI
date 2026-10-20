@@ -45,3 +45,8 @@ python -m src.data.check_screening_api --api data/raw/NEW_API_SNAPSHOT --notes d
 The source-specific table and classification mappings are versioned in `configs/screening_recovery_mappings.json`. They stop on a different issuer, accession, source hash or table content. True value conflicts, unreviewed custom names, business segments, mixed/net interest and incomplete categories remain unresolved. See [the generated recovery report](../reports/validation/screening_field_recovery_20261020/recovery_summary.md) for all 50 companies.
 
 Verification: **56 software tests passed** in the isolated Python3.12 environment, with two upstream deprecation warnings; pip check passed. Arithmetic, cohort, source availability and portfolio-safety checks passed. These are software checks, not 56 passing stocks. No peer/domain approval or complete public-disclosure coverage is claimed.
+
+
+## Latest follow-up — 20 October 2026
+
+Read [data_completion_20261020.md](data_completion_20261020.md) for the executed source search and price rebuild. V5 screening is 0 complete passes / 20 failures / 30 reviews, with 37 gross-interest candidates. Earlier V4 counts and claims that the training notebook was unchanged apply only to that earlier task. The new 118,643-row price research dataset and repaired notebook are separate from screening. No full Colab model fit, higher accuracy, live screening API, domain approval or portfolio backtest is claimed.

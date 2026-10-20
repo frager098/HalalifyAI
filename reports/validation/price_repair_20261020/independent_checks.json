@@ -1,0 +1,16 @@
+{
+  "rows_independently_checked": 118643,
+  "companies": 50,
+  "max_absolute_target_errors": {
+    "future_return_20d": 9.996344030316351e-17,
+    "future_volatility_20d": 6.619704784327496e-15,
+    "future_excess_return_20d": 1.1102230246251565e-16
+  },
+  "all_targets_recomputed": true,
+  "no_future_action_gaps": true,
+  "chronological_purges_verified": true,
+  "training_only_thresholds_verified": true,
+  "numeric_features_complete": true,
+  "global_action_or_issuer_certification": false,
+  "model_accuracy_measured": false
+}

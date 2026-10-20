@@ -1,0 +1,209 @@
+{
+  "counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 19,
+    "needs_review": 31
+  },
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "MSFT",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "NVDA",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "AMD",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "AVGO",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "ORCL",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "ADBE",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "CRM",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "CSCO",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "INTC",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "GOOGL",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "META",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "NFLX",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "AMZN",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "TSLA",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "HD",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "LOW",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "NKE",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "SBUX",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "MCD",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "COST",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "WMT",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "JNJ",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "LLY",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "ABBV",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "MRK",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "TMO",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "ABT",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "DHR",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "CAT",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "DE",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "HON",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "UPS",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "UNP",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "GE",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "XOM",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "CVX",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "COP",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "SLB",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "JPM",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "BAC",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "GS",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "MS",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "V",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "MA",
+      "research_status": "fails_initial_filters"
+    },
+    {
+      "ticker": "PG",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "KO",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "PEP",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "LIN",
+      "research_status": "needs_review"
+    },
+    {
+      "ticker": "NEE",
+      "research_status": "fails_initial_filters"
+    }
+  ]
+}

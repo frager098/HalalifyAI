@@ -1,0 +1,11 @@
+{
+  "old_rows": 124987,
+  "old_rows_flagged_unverified": 124987,
+  "same_ticker_session_rows": 124987,
+  "differing_values": {
+    "close": 0,
+    "adjusted_close": 12570,
+    "volume": 0
+  },
+  "interpretation": "Different saved source vintages; adjusted-price differences are not established cleaning errors or a measured cause of forecast performance. The old teammate dataset remains unchanged."
+}

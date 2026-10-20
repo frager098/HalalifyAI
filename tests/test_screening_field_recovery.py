@@ -1,7 +1,7 @@
 """Recovery may resolve extraction gaps, never invent totals or erase ambiguity."""
 import pytest
 
-from src.screening.field_recovery import reconcile_amount,recovered_balance,recover_income_check
+from src.screening.field_recovery import reconcile_amount,recovered_balance,recover_income_check,recover_reviewed_debt
 from src.screening.yasaar import balance_checks
 
 
@@ -80,3 +80,25 @@ def test_manual_table_review_requires_exact_original_source():
     mapping=dict(ticker='T',cik='1',accession_number='different',source_sha256='x')
     with pytest.raises(ValueError,match='filing'):
         recover_income_check(dict(status='needs_review'),annual,[mapping])
+
+
+def test_reviewed_lease_footnote_removes_lease_not_future_interest_payments():
+    import hashlib
+    content=b'<html><body>Excludes finance lease obligations of $108 million</body></html>'
+    financial=dict(ticker='T',cik='1',accession_number='a',report_date=END,
+        source_sha256=hashlib.sha256(content).hexdigest(),source_url='https://example.org/original',
+        facts=[fact('Assets',1000),fact('LongTermDebtAndCapitalLeaseObligationsCurrent',100),
+               fact('LongTermDebtAndCapitalLeaseObligations',500)])
+    mapping=dict(**{key:financial[key] for key in ['ticker','cik','accession_number','source_sha256','report_date']},
+        mixed_debt_concepts=['LongTermDebtAndCapitalLeaseObligationsCurrent','LongTermDebtAndCapitalLeaseObligations'],
+        finance_lease_liability_usd='108',expected_narrative='Excludes finance lease obligations of $108 million',
+        interpretation='Fixture source review')
+    checks=balance_checks(financial['facts'],END,CONFIG)
+    result=recover_reviewed_debt(checks,financial,[mapping],content,CONFIG)
+    assert result['debt']['minimum_amount']=='492'
+    assert result['debt']['status']=='fails_initial_filter'
+    with pytest.raises(ValueError,match='hash'):
+        recover_reviewed_debt(checks,financial,[mapping],content+b'changed',CONFIG)
+    mapping['expected_narrative']='lease liability is zero'
+    with pytest.raises(ValueError,match='footnote'):
+        recover_reviewed_debt(checks,financial,[mapping],content,CONFIG)

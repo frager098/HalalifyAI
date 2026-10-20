@@ -2,7 +2,7 @@
 
 Executed 2026-10-20 with evidence available as of 2025-12-31. Fixed 2026 version, retrospective initial-entry filters.
 
-Complete research passes: 0; fail a filter: 19; need review: 31.
+Complete research passes: 0; fail a filter: 20; need review: 30.
 
 Needs review means insufficient evidence, not a halal verdict or a failure.
 All companies remain excluded from approved portfolios until evidence and domain review are complete.
@@ -42,7 +42,7 @@ All companies remain excluded from approved portfolios until evidence and domain
 | DE | fails_initial_filters | debt | 40.9751 |
 | HON | fails_initial_filters | debt | 37.2777 |
 | UPS | fails_initial_filters | debt | 33.8469 |
-| UNP | needs_review | Incomplete evidence | 0.0000 |
+| UNP | fails_initial_filters | debt | 46.1768 |
 | GE | needs_review | Incomplete evidence | 16.2488 |
 | XOM | needs_review | Incomplete evidence | 2.0276 |
 | CVX | needs_review | Incomplete evidence | 1.0998 |

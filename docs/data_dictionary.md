@@ -29,3 +29,10 @@ Inputs: immutable SEC ZIP in `data/raw/sec_screening_evidence/` and extracted ca
 V4 additionally retains 50 current SEC API snapshots and 50 original-note inventories, with exact manifest hashes. `reported_decimals`, `reported_values`, `lower_bound`, `upper_bound` and `rounding_reconciled` explain reconciliation of the same fiscal fact at different declared precision; they do not certify a complete financial category. `dimensions` remains explicit. Only specified instrument/type scopes can strengthen debt floors; product/segment contexts are not silently treated as consolidated totals.
 
 `checks.income.recovered_interest_disclosures` distinguishes reported gross-interest candidates from net interest, combined interest/dividends and other combined/partial income. A matching report table can supply a reviewed positive earned-interest figure even when shown as an expense offset. A missing or combined observation never becomes zero or a complete prohibited-income numerator. `api_crosscheck.json` counts exact historical fact representations across financial/annual roles; the roles can overlap, so that count is not a claim of unique economic observations.
+
+
+## Latest follow-up — 20 October 2026
+
+Read [data_completion_20261020.md](data_completion_20261020.md) for the executed source search and price rebuild. V5 screening is 0 complete passes / 20 failures / 30 reviews, with 37 gross-interest candidates. Earlier V4 counts and claims that the training notebook was unchanged apply only to that earlier task. The new 118,643-row price research dataset and repaired notebook are separate from screening. No full Colab model fit, higher accuracy, live screening API, domain approval or portfolio backtest is claimed.
+
+The price research table has 16 predictors defined in `src/features/core.py`; future return, volatility and excess return use sessions t+1 through t+20. The named source CSV and raw/adjusted price bases must pass `training_inputs`; SPY is separate. Store complete eligible rows in data/processed and full exclusion audit separately. Screening bounds/candidates in the financial ledger are not ML predictors or approved full totals.

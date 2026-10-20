@@ -32,7 +32,7 @@ CAT,2025-09-30,needs_review,,,8.0429,18.8686,needs_review,needs_review,https://w
 DE,2025-11-02,fails_initial_filters,debt,40.9751,7.8078,12.8241,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm
 HON,2025-09-30,fails_initial_filters,debt,37.2777,15.9793,27.0067,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm
 UPS,2025-09-30,fails_initial_filters,debt,33.8469,9.4745,23.4354,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/1090727/000162828025049661/ups-20250930.htm
-UNP,2025-09-30,needs_review,,0.0000,1.1770,3.9754,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm
+UNP,2025-09-30,fails_initial_filters,debt,46.1768,1.1770,3.9754,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm
 GE,2025-09-30,needs_review,,16.2488,9.7479,18.0688,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/40545/000004054525000132/ge-20250930.htm
 XOM,2025-09-30,needs_review,,2.0276,3.0405,13.0077,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/34088/000003408825000061/xom-20250930.htm
 CVX,2025-09-30,needs_review,,1.0998,2.6900,7.5905,needs_review,needs_review,https://www.sec.gov/Archives/edgar/data/93410/000009341025000108/cvx-20250930.htm

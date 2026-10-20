@@ -1,19 +1,19 @@
 # Run cleaning and create modeling targets
 
-The existing modeling CSV is ready for the planned modeling workflow; you do not need to repeat cleaning just to use it. Keep its accompanying `targets_metadata.json` and `README.md`.
+The older modeling CSV preserves unresolved action/identity flags. Do not treat it as verified input or derive action checks from small daily moves. Use the audited-price reconstruction described in [data_completion_20261020.md](data_completion_20261020.md). Keep old snapshots and metadata intact.
 
-To recreate cleaned tables from the preserved raw snapshots and interim price input, open `HalalifyAI_Data_Cleaning.ipynb` in this folder and choose Run All. Section 7 creates both targets in a new modeling CSV. In Colab, mount Drive and set ROOT to this folder's copy while preserving the data directory structure.
+To recreate cleaned tables from the preserved raw snapshots and interim price input, open `notebooks/HalalifyAI_Data_Cleaning.ipynb` and choose Run All. Section 7 creates both targets in a new modeling CSV. In Colab, mount Drive and set ROOT to this folder's copy while preserving the data directory structure.
 
 Alternatively, use the project Python environment:
 
 ```powershell
-.\.venv\Scripts\python.exe clean_data.py --root .
+.\.venv\Scripts\python.exe -m src.data.clean_data --root .
 ```
 
 Cleaning writes a new `data/cleaned/<run_id>/` folder. Then pass that run's `prices_clean.csv` to the target generator:
 
 ```powershell
-.\.venv\Scripts\python.exe create_targets.py --prices "data/cleaned/<run_id>/prices_clean.csv"
+.\.venv\Scripts\python.exe -m src.labels.create_targets --prices "data/cleaned/<run_id>/prices_clean.csv"
 ```
 
 Replace `<run_id>` with the directory printed by cleaning. The target generator writes a new `data/modeling/<run_id>/` directory. Neither step changes preserved source data or prior modeling runs. If rebuilding the environment, install `requirements-cleaning.txt` first.

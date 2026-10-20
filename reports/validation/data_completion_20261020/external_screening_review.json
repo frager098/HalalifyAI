@@ -1,0 +1,35 @@
+{
+  "source": "https://www.halalwallet.us/data/halal-stock-screening-data-us",
+  "retrieved_file_sha256": "8e61f87491686e5e3f2159cce03c10634c1d5f74fda0e0826e8e4670f59762a1",
+  "matched_tickers": 49,
+  "missing_tickers": [
+    "LIN"
+  ],
+  "data_dates": [
+    "2026-02-27",
+    "2026-02-28",
+    "2026-03-21",
+    "2026-03-27",
+    "2026-03-28",
+    "2026-03-29",
+    "2026-03-31",
+    "2026-04-03",
+    "2026-04-25",
+    "2026-04-26",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-05-03",
+    "2026-05-10",
+    "2026-05-31"
+  ],
+  "source_basis": [
+    "AAOIFI"
+  ],
+  "used_for_decisions": false,
+  "used_for_model_training": false,
+  "reasons": [
+    "2026 financial periods exceed our 2025 cutoff.",
+    "AAOIFI ratios and verdicts cannot replace FTSE Yasaar source amounts or rules.",
+    "A publisher filingVerified flag alone is not our verification of its estimates or product-level income amounts."
+  ]
+}

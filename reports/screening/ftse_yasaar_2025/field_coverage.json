@@ -37,7 +37,7 @@
       "cash_amount_found": true,
       "receivable_amount_found": true,
       "annual_revenue_candidate_found": true,
-      "gross_interest_candidate_found": false,
+      "gross_interest_candidate_found": true,
       "complete_prohibited_income": false
     },
     {
@@ -87,7 +87,7 @@
       "cash_amount_found": true,
       "receivable_amount_found": true,
       "annual_revenue_candidate_found": true,
-      "gross_interest_candidate_found": false,
+      "gross_interest_candidate_found": true,
       "complete_prohibited_income": false
     },
     {
@@ -167,7 +167,7 @@
       "cash_amount_found": true,
       "receivable_amount_found": true,
       "annual_revenue_candidate_found": true,
-      "gross_interest_candidate_found": false,
+      "gross_interest_candidate_found": true,
       "complete_prohibited_income": false
     },
     {
@@ -247,7 +247,7 @@
       "cash_amount_found": true,
       "receivable_amount_found": true,
       "annual_revenue_candidate_found": true,
-      "gross_interest_candidate_found": false,
+      "gross_interest_candidate_found": true,
       "complete_prohibited_income": false
     },
     {
@@ -507,7 +507,7 @@
     "cash_amount_found": 50,
     "receivable_amount_found": 47,
     "annual_revenue_candidate_found": 48,
-    "gross_interest_candidate_found": 33,
+    "gross_interest_candidate_found": 37,
     "complete_prohibited_income": 0
   }
 }

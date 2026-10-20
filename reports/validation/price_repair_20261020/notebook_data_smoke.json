@@ -1,0 +1,15 @@
+{
+  "executed_code_cells": [
+    12,
+    14
+  ],
+  "rows": {
+    "train": 58157,
+    "validation": 24150,
+    "test": 36336
+  },
+  "source_csv_sha256": "3eff4484f22a4e9b5c921541adbadfe3b37022a0d11c52c4742af3fbd7767df1",
+  "model_fitting_executed": false,
+  "colab_environment_install_executed": false,
+  "onnx_executed": false
+}

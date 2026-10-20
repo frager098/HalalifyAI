@@ -1,5 +1,5 @@
 {
-  "profile_id": "SCREENING_SOURCE_RECOVERY_20261020",
+  "profile_id": "SCREENING_SOURCE_RECOVERY_20261020_V5",
   "company_overrides": {
     "AAPL": {
       "cik": "0000320193",
@@ -100,6 +100,134 @@
       "period_end": "2025-06-30",
       "classification": "combined_interest_and_dividends_not_separate_gross_interest",
       "interpretation": "First annual comparison column. Parentheses for MCD present earned interest as an offset to expense; recovered as positive income, not as a negative prohibited-income amount. Combined Microsoft interest/dividends is not reclassified as pure interest."
+    },
+    {
+      "ticker": "AMD",
+      "cik": "0000002488",
+      "accession_number": "0000002488-25-000012",
+      "source_sha256": "5ed68cafb2ec12e17f63f1bb7ecd0aa6bf3018538b73c822c90224eb76e80add",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+      "row_ordinal": 720,
+      "expected_cells": [
+        "Interest income",
+        "$",
+        "182",
+        "",
+        "",
+        "$",
+        "206",
+        "",
+        "",
+        "$",
+        "65",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "value_decimal": "182000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2023-12-31",
+      "period_end": "2024-12-28",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "Reviewed separate annual interest-income row and year/units headers. For ABBV and LOW the expense-offset presentation is converted to positive earned income. This is not a complete prohibited-income numerator."
+    },
+    {
+      "ticker": "CSCO",
+      "cik": "0000858877",
+      "accession_number": "0000858877-25-000111",
+      "source_sha256": "a47748c8d0aa0077a5eac279375c9ab7e08894a4b1c3cfb7709e0ad57fa4e0e9",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+      "row_ordinal": 443,
+      "expected_cells": [
+        "Interest income",
+        "1,001",
+        "",
+        "",
+        "1,365",
+        "",
+        "",
+        "962",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "value_decimal": "1001000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-07-28",
+      "period_end": "2025-07-26",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "Reviewed separate annual interest-income row and year/units headers. For ABBV and LOW the expense-offset presentation is converted to positive earned income. This is not a complete prohibited-income numerator."
+    },
+    {
+      "ticker": "ABBV",
+      "cik": "0001551152",
+      "accession_number": "0001551152-25-000020",
+      "source_sha256": "e33fc0aead4892149af572c09347352566efcad29c5e95d06d8be36591810f7f",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+      "row_ordinal": 653,
+      "expected_cells": [
+        "Interest income",
+        "( 648 )",
+        "",
+        "",
+        "( 540 )",
+        "",
+        "",
+        "( 186 )",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "value_decimal": "648000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "Reviewed separate annual interest-income row and year/units headers. For ABBV and LOW the expense-offset presentation is converted to positive earned income. This is not a complete prohibited-income numerator."
+    },
+    {
+      "ticker": "LOW",
+      "cik": "0000060667",
+      "accession_number": "0000060667-25-000049",
+      "source_sha256": "dcdfe9c93d54d3f5dd50fcb4985a1c34a98b8f7f0fbf49d6bb91da785f5bdc9f",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+      "row_ordinal": 958,
+      "expected_cells": [
+        "Interest income",
+        "( 159 )",
+        "",
+        "",
+        "( 101 )",
+        "",
+        "",
+        "( 37 )",
+        ""
+      ],
+      "reported_label": "Interest income",
+      "value_decimal": "159000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-02-03",
+      "period_end": "2025-01-31",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "Reviewed separate annual interest-income row and year/units headers. For ABBV and LOW the expense-offset presentation is converted to positive earned income. This is not a complete prohibited-income numerator."
+    }
+  ],
+  "manual_financial_disclosures": [
+    {
+      "ticker": "UNP",
+      "cik": "0000100885",
+      "accession_number": "0000100885-25-000321",
+      "source_sha256": "e8da76fcf5c8696a45685626680f95bf74b97d063ecf48b52d5d435f998b5c4a",
+      "report_date": "2025-09-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm",
+      "mixed_debt_concepts": [
+        "LongTermDebtAndCapitalLeaseObligationsCurrent",
+        "LongTermDebtAndCapitalLeaseObligations"
+      ],
+      "finance_lease_liability_usd": "108000000",
+      "expected_narrative": "Excludes finance lease obligations of $108 million",
+      "interpretation": "The contractual-obligations footnote [a] separately identifies the finance-lease liability as USD108m. Subtract it from current plus noncurrent carrying debt/lease amounts. Do not use USD117m future payments including interest, or USD59635m contractual debt payments including future interest, as carrying liabilities."
     }
   ]
 }
