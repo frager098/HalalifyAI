@@ -1,0 +1,51 @@
+{
+  "as_of_date": "2025-12-31",
+  "not_numeric_percentages": true,
+  "not_domain_approved": true,
+  "reviews": {
+    "JPM": {
+      "ticker": "JPM",
+      "cik": "0000019617",
+      "accession_number": "0000019617-25-000270",
+      "source_sha256": "3770a2bbfae48102919df90a9cfae07a90e44a2efc9b94f0d5c8a138c77f0a6c",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm",
+      "marker": "investment banking",
+      "status": "fails_initial_filter",
+      "reason": "Source-specific assessment: principal segments are conventional financial services; not incidental financial income",
+      "assessment": "source_specific_research_not_domain_approved"
+    },
+    "BAC": {
+      "ticker": "BAC",
+      "cik": "0000070858",
+      "accession_number": "0000070858-25-000139",
+      "source_sha256": "9b8f6cb7510677a0dafcd591ea8786f5b88914b39753a2d5b908d2f74406a022",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231.htm",
+      "marker": "bank holding company",
+      "status": "fails_initial_filter",
+      "reason": "Source-specific assessment: principal segments are conventional financial services; not incidental financial income",
+      "assessment": "source_specific_research_not_domain_approved"
+    },
+    "GS": {
+      "ticker": "GS",
+      "cik": "0000886982",
+      "accession_number": "0000886982-25-000005",
+      "source_sha256": "8ec0a91b065117b95af85035ddf5d6f2c3f104e5dfce8dc6ce6753c1061bee55",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/886982/000088698225000005/gs-20241231.htm",
+      "marker": "Our Business Segments",
+      "status": "fails_initial_filter",
+      "reason": "Source-specific assessment: principal segments are conventional financial services; not incidental financial income",
+      "assessment": "source_specific_research_not_domain_approved"
+    },
+    "MS": {
+      "ticker": "MS",
+      "cik": "0000895421",
+      "accession_number": "0000895421-25-000304",
+      "source_sha256": "b36ae26f7a90a85b69c27710d974468ffc046db9120ca352e37a9b460a623e8a",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000304/ms-20241231.htm",
+      "marker": "Business Segments",
+      "status": "fails_initial_filter",
+      "reason": "Source-specific assessment: principal segments are conventional financial services; not incidental financial income",
+      "assessment": "source_specific_research_not_domain_approved"
+    }
+  }
+}

@@ -927,3 +927,11 @@ Whenever starting a new task in this repository:
 
 This file reflects the current project understanding and should be
 updated when the team/supervisor makes a new authoritative decision.
+
+# Current screening execution override — 2026-10-20
+
+Read docs/screening_methodology.md and docs/screening_results_20261020.md before relying on older status statements. The user authorizes the FTSE Yasaar public-rule research implementation and direct push to existing develop without another branch for this task. This does not imply supervisor/domain or peer approval, and does not change the normal workflow for unrelated tasks.
+
+Public source verified online: FTSE Yasaar v4.6 February 2026, rules 4.3.1–4.3.2. Screening uses the registered 50 company tickers (not SPY) and exact retained SEC archive/business/numeric hashes. Cutoff is 2025-12-31, not October 2026. Current results: 0 fully evidenced research passes, 16 initial-filter failures, 34 needs_review. Every portfolio_eligible flag is false. Minimum ratios below thresholds are not passes; missing income is not zero. Read the per-company remaining-review file rather than claiming all data is complete.
+
+Code: src/screening; source utilities: src/data; profiles: configs; selected evidence/reports: reports/screening/ftse_yasaar_2025; raw archive and intermediate inventories: ignored data/raw and data/interim. Do not publish large archives or raw candidate datasets. Preserve teammate modeling work and existing snapshots. No model retraining, backtest, dashboard integration or official Yasaar certification is implied by screening results. FTSE proprietary screens, index membership, continuing-member monitoring and purification are not replicated.

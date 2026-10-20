@@ -1,0 +1,14 @@
+{
+  "checked_on": "2026-10-20",
+  "source_url": "https://www.lseg.com/content/dam/ftse-russell/en_us/documents/ground-rules/ftse-yasaar-global-equity-shariah-index-series-ground-rules.pdf",
+  "publisher": "FTSE Russell / LSEG",
+  "verified_public_version": "v4.6 February 2026",
+  "verification_method": "Read the live official PDF and official LSEG overview using the web tool",
+  "local_pdf_snapshot_created": false,
+  "snapshot_limitation": "Direct local PDF download failed DNS resolution; no current PDF hash is claimed.",
+  "sections_checked": ["2.4.1", "4.3.1", "4.3.2", "4.4"],
+  "thresholds_match_public_initial_entry_rules": true,
+  "full_proprietary_method_replicated": false,
+  "official_board_approval": false,
+  "source_data_and_mapping_completeness": "incomplete; see per-company reports"
+}

@@ -99,3 +99,11 @@ Never commit:
 - Large datasets
 - Trained model files
 
+
+## Screening implementation — 20 October 2026
+
+The current screening implementation and source review are documented in [screening_methodology.md](docs/screening_methodology.md). The executed retained-data screen covers all 50 stocks as of **31 December 2025**: **0 complete evidenced research passes, 16 initial-filter failures and 34 requiring review**. These are not current-market or official Yasaar verdicts.
+
+Read [the simple result explanation](docs/screening_results_20261020.md) or [all 50 result rows](reports/screening/ftse_yasaar_2025/results.md). Rule code is in `src/screening/`; versioned limits and the exact cohort are in `configs/`. Install `requirements-screening.txt` after the main requirements to reproduce. The source ZIP and candidate datasets stay local and are shared separately.
+
+The user explicitly requested this task directly on existing `develop`; no additional branch or merge was created. Prediction notebooks and model data were retained. One existing calendar-range operation was made compatible with pandas 3 so the repository's cleaning-calendar test also passes.

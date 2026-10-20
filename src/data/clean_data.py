@@ -229,7 +229,9 @@ def calendar_sessions(start, end, prices, allow_proxy):
             raise ValueError('No SPY data for explicitly requested calendar proxy.')
         return pd.DatetimeIndex(pd.to_datetime(spy.unique())).sort_values(), 'SPY_proxy_unverified'
     cal = xc.get_calendar('XNYS', start=pd.Timestamp(start)-pd.Timedelta(days=10), end=pd.Timestamp(end)+pd.Timedelta(days=10))
-    dates = cal.sessions_in_range(start, end)
+    # Compare timestamps directly: older exchange_calendars range parsing
+    # assumes nanoseconds, while pandas 3 can store the calendar in microseconds.
+    dates = cal.sessions[(cal.sessions >= pd.Timestamp(start)) & (cal.sessions <= pd.Timestamp(end))]
     return dates.tz_localize(None).normalize(), 'XNYS_exchange_calendars'
 
 

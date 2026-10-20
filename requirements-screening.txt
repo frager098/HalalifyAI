@@ -1,0 +1,6 @@
+# Install the main project requirements first; screening adds these packages.
+lxml==6.0.2
+exchange_calendars==4.11.2
+# Verification tools (not required for the runtime calculation):
+pytest==9.1.1
+httpx>=0.27,<1

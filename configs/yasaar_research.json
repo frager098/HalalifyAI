@@ -1,0 +1,40 @@
+{
+  "profile_id": "HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V3",
+  "reference": "FTSE Yasaar v4.6 February 2026 rules 4.3.1 and 4.3.2",
+  "source_url": "https://www.lseg.com/content/dam/ftse-russell/en_us/documents/ground-rules/ftse-yasaar-global-equity-shariah-index-series-ground-rules.pdf",
+  "as_of_date": "2025-12-31",
+  "use": "Fixed-version retrospective initial-entry filter; no official index certification or continuing-member status",
+  "user_authorized_research_run": true,
+  "domain_approved": false,
+  "debt_assets_limit": "0.33333",
+  "cash_items_assets_limit": "0.33333",
+  "receivables_cash_assets_limit": "0.50",
+  "noncompliant_income_limit": "0.05",
+  "missing_evidence": "needs_review",
+  "full_index_monitoring_and_purification": "not_implemented",
+  "portfolio_eligible_requires_domain_review": true,
+  "expected_input_sha256": {
+    "archive": "4bbfee45051900a407499bcb5ec144a7b961b3ef19b8bd0c222bba3149b53a2f",
+    "business": "71144bd3817cc7cfeeb2ba2eef0097b419b4645c4704ad31e4d057f859bd8972",
+    "numeric": "0b57c582c923e4704243088b501f019e974279368c7311689387165303dd82f5"
+  },
+  "research_custom_mappings": [
+    {
+      "ticker": "DE",
+      "cik": "0000315189",
+      "namespace": "de",
+      "concept": "LongTermDebtAndFinanceLeasesNoncurrent",
+      "maps_to": "LongTermDebtAndCapitalLeaseObligations",
+      "basis": "Latest original balance-sheet row: Long-term borrowings. Mixed finance leases retained; subtract all evidenced finance-lease liabilities for debt floor only.",
+      "domain_approved": false
+    }
+  ],
+  "source_checked_on": "2026-10-20",
+  "prohibited_business_revenue_limit": "0.05",
+  "research_run_authorized_on": "2026-10-20",
+  "approved_methodology": false,
+  "financial_max_age_days": 180,
+  "business_max_age_days": 450,
+  "freshness_policy_status": "project_controls_not_FTSE_thresholds",
+  "public_screening_only": true
+}

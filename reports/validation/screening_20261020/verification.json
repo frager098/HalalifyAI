@@ -1,0 +1,27 @@
+{
+  "verified_on": "2026-10-20",
+  "fresh_python_environment": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "requirements_installed": [
+    "requirements.txt",
+    "requirements-screening.txt"
+  ],
+  "tests_passed": 46,
+  "tests_failed": 0,
+  "upstream_deprecation_warnings": 2,
+  "pip_check": "No broken requirements found",
+  "full_source_screen_rerun": true,
+  "all_50_decisions_and_financial_ratios_match_prior_retained_source_run": true,
+  "raw_inputs_changed": false,
+  "teammate_notebooks_and_modeling_dataset_changed": false,
+  "peer_review_obtained": false,
+  "domain_approval_obtained": false,
+  "counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 16,
+    "needs_review": 34
+  },
+  "result_sha256": "5a01e8e83891ebac1c427678c22736ec1323d24ef621e95e6ecf7c617299933b",
+  "limits": "Fresh runtime reproduction and arithmetic/source checks do not constitute official Yasaar approval or a labeled-data accuracy estimate."
+}

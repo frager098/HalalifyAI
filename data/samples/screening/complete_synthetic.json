@@ -1,0 +1,11 @@
+{
+  "fixture_only": true,
+  "description": "Invented amounts solely for testing rule arithmetic; not an actual company or a screening result.",
+  "assets": "100",
+  "debt": "20",
+  "cash_and_interest_items": "10",
+  "receivables_and_cash": "25",
+  "total_revenue": "100",
+  "gross_interest_plus_noncompliant_income": "4",
+  "prohibited_business_revenue": "3"
+}
