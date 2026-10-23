@@ -33,6 +33,8 @@ data/cleaned/*
 data/processed/*
 # New generated modeling tables; the existing committed snapshot remains tracked.
 data/modeling/*/model_dataset.csv
+data/modeling/*/market_features.csv
+data/modeling/*/market_features_and_labels.csv
 
 # Keep directories in Git
 !data/raw/.gitkeep

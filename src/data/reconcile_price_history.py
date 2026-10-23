@@ -43,6 +43,18 @@ DOCUMENTED_EVENTS = {
         "Solstice spin-off distribution; HON continued under HON",
         "https://investor.honeywell.com/news-releases/news-release-details/honeywell-board-directors-approves-spin-solstice-advanced",
     ),
+    ("COST", "2017-05-08"): (
+        "Special cash dividend $7, record date May 10; candidate explanation, ex-date/magnitude not certified here",
+        "https://investor.costco.com/news/news-details/2017/Costco-Wholesale-Corporation-Reports-Special-Cash-Dividend-of-7.00-Per-Share-and-Increase-in-Quarterly-Cash-Dividend-04-25-2017/default.aspx",
+    ),
+    ("COST", "2020-12-01"): (
+        "Special cash dividend $10, record date December 2; candidate explanation, ex-date/magnitude not certified here",
+        "https://investor.costco.com/news/news-details/2020/Costco-Wholesale-Corporation-Declares-Special-Cash-Dividend-of-10-Per-Share-11-16-2020/default.aspx",
+    ),
+    ("COST", "2023-12-27"): (
+        "Special cash dividend $15, record date December 28; candidate explanation, ex-date/magnitude not certified here",
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983223000062/cost-20231213.htm",
+    ),
 }
 
 # Dated public news provides context for a large move, not price verification
@@ -95,6 +107,15 @@ def price_events(model, divergence_threshold=0.01):
     evidence["move_context_source"] = evidence.apply(
         lambda r: MOVE_CONTEXT.get((r.ticker, r.session_date), (None, None))[1], axis=1)
     evidence["price_independently_verified"] = False
+    evidence["disposition"] = "unresolved_retained_for_research"
+    evidence["interpretation"] = evidence.apply(
+        lambda r: "Dated issuer event; adjustment magnitude not independently verified" if pd.notna(r.documented_event)
+        else "Dated earnings context; OHLC not independently verified" if pd.notna(r.move_context)
+        else "Large move has no independent price corroboration" if r.large_return_review
+        else "Adjustment-factor change; cash distribution candidate, not a confirmed dividend", axis=1)
+    # Stable batches support review without treating batch membership as evidence.
+    adjustment_tickers = sorted(evidence.loc[evidence.return_difference_pp.abs().gt(1), "ticker"].unique())
+    evidence["adjustment_batch"] = evidence.ticker.map({t: i // 5 + 1 for i, t in enumerate(adjustment_tickers)})
     return evidence.sort_values(["session_date", "ticker"]).reset_index(drop=True)
 
 
@@ -122,7 +143,21 @@ def identity_table(tickers, sec_dir=SEC_DIR):
                 DOCUMENTED_EVENTS.get((ticker, "2023-01-04"), (None, None))))[1],
             "full_historical_identity_verified": False,
         })
-    return pd.DataFrame(rows)
+    result = pd.DataFrame(rows)
+    priority = [t for t in ["META", "LIN", "GE", "DHR", "HON", "XOM"] if t in set(result.model_ticker)]
+    order = priority + sorted(set(result.model_ticker) - set(priority))
+    result["review_batch"] = result.model_ticker.map({t: i // 10 + 1 for i, t in enumerate(order)})
+    result["disposition"] = "historical_mapping_open"
+    result["listing_start_evidence"] = result.model_ticker.map({"LIN": "2018-10-31"})
+    for ticker in ("DHR", "HON"):
+        event = next((value for (name, _), value in DOCUMENTED_EVENTS.items() if name == ticker), None)
+        if event:
+            result.loc[result.model_ticker.eq(ticker), ["documented_history", "history_source"]] = event
+    result.loc[result.model_ticker.eq("XOM"), "documented_history"] = (
+        "Study issuer CIK 0000034088; current ticker mapping differs/missing. Do not replace historical issuer with current holding-company CIK.")
+    result.loc[result.model_ticker.eq("XOM"), "history_source"] = (
+        "https://investor.exxonmobil.com/sec-filings/all-sec-filings/content/0000034088-26-000045/xom-20251231.htm")
+    return result
 
 
 def run(model_path=MODEL, snapshot_path=SNAPSHOT, sec_dir=SEC_DIR):

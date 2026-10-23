@@ -33,6 +33,7 @@ class Config:
     max_passes: int = 6
     return_review_threshold: float = 0.25
     allow_spy_calendar_proxy: bool = False
+    market_only: bool = False
 
 
 def read_json(path):
@@ -169,7 +170,20 @@ def append_csv(df, path):
     df.to_csv(path, mode='a', header=not path.exists(), index=False)
 
 
-def verify_inputs(price_dir, sec_dir, pmeta, smeta, price_csv):
+def recover_json_bytes(path, expected):
+    """Recover only bytes that match the ORIGINAL digest; never bless new hashes."""
+    original = Path(path).read_bytes()
+    if hashlib.sha256(original).hexdigest() == expected:
+        return original, 'original_bytes'
+    payload = json.loads(original)
+    for ensure_ascii in (False, True):
+        candidate = json.dumps(payload, separators=(',', ':'), ensure_ascii=ensure_ascii).encode('utf-8')
+        if hashlib.sha256(candidate).hexdigest() == expected:
+            return candidate, 'compact_json_matches_original_digest'
+    raise ValueError(f'Cannot reconstruct original checksum: {path}')
+
+
+def verify_inputs(price_dir, sec_dir, pmeta, smeta, price_csv, market_only=False):
     checks = []
     def check(p, expected):
         if not p.is_file():
@@ -183,10 +197,11 @@ def verify_inputs(price_dir, sec_dir, pmeta, smeta, price_csv):
         check(price_dir / item['file'], item.get('sha256'))
     if not pmeta.get('pages'):
         raise ValueError('Price metadata has no raw pages.')
-    check(sec_dir / 'company_tickers.json', smeta.get('ticker_mapping_sha256'))
-    for item in smeta.get('files', []):
-        check(sec_dir / item['file'], item.get('sha256'))
-    for p in [price_dir/'metadata.json', sec_dir/'metadata.json']:
+    if not market_only:
+        check(sec_dir / 'company_tickers.json', smeta.get('ticker_mapping_sha256'))
+        for item in smeta.get('files', []):
+            check(sec_dir / item['file'], item.get('sha256'))
+    for p in [price_dir/'metadata.json'] + ([] if market_only else [sec_dir/'metadata.json']):
         checks.append(dict(file=str(p), expected_sha256=None, actual_sha256=digest(p)))
     return checks
 
@@ -251,13 +266,14 @@ def coverage_report(prices, sessions, symbols):
 def run(config: Config):
     root = Path(config.root).expanduser().resolve()
     price_dir = choose(root/'data/raw/alpaca', config.price_version)
-    sec_dir = choose(root/'data/raw/sec_snapshots', config.sec_version)
-    pmeta, smeta = read_json(price_dir/'metadata.json'), read_json(sec_dir/'metadata.json')
+    sec_dir = None if config.market_only else choose(root/'data/raw/sec_snapshots', config.sec_version)
+    pmeta = read_json(price_dir/'metadata.json')
+    smeta = {} if config.market_only else read_json(sec_dir/'metadata.json')
     if pmeta.get('status') != 'collected_requires_action_and_calendar_review':
         raise ValueError(f'Price download incomplete: {pmeta.get("status")}')
-    if smeta.get('failed') or smeta.get('status') != 'downloaded_requires_identity_review':
+    if not config.market_only and (smeta.get('failed') or smeta.get('status') != 'downloaded_requires_identity_review'):
         raise ValueError('SEC snapshot incomplete. Inspect its metadata or choose an explicit complete version.')
-    price_csv = root/'data/interim/prices'/price_dir.name/'daily_prices.csv'
+    price_csv = root/'data/interim/prices'/pmeta.get('normalized_source_version', price_dir.name)/'daily_prices.csv'
     start, end = config.start or pmeta['requested_start'], config.end or pmeta['requested_end']
     if pd.Timestamp(start) > pd.Timestamp(end):
         raise ValueError('start must precede end')
@@ -268,7 +284,7 @@ def run(config: Config):
     out.mkdir(parents=True, exist_ok=False)
     history = []
     try:
-        inputs = verify_inputs(price_dir, sec_dir, pmeta, smeta, price_csv)
+        inputs = verify_inputs(price_dir, sec_dir, pmeta, smeta, price_csv, config.market_only)
         write_json(out/'input_manifest.json', inputs)
         raw_prices = pd.read_csv(price_csv, dtype={'ticker':'string','session_date':'string'})
         required = set(PRICE_KEYS + PRICE_NUMERIC + ['adjustment_verified','data_quality_flags'])
@@ -314,6 +330,21 @@ def run(config: Config):
         prices[prices.ticker.eq('SPY')].to_csv(out/'spy_clean.csv', index=False)
         prices[prices.large_return_review | prices.zero_volume_review].to_csv(out/'price_review.csv', index=False)
         del raw_prices
+        if config.market_only:
+            report = dict(status='completed_market_only_with_review_required', core_ready=False,
+                output_dir=str(out), config=asdict(config), price_snapshot=price_dir.name,
+                sec_processed=False, calendar=calendar, input_checksums_verified=True,
+                raw_price_reconciliation=True, clean_price_rows=len(prices),
+                price_rows_quarantined=len(rejected)+int(unexpected.sum()),
+                missing_requested_sessions=len(gaps), large_return_reviews=int(prices.large_return_review.sum()),
+                zero_volume_reviews=int(prices.zero_volume_review.sum()), all_tables_converged=True,
+                unresolved=['Independent corporate-action magnitudes', 'Complete historical identity',
+                            'Actual provider delivery timestamps', 'Current-universe survivorship bias'])
+            pd.DataFrame(history).to_csv(out/'cleaning_passes.csv', index=False)
+            write_json(out/'report.json', report)
+            write_json(out/'output_manifest.json', {p.name: dict(sha256=digest(p), bytes=p.stat().st_size)
+                                                  for p in out.iterdir() if p.is_file()})
+            return report
         current_mapping = {x['ticker']: str(x['cik_str']).zfill(10) for x in read_json(sec_dir/'company_tickers.json').values()}
         groups = {}
         for item in smeta['files']:
@@ -443,6 +474,7 @@ def main():
     p.add_argument('--max-passes',type=int,default=6)
     p.add_argument('--return-review-threshold',type=float,default=0.25)
     p.add_argument('--allow-spy-calendar-proxy',action='store_true')
+    p.add_argument('--market-only',action='store_true',help='Clean verified market inputs without requiring SEC readiness.')
     args = p.parse_args()
     if args.return_review_threshold <= 0:
         p.error('return-review-threshold must be positive')

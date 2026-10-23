@@ -1,19 +1,23 @@
 # Run cleaning and create modeling targets
 
-The existing modeling CSV is ready for the planned modeling workflow; you do not need to repeat cleaning just to use it. Keep its accompanying `targets_metadata.json` and `README.md`.
+The preserved modeling CSV is an earlier research benchmark. It does not contain the newly approved phase 1 labels. Phase 2 now provides a separate cleaned market input for the phase 3 feature/label build; see [DATA_REVIEW.md](DATA_REVIEW.md) for exact artifacts and limitations.
 
-To recreate cleaned tables from the preserved raw snapshots and interim price input, open `HalalifyAI_Data_Cleaning.ipynb` in this folder and choose Run All. Section 7 creates both targets in a new modeling CSV. In Colab, mount Drive and set ROOT to this folder's copy while preserving the data directory structure.
+Run from the repository root. This command checks all original hashes, restores price pages only when their exact original digests can be reproduced, runs market cleaning, and saves the complete phase 2 evidence:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data.validate_data --phase2
+```
 
 Alternatively, use the project Python environment:
 
 ```powershell
-.\.venv\Scripts\python.exe clean_data.py --root .
+.\.venv\Scripts\python.exe -m src.data.clean_data --root . --price-version alpaca_sip_20261009T110617242394Z_restored_json_v1 --market-only
 ```
 
-Cleaning writes a new `data/cleaned/<run_id>/` folder. Then pass that run's `prices_clean.csv` to the target generator:
+Cleaning writes a new `data/cleaned/<run_id>/` folder. To reproduce **legacy** targets, pass that run's `prices_clean.csv` to the existing target generator. This is not the phase 3 implementation of the newly approved targets:
 
 ```powershell
-.\.venv\Scripts\python.exe create_targets.py --prices "data/cleaned/<run_id>/prices_clean.csv"
+.\.venv\Scripts\python.exe -m src.labels.create_targets --prices "data/cleaned/<run_id>/prices_clean.csv"
 ```
 
 Replace `<run_id>` with the directory printed by cleaning. The target generator writes a new `data/modeling/<run_id>/` directory. Neither step changes preserved source data or prior modeling runs. If rebuilding the environment, install `requirements-cleaning.txt` first.
@@ -29,7 +33,7 @@ Corporate-action evidence, historical issuer mappings and historical data vintag
 Validation tests:
 
 ```powershell
-.\.venv\Scripts\python.exe -B -m unittest test_clean_data test_targets -v
+.\.venv\Scripts\python.exe -m unittest tests.test_clean_data tests.test_price_reconciliation tests.test_pit_fundamentals -v
 ```
 
-Downloader code and credentials were removed. The original raw benchmark snapshots, their metadata, the required interim input, and `SOURCE.json` remain intact.
+The original raw snapshots, metadata, interim input, and `SOURCE.json` remain intact. Legacy downloaders exist but do not reproduce this two-price-basis snapshot workflow. The default combined cleaner still rejects the original mismatched AAPL SEC files; `--market-only` validates market hashes fully and deliberately omits SEC processing. It is not a checksum bypass. Restored market sources retain unresolved corporate-action and historical-identity flags.

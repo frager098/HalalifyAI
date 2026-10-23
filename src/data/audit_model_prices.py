@@ -21,6 +21,57 @@ SNAPSHOT = ROOT / "data/raw/alpaca/alpaca_sip_20261009T110617242394Z/metadata.js
 INTERIM = ROOT / "data/interim/prices/alpaca_sip_20261009T110617242394Z/daily_prices.csv"
 
 
+def compare_raw_pages(price_dir, metadata, interim):
+    """Compare each saved page with the columns actually retained downstream.
+
+    Equality here is internal consistency, never proof of original provider bytes.
+    The all-adjusted OHLC/volume were not retained, so only its close is compared.
+    """
+    reference = interim.set_index(["ticker", "session_date"])
+    if not reference.index.is_unique:
+        raise ValueError("Duplicate interim keys")
+    reference_rows = reference.to_dict(orient="index")
+    summaries, differences = [], []
+    seen = {"split": set(), "all": set()}
+    for item in metadata["pages"]:
+        name = item["file"]
+        basis = name.split("_")[0]
+        if basis not in seen:
+            raise ValueError(f"Unknown adjustment basis: {name}")
+        payload = json.loads((price_dir / name).read_text(encoding="utf-8-sig"))
+        pairs = {"close": "c", "open": "o", "high": "h", "low": "l", "volume": "v"} if basis == "split" else {"adjusted_close": "c"}
+        count = mismatch = duplicates = 0
+        for ticker, bars in (payload.get("bars") or {}).items():
+            for bar in bars:
+                stamp = pd.Timestamp(bar["t"])
+                if stamp.tzinfo is None:
+                    raise ValueError(f"Naive bar timestamp in {name}")
+                date = stamp.tz_convert("America/New_York").strftime("%Y-%m-%d")
+                key = (ticker, date)
+                count += 1
+                duplicates += int(key in seen[basis])
+                seen[basis].add(key)
+                if key not in reference_rows:
+                    differences.append(dict(file=name, ticker=ticker, session_date=date, column="key", reason="raw_only"))
+                    mismatch += 1
+                    continue
+                row = reference_rows[key]
+                for col, raw_col in pairs.items():
+                    if not np.isclose(float(row[col]), float(bar[raw_col]), rtol=0, atol=1e-10):
+                        mismatch += 1
+                        differences.append(dict(file=name, ticker=ticker, session_date=date, column=col,
+                                                raw_value=bar[raw_col], interim_value=row[col], reason="value_difference"))
+        summaries.append(dict(file=name, basis=basis, rows=count, compared_columns=",".join(pairs),
+                              differing_values_or_keys=mismatch, duplicate_keys=duplicates,
+                              matches_manifest=sha256(price_dir / name) == item["sha256"],
+                              interpretation="saved_values_match_only" if not mismatch and not duplicates else "review_required"))
+    for basis, keys in seen.items():
+        for ticker, date in sorted(set(reference.index) - keys):
+            differences.append(dict(file=basis, ticker=ticker, session_date=date, column="key", reason="interim_only"))
+    return pd.DataFrame(summaries), pd.DataFrame(differences, columns=[
+        "file", "ticker", "session_date", "column", "raw_value", "interim_value", "reason"])
+
+
 def sha256(path):
     digest = hashlib.sha256()
     with path.open("rb") as handle:

@@ -8,6 +8,7 @@ Debt and revenue are audited but not combined without semantic review.
 import argparse
 from datetime import datetime, timedelta, timezone
 import json
+import re
 from pathlib import Path
 
 import numpy as np
@@ -47,7 +48,7 @@ def verify_snapshot(directory, manifest, items, filename_key="file"):
 def extract_instant_facts(payload, ticker, field, concept):
     rows = []
     observations = payload.get("facts", {}).get("us-gaap", {}).get(concept, {}).get("units", {}).get("USD", [])
-    for fact in observations:
+    for source_row, fact in enumerate(observations, start=1):
         if fact.get("form") not in ("10-K", "10-Q") or fact.get("start") is not None:
             continue
         try:
@@ -61,7 +62,7 @@ def extract_instant_facts(payload, ticker, field, concept):
         if (field == "assets_usd" and value <= 0) or (field == "cash_usd" and value < 0):
             continue
         accession = fact.get("accn")
-        if not accession:
+        if not isinstance(accession, str) or not re.fullmatch(r"\d{10}-\d{2}-\d{6}", accession):
             continue
         # A date-only SEC filing date is not proof of intraday availability.
         # Starting the next calendar day makes the first tradable date conservative.
@@ -69,7 +70,10 @@ def extract_instant_facts(payload, ticker, field, concept):
                      "period_end": end.strftime("%Y-%m-%d"),
                      "filing_date": filed.strftime("%Y-%m-%d"),
                      "available_date": (filed + timedelta(days=1)).strftime("%Y-%m-%d"),
-                     "accession_number": accession, "value_usd": value})
+                     "accession_number": accession, "value_usd": value,
+                     "cik": str(payload.get("cik", "")).zfill(10),
+                     "source_file": f"{ticker}_companyfacts.json",
+                     "source_observation": source_row, "unit": "USD", "form": fact["form"]})
     return rows
 
 
@@ -151,7 +155,7 @@ def build_panel(model, facts):
     return panel.drop(columns="row_id")
 
 
-def run(model_path=MODEL, sec_dir=SEC, price_dir=PRICE):
+def run(model_path=MODEL, sec_dir=SEC, price_dir=PRICE, evidence=None):
     sec_meta = load_json(sec_dir / "metadata.json")
     price_meta = load_json(price_dir / "metadata.json")
     sec_checks = verify_snapshot(sec_dir, sec_meta, sec_meta["files"])
@@ -169,6 +173,10 @@ def run(model_path=MODEL, sec_dir=SEC, price_dir=PRICE):
     for ticker in sorted(model.ticker.unique()):
         if ticker in bad_sec or ticker not in files or ticker not in forms:
             coverage.append({"ticker": ticker, "source_verified": False, "reason": "SEC snapshot checksum mismatch or missing file"})
+            for group, concepts in REVIEW_CONCEPTS.items():
+                for concept in concepts:
+                    fact_rows.append({"ticker": ticker, "review_group": group, "concept": concept,
+                                      "disposition": "excluded_source_integrity", "approved_feature": False})
             continue
         facts = load_json(sec_dir / files[ticker]["file"])
         sub = load_json(sec_dir / forms[ticker]["file"])
@@ -183,10 +191,23 @@ def run(model_path=MODEL, sec_dir=SEC, price_dir=PRICE):
                 obs = [x for x in units.get("USD", []) if x.get("form") in ("10-Q", "10-K")]
                 fact_rows.append({"ticker": ticker, "review_group": group, "concept": concept,
                                   "usd_10k_10q_observations": len(obs),
-                                  "duration_observations": sum(x.get("start") is not None for x in obs)})
+                                  "duration_observations": sum(x.get("start") is not None for x in obs),
+                                  "units_present": ",".join(sorted(units)),
+                                  "amended_usd_observations": sum(x.get("form") in ("10-K/A", "10-Q/A") for x in units.get("USD", [])),
+                                  "disposition": "semantic_review_required" if obs else "missing_candidate_concept",
+                                  "approved_feature": False,
+                                  "reason": {"debt": "Alternative components may overlap; no automatic sum",
+                                             "revenue": "Quarter/YTD/year durations need fiscal reconciliation",
+                                             "cash_alternative": "Includes restricted cash; not equivalent to unrestricted cash",
+                                             "receivables": "Issuer-specific concept coverage and net/gross meaning need review"}[group]})
         coverage.append({"ticker": ticker, "source_verified": True, "reason": "verified current SEC snapshot; historical identity still open"})
     raw_facts = pd.DataFrame(rows)
     resolved, quarantine = resolve_fact_versions(raw_facts)
+    if evidence is not None:
+        evidence["selected_facts"] = resolved
+        evidence["candidate_observations"] = len(raw_facts)
+        evidence["changed_values_across_filings"] = int(raw_facts.groupby(
+            ["ticker", "field", "period_end"]).value_usd.nunique().gt(1).sum())
     panel = build_panel(model, resolved)
     for ticker in bad_sec:
         if panel.loc[panel.ticker.eq(ticker), ["assets_usd", "cash_usd"]].notna().any().any():
@@ -204,7 +225,7 @@ def run(model_path=MODEL, sec_dir=SEC, price_dir=PRICE):
         "rows_with_cash": int(panel.cash_usd.notna().sum()),
         "rows_with_same_filing_cash_to_assets": int(panel.cash_to_assets.notna().sum()),
         "ready_for_model_training": False,
-        "reason": "Price raw checksum mismatches, incomplete SEC snapshot integrity and historical identity/vintage checks remain unresolved.",
+        "reason": "SEC source exclusions and historical identity/vintage checks remain unresolved; inspect checksum lists separately.",
     }
     return summary, sec_checks, price_checks, pd.DataFrame(coverage), pd.DataFrame(fact_rows), quarantine, panel
 

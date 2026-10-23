@@ -4,7 +4,7 @@ import unittest
 
 import pandas as pd
 
-from src.data.build_pit_fundamentals import build_panel, resolve_fact_versions
+from src.data.build_pit_fundamentals import build_panel, resolve_fact_versions, extract_instant_facts
 
 
 def row(field, end, filed, accession, value):
@@ -15,6 +15,26 @@ def row(field, end, filed, accession, value):
 
 
 class FundamentalPanelTests(unittest.TestCase):
+    def test_extraction_rejects_duration_wrong_form_units_and_bad_accession(self):
+        fact = dict(end='2024-03-31',filed='2024-05-01',val=100,accn='0000000001-24-000001',form='10-Q')
+        payload = {'cik':1,'facts':{'us-gaap':{'Assets':{'units':{'USD':[
+            fact, {**fact,'start':'2024-01-01'}, {**fact,'form':'10-Q/A'},
+            {**fact,'val':-1}, {**fact,'end':'2024-06-30'}, {**fact,'accn':'bad'}],
+            'EUR':[fact]}}}}}
+        rows = extract_instant_facts(payload,'AAA','assets_usd','Assets')
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0]['available_date'],'2024-05-02')
+        self.assertEqual(rows[0]['source_observation'],1)
+        self.assertEqual(rows[0]['cik'],'0000000001')
+
+    def test_ratio_requires_same_filing_and_period(self):
+        model = pd.DataFrame({'ticker':['AAA'],'session_date':['2024-05-03']})
+        facts = pd.DataFrame([row('assets_usd','2024-03-31','2024-05-01','one',100),
+                              row('cash_usd','2024-03-31','2024-05-01','two',20)])
+        panel = build_panel(model,facts)
+        self.assertTrue(panel.cash_to_assets.isna().all())
+        self.assertFalse(panel.ratio_source_same_filing.any())
+
     def test_future_filing_is_unavailable_and_old_amendment_does_not_replace_new_period(self):
         model = pd.DataFrame({"ticker": ["AAA"] * 4,
                               "session_date": ["2024-04-15", "2024-04-17", "2024-05-03", "2024-06-03"]})

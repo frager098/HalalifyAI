@@ -2,9 +2,52 @@
 import unittest
 import pandas as pd
 import numpy as np
-from clean_data import price_pass, fact_pass, clean_loop, FACT_COLUMNS, calendar_sessions
+from src.data.clean_data import price_pass, fact_pass, clean_loop, FACT_COLUMNS, calendar_sessions, recover_json_bytes, verify_inputs
+from src.data.validate_data import restore_price_snapshot
+import hashlib
+import json
+from pathlib import Path
+import tempfile
 
 class CleaningChecks(unittest.TestCase):
+    def test_recovery_requires_exact_original_hash_and_preserves_input(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder)/'original'
+            source.mkdir()
+            raw = b'{"bars":{"AAA":[{"c":1.25}]}}'
+            pretty = json.dumps(json.loads(raw), indent=2).encode()
+            page = source/'split_0001.json'
+            page.write_bytes(pretty)
+            expected = hashlib.sha256(raw).hexdigest()
+            recovered, method = recover_json_bytes(page, expected)
+            self.assertEqual(recovered, raw)
+            self.assertIn('matches_original_digest', method)
+            metadata = {'dataset_version':'original','pages':[{'file':page.name,'sha256':expected}]}
+            (source/'metadata.json').write_text(json.dumps(metadata))
+            destination = Path(folder)/'restored'
+            restored = restore_price_snapshot(source, metadata, destination)
+            self.assertEqual(page.read_bytes(), pretty)
+            self.assertEqual((destination/page.name).read_bytes(), raw)
+            self.assertEqual(restored['pages'], metadata['pages'])
+            page.write_text('{"bars":{"AAA":[{"c":2.25}]}}')
+            with self.assertRaisesRegex(ValueError, 'Cannot reconstruct'):
+                recover_json_bytes(page, expected)
+
+    def test_market_only_verification_does_not_bypass_price_hash(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            csv = root/'prices.csv'
+            csv.write_bytes(b'known')
+            (root/'metadata.json').write_text('{}')
+            page = root/'split_0001.json'
+            page.write_bytes(b'{}')
+            metadata = {'normalized_sha256':hashlib.sha256(b'known').hexdigest(),
+                        'pages':[{'file':page.name,'sha256':hashlib.sha256(b'{}').hexdigest()}]}
+            verify_inputs(root, None, metadata, {}, csv, market_only=True)
+            page.write_bytes(b'{"changed":true}')
+            with self.assertRaisesRegex(ValueError, 'checksum'):
+                verify_inputs(root, None, metadata, {}, csv, market_only=True)
+
     def price(self, **overrides):
         d = dict(ticker=' aapl ',session_date='2025-01-02',open=10,high=12,low=9,close=11,volume=100,adjusted_close=10.5,source_row=2)
         d.update(overrides)
