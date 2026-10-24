@@ -38,7 +38,7 @@ With the retained original source archive, extracted evidence and supplementary 
 
 ```bash
 python -m src.screening.run_yasaar --repo . --archive data/raw/sec_screening_evidence/sec_sources_20261002.zip --evidence data/interim/screening_evidence/sec_2015_2025_v2 --out reports/screening/NEW_SCREENING_RUN
-python -m src.screening.verify_results --repo . --report reports/screening/NEW_SCREENING_RUN/results.json
+python -m src.screening.verify_results --repo . --report reports/screening/NEW_SCREENING_RUN/results.json --out reports/validation/NEW_SCREENING_RUN/result_checks.json
 python -m pytest -q
 ```
 

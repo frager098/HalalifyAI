@@ -74,6 +74,7 @@ def main():
     parser.add_argument('--repo', type=Path, default=Path.cwd())
     parser.add_argument('--compare', type=Path)
     parser.add_argument('--report', type=Path, help='Explicit versioned results.json')
+    parser.add_argument('--out', type=Path, help='Verification JSON file for this run')
     args = parser.parse_args()
     report_path = args.report or args.repo/'reports/screening/ftse_yasaar_2025/results.json'
     result = json.loads(report_path.read_text())
@@ -96,7 +97,8 @@ def main():
                 raise ValueError('Reproduction changed the business evidence')
         verified['prior_retained_source_decisions_and_ratios_reproduced'] = True
     config=json.loads((args.repo/'configs/yasaar_research.json').read_text())
-    save_json(args.repo/config.get('validation_output','reports/validation/screening_20261020')/'result_checks.json', verified)
+    output = args.out or args.repo/config.get('validation_output','reports/validation/screening_20261020')/'result_checks.json'
+    save_json(output, verified)
     print(json.dumps(verified, indent=2))
 
 
