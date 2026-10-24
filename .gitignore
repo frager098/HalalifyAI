@@ -31,10 +31,21 @@ data/raw/*
 data/interim/*
 data/cleaned/*
 data/processed/*
-# New generated modeling tables; the existing committed snapshot remains tracked.
-data/modeling/*/model_dataset.csv
-data/modeling/*/market_features.csv
-data/modeling/*/market_features_and_labels.csv
+# Preserve the files that were already versioned before model inputs moved
+# under data/processed/. Large newly generated tables remain ignored.
+!data/processed/model_inputs/
+data/processed/model_inputs/*
+!data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/
+data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/*
+!data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/README.md
+!data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/model_dataset.csv
+!data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/targets_metadata.json
+!data/processed/model_inputs/market_features_intermediate_2026-10-23T012858Z/
+data/processed/model_inputs/market_features_intermediate_2026-10-23T012858Z/*
+!data/processed/model_inputs/market_features_intermediate_2026-10-23T012858Z/features_metadata.json
+!data/processed/model_inputs/market_features_and_labels_v1/
+data/processed/model_inputs/market_features_and_labels_v1/*
+!data/processed/model_inputs/market_features_and_labels_v1/dataset_metadata.json
 
 # Keep directories in Git
 !data/raw/.gitkeep

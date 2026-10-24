@@ -33,7 +33,7 @@ Work through these steps in order. Mark a step complete only when its evidence i
 
 ### Market prices and historical identity
 
-- [x] **2.6 Run the cleaner on verified inputs.** Reuse `src/data/clean_data.py` and inspect its quarantine, coverage, review, and report files. Its recorded earlier run stopped at a checksum mismatch. **Done when:** a new run has a completed `report.json`, or the exact remaining failure is saved and assigned for resolution.
+- [x] **2.6 Run the cleaner on verified inputs.** Reuse `src/data_pipeline/clean_source_data.py` and inspect its quarantine, coverage, review, and report files. Its recorded earlier run stopped at a checksum mismatch. **Done when:** a new run has a completed `report.json`, or the exact remaining failure is saved and assigned for resolution.
 - [x] **2.7 Check trading-session coverage.** Compare each stock's dates with the reference sessions and its actual listing period. Record gaps, unexpected dates, and observed starts and ends, including LIN's later start. **Done when:** a per-ticker table explains each material coverage exception without claiming requested dates were received.
 - [x] **2.8 Review large price moves.** Revisit the nine previously flagged moves above 25%, one event at a time, using the split and fully adjusted series and independent dated evidence where available. **Done when:** each event is classified as verified, unresolved, or excluded with its evidence; genuine moves are not automatically deleted.
 - [x] **2.9 Review corporate-action differences.** Group the 92 previously flagged dates where the two price bases differ by over one percentage point. Work through groups in small batches, starting with the known GE, DHR, and HON events; reconcile split, dividend, and spin-off candidates with dated provider or issuer records. **Done when:** each batch has documented interpretations or explicit unverified flags; adjusted-return features and labels use one stated price convention.
@@ -50,7 +50,7 @@ Work through these steps in order. Mark a step complete only when its evidence i
 
 ## Phase 3 — Build a saved feature and label dataset
 
-Work through these steps in order. Keep the existing `data/modeling/20261009T115557984450Z/` snapshot and its `targets_metadata.json` unchanged; its labels are comparison benchmarks, not the approved phase 3 labels. Use the market-only `prices_clean.csv` selected by the [phase 2 decision](DATA_REVIEW.md#phase-2-decision--2026-10-22). SEC predictors remain excluded.
+Work through these steps in order. Keep the existing `data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/` snapshot and its `targets_metadata.json` unchanged; its labels are comparison benchmarks, not the approved phase 3 labels. Use the market-only `prices_clean.csv` selected by the [phase 2 decision](DATA_REVIEW.md#phase-2-decision--2026-10-22). SEC predictors remain excluded.
 
 ### Fix the dataset contract
 
@@ -61,7 +61,7 @@ Work through these steps in order. Keep the existing `data/modeling/20261009T115
 ### Build the market-only table
 
 - [x] **3.4 Add one reproducible build command.** Create a focused entry point that accepts the selected cleaned-price file and writes to a new versioned directory. Refuse duplicate ticker/date keys, invalid dates or prices, missing required columns, and an existing output directory. **Done when:** a single documented command builds a new table without modifying raw files or the older modeling snapshot.
-- [x] **3.5 Calculate historical market features.** Reuse [`src/features/market.py`](../src/features/market.py) on the selected company rows and SPY benchmark. Keep the provider all-adjusted close convention for returns; use only sessions through `t` and leave incomplete rolling windows missing. Preserve input keys and row order when attaching features. **Done when:** each output feature aligns with its original ticker/date and no earlier row changes if later prices are altered.
+- [x] **3.5 Calculate historical market features.** Reuse [`src/feature_engineering/market_features.py`](../src/feature_engineering/market_features.py) on the selected company rows and SPY benchmark. Keep the provider all-adjusted close convention for returns; use only sessions through `t` and leave incomplete rolling windows missing. Preserve input keys and row order when attaching features. **Done when:** each output feature aligns with its original ticker/date and no earlier row changes if later prices are altered.
 - [x] **3.6 Calculate continuous 20-session outcomes.** For each company, calculate adjusted-close return from `t` to `t+20` and annualized sample volatility from returns `t+1` through `t+20` on the shared session calendar. Save the actual target-window end date. A missing bar anywhere in a required future window leaves the affected outcome missing. **Done when:** hand-checked windows, gaps, and final 20 sessions have the expected values or missing markers.
 - [x] **3.7 Assign same-date return classes.** Apply the approved Lower/Middle/Higher rule to future returns only after step 3.2 has a recorded policy. Save peer counts and an explicit reason for dates or rows left unlabeled; keep continuous returns available for preserved numerical benchmarks. **Done when:** complete eligible dates produce reproducible classes and equal returns follow the recorded tie rule.
 - [x] **3.8 Assign fixed risk classes.** Compute the 1/3 and 2/3 quantiles from eligible training outcomes only, save both numerical boundaries, then apply them unchanged to later rows. Keep the continuous volatility target for numerical risk benchmarks. **Done when:** changing validation or later outcomes cannot change the boundaries or earlier classes.
@@ -73,15 +73,15 @@ Work through these steps in order. Keep the existing `data/modeling/20261009T115
 - [x] **3.11 Test the transformations.** Test row/key alignment, shared-session chronology, feature warm-up, incomplete future windows, peer ties and missing peers, training-only risk cutoffs, and no future influence on features. **Done when:** focused tests pass for both ordinary rows and boundary cases.
 - [x] **3.12 Save metadata and reproduce the build.** Save formulas, units, class policy, split dates, source and code hashes, output hash, row/class counts, missingness by column, and the run command. Run the command again on the same input. **Done when:** the two datasets and their substantive metadata match; any differing run identifiers or timestamps are documented.
 
-**Completed phase 3 artifact:** `data/modeling/market_features_and_labels_phase3_v1/market_features_and_labels.csv`, with metadata and per-task eligibility flags. Two full builds matched. See `decision.md` for step reviews. Phase 4 evaluation remains pending.
+**Completed phase 3 artifact:** `data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv`, with metadata and per-task eligibility flags. Two full builds matched. See `decision.md` for step reviews. Phase 4 evaluation remains pending.
 
-**Preserved intermediate artifact:** `data/modeling/market_features_20261023T012858924857Z/market_features.csv` contains market features and nominal split fields. Its missing rolling-window values are intentional; labels begin in step 3.6. Future builds use `market_features_<UTC timestamp>/market_features.csv`.
+**Preserved intermediate artifact:** `data/processed/model_inputs/market_features_intermediate_2026-10-23T012858Z/market_features.csv` contains market features and nominal split fields. Its missing rolling-window values are intentional; labels begin in step 3.6. Future builds use `market_features_<UTC timestamp>/market_features.csv`.
 
 **Exit evidence:** A saved, reproducible feature/label dataset with metadata and tests for the important transformations.
 
 ## Phase 4 — Freeze chronological evaluation
 
-Start with `data/modeling/market_features_and_labels_phase3_v1/market_features_and_labels.csv` and its metadata. The audit found 118,987 eligible rows per task with complete allowlisted features and labels. Keep the original 124,987 rows and their missingness reasons for traceability. The saved `risk_class` uses one development training boundary; recompute risk cutoffs inside every new training fold before scoring.
+Start with `data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv` and its metadata. The audit found 118,987 eligible rows per task with complete allowlisted features and labels. Keep the original 124,987 rows and their missingness reasons for traceability. The saved `risk_class` uses one development training boundary; recompute risk cutoffs inside every new training fold before scoring.
 
 ### Lock the evaluation contract
 
@@ -102,11 +102,11 @@ Start with `data/modeling/market_features_and_labels_phase3_v1/market_features_a
 - [x] **4.9 Save fold definitions and tests.** Save exact dates, row counts, purged keys/counts, fold-specific risk cutoffs, dataset/code hashes, and tests for chronology, overlap, feature exclusion, missingness and peer groups. **Done when:** a second run reconstructs identical fold membership and metadata from the same inputs.
 - [x] **4.10 Freeze the evaluation rule.** State how inner validation selects settings, how later outer folds estimate development performance, and when the reused 2024–2025 period may be reported. Reserve a genuinely later or prospective period for stronger final assessment. **Done when:** phase 5 can compare models without changing folds, metrics, or selection rules after seeing results.
 
-**Exit evidence:** Reproducible fold definitions, leakage tests, a bounded experiment list, and a documented final evaluation rule. Completed in `src/modeling/evaluation_protocol.py`; generated report: `reports/generated/phase4_protocol_final.json`. The full review is in `decision.md`.
+**Exit evidence:** Reproducible fold definitions, leakage tests, a bounded experiment list, and a documented final evaluation rule. Completed in `src/model_training/chronological_evaluation_protocol.py`; the pre-rename report is archived at `reports/generated/archive/pre_refactor_phase4_phase5_2026-10-23/chronological_evaluation_protocol.json`. The full review is in `decision.md`.
 
 ## Phase 5 — Compare simple models fairly
 
-Follow the frozen [Phase 4 protocol](../reports/generated/phase4_protocol_final.json) using the phase 3 dataset and its hash. Save generated results locally under `reports/generated/`; commit the reproducible code and a concise evaluator-facing report, not large generated tables. Compare models only on matched rows, dates, feature groups and fold-specific labels. Never describe the class rank score as an expected return.
+Follow the frozen Phase 4 protocol at `reports/generated/current/chronological_evaluation_protocol.json` using the current model-input dataset and its hash. Pre-rename Phase 4–5 evidence is retained under `reports/generated/archive/pre_refactor_phase4_phase5_2026-10-23/`. Save new generated results under `reports/generated/current/`; commit the reproducible code and a concise evaluator-facing report, not large generated tables. Compare models only on matched rows, dates, feature groups and fold-specific labels. Never describe the class rank score as an expected return.
 
 ### Establish fair baselines
 

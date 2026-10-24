@@ -1,4 +1,4 @@
-﻿# Model evaluation history
+# Model evaluation history
 
 This document preserves the sequence of feature experiments, chronological development evaluation, frozen choice, and saved-period check. Timestamped CSV and JSON outputs remain local under reports/generated/.
 
@@ -7,8 +7,8 @@ This document preserves the sequence of feature experiments, chronological devel
 ## Feature comparison and initial ranking
 
 
-The saved baseline results remain in `notebooks/01_risk_modeling.ipynb` and
-`notebooks/02_return_modeling.ipynb`. This experiment keeps their existing
+The saved baseline results remain in `notebooks/legacy/risk_modeling_baseline.ipynb` and
+`notebooks/legacy/return_modeling_baseline.ipynb`. This experiment keeps their existing
 targets and chronological split. It checks whether trailing market factors
 help the three-class risk and return tasks, their continuous targets, and the
 already saved SPY-relative return targets.
@@ -16,7 +16,7 @@ already saved SPY-relative return targets.
 Run from the repository root:
 
 ```powershell
-python -m src.modeling.compare_features
+python -m src.legacy.model_experiments.compare_feature_sets
 ```
 
 The command writes `validation_scores.csv` and `run_metadata.json` under a
@@ -26,7 +26,7 @@ from both inputs. It does not score the test split or replace saved models.
 
 ### Result from 2026-10-19
 
-The latest run is `reports/generated/feature_comparison_20261019T054537Z/`.
+The latest run is `reports/generated/legacy/modeling/feature_comparison_20261019T054537Z/`.
 It uses 83,237 training rows and 17,850 validation rows from the preserved
 dataset (SHA-256 `ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58`).
 
@@ -65,8 +65,8 @@ eligibility.
 Run the internal price audit and the validation-only monthly ranking study:
 
 ```powershell
-python -m src.data.audit_model_prices
-python -m src.modeling.monthly_rank_validation
+python -m src.data_pipeline.audit_market_price_sources
+python -m src.legacy.model_experiments.validate_monthly_rankings
 ```
 
 The audit writes a JSON summary, ticker coverage and nine large-move review
@@ -77,7 +77,7 @@ and identity flags and lack a bar-availability timestamp. Independent
 historical evidence is needed to resolve those items.
 
 The ranking study writes `summary.csv`, `rebalance_details.csv` and metadata
-under `reports/generated/monthly_rank_20261019T060359Z/`. It selects the
+under `reports/generated/legacy/modeling/monthly_rank_20261019T060359Z/`. It selects the
 first eligible date of each complete validation month, then skips a date when
 its 20-session target window would overlap the preceding selected window.
 It compares the top 10 of the same 50 stocks using trailing momentum, raw
@@ -101,9 +101,9 @@ in the next return experiment; no return model is selected yet.
 ## Walk forward development evaluation
 
 
-Run `python -m src.modeling.walk_forward` from the repository root. The
+Run `python -m src.legacy.model_experiments.run_walk_forward_evaluation` from the repository root. The
 2026-10-20 run is saved under
-`reports/generated/walk_forward_20261020T105443Z/`. It uses the preserved
+`reports/generated/legacy/modeling/walk_forward_20261020T105443Z/`. It uses the preserved
 modeling dataset with SHA-256
 `ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58`.
 The saved test period starting 2024-07-01 is excluded from this run.
@@ -199,7 +199,7 @@ report and present the same periods as an independent final test.
 
 
 This protocol was selected from development folds saved in
-`reports/generated/walk_forward_20261020T105443Z/`. The executable freeze
+`reports/generated/legacy/modeling/walk_forward_20261020T105443Z/`. The executable freeze
 command records exact data, metadata, development-output and code hashes
 before `evaluate` is allowed to read test labels.
 
@@ -255,14 +255,14 @@ development choice but cannot independently establish generalization.
 
 | Item | Version / evidence |
 | --- | --- |
-| Modeling dataset | `data/modeling/20261009T115557984450Z/model_dataset.csv` |
+| Modeling dataset | `data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/model_dataset.csv` |
 | Dataset SHA-256 | `ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58` |
 | Git HEAD | `99011019d133e9be051dc21e5752630f7eea3be4` (evaluation code was uncommitted; file hashes below identify it) |
-| Frozen protocol | `reports/generated/final_protocol_20261020T110543Z/protocol.json`; SHA-256 `6c0b187717943d14f72fa372dd3bb910a6e77d6daf18fc76df91304edf70794a` |
+| Frozen protocol | `reports/generated/legacy/modeling/final_protocol_20261020T110543Z/protocol.json`; SHA-256 `6c0b187717943d14f72fa372dd3bb910a6e77d6daf18fc76df91304edf70794a` |
 | Evaluation code SHA-256 | `final_evaluation.py`: `8a7df0b34dfcdd7dea266e81027be1d0114e45fb1fa101b3fc1ea622bc0c0d13` |
 | Feature code SHA-256 | `market.py`: `21927c63a4c2e9a8d6ba31d386230a7e25ebeee4c88ec061d96940cb174825fc` |
 | Library versions | Python environment: pandas 3.0.6, NumPy 2.5.4, scikit-learn 1.9.1 |
-| Results | `reports/generated/final_evaluation_20261020T110552Z/` |
+| Results | `reports/generated/legacy/modeling/final_evaluation_20261020T110552Z/` |
 
 The protocol also records the target metadata, development output and
 walk-forward code hashes. The evaluator rejected changed inputs or code.

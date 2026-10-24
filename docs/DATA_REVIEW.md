@@ -1,4 +1,4 @@
-﻿# Data review
+# Data review
 
 This document records source integrity, historical price and issuer checks, and the research-only SEC fundamental panel. Generated evidence remains local under reports/generated/.
 
@@ -10,7 +10,7 @@ Reproduce from the repository root:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-cleaning.txt
-.\.venv\Scripts\python.exe -m src.data.validate_data --phase2
+.\.venv\Scripts\python.exe -m src.data_pipeline.validate_source_data --phase2
 .\.venv\Scripts\python.exe -m unittest tests.test_clean_data tests.test_price_reconciliation tests.test_pit_fundamentals -v
 ```
 
@@ -22,7 +22,7 @@ The final run is `reports/generated/phase2_20261022T060900192314Z/`. Its `phase2
 - Selected restored prices: `data/raw/alpaca/alpaca_sip_20261009T110617242394Z_restored_json_v1/`.
 - Reused normalized input: `data/interim/prices/alpaca_sip_20261009T110617242394Z/daily_prices.csv`.
 - SEC: `data/raw/sec_snapshots/20261009T110657727507Z/`, with AAPL excluded from the candidate panel.
-- Preserved old modeling table: `data/modeling/20261009T115557984450Z/model_dataset.csv`; its SHA-256 remains `ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58`.
+- Preserved old modeling table: `data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/model_dataset.csv`; its SHA-256 remains `ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58`.
 
 The original 18 price pages differ byte-for-byte from their acquisition manifests. Serializing their parsed JSON compactly reproduces **the exact original SHA-256 for every affected page**. Eight other pages already match. The restored snapshot contains all 26 original-hash-matching pages and a recovery manifest; original files and expected hashes were not changed. Recovery rejects any candidate that cannot match the old digest. Matching numerical values alone would not be sufficient.
 
@@ -76,7 +76,7 @@ Fourteen focused tests pass: exact-hash recovery and tamper rejection, market-on
 ## Price adjustment, identity and timing
 
 
-Run `python -m src.data.reconcile_price_history` to recreate this report from the
+Run `python -m src.data_pipeline.reconcile_market_price_history` to recreate this report from the
 saved 2026-10-09 Alpaca SIP snapshot, modeling CSV and SEC snapshots. The run
 also checks the model and interim CSV checksums and their price agreement.
 Example output: `reports/generated/price_reconciliation_20261019T063028Z/`.
@@ -160,7 +160,7 @@ new versioned dataset; retain the present model dataset as the baseline.
 ## SEC point in time fundamentals
 
 
-Run `python -m src.data.build_pit_fundamentals` to reproduce steps 4 and 5
+Run `python -m src.data_pipeline.build_point_in_time_fundamentals` to reproduce steps 4 and 5
 from the preserved 2026-10-09 SEC snapshot. The 2026-10-19 run saved its
 report under `reports/generated/pit_fundamentals_20261019T064428Z/`.
 The existing price-based modeling CSV and its labels were not modified.

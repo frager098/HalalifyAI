@@ -5,22 +5,22 @@ The preserved modeling CSV is an earlier research benchmark. It does not contain
 Run from the repository root. This command checks all original hashes, restores price pages only when their exact original digests can be reproduced, runs market cleaning, and saves the complete phase 2 evidence:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.data.validate_data --phase2
+.\.venv\Scripts\python.exe -m src.data_pipeline.validate_source_data --phase2
 ```
 
 Alternatively, use the project Python environment:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.data.clean_data --root . --price-version alpaca_sip_20261009T110617242394Z_restored_json_v1 --market-only
+.\.venv\Scripts\python.exe -m src.data_pipeline.clean_source_data --root . --price-version alpaca_sip_20261009T110617242394Z_restored_json_v1 --market-only
 ```
 
-Cleaning writes a new `data/cleaned/<run_id>/` folder. To reproduce **legacy** targets, pass that run's `prices_clean.csv` to the existing target generator. This is not the phase 3 implementation of the newly approved targets:
+Cleaning writes a new `data/processed/cleaned_market_data/<run_id>/` folder. To reproduce **legacy** targets, pass that run's `prices_clean.csv` to the existing target generator. This is not the phase 3 implementation of the newly approved targets:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.labels.create_targets --prices "data/cleaned/<run_id>/prices_clean.csv"
+.\.venv\Scripts\python.exe -m src.legacy.target_generation.create_legacy_targets --prices "data/processed/cleaned_market_data/<run_name>/prices_clean.csv"
 ```
 
-Replace `<run_id>` with the directory printed by cleaning. The target generator writes a new `data/modeling/<run_id>/` directory. Neither step changes preserved source data or prior modeling runs. If rebuilding the environment, install `requirements-cleaning.txt` first.
+Replace `<run_name>` with the directory printed by cleaning. The legacy target generator writes a new timestamped directory under `data/processed/model_inputs/legacy_runs/`. Neither step changes preserved source data or prior modeling runs. If rebuilding the environment, install `requirements-cleaning.txt` first.
 
 The cleaning loop repeats safe normalization and validation until table hashes stop changing. It preserves SEC units, reporting periods and filing versions, separates invalid or conflicting records, and reports unresolved evidence. No missing prices are fabricated and no large returns are clipped. Use only completed cleaning runs containing `report.json`.
 
