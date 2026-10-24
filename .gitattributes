@@ -10,3 +10,6 @@ data/** -text
 configs/screening_recovery_mappings.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 configs/business_numeric_assessments.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/screening/ftse_yasaar_2025/results.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+configs/screening_evidence_reviews.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/screening/ftse_yasaar_2025_v7/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/validation/screening_source_repair_20261024/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

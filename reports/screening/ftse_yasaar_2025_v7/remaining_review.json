@@ -1,0 +1,2122 @@
+{
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "MSFT",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "ticker": "MSFT",
+            "cik": "0000789019",
+            "accession_number": "0000950170-25-100235",
+            "source_sha256": "db364d7321b3a8e89a9968915cdf1e4a524ba18bca36b38cb5ec850ea0aeb651",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+            "row_ordinal": 246,
+            "expected_cells": [
+              "Interest and dividends income",
+              "",
+              "$",
+              "2,647",
+              "",
+              "",
+              "$",
+              "3,157",
+              ""
+            ],
+            "reported_label": "Interest and dividends income",
+            "reported_display": "2,647",
+            "value_decimal": "2647000000",
+            "unit": "USD",
+            "display_scale": "millions",
+            "period_start": "2024-07-01",
+            "period_end": "2025-06-30",
+            "classification": "combined_interest_and_dividends_not_separate_gross_interest",
+            "interpretation": "First annual comparison column. Parentheses for MCD present earned interest as an offset to expense; recovered as positive income, not as a negative prohibited-income amount. Combined Microsoft interest/dividends is not reclassified as pure interest.",
+            "concept": "SourceReviewedAnnualTable",
+            "value": "2647000000",
+            "dimensions": [],
+            "row_label": "Interest and dividends income",
+            "context_id": "original-table-row-246"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "NVDA",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "AMD",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "AVGO",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "ORCL",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525315925/orcl-20251130.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/orcl-20250531.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "ADBE",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000107/adbe-20250829.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "CRM",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000238/crm-20251031.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000006/crm-20250131.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "CSCO",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "value": "1001000000",
+            "period_start": "2024-07-28",
+            "period_end": "2025-07-26",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "SalesTypeLeaseInterestIncomeLeaseReceivable",
+            "value": "66000000",
+            "period_start": "2024-07-28",
+            "period_end": "2025-07-26",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": null,
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000171/csco-20251025.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/858877/000085887725000111/csco-20250726.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "INTC",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000179/intc-20250927.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000009/intc-20241228.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "GOOGL",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/goog-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "META",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/meta-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "NFLX",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "AMZN",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000123/amzn-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "TSLA",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "tsla",
+            "concept": "NoncashInterestIncomeExpenseAndOtherOperatingActivities",
+            "value": "-172000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Non-cash interest and other operating activities",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeShortTermInvestmentOther",
+            "value": "763000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": null,
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025045968/tsla-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025003063/tsla-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "HD",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "value": "201000000",
+            "period_start": "2024-01-29",
+            "period_end": "2025-02-02",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income and other, net",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/354950/000162828025053868/hd-20251102.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "LOW",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "value": "159000000",
+            "period_start": "2024-02-03",
+            "period_end": "2025-01-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000210/low-20251031.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/60667/000006066725000049/low-20250131.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "NKE",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000151/nke-20251130.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "SBUX",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndOtherIncome",
+            "value": "113300000.0",
+            "period_start": "2024-09-30",
+            "period_end": "2025-09-28",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income and other, net",
+            "dimensions": [],
+            "reported_decimals": "-5",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "MCD",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000059/mcd-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "COST",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndOtherIncome",
+            "value": "589000000",
+            "period_start": "2024-09-02",
+            "period_end": "2025-08-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income and other, net",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000169/cost-20251123.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "WMT",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": true,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000191/wmt-20251031.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "JNJ",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000038/jnj-20241229.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "LLY",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000254/lly-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "ABBV",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "value": "648000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000049/abbv-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000020/abbv-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "MRK",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/310158/000031015825000059/mrk-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "TMO",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000159/tmo-20250927.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/tmo-20241231.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "ABT",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1800/000162828025047131/abt-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1800/000162828025007110/abt-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "DHR",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000182/dhr-20250926.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/313616/000031361625000043/dhr-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "CAT",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "ticker": "CAT",
+            "cik": "0000018230",
+            "accession_number": "0000018230-25-000008",
+            "source_sha256": "f9cda1e32ee25464fbe078748c42d4ff09463490ec57ec7a4b2cbc592f884fe1",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+            "row_ordinal": 973,
+            "expected_cells": [
+              "Investment and interest income",
+              "",
+              "$",
+              "482",
+              "",
+              "",
+              "$",
+              "494",
+              "",
+              "",
+              "$",
+              "167",
+              "",
+              ""
+            ],
+            "reported_label": "Investment and interest income",
+            "value_decimal": "482000000",
+            "unit": "USD",
+            "display_scale": "millions",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "classification": "reported_combined_interest_candidate",
+            "interpretation": "Combined investment and interest amount. Not a separate pure-interest value and not complete prohibited income.",
+            "concept": "SourceReviewedAnnualTable",
+            "value": "482000000",
+            "dimensions": [],
+            "row_label": "Investment and interest income",
+            "context_id": "original-table-row-973"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "DE",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "de",
+            "concept": "SalesTypeAndDirectFinancingLeasesInterestIncomeAndProfitLoss",
+            "value": "184000000",
+            "period_start": "2024-10-28",
+            "period_end": "2025-11-02",
+            "context_id": "Duration_10_28_2024_To_11_2_2025_izt58Ezv_EW-Jy0y7H-FCw",
+            "unit": "USD",
+            "row_label": "Sales-type and direct finance lease revenues",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/315189/000110465925122321/de-20251102x10k.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "HON",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000010/hon-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "UPS",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1090727/000162828025049661/ups-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/ups-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "UNP",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000321/unp-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/100885/000010088525000042/unp-20241231.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "GE",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000132/ge-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/ge-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "XOM",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000061/xom-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000010/xom-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "CVX",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000108/cvx-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/cvx-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "COP",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "cop",
+            "concept": "OperatingExpensesIncludingNonoperatingIncomeExpenseAndInterestAndDebtExpense",
+            "value": "43281000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Total Costs and Expenses",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncomeOther",
+            "value": "50000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Other, net",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000058/cop-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1163165/000116316525000012/cop-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "SLB",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "slb",
+            "concept": "InterestIncomeAndOther",
+            "value": "380000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "C_d0dc2446-0331-443b-9fd5-05c198c8ad7c",
+            "unit": "USD",
+            "row_label": "Interest & other income, net",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/87347/000119312525246028/slb-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/87347/000095017025007638/slb-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "JPM",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncomeOther",
+            "value": "12462000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Other income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncome",
+            "value": "84973000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Noninterest revenue",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndFeeIncomeLoansAndLeases",
+            "value": "92353000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Loans",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "jpm",
+            "concept": "InterestIncomeTradingAssets",
+            "value": "20327000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Trading assets - debt instruments",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
+            "value": "18299000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Federal funds sold and securities purchased under resale agreements",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "jpm",
+            "concept": "InterestIncomeSecuritiesBorrowed",
+            "value": "9208000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Securities borrowed",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeDepositsWithFinancialInstitutions",
+            "value": "22297000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Deposits with banks",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeExpenseAfterProvisionForLoanLoss",
+            "value": "81905000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Net interest income after provision for credit losses",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/19617/000162828025048859/jpm-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "BAC",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndDividendIncomeOperating",
+            "value": "146607000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncomeOtherOperatingIncome",
+            "value": "-3431000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Other income (loss)",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncome",
+            "value": "45827000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Total noninterest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndFeeIncomeLoansAndLeases",
+            "value": "61993000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Loans and leases",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeDebtSecuritiesOperating",
+            "value": "26007000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Debt securities",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
+            "value": "19911000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Federal funds sold and securities borrowed or purchased under agreements to resell",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndFeeIncomeLoansTradeFinancing",
+            "value": "10376000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Trading account assets",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/bac-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000139/bac-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "GS",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncome",
+            "value": "45456000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Total non-interest revenues",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndDividendIncomeOperating",
+            "value": "81397000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeDepositsWithFinancialInstitutions",
+            "value": "9282000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Deposits with banks",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeFederalFundsSoldAndSecuritiesPurchasedUnderAgreementsToResell",
+            "value": "19895000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Collateralized agreements",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestIncomeDebtSecuritiesTradingOperating",
+            "value": "14316000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Trading assets",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndFeeIncomeLoansAndLeases",
+            "value": "16162000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Loans",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "OtherInterestAndDividendIncome",
+            "value": "15744000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Other interest",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": false,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "annual_revenue_observation_not_found",
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/886982/000088698225001411/gs-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/886982/000088698225000005/gs-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "MS",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncomeOtherOperatingIncome",
+            "value": "1265000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Other",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "NoninterestIncome",
+            "value": "53150000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Total non-interest revenues",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndDividendIncomeOperating",
+            "value": "54135000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest income 1",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "ms",
+            "concept": "InterestIncomeCashAndCashEquivalents",
+            "value": "3068000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Cash and cash equivalents 1",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "us-gaap",
+            "concept": "InterestAndFeeIncomeLoansAndLeases",
+            "value": "13771000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Loans",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "ms",
+            "concept": "InterestIncomePaidSecuritiesPurchasedUnderAgreementsToResell",
+            "value": "12416000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Securities purchased under agreements to resell 2",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          },
+          {
+            "namespace": "ms",
+            "concept": "InterestIncomeSecuritiesBorrowed",
+            "value": "5391000000",
+            "period_start": "2024-01-01",
+            "period_end": "2024-12-31",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Securities borrowed 3",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": false,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "annual_revenue_observation_not_found",
+          "complete_income_category_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000539/ms-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/895421/000089542125000304/ms-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "V",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": true,
+        "combined_interest_observations": [
+          {
+            "namespace": "us-gaap",
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "value": "791000000",
+            "period_start": "2024-10-01",
+            "period_end": "2025-09-30",
+            "context_id": "c-1",
+            "unit": "USD",
+            "row_label": "Interest and dividend income on cash and investments",
+            "dimensions": [],
+            "reported_decimals": "-6",
+            "classification": "combined_or_partial_interest_candidate"
+          }
+        ],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "interest_combined_with_other_income",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "MA",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000193/ma-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000011/ma-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "PG",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000245/pg-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "KO",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "receivables_and_cash",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/21344/000162828025046054/ko-20250926.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "PEP",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "cash_and_interest_items",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000053/pep-20250906.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000007/pep-20241228.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "LIN",
+      "research_status": "needs_review",
+      "missing_or_incomplete_checks": [
+        "debt",
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": true,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025047710/lin-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/1707925/000162828025007990/lin-20241231.htm",
+      "next_actions": [
+        "Reconcile still-uncleared borrowing, investment or receivable amounts against original notes; retain existing maximum proofs.",
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    },
+    {
+      "ticker": "NEE",
+      "research_status": "fails_initial_filters",
+      "missing_or_incomplete_checks": [
+        "income",
+        "business_revenue_exposure"
+      ],
+      "source_coverage": {
+        "gross_interest_observation_found": false,
+        "combined_interest_observations_found": false,
+        "combined_interest_observations": [],
+        "annual_revenue_observation_found": true,
+        "total_revenue_field_corrected": false,
+        "issues": [
+          "separate_gross_interest_observation_not_found",
+          "complete_income_category_review_required",
+          "business_activity_revenue_review_required"
+        ]
+      },
+      "financial_source": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000056/nee-20250930.htm",
+      "business_source": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000011/nee-20241231.htm",
+      "next_actions": [
+        "Review prohibited business revenue by product/segment; keyword absence is not evidence of zero.",
+        "Establish gross interest plus all prohibited income with a consistent total-revenue denominator."
+      ],
+      "amendments": [],
+      "stale_evidence": false
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 # Halalify screening methodology
 
+Latest implementation note: [V7 free-source repair](screening_source_repair_20261024.md).
+V7 retains the rules and historical cutoff below, adds a guarded completed-review
+path, corrects WMT's provisional total revenue and records the user-authorized
+CAT finance/insurance finding. Latest result: 0 complete passes,22 failures,28
+undecided. The completed-review registry remains empty; no real-company income
+check is certified complete. Earlier V3–V6 results below are retained history.
+
 Implemented and source-checked on 20 October 2026. Profile:
 `HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V6` (the same-day V3 run is retained in Git history).
 

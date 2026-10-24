@@ -102,3 +102,21 @@ def test_reviewed_lease_footnote_removes_lease_not_future_interest_payments():
     mapping['expected_narrative']='lease liability is zero'
     with pytest.raises(ValueError,match='footnote'):
         recover_reviewed_debt(checks,financial,[mapping],content,CONFIG)
+
+
+def test_explicit_pure_borrowing_component_remains_a_partial_floor():
+    import hashlib
+    content=b'<html>Short-term borrowings</html>'
+    dims=[dict(axis='srt:ProductOrServiceAxis',member='test:FinanceMember')]
+    financial=dict(ticker='T',cik='1',accession_number='a',report_date=END,
+        source_sha256=hashlib.sha256(content).hexdigest(),source_url='https://example.org/original',
+        facts=[fact('Assets',100),fact('ShortTermBorrowings',4,dimensions=dims)])
+    mapping=dict(**{key:financial[key] for key in ['ticker','cik','accession_number','source_sha256','report_date']},
+        kind='source_bound_pure_borrowing_floor',expected_narrative='Short-term borrowings',
+        concept='ShortTermBorrowings',expected_value='4',dimensions=dims,interpretation='Synthetic source-reviewed floor')
+    result=recover_reviewed_debt(balance_checks(financial['facts'],END,CONFIG),financial,[mapping],content,CONFIG)
+    assert result['debt']['minimum_amount']=='4'
+    assert result['debt']['status']=='not_failed_on_available_amounts'
+    assert result['debt']['completeness']=='lower_bound_only'
+    mapping['expected_value']='40'
+    with pytest.raises(ValueError):recover_reviewed_debt(result,financial,[mapping],content,CONFIG)

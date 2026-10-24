@@ -1,5 +1,13 @@
 # HalalifyAI --- Codex Project Context
 
+## Latest source repair on 24 October 2026
+
+The user approved free SEC/issuer-source and code repair while retaining the FTSE Yasaar rules and 2025 cutoff, then explicitly approved CAT's finance/insurance research classification. Latest version is HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V7: 0 complete passes,22 failures,28 undecided; all portfolio flags false. Reports are versioned in reports/screening/ftse_yasaar_2025_v7; the older canonical-name V6 folder and Word checklist are preserved baselines. Read docs/screening_source_repair_20261024.md before using older counts below.
+
+WMT total revenue candidate corrected from sales674538m to reported total680985m. CVX interest component296m found, CAT combined investment/interest482m preserved as combined, CAT short-term borrowing4509m recovered as partial. All50 now have borrowing observations;38 gross-interest candidates/components, not38 complete income totals. CAT consolidated external finance/insurance revenue3446m/64809m is5.317%, source-bound and explicitly user-authorized as a research failure, not qualified Shariah approval.
+
+src/screening/evidence_review.py now integrates explicit complete source-bound income/business reviews with date, issuer, hash, amount, coverage, disjointness and precision checks. The complete-review registry is EMPTY: do not claim the real-company income/business gap is solved. A found amount, draft, keyword absence or arbitrary complete flag cannot supply missing category evidence. No paid data, current labels substituted into2025, changed threshold, religious/peer approval or new model accuracy is claimed. Keep price/model work separate.
+
 ## Data module consolidation override — 24 October 2026
 
 User approved consolidation and explicitly selected develop's src/data version,

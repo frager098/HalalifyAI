@@ -1,0 +1,36 @@
+{
+  "companies_verified": 50,
+  "old_counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 21,
+    "needs_review": 29
+  },
+  "new_counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 22,
+    "needs_review": 28
+  },
+  "changed_decisions": [
+    {
+      "ticker": "CAT",
+      "before": "needs_review",
+      "after": "fails_initial_filters"
+    }
+  ],
+  "coverage": {
+    "assets_found": 50,
+    "debt_amount_found": 50,
+    "cash_amount_found": 50,
+    "receivable_amount_found": 47,
+    "annual_revenue_candidate_found": 48,
+    "gross_interest_candidate_found": 38,
+    "complete_prohibited_income": 0
+  },
+  "thresholds_and_cutoff_unchanged": true,
+  "original_inputs_unchanged": true,
+  "other_balance_ratios_unchanged": true,
+  "paid_data_used": false,
+  "complete_real_income_reviews": 0,
+  "domain_approved": false,
+  "results_sha256": "48a8aeb21b2d8933dd83ac205f24ce6527286b11bac46454e700414815415d53"
+}

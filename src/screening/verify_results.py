@@ -9,6 +9,7 @@ from src.data.reconciliation import save_json, sha256
 from .yasaar import overall
 from .accounting_bounds import validate_upper_proof
 from .business_revenue import validate_business_revenue
+from .evidence_review import validate_reviewed_result
 
 
 def validate_results(result, universe):
@@ -42,6 +43,9 @@ def validate_results(result, universe):
             raise ValueError('Unsafe portfolio eligibility flag')
         eligible += allowed
         assets = record['checks']['assets']
+        for kind,check in [('income',record['checks']['income']),('business',record['business'])]:
+            if check.get('reviewed_evidence'):
+                validate_reviewed_result(check,kind,summary['profile'],record['as_of_date'])
         if record['business'].get('prohibited_revenue_minimum_ratio'):
             validate_business_revenue(record['business'], summary['profile']['prohibited_business_revenue_limit'])
         for key in ['debt', 'cash_and_interest_items', 'receivables_and_cash']:
@@ -69,8 +73,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo', type=Path, default=Path.cwd())
     parser.add_argument('--compare', type=Path)
+    parser.add_argument('--report', type=Path, help='Explicit versioned results.json')
     args = parser.parse_args()
-    report_path = args.repo/'reports/screening/ftse_yasaar_2025/results.json'
+    report_path = args.report or args.repo/'reports/screening/ftse_yasaar_2025/results.json'
     result = json.loads(report_path.read_text())
     universe = json.loads((args.repo/'configs/screening_universe.json').read_text())['company_tickers']
     verified = validate_results(result, universe)

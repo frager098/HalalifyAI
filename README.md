@@ -1,5 +1,10 @@
 # HalalifyAI
 
+Latest screening repair: [free-source repair and remaining gaps](docs/screening_source_repair_20261024.md).
+The V7 historical 2025 screen has **22 rule failures, 28 undecided stocks and 0 complete passes**.
+Read [all 50 results](reports/screening/ftse_yasaar_2025_v7/results.md) or
+[the per-stock data gaps](reports/screening/ftse_yasaar_2025_v7/data_gaps.csv).
+
 Python AI service for Halalify.
 
 The service will provide:

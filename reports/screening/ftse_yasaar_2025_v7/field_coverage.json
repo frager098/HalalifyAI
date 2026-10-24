@@ -1,0 +1,513 @@
+{
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "MSFT",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "NVDA",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "AMD",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "AVGO",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "ORCL",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "ADBE",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "CRM",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "CSCO",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "INTC",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "GOOGL",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "META",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "NFLX",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "AMZN",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "TSLA",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "HD",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "LOW",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "NKE",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "SBUX",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "MCD",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "COST",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "WMT",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "JNJ",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "LLY",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "ABBV",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "MRK",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "TMO",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "ABT",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "DHR",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "CAT",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "DE",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "HON",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "UPS",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "UNP",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "GE",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "XOM",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "CVX",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "COP",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "SLB",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "JPM",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": false,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "BAC",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": false,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "GS",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": false,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "MS",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": false,
+      "annual_revenue_candidate_found": false,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "V",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "MA",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "PG",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "KO",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "PEP",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "LIN",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": true,
+      "complete_prohibited_income": false
+    },
+    {
+      "ticker": "NEE",
+      "assets_found": true,
+      "debt_amount_found": true,
+      "cash_amount_found": true,
+      "receivable_amount_found": true,
+      "annual_revenue_candidate_found": true,
+      "gross_interest_candidate_found": false,
+      "complete_prohibited_income": false
+    }
+  ],
+  "counts": {
+    "assets_found": 50,
+    "debt_amount_found": 50,
+    "cash_amount_found": 50,
+    "receivable_amount_found": 47,
+    "annual_revenue_candidate_found": 48,
+    "gross_interest_candidate_found": 38,
+    "complete_prohibited_income": 0
+  }
+}

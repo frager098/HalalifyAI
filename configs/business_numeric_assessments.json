@@ -9,10 +9,52 @@
       "period_start": "2024-01-01",
       "period_end": "2024-12-31",
       "category": "conventional_insurance",
-      "required_source_markers": ["Employers Reassurance Corporation", "Union Fidelity Life Insurance Company", "Insurance revenue is comprised primarily of premiums and investment income"],
-      "numerator": {"concept": "InsuranceServicesRevenue", "expected_value": "3581000000"},
-      "denominator": {"concept": "Revenues", "expected_value": "38702000000"},
+      "required_source_markers": [
+        "Employers Reassurance Corporation",
+        "Union Fidelity Life Insurance Company",
+        "Insurance revenue is comprised primarily of premiums and investment income"
+      ],
+      "numerator": {
+        "concept": "InsuranceServicesRevenue",
+        "expected_value": "3581000000"
+      },
+      "denominator": {
+        "concept": "Revenues",
+        "expected_value": "38702000000"
+      },
       "reason": "Original annual insurance disclosures establish conventional insurance operations. Their reported revenue alone is about 9.25% of consolidated total revenue, above the 5% business ceiling; classification is a research assessment."
+    },
+    "CAT": {
+      "ticker": "CAT",
+      "cik": "0000018230",
+      "accession_number": "0000018230-25-000008",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "source_sha256": "f9cda1e32ee25464fbe078748c42d4ff09463490ec57ec7a4b2cbc592f884fe1",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "required_source_markers": [
+        "finance and insurance subsidiaries",
+        "Cat Financial"
+      ],
+      "category": "conventional_finance_and_insurance",
+      "numerator": {
+        "concept": "Revenues",
+        "expected_value": "3446000000",
+        "dimensions": [
+          {
+            "axis": "srt:ProductOrServiceAxis",
+            "member": "cat:FinancialProductsMember",
+            "member_type": "explicitmember"
+          }
+        ]
+      },
+      "denominator": {
+        "concept": "Revenues",
+        "expected_value": "64809000000"
+      },
+      "reason": "User-authorized research interpretation: finance and insurance subsidiaries form the Financial Products activity. Consolidated external revenues USD3446m / USD64809m exceed 5%; internal revenues are excluded. Not qualified Shariah approval.",
+      "research_classification_authorized_on": "2026-10-24",
+      "domain_approved": false
     }
   }
 }

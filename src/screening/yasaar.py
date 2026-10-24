@@ -6,7 +6,8 @@ def minimum_check(components,assets,limit,inclusive=False,complete=False):
     """A lower bound can fail a ceiling; only an evidenced full total can pass.
 
     ``complete`` is an explicit evidence-review assertion, never inferred from
-    the existence of a tag. The retained-source adapter leaves it False.
+    the existence of a tag. Only the source-bound completed-review adapter may
+    assert it for real-company income or business amounts.
     """
     try:
         denominator=Decimal(assets['value']) if assets else Decimal('NaN')

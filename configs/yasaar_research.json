@@ -1,5 +1,5 @@
 {
-  "profile_id": "HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V6",
+  "profile_id": "HALALIFY_FTSE_YASAAR_INITIAL_RESEARCH_V7",
   "reference": "FTSE Yasaar v4.6 February 2026 rules 4.3.1 and 4.3.2",
   "source_url": "https://www.lseg.com/content/dam/ftse-russell/en_us/documents/ground-rules/ftse-yasaar-global-equity-shariah-index-series-ground-rules.pdf",
   "as_of_date": "2025-12-31",
@@ -38,11 +38,11 @@
   "freshness_policy_status": "project_controls_not_FTSE_thresholds",
   "public_screening_only": true,
   "field_recovery_enabled": true,
-  "validation_output": "reports/validation/screening_gap_resolution_20261020",
+  "validation_output": "reports/validation/screening_source_repair_20261024",
   "supplemental_source_hashes": {
     "notes_manifest": "4007d2db8f492e704cd0dc0016954764b8aebb239b7c19b724084a5af0869ef3",
     "api_manifest": "8566b85ac57d0ed832a039d44b203ff1546b747b5de72f97049d39c067a77ff0",
-    "mappings": "06ed8c09b065d2a849ab3dd318b9fbdc6f85c9f15c92c73c9d4226f217e7afe4"
+    "mappings": "d80d8f7a9cf44e4b902b649825474cd5947a836176bee26eb164734136fba2ee"
   },
   "accounting_bounds_enabled": true,
   "accounting_bounds_scope": "Recognized carrying amounts only; no exact missing component is imputed; complete business/income evidence still required"

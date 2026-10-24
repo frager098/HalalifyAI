@@ -211,6 +211,57 @@
       "period_end": "2025-01-31",
       "classification": "reported_gross_interest_candidate",
       "interpretation": "Reviewed separate annual interest-income row and year/units headers. For ABBV and LOW the expense-offset presentation is converted to positive earned income. This is not a complete prohibited-income numerator."
+    },
+    {
+      "ticker": "CVX",
+      "cik": "0000093410",
+      "accession_number": "0000093410-25-000009",
+      "source_sha256": "75f03e58a5ea7d0063ba0785e16ebf6cb85f0b023a40be803fcf6040c5879e21",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/cvx-20241231.htm",
+      "row_ordinal": 1479,
+      "expected_cells": [
+        "1 Includes interest income of $ 296 in \u201cAll Other.\u201d"
+      ],
+      "reported_label": "Includes interest income in All Other segment",
+      "value_decimal": "296000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "classification": "reported_gross_interest_candidate",
+      "interpretation": "Original 2024 segment table footnote reports interest in All Other. A reported component, not proof of whole-company gross interest or prohibited-income completeness."
+    },
+    {
+      "ticker": "CAT",
+      "cik": "0000018230",
+      "accession_number": "0000018230-25-000008",
+      "source_sha256": "f9cda1e32ee25464fbe078748c42d4ff09463490ec57ec7a4b2cbc592f884fe1",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+      "row_ordinal": 973,
+      "expected_cells": [
+        "Investment and interest income",
+        "",
+        "$",
+        "482",
+        "",
+        "",
+        "$",
+        "494",
+        "",
+        "",
+        "$",
+        "167",
+        "",
+        ""
+      ],
+      "reported_label": "Investment and interest income",
+      "value_decimal": "482000000",
+      "unit": "USD",
+      "display_scale": "millions",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "classification": "reported_combined_interest_candidate",
+      "interpretation": "Combined investment and interest amount. Not a separate pure-interest value and not complete prohibited income."
     }
   ],
   "manual_financial_disclosures": [
@@ -228,6 +279,25 @@
       "finance_lease_liability_usd": "108000000",
       "expected_narrative": "Excludes finance lease obligations of $108 million",
       "interpretation": "The contractual-obligations footnote [a] separately identifies the finance-lease liability as USD108m. Subtract it from current plus noncurrent carrying debt/lease amounts. Do not use USD117m future payments including interest, or USD59635m contractual debt payments including future interest, as carrying liabilities."
+    },
+    {
+      "ticker": "CAT",
+      "cik": "0000018230",
+      "accession_number": "0000018230-25-000048",
+      "source_sha256": "0ef000c79b6b8e2df31a454c9541811dffe8f8172e70848e26d3eff5d866be94",
+      "report_date": "2025-09-30",
+      "kind": "source_bound_pure_borrowing_floor",
+      "expected_narrative": "Short-term borrowings",
+      "concept": "ShortTermBorrowings",
+      "expected_value": "4509000000",
+      "dimensions": [
+        {
+          "axis": "srt:ProductOrServiceAxis",
+          "member": "cat:FinancialProductsMember",
+          "member_type": "explicitmember"
+        }
+      ],
+      "interpretation": "Original balance-sheet short-term borrowing component of Financial Products; carrying amount and not a finance-lease tag. A borrowing floor only, never the complete consolidated debt total."
     }
   ]
 }

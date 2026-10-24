@@ -17,6 +17,7 @@ from .presentation import write_html
 from .field_recovery import recovered_balance,recover_income_check,recover_reviewed_debt
 from .accounting_bounds import apply_accounting_bounds
 from .business_revenue import reviewed_revenue_failure
+from .evidence_review import select_annual_revenue, apply_evidence_review, coverage_issues, write_source_gaps
 
 def select_latest(catalog,asof,calendar):
     result={};amends=[]
@@ -100,8 +101,19 @@ def remaining_tasks(record):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--archive',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--repo',type=Path,default=Path.cwd())
     p.add_argument('--notes',type=Path);p.add_argument('--api',type=Path)
+    p.add_argument('--out',type=Path,help='New report directory; refuses to overwrite an existing result')
     a=p.parse_args()
     config=json.loads((a.repo/'configs/yasaar_research.json').read_text());asof=config['as_of_date']
+    target=a.out or a.repo/'reports/screening/ftse_yasaar_2025'
+    if a.out and (target/'results.json').exists():
+        raise ValueError('Versioned output already exists; choose a new output folder')
+    reviews_path=a.repo/'configs/screening_evidence_reviews.json'
+    reviews_document=json.loads(reviews_path.read_text()) if reviews_path.exists() else None
+    if reviews_document and (reviews_document.get('schema_version')!=1
+            or reviews_document.get('information_cutoff')!=asof
+            or reviews_document.get('domain_approved') is not False):
+        raise ValueError('Evidence-review registry version, cutoff or approval metadata differs')
+    reviews=reviews_document['reviews'] if reviews_document else {}
     recovery_manifest=None;api_manifest=None;recovery_mappings={}
     if config.get('field_recovery_enabled'):
         notes=a.notes or a.repo/'data/interim/screening/recovery_notes_20261020'
@@ -179,6 +191,7 @@ def main():
             checks=recover_reviewed_debt(checks,financial,recovery_mappings.get('manual_financial_disclosures',[]),content,company_config)
             if packet['annual']['accession_number']!=annual[t][1]['accession_number']:
                 raise ValueError('Recovered annual income uses a different report: '+t)
+            checks['income']=select_annual_revenue(checks['income'],packet['annual'])
             checks['income']=recover_income_check(checks['income'],packet['annual'],recovery_mappings['manual_annual_disclosures'])
         if config.get('accounting_bounds_enabled') is True:
             checks=apply_accounting_bounds(checks,all_facts,r['report_date'],config)
@@ -188,6 +201,11 @@ def main():
             annual_content=z.read(annual_prefix+'/'+annual_record['file'])
             b=reviewed_revenue_failure(b,annual_record,annual_content,
                                       numeric_assessments[t],config['prohibited_business_revenue_limit'])
+        annual_prefix,annual_record=annual[t]
+        annual_content=z.read(annual_prefix+'/'+annual_record['file'])
+        reviewed_report=dict(annual_record,available_from_session=next_session(annual_record['filing_date'],calendar,annual_record.get('acceptance_datetime')))
+        checks,b=apply_evidence_review(checks,b,reviewed_report,annual_content,reviews.get(t),config)
+        source_coverage=coverage_issues(checks['income'],b)
         amendments=[v['accession_number'] for _,v in amends if v['ticker']==t and v['report_date']>=r['report_date']]
         financial_age=(date.fromisoformat(asof)-date.fromisoformat(r['report_date'])).days
         business_age=((date.fromisoformat(asof)-date.fromisoformat(b['filing_date'])).days
@@ -199,24 +217,26 @@ def main():
                  if checks[name]['status'] not in ['passes_filter','fails_initial_filter']]
         if b['status'] not in ['passes_filter','fails_initial_filter']:missing.append('business_revenue_exposure')
         eligible=status=='passes_research_filters' and config['domain_approved'] is True
-        record=dict(ticker=t,as_of_date=asof,reporting_date=r['report_date'],filing_date=r['filing_date'],available_from_session=next_session(r['filing_date'],calendar,r.get('acceptance_datetime')),source_url=source_url,source_sha256=source_hash,accession_number=r['accession_number'],cik=r['cik'],research_status=status,failed_checks=failed,checks=checks,business=b,amendments_requiring_review=amendments,financial_age_days=financial_age,business_disclosure_age_days=business_age,stale_evidence=stale,missing_or_incomplete_checks=missing,portfolio_eligible=eligible,domain_approved=config['domain_approved'])
+        record=dict(ticker=t,as_of_date=asof,reporting_date=r['report_date'],filing_date=r['filing_date'],available_from_session=next_session(r['filing_date'],calendar,r.get('acceptance_datetime')),source_url=source_url,source_sha256=source_hash,accession_number=r['accession_number'],cik=r['cik'],research_status=status,failed_checks=failed,checks=checks,business=b,amendments_requiring_review=amendments,financial_age_days=financial_age,business_disclosure_age_days=business_age,stale_evidence=stale,missing_or_incomplete_checks=missing,portfolio_eligible=eligible,domain_approved=config['domain_approved'],source_coverage=source_coverage)
         details.append(record)
-        flat.append(dict(ticker=t,reporting_date=r['report_date'],research_status=status,failed_checks='; '.join(failed),debt_minimum_percent=round(Decimal(checks['debt']['ratio'])*100,4) if checks['debt']['ratio'] else '',cash_items_minimum_percent=round(Decimal(checks['cash_and_interest_items']['ratio'])*100,4) if checks['cash_and_interest_items']['ratio'] else '',receivables_cash_minimum_percent=round(Decimal(checks['receivables_and_cash']['ratio'])*100,4) if checks['receivables_and_cash']['ratio'] else '',income_status=income[t]['status'],business_status=b['status'],source_url=source_url))
+        flat.append(dict(ticker=t,reporting_date=r['report_date'],research_status=status,failed_checks='; '.join(failed),debt_minimum_percent=round(Decimal(checks['debt']['ratio'])*100,4) if checks['debt']['ratio'] else '',cash_items_minimum_percent=round(Decimal(checks['cash_and_interest_items']['ratio'])*100,4) if checks['cash_and_interest_items']['ratio'] else '',receivables_cash_minimum_percent=round(Decimal(checks['receivables_and_cash']['ratio'])*100,4) if checks['receivables_and_cash']['ratio'] else '',income_status=checks['income']['status'],business_status=b['status'],source_url=source_url))
         for key in ['debt','cash_and_interest_items','receivables_and_cash']:
             flat[-1][key+'_status']=checks[key]['status']
             maximum=checks[key].get('maximum_ratio')
             flat[-1][key+'_maximum_percent']=round(Decimal(maximum)*100,4) if maximum is not None else ''
         flat[-1]['financial_checks_cleared']=sum(checks[k]['status']=='passes_filter'
             for k in ['debt','cash_and_interest_items','receivables_and_cash','income'])
-    target=a.repo/'reports/screening/ftse_yasaar_2025';target.mkdir(parents=True,exist_ok=True)
+    target.mkdir(parents=True,exist_ok=True)
     hashes=dict(**actual_hashes,config=sha256(a.repo/'configs/yasaar_research.json'),business_assessments=sha256(assessments_path),universe=sha256(a.repo/'configs/screening_universe.json'))
     hashes['business_numeric_assessments']=sha256(numeric_assessments_path)
+    if reviews_path.exists():hashes['evidence_reviews']=sha256(reviews_path)
     if recovery_manifest:hashes.update(recovery_hashes)
     counts={label:sum(r['research_status']==label for r in details) for label in ['passes_research_filters','fails_initial_filters','needs_review']}
     executed_on=datetime.now(ZoneInfo('Asia/Karachi')).date().isoformat()
     summary=dict(profile=config,companies=len(details),counts=counts,portfolio_eligible=sum(r['portfolio_eligible'] for r in details),input_hashes=hashes,executed_on=executed_on,run_finished_at_utc=datetime.now(timezone.utc).isoformat(),evidence_as_of=asof,not_current_market_screen=True,python=sys.version,packages={name:importlib.metadata.version(name) for name in ['lxml','pandas','exchange_calendars']},limitation='Initial-entry research filters; not official membership, continuing-member monitoring or a religious approval. Minimum ratios alone cannot prove a pass; a source-backed maximum below a limit can clear that individual financial check. Complete non-compliant income/business evidence remains required.')
     summary['financial_check_counts']={key:dict(Counter(r['checks'][key]['status'] for r in details)) for key in ['debt','cash_and_interest_items','receivables_and_cash','income']}
-    save_json(a.repo/'data/interim/screening/ftse_yasaar_2025/field_candidates.json',dict(companies=recovery))
+    interim_name=target.name if a.out else 'ftse_yasaar_2025'
+    save_json(a.repo/'data/interim/screening'/interim_name/'field_candidates.json',dict(companies=recovery))
     save_json(target/'results.json',dict(summary=summary,companies=details))
     with (target/'results.csv').open('w',newline='',encoding='utf8') as f:
         writer=csv.DictWriter(f,fieldnames=list(flat[0]));writer.writeheader();writer.writerows(flat)
@@ -227,9 +247,10 @@ def main():
     coverage=[]
     for record in details:
         c=record['checks']
-        coverage.append(dict(ticker=record['ticker'],assets_found=bool(c['assets']),debt_amount_found=bool(c['debt'].get('components')),cash_amount_found=bool(c['cash_and_interest_items'].get('components')),receivable_amount_found=any('Receivable' in x['concept'] for x in c['receivables_and_cash'].get('components',[])),annual_revenue_candidate_found=bool(c['income'].get('revenue_candidate')),gross_interest_candidate_found=bool(c['income'].get('interest_candidate')),complete_prohibited_income=False))
+        coverage.append(dict(ticker=record['ticker'],assets_found=bool(c['assets']),debt_amount_found=bool(c['debt'].get('components')),cash_amount_found=bool(c['cash_and_interest_items'].get('components')),receivable_amount_found=any('Receivable' in x['concept'] for x in c['receivables_and_cash'].get('components',[])),annual_revenue_candidate_found=bool(c['income'].get('revenue_candidate')),gross_interest_candidate_found=bool(c['income'].get('interest_candidate')),complete_prohibited_income=c['income'].get('completeness')=='complete_reviewed_total'))
     save_json(target/'field_coverage.json',dict(companies=coverage,counts={k:sum(bool(r[k]) for r in coverage) for k in coverage[0] if k!='ticker'}))
-    save_json(target/'remaining_review.json',dict(companies=[dict(ticker=r['ticker'],research_status=r['research_status'],missing_or_incomplete_checks=r['missing_or_incomplete_checks'],financial_source=r['source_url'],business_source=r['business'].get('source_url'),next_actions=remaining_tasks(r),amendments=r['amendments_requiring_review'],stale_evidence=r['stale_evidence']) for r in details]))
+    save_json(target/'remaining_review.json',dict(companies=[dict(ticker=r['ticker'],research_status=r['research_status'],missing_or_incomplete_checks=r['missing_or_incomplete_checks'],source_coverage=r['source_coverage'],financial_source=r['source_url'],business_source=r['business'].get('source_url'),next_actions=remaining_tasks(r),amendments=r['amendments_requiring_review'],stale_evidence=r['stale_evidence']) for r in details]))
+    write_source_gaps(target,details)
     z.close()
     print(json.dumps(summary,indent=2))
 

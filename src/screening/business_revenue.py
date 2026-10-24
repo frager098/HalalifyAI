@@ -30,15 +30,18 @@ def reviewed_revenue_failure(business, report, content, review, limit):
     if any(' '.join(marker.split()).casefold() not in normalized
            for marker in review['required_source_markers']):
         raise ValueError('Reviewed business description is absent')
-    facts = [f for f in standard(read_facts(content, report['cik']))
+    facts = [f for f in standard(read_facts(content, report['cik'], include_dimensions=True))
              if f['period_start'] == review['period_start']
-             and f['period_end'] == review['period_end'] and not f['dimensions']]
+             and f['period_end'] == review['period_end']]
     # Reuse declared-precision reconciliation, restricted to this annual period.
     instants = [dict(f, period_start=None) for f in facts]
     amounts = {}
     for key in ['numerator', 'denominator']:
         mapping = review[key]
-        amount = reconcile_amount(instants, mapping['concept'], review['period_end'])
+        dimensions=tuple(sorted((d['axis'],d['member']) for d in mapping.get('dimensions',[])))
+        if key=='denominator' and dimensions:
+            raise ValueError('Business revenue denominator must cover the consolidated issuer')
+        amount = reconcile_amount(instants, mapping['concept'], review['period_end'],dimensions)
         if not amount or Decimal(amount['value']) != Decimal(mapping['expected_value']):
             raise ValueError('Reviewed annual business amount is missing or different')
         amount['period_start'] = review['period_start']

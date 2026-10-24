@@ -1,0 +1,18 @@
+{
+  "fresh_committed_source_export": true,
+  "complete_company_records_equal": 50,
+  "original_input_hashes_equal": true,
+  "profile_cutoff_and_counts_equal": true,
+  "independent_result_verifier_passed": true,
+  "existing_user_python": "3.13.7",
+  "tests_passed": 117,
+  "test_failures": 0,
+  "original_result_sha256": "48a8aeb21b2d8933dd83ac205f24ce6527286b11bac46454e700414815415d53",
+  "counts": {
+    "passes_research_filters": 0,
+    "fails_initial_filters": 22,
+    "needs_review": 28
+  },
+  "domain_approved": false,
+  "no_new_model_training": true
+}
