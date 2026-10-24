@@ -37,9 +37,9 @@ Original archives remain unchanged. Supplementary API files and inventories rema
 To reproduce the registered V4 results, install the exact retained source files at the paths in [screening_methodology.md](screening_methodology.md), then run the screening command there. To collect a genuinely new snapshot, use new output folders and review/register their hashes before screening; never overwrite the pinned snapshot:
 
 ```bash
-python -m src.data.collect_screening_fields --repo . --out data/raw/NEW_API_SNAPSHOT
-python -m src.data.recover_screening_notes --repo . --archive data/raw/sec_screening_evidence/sec_sources_20261002.zip --out data/interim/screening/NEW_NOTES_SNAPSHOT
-python -m src.data.check_screening_api --api data/raw/NEW_API_SNAPSHOT --notes data/interim/screening/NEW_NOTES_SNAPSHOT --out reports/validation/NEW_CROSSCHECK.json
+python -m src.data.sec collect --repo . --out data/raw/NEW_API_SNAPSHOT
+python -m src.data.screening_disclosures --repo . --archive data/raw/sec_screening_evidence/sec_sources_20261002.zip --out data/interim/screening/NEW_NOTES_SNAPSHOT
+python -m src.data.sec check --api data/raw/NEW_API_SNAPSHOT --notes data/interim/screening/NEW_NOTES_SNAPSHOT --out reports/validation/NEW_CROSSCHECK.json
 ```
 
 The source-specific table and classification mappings are versioned in `configs/screening_recovery_mappings.json`. They stop on a different issuer, accession, source hash or table content. True value conflicts, unreviewed custom names, business segments, mixed/net interest and incomplete categories remain unresolved. See [the generated recovery report](../reports/validation/screening_field_recovery_20261020/recovery_summary.md) for all 50 companies.

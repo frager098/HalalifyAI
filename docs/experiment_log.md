@@ -1,5 +1,32 @@
 # Experiment log
 
+## 2026-10-24 — data code consolidation
+
+User approved consolidation and selected develop's 17-file src/data version.
+Focused branch: feature/data-code-simplification from develop c59ff2c. Plan
+sections 4.2, 6.1, 7.2 and 10 and SRS NFR-2.2/NFR-5.1/NFR-5.2 guide the modular,
+source-preserving change. No model-selection, screening-threshold, stock-universe
+or data-provider decision changed; the separate teammate branch was not merged.
+
+Combined price schema/action/input gates, grouped SEC commands, combined note
+recovery with report parsing, and retained two source investigations under
+src/data/research. There are 10 main Python files and two research tools. The
+offline pipeline runs clean -> validate -> build -> independent verification
+against an exact configured audited input; historical raw audit evidence is
+reused and unknown flags are never promoted. Existing caller, test, notebook
+imports and current reproduction commands are updated.
+
+Baseline: 81 tests. Refactor: 91 tests in the existing Python 3.12 environment.
+Actual 118643-row research and 125700-row full-audit CSVs are byte-identical to
+an independent run of the original builder. No new model accuracy was measured.
+See docs/data_workflow.md and reports/validation/data_refactor_20261024 for
+equivalence and reproduction evidence. Peer approval and merge are not implied.
+
+All 91 tests also passed from a fresh exported source tree with the original
+project's Python 3.13.7 environment. Full retained-source screening reproduced
+all 50 complete company records exactly (21 fail, 29 review, zero complete
+passes). No missing screening evidence was filled or new accuracy claimed.
+
 ## 2026-10-20 — FTSE Yasaar retained-data screen
 
 Task explicitly authorized on existing develop, starting from remote 2168193957e0778e048319f950ed44aa6b6a760e. No new feature branch. Plan section 7.3 and SRS FR-4.1 through FR-4.4/FR-5.1 informed the independent financial/activity rules and conservative portfolio eligibility.

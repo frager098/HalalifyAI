@@ -8,7 +8,7 @@ import pytest
 from src.features.core import FEATURES,build_features,wilder_rsi
 from src.labels.targets import build_targets
 from src.data.build_price_research import build_table
-from src.data.training_inputs import require_audited_prices
+from src.data.price_audit import require_audited_prices
 
 
 def fixture(n=180):

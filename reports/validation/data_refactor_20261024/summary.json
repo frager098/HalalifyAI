@@ -1,0 +1,48 @@
+{
+  "base_commit": "c59ff2c79a58e5b738e54f90a49988763c1b011d",
+  "main_python_files_before": 17,
+  "main_python_files_after": 10,
+  "research_python_files": 2,
+  "files": [
+    "build_price_research.py",
+    "clean_data.py",
+    "download_alpaca.py",
+    "pipeline.py",
+    "price_audit.py",
+    "reconciliation.py",
+    "research/collect_external_candidates.py",
+    "research/review_kaggle_financials.py",
+    "screening_disclosures.py",
+    "sec.py",
+    "validate_data.py",
+    "verify_price_research.py"
+  ],
+  "raw_input_modified": false,
+  "screening_rule_changes": false,
+  "model_retrained": false,
+  "model_accuracy_measured": false,
+  "fresh_dependency_install": false,
+  "python": "3.12.14",
+  "pandas": "3.0.6",
+  "numpy": "2.5.3",
+  "baseline_tests": {
+    "tests": 81,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "refactor_tests": {
+    "tests": 91,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "fresh_source_export_tree": "4d7551faa6b5fd1fe2f7a80db7b6bc68dd5a122f",
+  "fresh_source_python": "3.13.7",
+  "fresh_source_tests": {
+    "tests": 91,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  }
+}

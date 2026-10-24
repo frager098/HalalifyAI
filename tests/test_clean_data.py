@@ -2,7 +2,7 @@
 import unittest
 import pandas as pd
 import numpy as np
-from clean_data import price_pass, fact_pass, clean_loop, FACT_COLUMNS, calendar_sessions
+from src.data.clean_data import price_pass, fact_pass, clean_loop, FACT_COLUMNS, calendar_sessions
 
 class CleaningChecks(unittest.TestCase):
     def price(self, **overrides):

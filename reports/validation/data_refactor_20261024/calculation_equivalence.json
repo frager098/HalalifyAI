@@ -1,0 +1,97 @@
+{
+  "price_schema.py:validate": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "check_price_actions.py:events_from_pages": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "check_price_actions.py:audit": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "training_inputs.py:checked_bool": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "training_inputs.py:require_audited_prices": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "training_inputs.py:checked_pages": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "training_inputs.py:prepare": {
+    "new_module": "price_audit.py",
+    "function_body_unchanged": true
+  },
+  "build_price_research.py:build_table": {
+    "new_module": "build_price_research.py",
+    "function_body_unchanged": true
+  },
+  "build_price_research.py:build": {
+    "new_module": "build_price_research.py",
+    "function_body_unchanged": true
+  },
+  "verify_price_research.py:verify": {
+    "new_module": "verify_price_research.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:concept_kind": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:interest_row_kind": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:table_row_label": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:numeric_value": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:local_name": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:child_text": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:resources": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:business_section": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:visible_report_text": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:next_session": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:parse_report": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "screening_disclosures.py:parse_instance": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "recover_screening_notes.py:table_rows": {
+    "new_module": "screening_disclosures.py",
+    "function_body_unchanged": true
+  },
+  "clean_data.py": {
+    "entire_module_unchanged": true
+  }
+}

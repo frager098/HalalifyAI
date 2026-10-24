@@ -1,5 +1,11 @@
 # Run cleaning and create modeling targets
 
+For the existing audited research snapshot, use `python -m src.data.pipeline`.
+It performs cleaning, validation, dataset construction and independent checks
+with one command. See [data_workflow.md](data_workflow.md) for inputs, outputs
+and the consolidated file map. The instructions below preserve the older
+full-snapshot workflow and are not required by that normal command.
+
 The older modeling CSV preserves unresolved action/identity flags. Do not treat it as verified input or derive action checks from small daily moves. Use the audited-price reconstruction described in [data_completion_20261020.md](data_completion_20261020.md). Keep old snapshots and metadata intact.
 
 To recreate cleaned tables from the preserved raw snapshots and interim price input, open `notebooks/HalalifyAI_Data_Cleaning.ipynb` and choose Run All. Section 7 creates both targets in a new modeling CSV. In Colab, mount Drive and set ROOT to this folder's copy while preserving the data directory structure.

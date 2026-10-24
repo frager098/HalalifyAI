@@ -6,7 +6,7 @@ import exchange_calendars as xc
 import numpy as np
 import pandas as pd
 from .reconciliation import sha256, save_json
-from .training_inputs import require_audited_prices
+from .price_audit import require_audited_prices
 from ..features.core import FEATURES
 
 

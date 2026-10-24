@@ -3,7 +3,7 @@ import hashlib
 import json
 import sys
 
-from src.data.collect_screening_fields import main
+from src.data.sec import collect_main as main
 
 
 def test_completed_api_collection_is_reused_without_metadata_rewrite(tmp_path,monkeypatch):

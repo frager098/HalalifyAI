@@ -11,7 +11,7 @@ from zipfile import ZipFile
 import pandas as pd
 import pyarrow.parquet as pq
 
-from .reconciliation import COMPANY_SYMBOLS, save_json, sha256
+from ..reconciliation import COMPANY_SYMBOLS, save_json, sha256
 
 
 def review(archive, notes, out, cutoff='2025-12-31'):

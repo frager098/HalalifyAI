@@ -100,7 +100,30 @@ Never commit:
 - Trained model files
 
 
-## Screening implementation — 20 October 2026
+## Prepare research data with one command
+
+Install the calendar dependencies once with `pip install -r requirements-cleaning.txt`.
+From the project folder, run:
+
+```bash
+python -m src.data.pipeline
+```
+
+This cleans and validates the registered audited price snapshot, builds the
+existing 16-feature research dataset, and independently checks its future
+targets and chronological splits. It runs offline, preserves the input and
+earlier runs, and prints the dataset and report locations. It reuses the earlier
+source audit; it does not download data, change screening rules or train models.
+
+The local input is `data/interim/prices/price_repair_20261020/audited_prices.csv`.
+Large data stays outside Git, so teammates need the matching data package as well
+as the code. `configs/data_pipeline.json` records its exact checksum. Use
+`python -m src.data.pipeline --plan` to preview the steps without writing files.
+
+`src/data` has **10 main Python files**, with two investigation tools under
+`src/data/research/`. See [the file map and individual commands](docs/data_workflow.md).
+
+## Historical screening implementation — 20 October 2026
 
 The current screening implementation and source review are documented in [screening_methodology.md](docs/screening_methodology.md). The executed retained-data screen covers all 50 stocks as of **31 December 2025**: **0 complete evidenced research passes, 21 initial-filter failures and 29 requiring review**. These are not current-market or official Yasaar verdicts.
 

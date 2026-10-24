@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 from .reconciliation import COMPANY_SYMBOLS, save_json, sha256
-from .training_inputs import require_audited_prices
+from .price_audit import require_audited_prices
 from ..features.core import FEATURES, build_features
 from ..labels.targets import build_targets, split_and_label
 

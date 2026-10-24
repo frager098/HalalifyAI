@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
-from .reconciliation import save_json, sha256
+from ..reconciliation import save_json, sha256
 
 
 SOURCES = {

@@ -1,5 +1,10 @@
 # Screening data dictionary
 
+Data-code consolidation on 24 October 2026 does not redefine these financial
+fields or the screening profile. The separate normal price workflow is in
+[data_workflow.md](data_workflow.md); its manifest records exact input/config
+hashes, cleaned counts, preserved false flags and independent dataset checks.
+
 Scope: screening profile V6, revised 20 October 2026 after the API/original-note recovery. This documents screening inputs/outputs; the teammate's existing modeling data schema is documented separately in `MODELING_WORKSPACE.md` and has not been redefined here.
 
 | Field | Meaning |

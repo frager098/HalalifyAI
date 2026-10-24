@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import pytest
 
-from src.data.training_inputs import prepare, require_audited_prices
+from src.data.price_audit import prepare, require_audited_prices
 from src.labels.targets import split_and_label
 
 

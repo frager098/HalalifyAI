@@ -1,0 +1,18 @@
+{
+  "research_rows.csv": {
+    "rows": 118643,
+    "columns": 37,
+    "before_sha256": "27fa1e9de9a787bc725ccf5e5afed74cba7accb0c29bfc78eb5eda24a8866aa7",
+    "after_sha256": "27fa1e9de9a787bc725ccf5e5afed74cba7accb0c29bfc78eb5eda24a8866aa7",
+    "byte_identical": true,
+    "all_values_exactly_equal": true
+  },
+  "feature_target_audit.csv": {
+    "rows": 125700,
+    "columns": 37,
+    "before_sha256": "7a4fbce26e76e5ac2eeff9f187e3240f78ca673aaea6ccdf33595022f6074d0d",
+    "after_sha256": "7a4fbce26e76e5ac2eeff9f187e3240f78ca673aaea6ccdf33595022f6074d0d",
+    "byte_identical": true,
+    "all_values_exactly_equal": true
+  }
+}

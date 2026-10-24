@@ -1,5 +1,28 @@
 # HalalifyAI --- Codex Project Context
 
+## Data module consolidation override — 24 October 2026
+
+User approved consolidation and explicitly selected develop's src/data version,
+not the separate feature/model-evaluation layout. Read docs/data_workflow.md.
+Ten main data modules and two src/data/research tools replace seventeen files.
+price_audit owns the old price_schema/check_price_actions/training_inputs APIs;
+sec groups download/extract/collect/check commands; screening_disclosures owns
+original-note recovery. Repository imports and the develop Colab notebook are
+updated. Removed module paths require the documented migration in external code.
+
+Normal command: python -m src.data.pipeline. It is offline and requires the
+exact audited CSV checksum in configs/data_pipeline.json. It cleans/validates,
+builds the unchanged sixteen-feature dataset and independently verifies targets,
+purges and train-only thresholds. It reuses the previous numerical source audit,
+does not fetch providers or train, and does not promote false evidence flags.
+New outputs go to data/interim, data/processed and reports/validation; original
+inputs and previous runs are preserved. The existing legacy full-snapshot
+cleaner remains separately available; no old data directories were relocated.
+No screening rules, 50-stock cohort, model class definitions or peer/domain
+approval changed. This focused refactor is not a merge of the teammate branch
+or evidence that the project is complete. Record actual publication and local
+installation state separately; do not infer GitHub was updated from local edits.
+
 ## Purpose of this file
 
 This file gives Codex the working context, technical decisions, data

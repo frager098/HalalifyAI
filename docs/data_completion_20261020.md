@@ -19,7 +19,7 @@ The notebook's actual data-preparation cells 12 and 14 were executed on the audi
 Reproduction from saved sources:
 
 ```text
-python -m src.data.training_inputs --prices DUAL_BASIS_CSV --raw RAW_REFERENCE_CSV --actions SAVED_ACTION_FOLDER --repo .
+python -m src.data.price_audit --prices DUAL_BASIS_CSV --raw RAW_REFERENCE_CSV --actions SAVED_ACTION_FOLDER --repo .
 python -m src.data.build_price_research --prices AUDITED_CSV_PRINTED_ABOVE --repo . --version NEW_VERSION_NAME
 python -m src.data.verify_price_research --prices AUDITED_CSV_PRINTED_ABOVE --dataset data/processed/NEW_VERSION_NAME --out reports/validation/NEW_VERSION_NAME/independent_checks.json
 ```
