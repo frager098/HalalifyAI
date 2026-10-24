@@ -1,0 +1,3 @@
+table,pass_number,rows_before,rows_after,removed,stable
+prices,1,127501,127501,0,False
+prices,2,127501,127501,0,True

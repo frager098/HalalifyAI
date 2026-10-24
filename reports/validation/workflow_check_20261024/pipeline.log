@@ -1,0 +1,121 @@
+{
+  "input_sha256": "f16a027f3305d35009fa29d4cdaccd8b98857a8067fc5a4de849df05be50636c",
+  "input_rows": 127501,
+  "feature_order": [
+    "ret_1d",
+    "ret_5d",
+    "ret_20d",
+    "ret_60d",
+    "vol_20d",
+    "vol_60d",
+    "downside_dev_20d",
+    "max_drawdown_60d",
+    "price_sma20_ratio",
+    "price_sma50_ratio",
+    "rsi_14",
+    "volume_ratio_20d",
+    "log_dollar_volume_20d",
+    "beta_60d",
+    "market_ret_20d",
+    "market_vol_20d"
+  ],
+  "horizon_sessions": 20,
+  "eligible_rows": 118643,
+  "excluded_rows": 7057,
+  "splits": {
+    "test": {
+      "rows": 36336,
+      "companies": 50,
+      "first_feature_date": "2023-01-03",
+      "last_feature_date": "2025-12-02",
+      "last_label_date": "2025-12-31"
+    },
+    "train": {
+      "rows": 58157,
+      "companies": 50,
+      "first_feature_date": "2016-03-31",
+      "last_feature_date": "2020-12-02",
+      "last_label_date": "2020-12-31"
+    },
+    "validation": {
+      "rows": 24150,
+      "companies": 50,
+      "first_feature_date": "2021-01-04",
+      "last_feature_date": "2022-12-01",
+      "last_label_date": "2022-12-30"
+    }
+  },
+  "output_sha256": "27fa1e9de9a787bc725ccf5e5afed74cba7accb0c29bfc78eb5eda24a8866aa7",
+  "label_thresholds": {
+    "future_return_20d": {
+      "lower_cutoff": -0.00642117043463005,
+      "upper_cutoff": 0.0426236115791491,
+      "quantile_method": "linear",
+      "fit_row_count": 58157,
+      "fit_feature_date_start": "2016-03-31",
+      "fit_feature_date_end": "2020-12-02",
+      "fit_label_end_max": "2020-12-31",
+      "class_order": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "boundary_rule": "low<=lower; lower<medium<=upper; high>upper"
+    },
+    "future_volatility_20d": {
+      "lower_cutoff": 0.1673733314734427,
+      "upper_cutoff": 0.2638634777019625,
+      "quantile_method": "linear",
+      "fit_row_count": 58157,
+      "fit_feature_date_start": "2016-03-31",
+      "fit_feature_date_end": "2020-12-02",
+      "fit_label_end_max": "2020-12-31",
+      "class_order": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "boundary_rule": "low<=lower; lower<medium<=upper; high>upper"
+    },
+    "future_excess_return_20d": {
+      "lower_cutoff": -0.01726982059680893,
+      "upper_cutoff": 0.024741236933767875,
+      "fit_row_count": 58157,
+      "quantile_method": "linear",
+      "class_order": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  },
+  "excluded_reasons": {
+    "incomplete_window_or_unresolved_action_or_basis": 3263,
+    "split_boundary_purge": 1981,
+    "future_benchmark_gap_or_unresolved_action": 1080,
+    "future_benchmark_gap_or_unresolved_action;incomplete_window_or_unresolved_action_or_basis": 733
+  },
+  "numerically_audited": true,
+  "global_action_coverage_certified": false,
+  "historical_issuer_history_certified": false,
+  "screening_applied": false,
+  "accuracy_measured_this_run": false,
+  "test_period_previously_inspected": true,
+  "limitation": "Research dataset with unresolved action windows excluded; not complete historical issuer/action certification or a promise of forecast accuracy."
+}
+{
+  "rows_independently_checked": 118643,
+  "companies": 50,
+  "max_absolute_target_errors": {
+    "future_return_20d": 9.996344030316351e-17,
+    "future_volatility_20d": 6.619704784327496e-15,
+    "future_excess_return_20d": 1.1102230246251565e-16
+  },
+  "all_targets_recomputed": true,
+  "no_future_action_gaps": true,
+  "chronological_purges_verified": true,
+  "training_only_thresholds_verified": true,
+  "numeric_features_complete": true,
+  "global_action_or_issuer_certification": false,
+  "model_accuracy_measured": false
+}
