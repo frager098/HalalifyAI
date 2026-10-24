@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "request_id": "pred_dummy_20261023_001",
+  "generated_at": "2026-10-24T12:00:00+05:00",
+  "as_of_date": "2026-10-23",
+  "horizon_trading_sessions": 20,
+  "is_dummy": true,
+  "models": {
+    "return": {
+      "version": "return-contract-dummy-v0",
+      "task": "peer_relative_return_classification"
+    },
+    "risk": {
+      "version": "risk-contract-dummy-v0",
+      "task": "fixed_band_volatility_classification"
+    }
+  },
+  "screening": {
+    "ruleset": "dummy-pending-approved-methodology-v0",
+    "evaluated": 4,
+    "compliant": 3,
+    "screened_out": 1
+  },
+  "predictions": [
+    {
+      "ticker": "AAPL",
+      "status": "ok",
+      "screening": {
+        "is_compliant": true,
+        "reason": "Passed all configured screening rules."
+      },
+      "return_prediction": {
+        "class_code": 2,
+        "class_label": "higher",
+        "probabilities": {
+          "lower": 0.18,
+          "middle": 0.27,
+          "higher": 0.55
+        },
+        "rank_score": 0.37
+      },
+      "risk_prediction": {
+        "class_code": 1,
+        "class_label": "medium",
+        "probabilities": {
+          "low": 0.24,
+          "medium": 0.58,
+          "high": 0.18
+        }
+      },
+      "error": null
+    },
+    {
+      "ticker": "MSFT",
+      "status": "ok",
+      "screening": {
+        "is_compliant": true,
+        "reason": "Passed all configured screening rules."
+      },
+      "return_prediction": {
+        "class_code": 1,
+        "class_label": "middle",
+        "probabilities": {
+          "lower": 0.26,
+          "middle": 0.49,
+          "higher": 0.25
+        },
+        "rank_score": -0.01
+      },
+      "risk_prediction": {
+        "class_code": 0,
+        "class_label": "low",
+        "probabilities": {
+          "low": 0.64,
+          "medium": 0.27,
+          "high": 0.09
+        }
+      },
+      "error": null
+    },
+    {
+      "ticker": "NVDA",
+      "status": "ok",
+      "screening": {
+        "is_compliant": true,
+        "reason": "Passed all configured screening rules."
+      },
+      "return_prediction": {
+        "class_code": 2,
+        "class_label": "higher",
+        "probabilities": {
+          "lower": 0.11,
+          "middle": 0.20,
+          "higher": 0.69
+        },
+        "rank_score": 0.58
+      },
+      "risk_prediction": {
+        "class_code": 2,
+        "class_label": "high",
+        "probabilities": {
+          "low": 0.07,
+          "medium": 0.21,
+          "high": 0.72
+        }
+      },
+      "error": null
+    }
+  ],
+  "screened_out": [
+    {
+      "ticker": "TSLA",
+      "status": "screened_out",
+      "screening": {
+        "is_compliant": false,
+        "reason": "Dummy rejection used only to demonstrate the response contract."
+      }
+    }
+  ],
+  "summary": {
+    "requested": 4,
+    "compliant": 3,
+    "predicted": 3,
+    "screened_out": 1,
+    "prediction_failed": 0
+  }
+}
