@@ -27,7 +27,7 @@ interpretable.
 **Evidence:** On 83,237 matched training rows and 17,850 validation rows,
 the best risk-class macro F1 was 0.595 with trailing factors versus 0.499
 with raw inputs. The best future-volatility RÂ² was 0.404 versus 0.107.
-Source: `reports/generated/feature_comparison_20261019T054537Z/`.
+Source: `reports/legacy_model_experiments/feature_comparison/v1/`.
 
 **Limit:** These are validation scores from one period, not evidence of
 future live performance.
@@ -43,7 +43,7 @@ a mean 20-session forward return of 4.877%, versus 2.974% for the 50-stock
 universe. Its selected group beat the universe on 10 of 11 dates. Mean
 selected forward returns were 4.314% for raw Ridge, 4.006% for factor Ridge
 and 3.697% for factor boosted trees. Source:
-`reports/generated/monthly_rank_20261019T060359Z/`.
+`reports/legacy_model_experiments/monthly_ranking/v1/`.
 
 **Reason:** Earlier validation scores showed little return-model gain, so
 a simple stock-selection benchmark is needed.
@@ -66,7 +66,7 @@ rows need review. All 124,987 model rows have `adjustment_verified=False`,
 `identity_history_verified=False`, `core_ready=False` and no
 `bar_available_at` timestamp. LIN begins on 2018-10-31; the other 49
 modeled stocks begin on 2016-01-04. Source:
-`reports/generated/price_audit_20261019T060306Z/`.
+`reports/data_validation/v1/supporting_investigations/market_price_audit/`.
 
 **Next evidence:** Independent corporate-action reconciliation, historical
 ticker/issuer mapping and bar-availability rules. The saved snapshot alone
@@ -85,7 +85,7 @@ nearby company earnings releases, but those do not independently verify the
 closing prices. Primary issuer releases document spin-offs for GE (2023-01-04,
 2024-04-02), DHR (2023-10-02) and HON (2025-10-30), matching four of the 92
 basis-difference dates. Source report:
-`reports/generated/price_reconciliation_20261019T063028Z/`; sources and
+`reports/data_validation/v1/supporting_investigations/market_price_reconciliation/`; sources and
 interpretation: `docs/DATA_REVIEW.md`.
 
 **Reason:** A real extreme return can carry predictive information, while a
@@ -128,7 +128,7 @@ and 2/100 SEC file mismatches (both AAPL). The existing full cleaner stopped
 on the first price mismatch. The saved Alpaca raw JSON values nonetheless
 reconcile to the interim price CSV across both adjustment bases; their byte
 provenance remains unresolved. The 98 other SEC files match their manifest.
-See `reports/generated/pit_fundamentals_20261019T064428Z/` and
+See `reports/data_validation/v1/supporting_investigations/point_in_time_fundamentals/` and
 `docs/DATA_REVIEW.md`.
 
 ## 2026-10-19: Build a conservative as-of fundamental candidate
@@ -162,7 +162,7 @@ fold's training rows. Save fold dates, counts, thresholds and class reports.
 and `evaluation_last_label_end <= evaluation_last_feature_date`. The folds
 span 2020-06-26 through 2024-06-28, with 11,600 common eligible evaluation
 rows each. Reproducible run:
-`reports/generated/walk_forward_20261020T105443Z/`; explanation:
+`reports/legacy_model_experiments/walk_forward_evaluation/v1/`; explanation:
 `docs/MODEL_EVALUATION.md`.
 
 **Reason:** The previous single validation interval made period dependence
@@ -199,9 +199,9 @@ Train on pre-2024-07 rows whose labels end before the test boundary. Do not
 change settings after reading this result.
 
 **Evidence:** Protocol written at
-`reports/generated/final_protocol_20261020T110543Z/protocol.json` before the
+`reports/legacy_model_experiments/reused_test_check/v1/protocol/protocol.json` before the
 single evaluation run. Results are in
-`reports/generated/final_evaluation_20261020T110552Z/` and summarized in
+`reports/legacy_model_experiments/reused_test_check/v1/results/` and summarized in
 `docs/MODEL_EVALUATION.md`.
 
 **Limit:** Earlier notebooks had already displayed scores from the saved
@@ -247,7 +247,7 @@ historical Shariah screening and executable entry prices.
 - Recomputed SHA-256: `f5734f6b7e3d2e7e41a877834f1cb5210bcb6845e329543459e49eed84959d21`.
 - Source: `data/raw/alpaca/alpaca_sip_20261009T110617242394Z_restored_json_v1`.
 - Source manifest hash recorded in phase 2: `7954ead48c0c342fd0b2f8655dd566ac4d65271db12bb6887c356910ccaddaf1`.
-- Evidence: `reports/generated/phase2_20261022T060900192314Z/phase2_report.json` and the cleaning directory's `report.json`.
+- Evidence: `reports/data_validation/v1/consolidated_review/phase2_report.json` and the cleaning directory's `report.json`.
 - Saved reports record 127,501 rows including SPY, and 124,987 company rows across 50 companies. These are input counts, not ready-to-train counts or newly rerun validation results.
 - Required calculation columns: `ticker`, `session_date`, `open`, `high`, `low`, `close`, `volume`, `adjusted_close`. Unique key: `(ticker, session_date)`.
 - Derive `spy_return` from SPY all-adjusted close on a shared XNYS calendar. Use SPY as a benchmark only. Keep company source rows and their provenance/quality fields.
@@ -318,7 +318,7 @@ Decision: the dataset is ready as a cleaned, feature-engineered, labeled **resea
 
 ## 2026-10-23 — Phase 4 evaluation protocol frozen
 
-Command: `.\.venv\Scripts\python.exe -m src.model_training.chronological_evaluation_protocol --output reports/generated/current/chronological_evaluation_protocol.json`. The JSON is a generated local report; `src/model_training/chronological_evaluation_protocol.py`, tests, this decision, and `docs/Phases.md` are the Git-reviewable source. A second in-memory run produced an identical report. Four outer folds use 252 shared XNYS sessions each; each has a 126-session earlier inner validation block. Outer evaluation windows begin 2020-06-26, 2021-06-28, 2022-06-28, and 2023-06-29. The inspected 2024-07 onward period is excluded from development.
+Command: `.\.venv\Scripts\python.exe -m src.model_training.chronological_evaluation_protocol --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json`. The JSON is a generated local report; `src/model_training/chronological_evaluation_protocol.py`, tests, this decision, and `docs/Phases.md` are the Git-reviewable source. A second in-memory run produced an identical report. Four outer folds use 252 shared XNYS sessions each; each has a 126-session earlier inner validation block. Outer evaluation windows begin 2020-06-26, 2021-06-28, 2022-06-28, and 2023-06-29. The inspected 2024-07 onward period is excluded from development.
 
 Step reviews:
 
@@ -341,13 +341,13 @@ Expanded Phase 5 into 11 small steps: verify frozen inputs; establish matched ba
 
 ## 2026-10-23 — Phase 5 dataset and presentation format
 
-Phase 5's primary input is `data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv` (124,987 rows; phase 3 metadata SHA-256 `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`). The frozen evaluation plan is `reports/generated/current/chronological_evaluation_protocol.json`, which binds folds to that dataset hash. Model code must filter task eligibility and use fold-specific risk boundaries from the protocol.
+Phase 5's primary input is `data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv` (124,987 rows; phase 3 metadata SHA-256 `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`). The frozen evaluation plan is `reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json`, which binds folds to that dataset hash. Model code must filter task eligibility and use fold-specific risk boundaries from the protocol.
 
 Decision: use a Jupyter notebook as the evaluator-facing narrative and visual presentation. Keep the training/evaluation implementation in reusable, tested `src/` modules and have notebook cells call that code. This makes the notebook presentable while keeping results reproducible and reviewable. No notebook or model experiment was created in this decision update.
 
 ## 2026-10-23 — Phase 5 steps 5.1 and 5.2 validated
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.baseline_models --output reports/generated/current/baseline_model_results.json` from the repository root. The generated report is local and Git-ignored; the reproducible source is `src/model_training/baseline_models.py` with `tests/test_baseline_models.py`. On a second run, choose a new output path because the command refuses to overwrite an existing report. If the Phase 4 report is absent in another checkout, regenerate it first with `.\.venv\Scripts\python.exe -m src.model_training.chronological_evaluation_protocol --output reports/generated/current/chronological_evaluation_protocol.json`.
+Run `.\.venv\Scripts\python.exe -m src.model_training.baseline_models --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/baseline_model_results.json` from the repository root. The generated report is local and Git-ignored; the reproducible source is `src/model_training/baseline_models.py` with `tests/test_baseline_models.py`. On a second run, choose a new output path because the command refuses to overwrite an existing report. If the Phase 4 report is absent in another checkout, regenerate it first with `.\.venv\Scripts\python.exe -m src.model_training.chronological_evaluation_protocol --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json`.
 
 **5.1 review.** The runner checks the exact Phase 3 CSV SHA-256 `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f` and renamed Phase 4 protocol SHA-256 `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`, then rebuilds the complete protocol from the audited data and requires equality. This rechecks all four fold dates, row-key hashes, purges, task eligibility, feature allowlist, peer groups, and inner/outer training-derived risk cutoffs. A deliberately changed protocol is rejected. No model fitting occurs.
 
@@ -370,7 +370,7 @@ Review: all 16 inner/outer task roles produced all four matrices, for 64 matched
 
 ## 2026-10-23 — Step 5.4 return prior and Logistic Regression
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.return_logistic_classifier --output-dir reports/generated/current/return_logistic_classifier` on a checkout without that output directory; use a new output directory for a repeated run. Source: `src/model_training/return_logistic_classifier.py`. Generated `report.json` and `outer_predictions.csv` are Git-ignored. The report records dataset SHA-256 `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`, renamed Phase 4 protocol SHA-256 `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`, code hashes, environment, candidates, dates, row-key hashes, selected settings, and prediction hash.
+Run `.\.venv\Scripts\python.exe -m src.model_training.return_logistic_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_logistic_classifier` on a checkout without that output directory; use a new output directory for a repeated run. Source: `src/model_training/return_logistic_classifier.py`. Generated `report.json` and `outer_predictions.csv` are Git-ignored. The report records dataset SHA-256 `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`, renamed Phase 4 protocol SHA-256 `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`, code hashes, environment, candidates, dates, row-key hashes, selected settings, and prediction hash.
 
 Only `relative_return_class` (0/1/2 = Lower/Middle/Higher) enters fitting as the target. Each feature matrix uses one of the four cumulative frozen groups, selected through the allowlist guard; the model helper independently rejects targets and identifiers as inputs. StandardScaler and Logistic Regression are fitted together on inner training rows for each of the frozen `C` values 0.1, 1, 10. The selection metric is mean same-date Spearman between `P(Higher)-P(Lower)` and realized continuous return on inner validation. Ties keep the protocol's group and C order. The selected setup is refitted on outer training rows; outer outcomes are used only for scoring. No probability calibration or other tuning uses outer rows. The saved prior probabilities and class derive from outer training class counts.
 
@@ -387,7 +387,7 @@ The model's mean outer Spearman is 0.0383 versus 0.0006 for matched momentum, bu
 
 ## 2026-10-23 — Step 5.5 return HistGradientBoosting
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.return_gradient_boosting_classifier --output-dir reports/generated/current/return_gradient_boosting_classifier` using a new output directory on repetition. The code reads the same frozen Phase 3 dataset and Phase 4 protocol as step 5.4. It uses only `relative_return_class` as the training target and cumulative allowlisted market feature sets as inputs. The model helper independently rejects a target or identifier column in the feature matrix. The frozen tree grid is `max_leaf_nodes` 15, 31, 63, with `max_iter=100`, `learning_rate=0.1`, `early_stopping=False`, and `random_state=42`. No internal random validation split is used.
+Run `.\.venv\Scripts\python.exe -m src.model_training.return_gradient_boosting_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_gradient_boosting_classifier` using a new output directory on repetition. The code reads the same frozen Phase 3 dataset and Phase 4 protocol as step 5.4. It uses only `relative_return_class` as the training target and cumulative allowlisted market feature sets as inputs. The model helper independently rejects a target or identifier column in the feature matrix. The frozen tree grid is `max_leaf_nodes` 15, 31, 63, with `max_iter=100`, `learning_rate=0.1`, `early_stopping=False`, and `random_state=42`. No internal random validation split is used.
 
 Each fold selects its group and leaf setting by inner-validation mean within-date Spearman of `P(Higher)-P(Lower)` versus observed continuous return. It then refits on outer training rows and scores the outer block once. Training outcome windows end before the relevant validation/evaluation boundary, and training row-key hashes match the frozen protocol. The generated report includes candidate metrics, selected settings, fit dates, input/code versions and prediction hash. Saved outer predictions have the same 48,400 fold/ticker/date keys in the same order as Logistic Regression, valid three-class probabilities, and no reused-test rows. The training-class prior is constant within a fold, so its Spearman is undefined rather than an artificial zero. The focused input-guard test passed.
 
@@ -402,7 +402,7 @@ Mean outer same-date Spearman is 0.0007 for the tree, 0.0006 for momentum, and 0
 
 ## 2026-10-23 — Step 5.6 matched return review
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.evaluate_return_models --output reports/generated/current/return_model_comparison.json` with a fresh output path on repetition. The review reads the frozen protocol and saved Logistic Regression and HistGradientBoosting predictions; it checks their code and prediction hashes, identical targets/baselines, exact matched fold/ticker/date keys, and the frozen evaluation-key hashes. No model is refitted or tuned. `src/model_training/evaluate_return_models.py` is Git-reviewable; the full generated report is ignored. It contains four fold-level confusion matrices, per-class precision/recall/F1/support, macro F1, ordinal error, daily ranking and top-10 diagnostics, paired differences, and source hashes.
+Run `.\.venv\Scripts\python.exe -m src.model_training.evaluate_return_models --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_model_comparison.json` with a fresh output path on repetition. The review reads the frozen protocol and saved Logistic Regression and HistGradientBoosting predictions; it checks their code and prediction hashes, identical targets/baselines, exact matched fold/ticker/date keys, and the frozen evaluation-key hashes. No model is refitted or tuned. `src/model_training/evaluate_return_models.py` is Git-reviewable; the full generated report is ignored. It contains four fold-level confusion matrices, per-class precision/recall/F1/support, macro F1, ordinal error, daily ranking and top-10 diagnostics, paired differences, and source hashes.
 
 | Outer fold | Momentum Spearman | Logistic Spearman | Tree Spearman | Momentum top-10 spread | Logistic top-10 spread | Tree top-10 spread |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -419,7 +419,7 @@ Decision for the current development comparison: select no return approach. Keep
 
 ## 2026-10-23 — Step 5.7 risk prior and Logistic Regression
 
-Command: `.\.venv\Scripts\python.exe -m src.model_training.risk_logistic_classifier --output-dir reports/generated/current/risk_logistic_classifier`; choose a fresh output directory to repeat. Source is `src/model_training/risk_logistic_classifier.py`; generated predictions and report remain Git-ignored. The report records dataset/protocol/helper code hashes, environment, exact frozen role keys, inner and outer cutoffs, candidate settings, metrics, and prediction hash.
+Command: `.\.venv\Scripts\python.exe -m src.model_training.risk_logistic_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_logistic_classifier`; choose a fresh output directory to repeat. Source is `src/model_training/risk_logistic_classifier.py`; generated predictions and report remain Git-ignored. The report records dataset/protocol/helper code hashes, environment, exact frozen role keys, inner and outer cutoffs, candidate settings, metrics, and prediction hash.
 
 Risk classes are recomputed from `risk_volatility_next_20d` using the Phase 4 *inner training* cutoffs for inner tuning, then the distinct *outer training* cutoffs for final fold fitting/scoring. The saved Phase 3 global `risk_class` is never used as a target. All four inner and outer class-count vectors match the frozen protocol. `relative_return_class`, future risk values, dates, and other provenance fields cannot enter the guarded feature matrices; only the cumulative allowlisted market feature groups enter StandardScaler and Logistic Regression. The three frozen C values (0.1, 1, 10) are compared by inner macro F1. Scaling is fitted on inner or outer training rows only. Outer outcomes do not choose settings or cutoffs.
 
@@ -434,7 +434,7 @@ Review: 48,400 saved outer rows have unique fold/ticker/date keys, valid three-c
 
 ## 2026-10-23 — Step 5.8 risk HistGradientBoosting
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.risk_gradient_boosting_classifier --output-dir reports/generated/current/risk_gradient_boosting_classifier` from the repository root. A repeated run needs a new output directory because the command refuses to overwrite an existing artifact. The implementation is `src/model_training/risk_gradient_boosting_classifier.py`; its generated `report.json` and `outer_predictions.csv` stay Git-ignored. The report records input, protocol, code and matched Logistic Regression prediction hashes, candidate settings, fit dates, fold key hashes, cutoffs, probability metrics, and class counts through the frozen Phase 4 contract.
+Run `.\.venv\Scripts\python.exe -m src.model_training.risk_gradient_boosting_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_gradient_boosting_classifier` from the repository root. A repeated run needs a new output directory because the command refuses to overwrite an existing artifact. The implementation is `src/model_training/risk_gradient_boosting_classifier.py`; its generated `report.json` and `outer_predictions.csv` stay Git-ignored. The report records input, protocol, code and matched Logistic Regression prediction hashes, candidate settings, fit dates, fold key hashes, cutoffs, probability metrics, and class counts through the frozen Phase 4 contract.
 
 Inner risk classes use only the inner training volatility cutoffs; outer fitting and scoring use the distinct outer training cutoffs. The Phase 3 global `risk_class` is not used. Twelve candidates per fold combine the four frozen cumulative feature groups with `max_leaf_nodes` 15, 31 and 63. Fixed settings are `max_iter=100`, `learning_rate=0.1`, `early_stopping=False`, and `random_state=42`. Inner macro F1 alone selects the group and leaf count; the selected tree is refitted on outer training rows. The fitting helper accepts only allowlisted market features and explicit fold risk labels. No internal early-stopping validation or outer labels enter fitting or tuning.
 
@@ -451,7 +451,7 @@ Equal-weight mean fold macro F1 is 0.5681 for the tree, 0.5661 for Logistic Regr
 
 ## 2026-10-23 — Step 5.9 matched risk error review
 
-Run `.\.venv\Scripts\python.exe -m src.model_training.evaluate_risk_models --output reports/generated/current/risk_model_comparison.json` from the repository root, choosing a fresh output path to repeat. The Git-reviewable source is `src/model_training/evaluate_risk_models.py`; the full generated JSON stays ignored. The reviewer fits no models. It verifies the frozen protocol checksum, saved model and helper code hashes, prediction hashes, identical fold/ticker/date/target/prior rows, exact Phase 4 evaluation-key hashes, fold risk cutoffs, recomputed classes, and training-class priors before calculating metrics. A focused class-order and severe-miss test passes.
+Run `.\.venv\Scripts\python.exe -m src.model_training.evaluate_risk_models --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_model_comparison.json` from the repository root, choosing a fresh output path to repeat. The Git-reviewable source is `src/model_training/evaluate_risk_models.py`; the full generated JSON stays ignored. The reviewer fits no models. It verifies the frozen protocol checksum, saved model and helper code hashes, prediction hashes, identical fold/ticker/date/target/prior rows, exact Phase 4 evaluation-key hashes, fold risk cutoffs, recomputed classes, and training-class priors before calculating metrics. A focused class-order and severe-miss test passes.
 
 | Matched outer-fold method | Mean macro F1 | Mean High recall | High predicted Low / 20,502 High outcomes | Mean ordinal MAE | Mean log loss | Mean multiclass Brier |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -468,7 +468,7 @@ Review: the tree's macro F1 exceeds trailing volatility in all four folds, but i
 
 Created `notebooks/model_evaluation_report.ipynb` and `src/model_training/build_model_evaluation_report.py`. Run `.\.venv\Scripts\python.exe -m src.model_training.build_model_evaluation_report` from the repository root to generate the tables and figures without a notebook UI. In Jupyter, open the notebook and use Restart & Run All. It locates the repository root, verifies the frozen Phase 3 dataset and Phase 4 protocol, invokes the reusable `src/model_training` fitting runners if a model artifact is absent, reviews the matched saved predictions, and presents the research question, fold design, return/risk results, class errors, all four folds' confusion matrices, provenance, decisions, and limits. Existing complete model artifacts are reused; the source reviewers check their prediction and code hashes before presentation. Incomplete artifacts fail rather than being silently replaced.
 
-Generated local package: `reports/generated/current/model_evaluation_package/summary.json`, five concise CSV tables, and two SVG figures. The package is ignored by Git; notebook, orchestrator, and decisions are reviewable source. The summary records the exact dataset/protocol/model-prediction, notebook, orchestrator and artifact hashes, library versions, row counts and limitations. It states that no return approach is selected and the tree is only a provisional risk candidate pending step 5.11.
+Generated local package: `reports/model_evaluation/baseline_comparison/v1/refactored_evidence/model_evaluation_package/summary.json`, five concise CSV tables, and two SVG figures. The package is ignored by Git; notebook, orchestrator, and decisions are reviewable source. The summary records the exact dataset/protocol/model-prediction, notebook, orchestrator and artifact hashes, library versions, row counts and limitations. It states that no return approach is selected and the tree is only a provisional risk candidate pending step 5.11.
 
 Review: the package contains 4 fold rows, 16 return metric rows, 16 risk metric rows, 48 per-class rows, and 144 confusion-matrix cells. Both SVG files parse as valid XML. A fresh Python process executed all six notebook code cells in order; the second run reproduced all seven table/figure SHA-256 hashes. `git diff --check` passed. The local `.venv` has Python 3.14.8 and lacks a Jupyter kernel and plotting library, so this check exercised the notebook's Python cells and SVG files rather than the Jupyter UI. An evaluator needs a Jupyter-capable kernel to view the notebook interactively. The source and existing requirements are not expanded merely for notebook rendering. The project documentation recommends Python 3.11/3.12; this local execution does not establish compatibility across supported versions.
 
@@ -485,14 +485,14 @@ under their respective `legacy/` directories.
 Raw provider snapshot and page identifiers remain unchanged because their
 metadata, manifests, and checksums are provenance evidence. Pre-rename Phase
 4–5 reports are archived under
-`reports/generated/archive/pre_refactor_phase4_phase5_2026-10-23/`. The
-renamed pipeline was rerun under `reports/generated/current/`; its frozen
+`reports/model_evaluation/baseline_comparison/v1/pre_refactor_evidence/`. The
+renamed pipeline was rerun under `reports/model_evaluation/baseline_comparison/v1/refactored_evidence/`; its frozen
 protocol SHA-256 is
 `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`.
 
 ## 2026-10-24 — Step 5.11 Phase 5 research conclusion frozen
 
-The final comparison uses the refactored saved artifacts under `reports/generated/current/`: `return_model_comparison.json`, `risk_model_comparison.json`, and `model_evaluation_package/summary.json`. The Phase 3 dataset SHA-256 is `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`; the current frozen Phase 4 protocol SHA-256 is `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`. Four chronological outer folds and matched rows support the comparisons. The 2024–2025 period had been inspected earlier and was excluded from selection; there is no fresh blind test result here.
+The final comparison uses the refactored saved artifacts under `reports/model_evaluation/baseline_comparison/v1/refactored_evidence/`: `return_model_comparison.json`, `risk_model_comparison.json`, and `model_evaluation_package/summary.json`. The Phase 3 dataset SHA-256 is `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`; the current frozen Phase 4 protocol SHA-256 is `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`. Four chronological outer folds and matched rows support the comparisons. The 2024–2025 period had been inspected earlier and was excluded from selection; there is no fresh blind test result here.
 
 **Return conclusion:** Select no learned return ranker. Mean fold within-date Spearman is 0.0383 for Logistic Regression, 0.0007 for HistGradientBoosting, and 0.0006 for trailing 20-day momentum. Logistic Regression beats momentum in only 2/4 folds; the tree does so in 1/4. The higher Logistic Regression average is too inconsistent to claim a dependable gain. Momentum remains a simple comparison control, not a trained model or an endorsed stock-selection strategy. Its near-zero mean rank correlation does not justify recommending it. The saved top-10 forward-close spreads are research diagnostics, not executable returns.
 
@@ -501,6 +501,14 @@ The final comparison uses the refactored saved artifacts under `reports/generate
 **Uncertainty and next gate:** Twenty-session future windows overlap, so the 48,400 stock rows and daily diagnostics are not independent trials; four fold means describe development variation, not a precise generalization guarantee. The present-day 50-stock universe has survivorship and historical-identity limitations, and no historical Shariah screen, next-session trade execution, or transaction costs were applied. Before an operational model choice, document the acceptable High-risk miss/recall tradeoff, freeze the model and evaluation rules, and assess them on a genuinely later verified period. Phase 6/7 research can focus on the unstable return ordering and risk-error behavior, with any changed approach requiring a later independent evaluation. No model, Shariah-compliant portfolio, or trading performance is approved by Phase 5.
 
 Evaluator notebook maintenance: after the repository rename, `notebooks/model_evaluation_report.ipynb` still checked for the removed `src/modeling` directory and carried a saved error output. Step 5.11 corrects the root check to `src/model_training`, clears that stale output, and updates the notebook and generated package with this conclusion. The original model predictions and prior Phase 5 reports remain unchanged.
+
+## 2026-10-26 — Report-path migration within experiment v1
+
+The report tree was reorganized by task and version without changing the Phase 4–5 methodology, dataset, folds, feature sets, model settings, or selection rules. The evidence that previously occupied the active refactored directory is preserved byte-for-byte under `reports/model_evaluation/baseline_comparison/v1/pre_path_reorganization_evidence/`. Its 20 files total 44,684,643 bytes and have path-content manifest SHA-256 `1bbc38314d0c2eadb987efb4fa7617f291ad91486727ed55be83f6486f15677a`.
+
+All active report defaults, commands, documentation references, and the Colab notebook now use the task-based paths. The notebook downloads only the frozen dataset and rebuilds the protocol from the checked-out source, preventing the shared Drive copy of the earlier protocol from restoring obsolete provenance. Stale saved notebook outputs were cleared and must be reproduced with Restart & Run All.
+
+The protocol and Phase 5 pipeline were regenerated under `reports/model_evaluation/baseline_comparison/v1/refactored_evidence/`. The new protocol SHA-256 is `048d82ce2ed0bedde60bd5f6215303fa86ebdab31aae5b5c330f0947372859ff`. All four outer prediction CSVs are byte-identical to the preserved pre-migration files. Baseline fold metrics, selected settings, model fold metrics, return and risk comparisons, decisions, five evaluator CSV tables, and two SVG figures also match. Only report paths and their resulting source/provenance hashes changed, so this remains experiment v1 rather than a new experimental version.
 
 ## 2026-10-25 — Canonical decision log and Phase 6 work plan
 

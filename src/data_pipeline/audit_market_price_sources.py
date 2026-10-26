@@ -165,7 +165,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     summary, coverage, flagged = audit()
-    out = args.output_dir or ROOT / "reports/generated" / datetime.now(timezone.utc).strftime("price_audit_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/data_validation/v1/supporting_investigations/market_price_audit"
     out.mkdir(parents=True, exist_ok=False)
     (out / "audit_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     coverage.to_csv(out / "ticker_coverage.csv", index=False)

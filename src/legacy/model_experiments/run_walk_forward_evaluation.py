@@ -287,7 +287,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     results = run(args.data)
-    out = args.output_dir or ROOT / "reports/generated/legacy/modeling" / datetime.now(timezone.utc).strftime("walk_forward_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/legacy_model_experiments/walk_forward_evaluation/v1"
     out.mkdir(parents=True, exist_ok=False)
     names = ["manifest", "folds", "per_fold_scores", "class_reports", "rebalance_details",
              "risk_summary", "return_rank_per_fold", "return_rank_summary",

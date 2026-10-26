@@ -327,6 +327,6 @@ if __name__=='__main__':
     p.add_argument('--phase2',action='store_true',help='Validate current versioned snapshots and recover exact price bytes.')
     args=p.parse_args()
     if args.phase2:
-        phase2(args.repo, args.out or args.repo/'reports/generated'/datetime.now(timezone.utc).strftime('phase2_%Y%m%dT%H%M%S%fZ'))
+        phase2(args.repo, args.out or args.repo/'reports/data_validation/v1/consolidated_review')
     else:
         audit(args.repo,args.out or args.repo/'data/interim/validation')

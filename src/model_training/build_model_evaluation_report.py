@@ -15,7 +15,7 @@ import pandas as pd
 import sklearn
 
 from src.feature_engineering.build_feature_dataset import sha256
-from src.model_training.baseline_models import (DEFAULT_DATA, DEFAULT_PROTOCOL,verify_inputs)
+from src.model_training.baseline_models import DEFAULT_DATA, verify_inputs
 from src.model_training.return_logistic_classifier import run as fit_return_logistic
 from src.model_training.return_gradient_boosting_classifier import run as fit_return_tree
 from src.model_training.risk_logistic_classifier import run as fit_risk_logistic
@@ -23,21 +23,14 @@ from src.model_training.risk_gradient_boosting_classifier import run as fit_risk
 from src.model_training.evaluate_return_models import review as review_return
 from src.model_training.evaluate_risk_models import review as review_risk
 
-OUTPUT = Path("reports/generated/current/model_evaluation_package")
+OUTPUT = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/model_evaluation_package")
+PROTOCOL = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json")
 MODEL_DIRS = {
-    "return_logistic": Path("reports/generated/current/return_logistic_classifier"),
-    "return_tree": Path("reports/generated/current/return_gradient_boosting_classifier"),
-    "risk_logistic": Path("reports/generated/current/risk_logistic_classifier"),
-    "risk_tree": Path("reports/generated/current/risk_gradient_boosting_classifier"),
+    "return_logistic": Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_logistic_classifier"),
+    "return_tree": Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_gradient_boosting_classifier"),
+    "risk_logistic": Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_logistic_classifier"),
+    "risk_tree": Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_gradient_boosting_classifier"),
 }
-RUNNERS = {
-    "return_logistic": fit_return_logistic,
-    "return_tree": fit_return_tree,
-    "risk_logistic": fit_risk_logistic,
-    "risk_tree": fit_risk_tree,
-}
-
-
 def _ensure_model_artifacts():
     """A fresh checkout can fit; an existing partial artifact fails clearly."""
     for name, directory in MODEL_DIRS.items():
@@ -45,7 +38,16 @@ def _ensure_model_artifacts():
             if not (directory / "report.json").is_file() or not (directory / "outer_predictions.csv").is_file():
                 raise ValueError(f"Incomplete {name} artifact: {directory}")
             continue
-        RUNNERS[name](output_dir=directory)
+        if name == "return_logistic":
+            fit_return_logistic(protocol_path=PROTOCOL, output_dir=directory)
+        elif name == "return_tree":
+            fit_return_tree(protocol_path=PROTOCOL, output_dir=directory)
+        elif name == "risk_logistic":
+            fit_risk_logistic(protocol_path=PROTOCOL, output_dir=directory)
+        else:
+            fit_risk_tree(protocol_path=PROTOCOL,
+                          logistic_dir=MODEL_DIRS["risk_logistic"],
+                          output_dir=directory)
 
 
 def _fold_table(protocol):
@@ -143,7 +145,7 @@ def _bar_svg(path, title, records, y_label, zero=False):
 
 
 def build_results_package(output_dir=OUTPUT):
-    frame, metadata, protocol = verify_inputs()
+    frame, metadata, protocol = verify_inputs(protocol_path=PROTOCOL)
     _ensure_model_artifacts()
     return_report = review_return()
     risk_report = review_risk()
@@ -170,7 +172,7 @@ def build_results_package(output_dir=OUTPUT):
              "Macro F1 across Low, Medium and High")
     names = [*tables, "return_fold_spearman.svg", "risk_fold_f1.svg"]
     summary = {"stage": "phase5_evaluator", "dataset_sha256": metadata["output_sha256"],
-               "protocol_sha256": sha256(DEFAULT_PROTOCOL), "code_sha256": sha256(__file__),
+               "protocol_sha256": sha256(PROTOCOL), "code_sha256": sha256(__file__),
                "notebook_sha256": sha256("notebooks/model_evaluation_report.ipynb"),
                "model_prediction_sha256": {
                    name: json.loads((directory / "report.json").read_text(encoding="utf-8"))["prediction_sha256"]

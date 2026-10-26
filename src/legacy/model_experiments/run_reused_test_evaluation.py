@@ -34,7 +34,7 @@ from src.legacy.model_experiments.run_walk_forward_evaluation import (
 )
 
 
-DEVELOPMENT = ROOT / "reports/generated/legacy/modeling/walk_forward_20261020T105443Z"
+DEVELOPMENT = ROOT / "reports/legacy_model_experiments/walk_forward_evaluation/v1"
 FEATURE_CODE = ROOT / "src/feature_engineering/market_features.py"
 MODEL_CODE = ROOT / "src/legacy/model_experiments/run_walk_forward_evaluation.py"
 THIS_CODE = Path(__file__).resolve()
@@ -234,7 +234,7 @@ def main():
     if args.action == "freeze":
         if args.protocol:
             parser.error("--protocol is only for evaluate")
-        out = args.output_dir or ROOT / "reports/generated/legacy/modeling" / f"final_protocol_{stamp}"
+        out = args.output_dir or ROOT / "reports/legacy_model_experiments/reused_test_check/v1/protocol"
         out.mkdir(parents=True, exist_ok=False)
         path = out / "protocol.json"
         path.write_text(json.dumps(frozen_protocol(), indent=2), encoding="utf-8")
@@ -243,7 +243,7 @@ def main():
     if args.protocol is None:
         parser.error("evaluate requires --protocol")
     result, risk_scores, classes_out, return_summary, details, paired = evaluate(args.protocol)
-    out = args.output_dir or ROOT / "reports/generated/legacy/modeling" / f"final_evaluation_{stamp}"
+    out = args.output_dir or ROOT / "reports/legacy_model_experiments/reused_test_check/v1/results"
     out.mkdir(parents=True, exist_ok=False)
     (out / "result.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     for name, frame in (("risk_scores", risk_scores), ("class_reports", classes_out),

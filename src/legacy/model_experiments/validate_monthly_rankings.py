@@ -131,7 +131,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     manifest, summary, detail = evaluate(args.data)
-    out = args.output_dir or ROOT / "reports/generated/legacy/modeling" / datetime.now(timezone.utc).strftime("monthly_rank_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/legacy_model_experiments/monthly_ranking/v1"
     out.mkdir(parents=True, exist_ok=False)
     summary.to_csv(out / "summary.csv", index=False)
     detail.to_csv(out / "rebalance_details.csv", index=False)

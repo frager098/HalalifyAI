@@ -1,6 +1,6 @@
 """Phase 5.8: risk HistGradientBoosting on frozen chronological folds.
 
-Run: python -m src.model_training.risk_gradient_boosting_classifier --output-dir reports/generated/current/risk_gradient_boosting_classifier
+Run: python -m src.model_training.risk_gradient_boosting_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_gradient_boosting_classifier
 """
 
 import argparse
@@ -22,7 +22,7 @@ from src.model_training.return_gradient_boosting_classifier import fit_predict
 from src.model_training.return_logistic_classifier import _role_log
 from src.model_training.risk_logistic_classifier import _probability_metrics
 
-DEFAULT_LOGISTIC_DIR = Path("reports/generated/current/risk_logistic_classifier")
+DEFAULT_LOGISTIC_DIR = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_logistic_classifier")
 EXPECTED_FIXED = {"max_iter": 100, "learning_rate": 0.1,
                   "early_stopping": False, "random_state": 42}
 

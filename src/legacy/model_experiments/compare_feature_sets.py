@@ -153,7 +153,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     report, scores = evaluate(args.data)
-    out = args.output_dir or ROOT / "reports/generated/legacy/modeling" / datetime.now(timezone.utc).strftime("feature_comparison_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/legacy_model_experiments/feature_comparison/v1"
     out.mkdir(parents=True, exist_ok=False)
     scores.to_csv(out / "validation_scores.csv", index=False)
     (out / "run_metadata.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

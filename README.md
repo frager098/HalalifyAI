@@ -7,8 +7,9 @@ Python AI service for Halalify.
 The current model work is documented in [model evaluation](docs/MODEL_EVALUATION.md)
 and [data review](docs/DATA_REVIEW.md). The evaluation includes a saved-period
 check whose labels had been viewed in earlier notebooks; it is not a fresh
-blind test. Generated CSV and JSON reports stay under the ignored
-`reports/generated/` directory on the machine where they were produced.
+blind test. Generated CSV and JSON reports stay under the task-based,
+Git-ignored directories documented in `reports/README.md` on the machine where
+they were produced.
 The existing modeling snapshot is documented in
 [the modeling workspace](docs/MODELING_WORKSPACE.md).
 
@@ -110,4 +111,3 @@ Never commit:
 - Database credentials
 - Large datasets
 - Trained model files
-

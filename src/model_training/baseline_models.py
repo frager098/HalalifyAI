@@ -1,6 +1,6 @@
 """Verify frozen Phase 4 inputs and score matched, no-fit Phase 5 baselines.
 
-Run: python -m src.model_training.baseline_models --output reports/generated/current/baseline_model_results.json
+Run: python -m src.model_training.baseline_models --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/baseline_model_results.json
 """
 
 import argparse
@@ -19,9 +19,9 @@ from src.model_training.chronological_evaluation_protocol import (
     load_and_audit,
 )
 
-DEFAULT_PROTOCOL = Path("reports/generated/current/chronological_evaluation_protocol.json")
+DEFAULT_PROTOCOL = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json")
 FROZEN_DATA_SHA256 = "71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f"
-FROZEN_PROTOCOL_SHA256 = "cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd"
+FROZEN_PROTOCOL_SHA256 = "048d82ce2ed0bedde60bd5f6215303fa86ebdab31aae5b5c330f0947372859ff"
 
 
 def verify_inputs(data_path=DEFAULT_DATA, protocol_path=DEFAULT_PROTOCOL):

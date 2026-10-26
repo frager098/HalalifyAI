@@ -1,16 +1,25 @@
 # Research reports
 
-Generated research artifacts are local and ignored by Git.
+Generated research artifacts are organized by task and ignored by Git.
 
-- `generated/current/` is the destination for reports produced by the renamed
-  current model-training pipeline.
-- `generated/archive/pre_refactor_phase4_phase5_2026-10-23/` preserves the
-  Phase 4–5 reports whose embedded hashes reference the earlier source names.
-- `generated/phase2_*` contains the completed data-validation evidence.
-- `generated/legacy/modeling/` contains outputs from the earlier feature
-  comparison, walk-forward, monthly ranking, and reused-test workflow.
-- The price-audit, price-reconciliation, and point-in-time-fundamentals
-  directories are retained as supporting evidence for the Phase 2 data review.
+- `literature_review/v1/` contains the saved literature-review evidence.
+- `data_validation/v1/consolidated_review/` contains the completed consolidated
+  data review. Its `supporting_investigations/` siblings preserve the market
+  price audit, market price reconciliation, and point-in-time fundamentals
+  investigations used during that review.
+- `model_evaluation/baseline_comparison/v1/refactored_evidence/` contains the
+  current paths for the frozen baseline comparison. The corresponding
+  `pre_refactor_evidence/` directory preserves the experiment before the
+  source-module rename, while `pre_path_reorganization_evidence/` preserves
+  the evidence immediately before report paths were reorganized. These are
+  provenance snapshots of the same v1 experiment, not separate model versions.
+- `legacy_model_experiments/` preserves the earlier feature comparison, monthly
+  ranking, walk-forward evaluation, and reused-test check. The reused-test
+  protocol and results are two parts of one evaluation workflow.
+
+Create `v2` only when an experiment or validation contract materially changes,
+such as its inputs, feature set, frozen protocol, model configuration, or
+evaluation period. A rerun or source refactor alone is not a new version.
 
 Do not interpret generated results as guaranteed performance, and do not remove
-artifacts cited by the project documentation without preserving an archive.
+artifacts cited by the project documentation.

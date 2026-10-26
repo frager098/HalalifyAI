@@ -1,6 +1,6 @@
 """Audit and freeze chronological Phase 4 folds without fitting models.
 
-Run: python -m src.model_training.chronological_evaluation_protocol --output reports/generated/current/chronological_evaluation_protocol.json
+Run: python -m src.model_training.chronological_evaluation_protocol --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json
 """
 
 import argparse

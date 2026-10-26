@@ -201,7 +201,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     summary, events, identity, sessions = run()
-    out = args.output_dir or ROOT / "reports/generated" / datetime.now(timezone.utc).strftime("price_reconciliation_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/data_validation/v1/supporting_investigations/market_price_reconciliation"
     out.mkdir(parents=True, exist_ok=False)
     (out / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     events.to_csv(out / "price_events.csv", index=False)

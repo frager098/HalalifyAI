@@ -1,6 +1,6 @@
 """Phase 5.9: review matched risk errors without fitting or retuning.
 
-Run: python -m src.model_training.evaluate_risk_models --output reports/generated/current/risk_model_comparison.json
+Run: python -m src.model_training.evaluate_risk_models --output reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_model_comparison.json
 """
 
 import argparse
@@ -14,12 +14,12 @@ from sklearn.metrics import (confusion_matrix, f1_score, mean_absolute_error,
 
 from src.feature_engineering.build_feature_dataset import sha256
 from src.model_training.chronological_evaluation_protocol import _hash_keys, apply_risk_boundaries
-from src.model_training.baseline_models import (DEFAULT_PROTOCOL, FROZEN_DATA_SHA256,
-                                           FROZEN_PROTOCOL_SHA256)
+from src.model_training.baseline_models import FROZEN_DATA_SHA256, FROZEN_PROTOCOL_SHA256
 from src.model_training.risk_logistic_classifier import _probability_metrics
 
-DEFAULT_LOGISTIC = Path("reports/generated/current/risk_logistic_classifier")
-DEFAULT_TREE = Path("reports/generated/current/risk_gradient_boosting_classifier")
+DEFAULT_PROTOCOL = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json")
+DEFAULT_LOGISTIC = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_logistic_classifier")
+DEFAULT_TREE = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/risk_gradient_boosting_classifier")
 CLASS_NAMES = ("Low", "Medium", "High")
 
 

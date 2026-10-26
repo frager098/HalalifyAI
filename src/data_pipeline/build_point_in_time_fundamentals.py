@@ -235,7 +235,7 @@ def main():
     parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     summary, sec_checks, price_checks, coverage, concepts, quarantine, panel = run()
-    out = args.output_dir or ROOT / "reports/generated" / datetime.now(timezone.utc).strftime("pit_fundamentals_%Y%m%dT%H%M%SZ")
+    out = args.output_dir or ROOT / "reports/data_validation/v1/supporting_investigations/point_in_time_fundamentals"
     out.mkdir(parents=True, exist_ok=False)
     for name, frame in (("sec_source_checks", sec_checks), ("price_source_checks", price_checks),
                         ("ticker_coverage", coverage), ("concept_review", concepts),

@@ -1,6 +1,6 @@
 # Data review
 
-This document records source integrity, historical price and issuer checks, and the research-only SEC fundamental panel. Generated evidence remains local under reports/generated/.
+This document records source integrity, historical price and issuer checks, and the research-only SEC fundamental panel. Generated evidence remains local under `reports/data_validation/`.
 
 ## Phase 2 decision — 2026-10-22
 
@@ -14,7 +14,7 @@ Reproduce from the repository root:
 .\.venv\Scripts\python.exe -m unittest tests.test_clean_data tests.test_price_reconciliation tests.test_pit_fundamentals -v
 ```
 
-The final run is `reports/generated/phase2_20261022T060900192314Z/`. Its `phase2_report.json` names the selected cleaned input, hashes, environment, all 14 step dispositions, and phase 3 contract. `output_manifest.json` fingerprints the evidence files. Generated data and reports are ignored by Git; transfer these artifacts separately when another developer needs this exact run.
+The final run is `reports/data_validation/v1/consolidated_review/`. Its `phase2_report.json` names the selected cleaned input, hashes, environment, all 14 step dispositions, and phase 3 contract. `output_manifest.json` fingerprints the evidence files. Generated data and reports are ignored by Git; transfer these artifacts separately when another developer needs this exact run.
 
 ### Source recovery and selected versions
 
@@ -79,7 +79,7 @@ Fourteen focused tests pass: exact-hash recovery and tamper rejection, market-on
 Run `python -m src.data_pipeline.reconcile_market_price_history` to recreate this report from the
 saved 2026-10-09 Alpaca SIP snapshot, modeling CSV and SEC snapshots. The run
 also checks the model and interim CSV checksums and their price agreement.
-Example output: `reports/generated/price_reconciliation_20261019T063028Z/`.
+Example output: `reports/data_validation/v1/supporting_investigations/market_price_reconciliation/`.
 
 ### What the saved data establishes
 
@@ -162,7 +162,7 @@ new versioned dataset; retain the present model dataset as the baseline.
 
 Run `python -m src.data_pipeline.build_point_in_time_fundamentals` to reproduce steps 4 and 5
 from the preserved 2026-10-09 SEC snapshot. The 2026-10-19 run saved its
-report under `reports/generated/pit_fundamentals_20261019T064428Z/`.
+report under `reports/data_validation/v1/supporting_investigations/point_in_time_fundamentals/`.
 The existing price-based modeling CSV and its labels were not modified.
 
 ### Source integrity first
@@ -222,6 +222,5 @@ Recover or re-download the mismatched raw files into a new immutable snapshot,
 confirm historical issuer identities and filing vintages, then version the
 accepted feature dataset. Only after that should SEC predictors enter a
 model comparison. Preserve the existing price-only scores as the baseline.
-
 
 

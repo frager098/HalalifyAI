@@ -1,6 +1,6 @@
 """Phase 5.4: tune return Logistic Regression inside each frozen fold.
 
-Run: python -m src.model_training.return_logistic_classifier --output-dir reports/generated/current/return_logistic_classifier
+Run: python -m src.model_training.return_logistic_classifier --output-dir reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_logistic_classifier
 """
 
 import argparse

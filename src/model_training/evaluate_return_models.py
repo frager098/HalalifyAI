@@ -11,10 +11,11 @@ from sklearn.metrics import confusion_matrix, f1_score, precision_recall_fscore_
 
 from src.feature_engineering.build_feature_dataset import sha256
 from src.model_training.chronological_evaluation_protocol import _hash_keys
-from src.model_training.baseline_models import DEFAULT_PROTOCOL, FROZEN_DATA_SHA256, FROZEN_PROTOCOL_SHA256
+from src.model_training.baseline_models import FROZEN_DATA_SHA256, FROZEN_PROTOCOL_SHA256
 
-DEFAULT_LOGISTIC = Path("reports/generated/current/return_logistic_classifier")
-DEFAULT_TREE = Path("reports/generated/current/return_gradient_boosting_classifier")
+DEFAULT_PROTOCOL = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/chronological_evaluation_protocol.json")
+DEFAULT_LOGISTIC = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_logistic_classifier")
+DEFAULT_TREE = Path("reports/model_evaluation/baseline_comparison/v1/refactored_evidence/return_gradient_boosting_classifier")
 
 
 def _read_model(directory, stage, code_file):
