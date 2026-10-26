@@ -1,6 +1,245 @@
-# Phase 3 decisions
+# HalalifyAI decision log
 
-Earlier history remains in the existing local `decisions.md`. This file records the current contract for Git review.
+This tracked log consolidates the project's modeling, data, evaluation, and
+workflow decisions. Entries are preserved chronologically; later entries
+supersede earlier provisional choices when they explicitly say so.
+
+## 2026-10-19: Preserve the existing baseline and data version
+
+**Decision:** Keep the risk and return baseline notebooks as reference
+results. Continue from `data/processed/model_inputs/legacy_model_dataset_2026-10-09T115557Z/model_dataset.csv`
+without overwriting its labels, class thresholds or chronological splits.
+
+**Evidence:** Dataset SHA-256:
+`ad9b35d6be20564546312259bb75854c4de5c6c3d5a9e5034b7d56e46c9e8a58`.
+The saved metadata defines 20-session targets, training-only tertiles and
+purged splits. The current snapshot is Alpaca SIP requested for 2016-01-01
+through 2025-12-31. It differs from the older IEX data described in
+`AGENTS.md`; reports must identify which version they use.
+
+**Reason:** Keeping the input and split fixed makes a feature comparison
+interpretable.
+
+## 2026-10-19: Carry trailing factors forward for risk research
+
+**Decision:** Keep trailing market factors as a risk modeling candidate.
+
+**Evidence:** On 83,237 matched training rows and 17,850 validation rows,
+the best risk-class macro F1 was 0.595 with trailing factors versus 0.499
+with raw inputs. The best future-volatility RÂ² was 0.404 versus 0.107.
+Source: `reports/generated/feature_comparison_20261019T054537Z/`.
+
+**Limit:** These are validation scores from one period, not evidence of
+future live performance.
+
+## 2026-10-19: Keep a simple return-ranking benchmark
+
+**Decision:** Require a learned return ranking to beat 20-session momentum
+on the same candidates and dates before selecting it. Keep the existing
+Low/Medium/High return labels unchanged during this research comparison.
+
+**Evidence:** Across 11 separated validation dates, momentum's top 10 had
+a mean 20-session forward return of 4.877%, versus 2.974% for the 50-stock
+universe. Its selected group beat the universe on 10 of 11 dates. Mean
+selected forward returns were 4.314% for raw Ridge, 4.006% for factor Ridge
+and 3.697% for factor boosted trees. Source:
+`reports/generated/monthly_rank_20261019T060359Z/`.
+
+**Reason:** Earlier validation scores showed little return-model gain, so
+a simple stock-selection benchmark is needed.
+
+**Limit:** This is an 11-date research diagnostic using today's 50-stock
+universe. It is not a Shariah-screened or cost-adjusted backtest. No return
+model has been chosen for deployment.
+
+## 2026-10-19: Keep price data quality unresolved
+
+**Decision:** Treat the SIP model input as internally consistent while
+corporate actions, historical identity and bar availability remain open.
+Do not mark `core_ready` true or present the research scores as production
+evidence.
+
+**Evidence:** The read-only audit found matching model/interim OHLCV values,
+zero duplicate ticker/date keys, zero invalid OHLC conditions and zero gaps
+relative to SPY after each ticker's first observation. Nine large-return
+rows need review. All 124,987 model rows have `adjustment_verified=False`,
+`identity_history_verified=False`, `core_ready=False` and no
+`bar_available_at` timestamp. LIN begins on 2018-10-31; the other 49
+modeled stocks begin on 2016-01-04. Source:
+`reports/generated/price_audit_20261019T060306Z/`.
+
+**Next evidence:** Independent corporate-action reconciliation, historical
+ticker/issuer mapping and bar-availability rules. The saved snapshot alone
+cannot establish these facts.
+
+## 2026-10-19: Reconcile price bases before changing observations
+
+**Decision:** Keep the saved SIP price rows and existing model labels intact.
+Treat the nine over-25% moves as market-move reviews and the 92 over-1
+percentage-point basis differences as corporate-action candidates. Do not
+delete or winsorize either group just to improve model scores.
+
+**Evidence:** The nine large moves agree between split-adjusted and fully
+adjusted Alpaca returns within 0.047 percentage points. Seven have dated
+nearby company earnings releases, but those do not independently verify the
+closing prices. Primary issuer releases document spin-offs for GE (2023-01-04,
+2024-04-02), DHR (2023-10-02) and HON (2025-10-30), matching four of the 92
+basis-difference dates. Source report:
+`reports/generated/price_reconciliation_20261019T063028Z/`; sources and
+interpretation: `docs/DATA_REVIEW.md`.
+
+**Reason:** A real extreme return can carry predictive information, while a
+corporate-action adjustment can change the meaning of a price return. These
+need separate evidence. The remaining adjustment differences and all price
+magnitudes still require independent reconciliation.
+
+## 2026-10-19: Use historical identity and next-session execution timing
+
+**Decision:** Model features using session t's completed close are usable for
+execution no earlier than the next observed session. Keep `bar_available_at`,
+`identity_history_verified`, `adjustment_verified` and `core_ready` unresolved
+in the saved model input. Do not describe its close[t] to close[t+20] target as
+an executable holding return entered at close[t].
+
+**Evidence:** The provider request used `asof=2025-12-31`, which can map a
+later ticker to its prior symbol. Meta confirms FB to META before open on
+2022-06-09; Linde confirms LIN started NYSE trading on 2018-10-31. GE, DHR
+and HON issuer releases document spin-offs. SEC submissions and companyfacts
+CIKs agree for all 50 names, but the current SEC ticker map resolves only 49:
+XOM is absent. The SEC snapshot does not prove complete point-in-time
+security identity. Source: `docs/DATA_REVIEW.md`.
+
+**Reason:** A closing price is known after the close, and present-day ticker
+labels can obscure historical identities. The generated next-session mapping
+is a conservative execution-date proxy, not an actual Alpaca delivery time.
+Before portfolio backtesting, choose next-session entry/exit prices and
+recompute realized returns from those prices.
+
+## 2026-10-19: Audit SEC facts before joining fundamentals
+
+**Decision:** Use a narrow research mapping for US-GAAP `Assets` and
+`CashAndCashEquivalentsAtCarryingValue` only. Do not introduce debt,
+revenue, profit margin or market capitalization until their concept and
+period semantics are validated. Exclude AAPL from the SEC candidate features
+because both its saved SEC files fail manifest checksums.
+
+**Evidence:** A new raw-file audit found 18/26 Alpaca page checksum mismatches
+and 2/100 SEC file mismatches (both AAPL). The existing full cleaner stopped
+on the first price mismatch. The saved Alpaca raw JSON values nonetheless
+reconcile to the interim price CSV across both adjustment bases; their byte
+provenance remains unresolved. The 98 other SEC files match their manifest.
+See `reports/generated/pit_fundamentals_20261019T064428Z/` and
+`docs/DATA_REVIEW.md`.
+
+## 2026-10-19: Build a conservative as-of fundamental candidate
+
+**Decision:** Make a versioned research panel that becomes eligible no earlier
+than the calendar day after the SEC filing date. Select the most recent known
+reporting period and retain the source accession. Calculate `cash_to_assets`
+only when both fields come from the same filing and period. Keep the panel
+out of model training until source provenance, identity and vintage checks
+are resolved.
+
+**Evidence:** The panel aligns to all 124,987 existing ticker/date rows:
+121,856 have assets, 121,269 have cash, and 106,276 have a same-filing ratio.
+The 49 eligible SEC companies produced no conflicting facts under this narrow
+mapping; AAPL is blank. Synthetic tests confirm that a filing is unavailable
+before its eligibility date and that a late amendment to an older period does
+not replace a newer statement. See `docs/DATA_REVIEW.md`.
+
+**Reason:** More features are useful only if their values and availability
+can be defended. This candidate preserves the earlier price-only model and
+does not claim a new model result.
+
+## 2026-10-20: Use shared-date, label-purged development folds
+
+**Decision:** Evaluate on four expanding chronological folds before the saved
+2024-07-01 test boundary. Apply a 20-session gap on shared market dates and
+check each actual label end. Refit preprocessing and class thresholds on each
+fold's training rows. Save fold dates, counts, thresholds and class reports.
+
+**Evidence:** All four folds passed `train_last_label_end < evaluation_start`
+and `evaluation_last_label_end <= evaluation_last_feature_date`. The folds
+span 2020-06-26 through 2024-06-28, with 11,600 common eligible evaluation
+rows each. Reproducible run:
+`reports/generated/walk_forward_20261020T105443Z/`; explanation:
+`docs/MODEL_EVALUATION.md`.
+
+**Reason:** The previous single validation interval made period dependence
+hard to see. Shared-date splitting also prevents different stocks from the
+same market session appearing on both sides of a fold.
+
+## 2026-10-20: Retain momentum as the return benchmark
+
+**Decision:** Do not promote a learned return ranking from this experiment.
+Keep 20-day momentum as the candidate benchmark. Keep the simpler market-
+relative risk feature group for further comparison; adding volume did not
+show a clear improvement.
+
+**Evidence:** Mean risk RÂ² across four folds was 0.102 for trailing 20-day
+volatility, 0.363 for Ridge with the first three groups and 0.361 for the
+boosted tree with the first three groups. Across 35 separated rebalance dates,
+the four-fold average momentum top-10 minus universe spread was 0.781%.
+The best learned four-fold average was boosted trees with the first three
+groups at 0.565%, or 0.216 percentage points below momentum on a paired
+within-fold comparison. Every
+learned configuration beat momentum in only one of four fold averages.
+
+**Limits:** These are development diagnostics on the current 50 stocks, not
+Shariah-screened or executable returns. Four folds offer limited uncertainty
+evidence, and the previously exposed saved test period is not a blind final
+test. The SEC research panel was excluded while its source checks remain open.
+
+## 2026-10-20: Freeze development choice before reused-test scoring
+
+**Decision:** Freeze Ridge with feature groups 1-3 for risk, 20-day momentum
+for return ranking, and the best development learned return model as a
+challenger. The protocol records dataset, development-output and code hashes.
+Train on pre-2024-07 rows whose labels end before the test boundary. Do not
+change settings after reading this result.
+
+**Evidence:** Protocol written at
+`reports/generated/final_protocol_20261020T110543Z/protocol.json` before the
+single evaluation run. Results are in
+`reports/generated/final_evaluation_20261020T110552Z/` and summarized in
+`docs/MODEL_EVALUATION.md`.
+
+**Limit:** Earlier notebooks had already displayed scores from the saved
+test period. This is a predeclared reused-test check, not a blind final
+estimate. The local Alpaca credential file is empty and no matching SIP
+snapshot after 2025-12-31 is saved here.
+
+## 2026-10-20: Keep the return choice frozen after the reversal
+
+**Decision:** Preserve momentum as the development-selected return ranking.
+Record the learned challenger's reused-test win as evidence of period
+instability, not as a reason to switch models on these same dates.
+
+**Evidence:** Risk Ridge improved reused-test RÂ² from -0.040 (direct
+trailing-volatility baseline) to 0.369 and reduced MAE from 0.1103 to
+0.0844 on 17,900 matched rows. On 13 separated return dates, momentum's
+top-10 minus universe spread was -0.642%, while the boosted-tree challenger
+reached +1.366%; the challenger beat momentum on 10 dates. Development folds
+had favored momentum, and the challenger's reused-test return-class macro
+F1 was only 0.201. See `docs/MODEL_EVALUATION.md`.
+
+**Next evidence:** A later, matching, verified forward period with the
+models and protocol fixed in advance. Portfolio results also require
+historical Shariah screening and executable entry prices.
+
+## Decisions still open
+
+- Final Shariah methodology, formulas and thresholds.
+- Final return target and Low/Medium/High threshold methodology.
+- Historical universe selection and survivorship-bias treatment.
+- SEC concept mappings and point-in-time fundamental features.
+- Rebalance rules, costs, portfolio objective and risk mapping.
+- A fresh evaluation period; baseline notebooks already expose test scores.
+- Independent price/corporate-action reconciliation and complete historical
+  ticker/issuer identity, including the XOM SEC lookup exception.
+- Next-session entry/exit price convention for an executable backtest.
+- Recover or re-download the 18 Alpaca and two AAPL SEC raw files whose
+  content hashes differ from their saved manifests; do not overwrite them.
 
 ## 2026-10-23 — Step 3.1 validated input/output contract
 
@@ -250,3 +489,37 @@ metadata, manifests, and checksums are provenance evidence. Pre-rename Phase
 renamed pipeline was rerun under `reports/generated/current/`; its frozen
 protocol SHA-256 is
 `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`.
+
+## 2026-10-24 — Step 5.11 Phase 5 research conclusion frozen
+
+The final comparison uses the refactored saved artifacts under `reports/generated/current/`: `return_model_comparison.json`, `risk_model_comparison.json`, and `model_evaluation_package/summary.json`. The Phase 3 dataset SHA-256 is `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`; the current frozen Phase 4 protocol SHA-256 is `cbd4b373060ab4d693a893a4325d385061f158ab92406017ca6093a4dfee45bd`. Four chronological outer folds and matched rows support the comparisons. The 2024–2025 period had been inspected earlier and was excluded from selection; there is no fresh blind test result here.
+
+**Return conclusion:** Select no learned return ranker. Mean fold within-date Spearman is 0.0383 for Logistic Regression, 0.0007 for HistGradientBoosting, and 0.0006 for trailing 20-day momentum. Logistic Regression beats momentum in only 2/4 folds; the tree does so in 1/4. The higher Logistic Regression average is too inconsistent to claim a dependable gain. Momentum remains a simple comparison control, not a trained model or an endorsed stock-selection strategy. Its near-zero mean rank correlation does not justify recommending it. The saved top-10 forward-close spreads are research diagnostics, not executable returns.
+
+**Risk conclusion:** Advance HistGradientBoosting as the *research candidate* for later validation because its macro F1 exceeds the trailing-volatility class baseline in all four folds (mean 0.5681 versus 0.5326). Logistic Regression averages 0.5661, only 0.0020 below the tree, and leads it in two folds, so the learned-model difference is uncertain. The tree produces 1,109 High-to-Low errors among 20,502 High outcomes (5.41%); trailing volatility produces 1,084 (5.29%) and has higher mean High recall (0.6569 versus 0.6333). The 25 additional severe misses and 2.35 percentage-point lower High recall must remain visible beside the macro F1 gain. No acceptable tradeoff threshold for these risk errors has been approved, so this research-candidate choice does **not** certify the tree for user-facing recommendations, portfolio weighting, or safety-critical risk decisions. Trailing volatility stays the matched simple benchmark.
+
+**Uncertainty and next gate:** Twenty-session future windows overlap, so the 48,400 stock rows and daily diagnostics are not independent trials; four fold means describe development variation, not a precise generalization guarantee. The present-day 50-stock universe has survivorship and historical-identity limitations, and no historical Shariah screen, next-session trade execution, or transaction costs were applied. Before an operational model choice, document the acceptable High-risk miss/recall tradeoff, freeze the model and evaluation rules, and assess them on a genuinely later verified period. Phase 6/7 research can focus on the unstable return ordering and risk-error behavior, with any changed approach requiring a later independent evaluation. No model, Shariah-compliant portfolio, or trading performance is approved by Phase 5.
+
+Evaluator notebook maintenance: after the repository rename, `notebooks/model_evaluation_report.ipynb` still checked for the removed `src/modeling` directory and carried a saved error output. Step 5.11 corrects the root check to `src/model_training`, clears that stale output, and updates the notebook and generated package with this conclusion. The original model predictions and prior Phase 5 reports remain unchanged.
+
+## 2026-10-25 — Canonical decision log and Phase 6 work plan
+
+The ignored `decisions.md` history from 2026-10-19 through 2026-10-20 is
+preserved at the beginning of this tracked file, before the later Phase 3–5
+entries. `decision.md` is now the single canonical project decision log.
+The obsolete `decisions.md` file and its `.gitignore` rule were removed so a
+second log cannot silently reappear. Where an older provisional choice differs
+from a later frozen conclusion, the later dated entry takes precedence; the
+older evidence remains for auditability.
+
+Phase 6 is divided into twelve gated steps: reconfirm the frozen experiment,
+inventory feature availability, validate a reusable ablation runner, review
+each existing market-feature group separately, tightly gate any new market
+feature, apply the SEC readiness gate, compare fundamentals only if that gate
+passes, and freeze task-specific feature sets in an ablation report. Return
+and risk evidence remains separate. Every experiment must preserve the Phase 4
+chronology and Phase 5 baselines, use matched rows, fit preprocessing and tune
+on training data only, show fold variation and coverage, and record a
+retain/reject/inconclusive decision before moving forward. The reused
+2024–2025 period remains excluded from feature selection. This planning change
+does not approve a new feature, model, fundamental input, or performance claim.

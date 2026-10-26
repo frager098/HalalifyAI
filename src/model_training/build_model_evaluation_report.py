@@ -185,7 +185,12 @@ def build_results_package(output_dir=OUTPUT):
                "return_mean_fold_spearman": return_report["mean_fold_spearman"],
                "risk_summary": risk_report["summary"],
                "return_decision": "No return approach selected; momentum remains a comparison baseline with near-zero mean ranking correlation.",
-               "risk_status": "Tree is a provisional candidate; small F1 gain and High-risk misses require the Phase 5 conclusion.",
+               "risk_status": "HistGradientBoosting is the Phase 5 research risk candidate: macro F1 beats trailing volatility in all four folds. Operational acceptance of High-risk misses remains open.",
+               "phase5_conclusion": {
+                   "return": "No return approach selected. Trailing momentum remains a comparison control, not an endorsed strategy.",
+                   "risk": "HistGradientBoosting selected only as a research candidate for further validation; no model is approved for user recommendations.",
+                   "next_gate": "Predeclare acceptable risk-error tradeoffs and evaluate a frozen choice on a genuinely later verified period."
+               },
                "limitations": ["Current-stock research universe has survivorship and historical-identity limitations.",
                                "2024-2025 test outcomes were previously viewed and are excluded from model selection.",
                                "Overlapping 20-session outcomes reduce row-wise independence.",

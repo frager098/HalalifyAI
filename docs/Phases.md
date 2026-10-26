@@ -129,7 +129,9 @@ Follow the frozen Phase 4 protocol at `reports/generated/current/chronological_e
 ### Prepare evaluator-facing evidence
 
 - [x] **5.10 Produce the evaluator notebook and results package.** Create one presentation notebook that loads the frozen dataset and protocol, calls reusable functions from `src/` for fitting/scoring, and displays the research question, data/fold summary, model comparisons, fold metrics, confusion matrices, limitations, and selected model rationale. Save concise result tables and plots under the ignored `reports/generated/`; include hashes, environment and run instructions. Keep model logic in tested modules instead of copying it into notebook cells. **Done when:** restart-and-run-all reproduces the tables and plots from the recorded inputs, and an evaluator can see fold variation and failure cases beside averages.
-- [ ] **5.11 Freeze the Phase 5 conclusion.** Select a candidate only when it improves the predeclared primary metric across folds without unacceptable secondary failures; otherwise retain the simple benchmark. Keep the reused 2024–2025 period out of selection, and state that overlapping 20-session outcomes limit row-wise independence. **Done when:** `decision.md` records evidence, uncertainty and the next step; no claim of an untouched test or trading performance is made.
+- [x] **5.11 Freeze the Phase 5 conclusion.** Select a candidate only when it improves the predeclared primary metric across folds without unacceptable secondary failures; otherwise retain the simple benchmark. Keep the reused 2024–2025 period out of selection, and state that overlapping 20-session outcomes limit row-wise independence. **Done when:** `decision.md` records evidence, uncertainty and the next step; no claim of an untouched test or trading performance is made.
+
+**2026-10-24 phase exit:** All Phase 5 steps are reviewed. No return approach is selected. HistGradientBoosting advances only as a risk research candidate; acceptance of High-risk errors and independent forward evaluation remain open. See `decision.md` for the frozen evidence and next gate.
 
 Random Forest, ordinal models and listwise ranking are later challengers only if the baseline comparison identifies a specific unresolved problem. Any ranker must group by date and its raw score is not a calibrated percentage return.
 
@@ -137,13 +139,44 @@ Random Forest, ordinal models and listwise ranking are later challengers only if
 
 ## Phase 6 — Improve features in small groups
 
-- Compare existing market factors in groups: momentum, volatility, downside/trend, SPY-relative measures, and volume.
-- Consider a limited set of additional trailing measures only when they have a clear definition and point-in-time calculation.
-- After SEC validation, test assets/cash and filing-age features. Add debt, revenue growth, profit margin, or historical market capitalization only after their concepts and historical inputs are defensible.
-- Compare market-only and market-plus-fundamental models on matched rows; report the coverage lost from missing fundamentals separately.
-- Let return and risk models use different feature sets if the evidence supports it.
+Use the frozen Phase 4 chronological folds and Phase 5 baselines. Run return
+and risk ablations separately because the two tasks may need different
+features. Within each comparison, keep the model, tuning budget, eligible
+rows, dates, fold-specific labels, and evaluation code fixed; fit all
+preprocessing on training rows only. A step advances only after its generated
+evidence is reviewed for leakage, row matching, coverage, fold variation, and
+the predeclared primary and secondary metrics. A failed or inconclusive group
+is recorded rather than silently combined with later groups.
 
-**Exit evidence:** An ablation report showing the contribution and coverage of each feature group.
+### Freeze the ablation contract
+
+- [ ] **6.1 Reconfirm inputs and research questions.** Verify the current model-input dataset and Phase 4 protocol hashes, the four development folds, the Phase 5 return/risk conclusions, feature allowlist, baselines, and task eligibility. State the exact question for each task: whether a feature group improves return ordering or risk classification on matched outer-fold rows. **Done when:** a mismatch stops the run and the ablation report records all input identities and hypotheses.
+- [ ] **6.2 Inventory candidate features and availability.** Map every existing feature to momentum, volatility, downside/trend, market-relative, volume, or eligible fundamentals. Document formula, lookback, earliest usable date, missingness, and information-availability rule; reject targets, identifiers, future columns, and unapproved features. **Done when:** each candidate is either approved for a named group or excluded with a reason, and no feature uses information after date t.
+- [ ] **6.3 Build and validate the ablation runner.** Extend reusable code under `src/` to evaluate one group at a time and in predeclared combinations. Require identical row keys for market groups, report any unavoidable coverage change, fit/tune inside each fold only, and refuse overwritten or incompatible artifacts. **Done when:** focused checks demonstrate allowlist enforcement, chronological isolation, training-only preprocessing/tuning, matched-row comparisons, and deterministic provenance.
+
+### Evaluate market feature groups
+
+- [ ] **6.4 Evaluate momentum features.** Test the approved trailing momentum columns against the task baseline and a feature-excluded reference while holding all other experimental choices fixed. **Done when:** return and risk fold metrics, coverage, uncertainty, and failure cases are reviewed and the group is marked retain, reject, or inconclusive per task.
+- [ ] **6.5 Evaluate volatility features.** Repeat the controlled comparison for trailing volatility features, preserving fold-specific risk cutoffs and keeping future realized volatility out of the inputs. **Done when:** risk underestimation errors, return ordering, fold variation, and the keep/reject decision are recorded.
+- [ ] **6.6 Evaluate downside and trend features.** Test return, moving-average ratio, downside-deviation, and trailing-drawdown inputs as an approved group; distinguish related features without treating their count as independent evidence. **Done when:** matched ablations and a per-task decision are reviewed.
+- [ ] **6.7 Evaluate market-relative features.** Test SPY momentum, excess momentum, and trailing beta only after confirming SPY values are available on or before each stock date. **Done when:** benchmark alignment, missingness, matched fold results, and a per-task decision are reviewed.
+- [ ] **6.8 Evaluate volume features.** Test the point-in-time trailing volume ratio while retaining the documented Alpaca feed limitation and avoiding claims about consolidated market volume. **Done when:** its incremental contribution, stability, and limitation are recorded.
+- [ ] **6.9 Review limited new market features.** Add a new trailing measure only if steps 6.4–6.8 expose a specific unresolved weakness and its formula, lookback, availability, and expected contribution are written before scoring. Do not broaden the search merely to improve the same folds. **Done when:** either a small predeclared challenger is evaluated with the same safeguards or the decision to add none is recorded.
+
+### Gate and evaluate fundamentals
+
+- [ ] **6.10 Apply the SEC readiness gate.** Recheck raw-file provenance, concept/period semantics, filing-date eligibility, amendment handling, units, source accession, and historical identity. Assets, cash, cash-to-assets, and filing age may proceed only if their existing issues are resolved or the experiment is explicitly bounded as research-only. Debt, revenue growth, profit margin, and historical market capitalization remain excluded until their required concepts and inputs are defensible. **Done when:** `decision.md` names exactly which fundamental columns may be tested and why; no unresolved column enters training silently.
+- [ ] **6.11 Compare market-only with market-plus-fundamentals.** If step 6.10 passes, compare on the same ticker-date rows first, then report the additional coverage loss separately. Preserve filing availability (`filing_date <= t`, plus any approved publication lag) and fit missing-value handling on training data only. If the gate fails, record the blocked comparison without fabricating results. **Done when:** matched performance, coverage, missingness by ticker/date, and provenance are visible together.
+
+### Freeze the Phase 6 conclusion
+
+- [ ] **6.12 Select task-specific feature sets and publish the ablation report.** Compare only predeclared experiments, show all four fold results beside averages, and retain different return/risk feature sets when supported. Record rejected and inconclusive groups as well as selected ones. Do not use the reused 2024–2025 period to choose features. **Done when:** reproducible code and a concise evaluator-facing report identify the frozen feature set for each task, exact hashes, coverage, limitations, and the next independent-evaluation gate in `decision.md`.
+
+**Exit evidence:** A reproducible ablation report showing each group's
+incremental contribution, fold variation, matched-row coverage, leakage
+checks, and task-specific retain/reject/inconclusive decision. Any fundamental
+comparison also reports point-in-time provenance and coverage loss. No Phase 6
+result is presented as untouched-test, portfolio, or trading evidence.
 
 ## Phase 7 — Tune the strongest candidates within a fixed budget
 
@@ -184,4 +217,4 @@ Random Forest, ordinal models and listwise ranking are later challengers only if
 
 ## Immediate working order
 
-Phase 1 is approved and phase 2 now supplies a verified-source market input with documented research limitations. Next build the phase 3 saved feature/label dataset using the cleaned path in the phase 2 report. Keep SEC predictors excluded until their separate gate passes. Each later phase begins only when its stated inputs and evaluation rules can be reproduced.
+Phases 1–5 have completed research evidence and documented limitations. Phase 6/7 work should address unstable return ordering and review risk-error tradeoffs under a predeclared protocol. Keep SEC predictors excluded until their separate point-in-time gate passes. A later verified period is required before any generalization or operational model claim; each phase begins only when its inputs and evaluation rules can be reproduced.

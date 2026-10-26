@@ -12,7 +12,7 @@ blind test. Generated CSV and JSON reports stay under the ignored
 The existing modeling snapshot is documented in
 [the modeling workspace](docs/MODELING_WORKSPACE.md).
 
-`decisions.md` is maintained locally and ignored by Git, as requested.
+Project decisions are consolidated in the tracked [decision log](decision.md).
 
 The service will provide:
 
