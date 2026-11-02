@@ -531,3 +531,118 @@ on training data only, show fold variation and coverage, and record a
 retain/reject/inconclusive decision before moving forward. The reused
 2024–2025 period remains excluded from feature selection. This planning change
 does not approve a new feature, model, fundamental input, or performance claim.
+
+## 2026-10-26 — Step 6.1 ablation contract prepared for student run
+
+The current files were inspected without running a project pipeline. The
+model-input dataset SHA-256 is
+`71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f` and
+the active Phase 4 protocol SHA-256 is
+`048d82ce2ed0bedde60bd5f6215303fa86ebdab31aae5b5c330f0947372859ff`.
+The protocol contains four development folds and the existing 14-feature
+allowlist. These observations are not a generated Phase 6 result.
+
+`src/model_training/feature_ablation/ablation_contract.py` now binds the dataset, metadata,
+protocol, Phase 5 baseline report, and separate return/risk comparison reports
+to their current hashes. It reconstructs the Phase 4 protocol to recheck task
+eligibility, fold row keys, purges, fold-specific risk cutoffs, ranking groups,
+and the allowlist. It also requires the frozen Phase 5 benchmark list and
+conclusions. Any mismatch raises `ContractMismatchError` before a report is
+returned or written, and existing evidence is never overwritten.
+
+The exact return question is whether a predeclared feature group improves
+mean within-date Spearman ordering over its matched feature-excluded reference
+and the 20-day momentum control on identical outer-fold rows. The exact risk
+question is whether it improves macro F1 over its matched feature-excluded
+reference and fold-cutoff trailing-volatility baseline on identical rows,
+without hiding worse High-risk recall or High-to-Low errors. The 2024–2025
+reused period remains excluded from feature selection.
+
+The student-facing entry point is `notebooks/feature_ablation_report.ipynb`.
+It will write the ignored generated report to
+`reports/model_evaluation/feature_ablation/v1/ablation_contract.json`. Step 6.1
+is not marked complete until the student runs the notebook and focused tests,
+then reviews that report. No model is trained and no new performance result or
+feature decision is claimed by this preparation change.
+
+Direct execution is also supported for the beginner-facing VS Code **Run
+Python File** button. When invoked by file path, the module adds only the
+repository root to its process import path, changes that process's working
+directory to the repository root, and runs the same fail-closed report writer
+used by the notebook. This fixes the otherwise expected `No module named
+'src'` error without duplicating the validation logic or changing any frozen
+research input.
+
+## 2026-10-26 — Step 6.1 completed; Step 6.2 inventory prepared
+
+The student-generated Phase 6.1 report now exists at
+`reports/model_evaluation/feature_ablation/v1/ablation_contract.json`. A
+read-only review found `status=verified`, four development folds, 14
+allowlisted features, and SHA-256
+`9045d719c65119b3aecd911c4d1f3a546411bb42f1c71d15560d14fbe00ece91`.
+Step 6.1 is therefore complete. This does not add a model result.
+
+Step 6.2 is prepared in `src/model_training/feature_ablation/feature_inventory.py` and the next
+cells of `notebooks/feature_ablation_report.ipynb`. The inventory partitions
+all 56 frozen dataset columns: 14 existing market candidates and 42 explicit
+exclusions. The market candidates are assigned to momentum, volatility,
+downside/trend, market-relative, or volume groups. The eligible-fundamentals
+group is intentionally empty because the current model-input table contains no
+approved fundamental, and the separate SEC readiness gate in step 6.10 has not
+passed.
+
+For every candidate the prepared report records the implemented formula,
+trailing lookback, source inputs, first non-missing date, last available date,
+missing rows, and after-close information rule. Every identifier, raw source
+field, provenance/quality flag, split field, eligibility field, future outcome,
+and target label receives an exclusion reason. The first usable date means the
+first non-missing observation anywhere in the frozen table; it does not imply
+complete cross-sectional availability on that date.
+
+The generated outputs will be `feature_inventory.json` and
+`feature_inventory.csv` under
+`reports/model_evaluation/feature_ablation/v1/`. They remain covered by the
+existing Git-ignore rule. Step 6.2 is not complete until the student runs its
+focused tests and notebook cells, then reviews both outputs. No model is fitted
+and no feature-performance conclusion is made by this preparation change.
+
+`pytest==9.1.1` is now an explicit project dependency. The official package
+metadata supports Python 3.10 and newer, including the project's documented
+Python 3.11/3.12 versions. Both focused Phase 6 test files also support VS
+Code's **Run Python File** button: each adds the repository root to its own
+process import path and invokes pytest only for that file. This is a
+student-facing convenience and does not change the tests or research contract.
+
+## 2026-10-26 — Group Phase 6 code by task
+
+The new Phase 6 modules are grouped under
+`src/model_training/feature_ablation/`: `ablation_contract.py` verifies the
+frozen inputs, and `feature_inventory.py` documents candidate and excluded
+columns. The student notebook and focused tests import from this package. A
+small `src/model_training/README.md` explains the remaining layout.
+
+The existing Phase 4/5 modules stay at their current package paths because
+frozen reports record those source paths and hashes. Moving them would require
+regenerating the evaluation evidence. This organization groups new feature
+ablation work while preserving the existing baseline provenance.
+
+## 2026-10-26 — Step 6.3 runner prepared for student execution
+
+`src/model_training/feature_ablation/ablation_runner.py` defines fourteen
+predeclared feature sets: five single-group experiments, four cumulative
+additions, and five leave-one-group-out references. Each call runs one task,
+estimator, and feature set. It reconstructs the frozen Phase 4 rows, filters by task
+eligibility, rejects non-allowlisted or missing inputs, tunes the frozen
+Logistic Regression or HistGradientBoosting grid on inner training/validation
+only, refits on outer training rows, and scores each outer fold once. Risk
+classes use the fold's existing training-only boundaries. Reports retain
+matched row-key hashes, fold metrics, baselines, and source/input hashes.
+
+The Step 6.3 notebook cell validates the plan and writes
+`reports/model_evaluation/feature_ablation/v1/runner_validation.json` without
+fitting a model. `tests/test_ablation_runner.py` covers experiment planning,
+feature allowlisting, matched rows, overlap rejection, inner-only tuning, and
+no-overwrite behavior. The output writer reuses identical validation evidence
+and refuses changed evidence. Step 6.3 remains unchecked until the student
+runs the focused tests and notebook cell and reviews the output. No feature
+comparison results have been produced.

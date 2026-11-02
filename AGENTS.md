@@ -927,3 +927,39 @@ Whenever starting a new task in this repository:
 
 This file reflects the current project understanding and should be
 updated when the team/supervisor makes a new authoritative decision.
+
+------------------------------------------------------------------------
+
+# 38. Student-Run Workflow and File Organization
+
+When creating new executable work for this project:
+
+1.  Do not run newly created data-processing, experimentation, training,
+    evaluation, or other project scripts/notebooks on the student's behalf.
+    Leave execution to the student so they can observe and understand each
+    stage. Reading files and using non-project inspection commands is still
+    allowed.
+2.  At handoff, list the exact commands or notebook cells the student should
+    run, in order. For every step, explain in simple language:
+    - what it does
+    - what inputs it reads
+    - what outputs it creates or changes
+    - what successful output should look like
+3.  Use Jupyter notebooks (`.ipynb`) as the user-facing entry point for model
+    experimentation, training, and evaluation instead of standalone training
+    scripts. Keep reusable, testable ML logic in focused modules under `src/`,
+    and let notebooks import and call that logic.
+4.  Preserve the repository's current top-level structure and established
+    raw/interim/processed data flow. Extend existing task-appropriate
+    directories before adding new top-level directories.
+5.  If a new directory is genuinely needed, give it a concise, meaningful
+    task-based name. Do not use vague names such as `misc`, `new`, `temp2`, or
+    `stuff`.
+6.  Keep changes small and organized. Avoid duplicate implementations,
+    unnecessary nesting, one-off folders, and scattered outputs that make the
+    existing structure harder to understand.
+7.  Update `.gitignore` whenever work introduces disposable or local-only
+    artifacts such as generated outputs, caches, temporary files, notebook
+    checkpoints, logs, or large reproducible results. Do not ignore source
+    code, configuration templates, documentation, tests, or small required
+    reproducibility metadata merely because they are newly created.

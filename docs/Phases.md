@@ -152,9 +152,30 @@ is recorded rather than silently combined with later groups.
 
 ### Freeze the ablation contract
 
-- [ ] **6.1 Reconfirm inputs and research questions.** Verify the current model-input dataset and Phase 4 protocol hashes, the four development folds, the Phase 5 return/risk conclusions, feature allowlist, baselines, and task eligibility. State the exact question for each task: whether a feature group improves return ordering or risk classification on matched outer-fold rows. **Done when:** a mismatch stops the run and the ablation report records all input identities and hypotheses.
+- [x] **6.1 Reconfirm inputs and research questions.** Verify the current model-input dataset and Phase 4 protocol hashes, the four development folds, the Phase 5 return/risk conclusions, feature allowlist, baselines, and task eligibility. State the exact question for each task: whether a feature group improves return ordering or risk classification on matched outer-fold rows. **Done when:** a mismatch stops the run and the ablation report records all input identities and hypotheses.
+
+  **Completed evidence:** The student generated
+  `reports/model_evaluation/feature_ablation/v1/ablation_contract.json`; it
+  reports `verified`, four folds, and 14 allowlisted features. Its SHA-256 is
+  `9045d719c65119b3aecd911c4d1f3a546411bb42f1c71d15560d14fbe00ece91`.
+
 - [ ] **6.2 Inventory candidate features and availability.** Map every existing feature to momentum, volatility, downside/trend, market-relative, volume, or eligible fundamentals. Document formula, lookback, earliest usable date, missingness, and information-availability rule; reject targets, identifiers, future columns, and unapproved features. **Done when:** each candidate is either approved for a named group or excluded with a reason, and no feature uses information after date t.
+
+  **Prepared for student execution:** The Step 6.2 cells in
+  `notebooks/feature_ablation_report.ipynb` call
+  `src/model_training/feature_ablation/feature_inventory.py` and write
+  `feature_inventory.json` plus `feature_inventory.csv` under the existing
+  `reports/model_evaluation/feature_ablation/v1/` directory. Step 6.2 remains
+  unchecked until those cells and focused tests are run and reviewed.
 - [ ] **6.3 Build and validate the ablation runner.** Extend reusable code under `src/` to evaluate one group at a time and in predeclared combinations. Require identical row keys for market groups, report any unavoidable coverage change, fit/tune inside each fold only, and refuse overwritten or incompatible artifacts. **Done when:** focused checks demonstrate allowlist enforcement, chronological isolation, training-only preprocessing/tuning, matched-row comparisons, and deterministic provenance.
+
+  **Prepared for student execution:** `src/model_training/feature_ablation/ablation_runner.py`
+  provides one experiment per call, using the frozen inner/outer roles and
+  recorded hyperparameter budgets. Its plan includes single groups, cumulative
+  additions, and leave-one-group-out references. The notebook writes a no-fit
+  validation plan to `reports/model_evaluation/feature_ablation/v1/runner_validation.json`.
+  The focused checks are in `tests/test_ablation_runner.py`. Step 6.3 remains
+  unchecked until the tests and notebook cell are run and reviewed.
 
 ### Evaluate market feature groups
 
