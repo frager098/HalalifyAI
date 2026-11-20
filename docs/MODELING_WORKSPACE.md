@@ -13,3 +13,34 @@ Current commands are modules: `python -m src.data_pipeline.validate_source_data 
 Phase 2 preserves the original inputs and adds `data/raw/alpaca/alpaca_sip_20261009T110617242394Z_restored_json_v1/`: all price pages match the original acquisition hashes after recovering compact JSON bytes. A completed market-only cleaning run and the exact eligible input are named in `reports/data_validation/v1/consolidated_review/phase2_report.json`. The full data decision and remaining limitations are in [DATA_REVIEW.md](DATA_REVIEW.md). SEC predictors remain excluded; original AAPL Company Facts integrity is unresolved.
 
 See `CLEANING_README.md` for execution instructions. Both target columns must be excluded from model input features for every task. The source's unresolved corporate-action and historical identity checks still apply.
+
+## Phase 6.2 recovery run — completed 2026-11-20
+
+The old Git-ignored Phase 3–5 generated package was not available on this
+computer. It was not replaced with an unverified table. For the inventory only,
+a separately named recovery dataset was rebuilt from the preserved Alpaca source
+and checked against a newly rebuilt Phase 4 protocol:
+
+- Dataset: `data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv`
+  — SHA-256 `3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f`.
+- Protocol: `reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json`
+  — SHA-256 `764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60`.
+- Inventory: `reports/model_evaluation/phase6_recovery_v1/feature_inventory.json`
+  and `.csv` — 14 approved market candidates and 42 explicitly excluded columns.
+
+Run the verified recovery inventory with:
+
+```powershell
+.\.venv-phase6\Scripts\python.exe -m src.model_training.feature_ablation.feature_inventory `
+  --recovery-dataset data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv `
+  --recovery-metadata data/processed/model_inputs/phase6_recovery_v1/dataset_metadata.json `
+  --recovery-protocol reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json `
+  --output-json reports/model_evaluation/phase6_recovery_v1/feature_inventory.json `
+  --output-csv reports/model_evaluation/phase6_recovery_v1/feature_inventory.csv
+```
+
+It checks the dataset, metadata and protocol hashes before it writes anything.
+The output identifies 3 momentum, 2 volatility, 5 downside/trend, 3
+market-relative and 1 volume candidate. It approves **no** fundamental features;
+the SEC readiness gate remains required. This is a completed feature inventory,
+not a new model result or a replacement for the unavailable old Phase 5 reports.

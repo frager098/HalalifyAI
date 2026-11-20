@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 from typing import Any
@@ -16,6 +17,10 @@ from src.model_training.feature_ablation.ablation_contract import (
     EXPECTED_FEATURE_ALLOWLIST,
     ContractMismatchError,
     build_ablation_contract_report,
+)
+from src.model_training.chronological_evaluation_protocol import (
+    build_protocol,
+    load_and_audit,
 )
 
 
@@ -187,6 +192,191 @@ def _load_json(path: Path, label: str) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ContractMismatchError(f"{label} must contain a JSON object")
     return value
+
+
+def _verified_recovery_inputs(
+    dataset_path: Path,
+    metadata_path: Path,
+    protocol_path: Path,
+) -> dict[str, Any]:
+    """Verify a rebuilt Phase 3/4 input set before inventorying features.
+
+    This path exists for a lost generated-evidence package.  It does not
+    replace the original frozen Phase 5 experiment: it proves only that the
+    supplied dataset and saved chronological protocol reproduce each other.
+    Phase 6.2 inventories inputs and does not fit or select a model.
+    """
+
+    dataset_path, metadata_path, protocol_path = map(
+        Path, (dataset_path, metadata_path, protocol_path)
+    )
+    if metadata_path.resolve() != dataset_path.with_name(
+        "dataset_metadata.json"
+    ).resolve():
+        raise ContractMismatchError(
+            "Recovery metadata must be dataset_metadata.json beside the dataset"
+        )
+    metadata = _load_json(metadata_path, "recovery dataset metadata")
+    if sha256(dataset_path) != metadata.get("output_sha256"):
+        raise ContractMismatchError(
+            "Recovery dataset checksum differs from its dataset_metadata.json"
+        )
+    saved_protocol = _load_json(protocol_path, "recovery chronological protocol")
+    if saved_protocol.get("dataset_sha256") != sha256(dataset_path):
+        raise ContractMismatchError(
+            "Recovery protocol was created for a different dataset"
+        )
+    frame, audited_metadata = load_and_audit(dataset_path)
+    if audited_metadata != metadata:
+        raise ContractMismatchError(
+            "Recovery dataset metadata changes during the Phase 4 audit"
+        )
+    if build_protocol(frame, metadata) != saved_protocol:
+        raise ContractMismatchError(
+            "Recovery protocol does not reproduce from the supplied dataset"
+        )
+    return {
+        "dataset": {"path": str(dataset_path), "sha256": sha256(dataset_path)},
+        "metadata": {"path": str(metadata_path), "sha256": sha256(metadata_path)},
+        "chronological_protocol": {
+            "path": str(protocol_path),
+            "sha256": sha256(protocol_path),
+        },
+    }
+
+
+def _build_inventory(
+    dataset_path: Path,
+    metadata_path: Path,
+    input_identities: dict[str, Any],
+    evidence_mode: str,
+) -> tuple[dict[str, Any], pd.DataFrame]:
+    """Classify every frozen dataset column and describe valid candidates."""
+
+    metadata = _load_json(metadata_path, "dataset metadata")
+    header = pd.read_csv(dataset_path, nrows=0).columns.tolist()
+    expected_columns = set(FEATURE_CATALOG) | set(EXCLUDED_COLUMNS)
+    if set(header) != expected_columns or len(header) != len(expected_columns):
+        missing = sorted(expected_columns - set(header))
+        unclassified = sorted(set(header) - expected_columns)
+        raise ContractMismatchError(
+            f"Dataset column inventory mismatch; missing={missing}, unclassified={unclassified}"
+        )
+    if list(FEATURE_CATALOG) != EXPECTED_FEATURE_ALLOWLIST:
+        raise ContractMismatchError("Feature catalog differs from the frozen allowlist")
+    if set(metadata["missingness"]) != set(header):
+        raise ContractMismatchError("Metadata missingness does not cover every dataset column")
+
+    values = pd.read_csv(dataset_path, usecols=["session_date", *FEATURE_CATALOG])
+    rows: list[dict[str, Any]] = []
+    for feature, definition in FEATURE_CATALOG.items():
+        available = values[feature].notna()
+        first = values.loc[available, "session_date"].min()
+        last = values.loc[available, "session_date"].max()
+        missing = int((~available).sum())
+        expected_first, expected_missing = EXPECTED_AVAILABILITY[feature]
+        if first != expected_first or missing != expected_missing:
+            raise ContractMismatchError(
+                f"{feature} availability mismatch: first={first}, missing={missing}"
+            )
+        if missing != metadata["missingness"][feature]:
+            raise ContractMismatchError(f"{feature} missingness differs from metadata")
+        rows.append(
+            {
+                "column": feature,
+                "status": "approved_market_candidate",
+                "group": definition["group"],
+                "formula": definition["formula"],
+                "lookback": definition["lookback"],
+                "source_inputs": ", ".join(definition["source_inputs"]),
+                "earliest_usable_date": first,
+                "latest_available_date": last,
+                "missing_rows": missing,
+                "missing_percent": round(100 * missing / len(values), 6),
+                "information_availability_rule": COMMON_AVAILABILITY_RULE,
+                "exclusion_reason": "",
+            }
+        )
+
+    for column in header:
+        if column in FEATURE_CATALOG:
+            continue
+        category, reason = EXCLUDED_COLUMNS[column]
+        rows.append(
+            {
+                "column": column,
+                "status": "excluded",
+                "group": category,
+                "formula": "",
+                "lookback": "",
+                "source_inputs": "",
+                "earliest_usable_date": "",
+                "latest_available_date": "",
+                "missing_rows": int(metadata["missingness"][column]),
+                "missing_percent": round(
+                    100 * metadata["missingness"][column] / metadata["rows"], 6
+                ),
+                "information_availability_rule": "Not eligible as a model input.",
+                "exclusion_reason": reason,
+            }
+        )
+
+    inventory = pd.DataFrame(rows)
+    groups = {
+        name: inventory.loc[
+            (inventory["status"] == "approved_market_candidate")
+            & (inventory["group"] == name),
+            "column",
+        ].tolist()
+        for name in (
+            "momentum",
+            "volatility",
+            "downside_trend",
+            "market_relative",
+            "volume",
+        )
+    }
+    groups["eligible_fundamentals"] = []
+    if sum(map(len, groups.values())) != len(FEATURE_CATALOG):
+        raise ContractMismatchError("An approved feature is missing from its Phase 6 group")
+
+    report = {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_2_feature_inventory",
+        "status": "verified",
+        "evidence_mode": evidence_mode,
+        "input_identities": input_identities,
+        "column_counts": {
+            "dataset_columns": len(header),
+            "approved_market_candidates": len(FEATURE_CATALOG),
+            "eligible_fundamentals": 0,
+            "excluded_columns": len(EXCLUDED_COLUMNS),
+        },
+        "groups": groups,
+        "fundamental_gate": (
+            "No fundamental column is present in this model-input dataset or approved "
+            "for Phase 6. Steps 6.10-6.11 must pass the separate SEC point-in-time "
+            "readiness gate before any fundamental can enter training."
+        ),
+        "availability_interpretation": (
+            "Earliest usable dates are the first non-missing observations in the "
+            "dataset, not evidence that every ticker is usable on that date."
+        ),
+        "feature_source": "src/feature_engineering/market_features.py",
+        "code_sha256": {
+            "src/model_training/feature_ablation/feature_inventory.py": sha256(__file__),
+            "src/feature_engineering/market_features.py": sha256(
+                "src/feature_engineering/market_features.py"
+            ),
+        },
+        "features": inventory.loc[
+            inventory["status"] == "approved_market_candidate"
+        ].to_dict(orient="records"),
+        "excluded": inventory.loc[inventory["status"] == "excluded"].to_dict(
+            orient="records"
+        ),
+    }
+    return report, inventory
 
 
 def same_inventory_content(saved: dict[str, Any], current: dict[str, Any]) -> bool:
@@ -384,3 +574,107 @@ def write_feature_inventory_report(
     json_path.write_text(json_text, encoding="utf-8")
     csv_path.write_text(csv_text, encoding="utf-8")
     return report, inventory
+
+
+def build_recovery_feature_inventory_report(
+    dataset_path: Path,
+    metadata_path: Path,
+    protocol_path: Path,
+) -> tuple[dict[str, Any], pd.DataFrame]:
+    """Build Phase 6.2 evidence from a newly rebuilt Phase 3/4 package.
+
+    The standard builder above remains the stricter route for the original
+    frozen Phase 5 package.  This recovery route is intentionally explicit:
+    it validates the rebuilt dataset against its own chronological protocol
+    and records that it does not recreate missing historical Phase 5 files.
+    """
+
+    input_identities = _verified_recovery_inputs(
+        Path(dataset_path), Path(metadata_path), Path(protocol_path)
+    )
+    return _build_inventory(
+        Path(dataset_path),
+        Path(metadata_path),
+        input_identities,
+        evidence_mode="reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable",
+    )
+
+
+def write_recovery_feature_inventory_report(
+    dataset_path: Path,
+    metadata_path: Path,
+    protocol_path: Path,
+    json_path: Path,
+    csv_path: Path,
+) -> tuple[dict[str, Any], pd.DataFrame]:
+    """Write recovery inventory evidence once, without overwriting a run."""
+
+    json_path, csv_path = Path(json_path), Path(csv_path)
+    report, inventory = build_recovery_feature_inventory_report(
+        dataset_path, metadata_path, protocol_path
+    )
+    json_text = json.dumps(report, indent=2) + "\n"
+    csv_text = inventory.to_csv(index=False, lineterminator="\n")
+    existing = [path for path in (json_path, csv_path) if path.exists()]
+    if existing:
+        if len(existing) != 2:
+            raise FileExistsError(
+                "Refusing to overwrite or silently repair incomplete Phase 6.2 recovery "
+                f"evidence; inspect the missing companion file: {existing}"
+            )
+        saved_report = _load_json(json_path, "Phase 6.2 recovery inventory")
+        saved_csv = csv_path.read_text(encoding="utf-8")
+        if not same_inventory_content(saved_report, report) or saved_csv != csv_text:
+            raise FileExistsError(
+                "Existing Phase 6.2 recovery content differs from current inputs; "
+                "choose a reviewed new version instead of overwriting it"
+            )
+        return saved_report, inventory
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    json_path.write_text(json_text, encoding="utf-8")
+    csv_path.write_text(csv_text, encoding="utf-8")
+    return report, inventory
+
+
+def main() -> None:
+    """Run either the original frozen route or an explicit recovery route."""
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--recovery-dataset", type=Path)
+    parser.add_argument("--recovery-metadata", type=Path)
+    parser.add_argument("--recovery-protocol", type=Path)
+    parser.add_argument("--output-json", type=Path)
+    parser.add_argument("--output-csv", type=Path)
+    args = parser.parse_args()
+    recovery_values = (
+        args.recovery_dataset,
+        args.recovery_metadata,
+        args.recovery_protocol,
+        args.output_json,
+        args.output_csv,
+    )
+    if any(value is not None for value in recovery_values):
+        if not all(value is not None for value in recovery_values):
+            parser.error("all --recovery-* and --output-* arguments are required together")
+        report, _ = write_recovery_feature_inventory_report(
+            args.recovery_dataset,
+            args.recovery_metadata,
+            args.recovery_protocol,
+            args.output_json,
+            args.output_csv,
+        )
+    else:
+        report, _ = write_feature_inventory_report()
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "approved_market_candidates": report["column_counts"]["approved_market_candidates"],
+                "excluded_columns": report["column_counts"]["excluded_columns"],
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

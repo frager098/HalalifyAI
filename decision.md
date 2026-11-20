@@ -646,3 +646,30 @@ no-overwrite behavior. The output writer reuses identical validation evidence
 and refuses changed evidence. Step 6.3 remains unchecked until the student
 runs the focused tests and notebook cell and reviews the output. No feature
 comparison results have been produced.
+
+## 2026-11-20 — Step 6.2 feature availability inventory completed
+
+The earlier Git-ignored generated Phase 3–5 package could not be found on this
+computer. We did not claim that it was available and did not use a different
+table under its old identity. A separate market-only recovery dataset was built
+from the preserved, verified Alpaca price source, followed by a fresh Phase 4
+chronological protocol. The inventory refuses to run unless the rebuilt dataset,
+its metadata and the saved protocol agree exactly.
+
+The recovery dataset is
+`data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv`
+(SHA-256 `3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f`).
+The matching protocol is
+`reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json`
+(SHA-256 `764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60`).
+The Step 6.2 inventory report under
+`reports/model_evaluation/phase6_recovery_v1/` classifies all 56 columns:
+14 approved market candidates (3 momentum, 2 volatility, 5 downside/trend,
+3 market-relative and 1 volume) and 42 excluded columns with stated reasons.
+No fundamental candidate is approved. SEC-based features remain outside training
+until the separate Phase 6.10 readiness gate passes.
+
+The report was reproduced twice with identical hashes. This establishes which
+columns can be considered in later Phase 6 ablations; it does not fit a model,
+choose a winning feature set, recreate unavailable old Phase 5 comparisons, or
+make a new accuracy claim.

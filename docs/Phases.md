@@ -159,14 +159,27 @@ is recorded rather than silently combined with later groups.
   reports `verified`, four folds, and 14 allowlisted features. Its SHA-256 is
   `9045d719c65119b3aecd911c4d1f3a546411bb42f1c71d15560d14fbe00ece91`.
 
-- [ ] **6.2 Inventory candidate features and availability.** Map every existing feature to momentum, volatility, downside/trend, market-relative, volume, or eligible fundamentals. Document formula, lookback, earliest usable date, missingness, and information-availability rule; reject targets, identifiers, future columns, and unapproved features. **Done when:** each candidate is either approved for a named group or excluded with a reason, and no feature uses information after date t.
+- [x] **6.2 Inventory candidate features and availability.** Map every existing feature to momentum, volatility, downside/trend, market-relative, volume, or eligible fundamentals. Document formula, lookback, earliest usable date, missingness, and information-availability rule; reject targets, identifiers, future columns, and unapproved features.
 
-  **Prepared for student execution:** The Step 6.2 cells in
-  `notebooks/feature_ablation_report.ipynb` call
-  `src/model_training/feature_ablation/feature_inventory.py` and write
-  `feature_inventory.json` plus `feature_inventory.csv` under the existing
-  `reports/model_evaluation/feature_ablation/v1/` directory. Step 6.2 remains
-  unchecked until those cells and focused tests are run and reviewed.
+  **Completed 2026-11-20 — separately versioned recovery evidence:** The old,
+  Git-ignored generated package used by the earlier Phase 5 work was unavailable
+  locally. It was not silently substituted. Instead, a new market-only Phase 3
+  dataset was rebuilt from the preserved verified Alpaca source, and its Phase 4
+  chronological protocol was independently rebuilt and checked before the
+  inventory ran. The resulting dataset is
+  `data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv`
+  (SHA-256 `3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f`).
+  The protocol is `reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json`
+  (SHA-256 `764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60`).
+
+  `reports/model_evaluation/phase6_recovery_v1/feature_inventory.json` and
+  `.csv` record all 56 dataset columns. Fourteen approved market candidates are
+  grouped as: 3 momentum, 2 volatility, 5 downside/trend, 3 market-relative
+  (including SPY), and 1 volume. The other 42 columns have an explicit exclusion
+  reason. No fundamental feature is approved: the SEC point-in-time gate in
+  Steps 6.10–6.11 has not passed. The inventory was rerun and reproduced with
+  identical file hashes. This completes the availability inventory only; it does
+  not recreate missing old Phase 5 model-comparison reports or select a model.
 - [ ] **6.3 Build and validate the ablation runner.** Extend reusable code under `src/` to evaluate one group at a time and in predeclared combinations. Require identical row keys for market groups, report any unavoidable coverage change, fit/tune inside each fold only, and refuse overwritten or incompatible artifacts. **Done when:** focused checks demonstrate allowlist enforcement, chronological isolation, training-only preprocessing/tuning, matched-row comparisons, and deterministic provenance.
 
   **Prepared for student execution:** `src/model_training/feature_ablation/ablation_runner.py`
