@@ -673,3 +673,17 @@ The report was reproduced twice with identical hashes. This establishes which
 columns can be considered in later Phase 6 ablations; it does not fit a model,
 choose a winning feature set, recreate unavailable old Phase 5 comparisons, or
 make a new accuracy claim.
+
+## 2026-11-20 — Step 6.3 recovery validation prepared
+
+The existing Phase 6.3 runner was written for the unavailable old Phase 3–5
+generated package. A separate recovery validation route now verifies the
+completed Phase 6.2 recovery dataset, metadata, chronological protocol, and
+feature inventory before it makes the 14 predeclared experiment plans visible.
+It records no model fitting and does not recreate Phase 5 results. The
+student-run entry point is `notebooks/phase6_recovery_validation.ipynb`; its
+local output is `reports/model_evaluation/phase6_recovery_v1/runner_validation.json`.
+
+This is preparation, not a feature-performance result. Step 6.3 remains open
+until the student runs the notebook, reviews the `validated` output, and checks
+that it lists 14 comparisons with `model_fitting_performed: false`.

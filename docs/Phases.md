@@ -185,10 +185,16 @@ is recorded rather than silently combined with later groups.
   **Prepared for student execution:** `src/model_training/feature_ablation/ablation_runner.py`
   provides one experiment per call, using the frozen inner/outer roles and
   recorded hyperparameter budgets. Its plan includes single groups, cumulative
-  additions, and leave-one-group-out references. The notebook writes a no-fit
-  validation plan to `reports/model_evaluation/feature_ablation/v1/runner_validation.json`.
-  The focused checks are in `tests/test_ablation_runner.py`. Step 6.3 remains
-  unchecked until the tests and notebook cell are run and reviewed.
+  additions, and leave-one-group-out references. Because the old Git-ignored
+  Phase 3–5 package is unavailable, the recovery validation uses the separately
+  named Phase 6.2 dataset and protocol. Run
+  `notebooks/phase6_recovery_validation.ipynb`; it writes the no-fit plan to
+  `reports/model_evaluation/phase6_recovery_v1/runner_validation.json`.
+  The focused checks are in `tests/test_ablation_runner.py`. This validation
+  checks 14 planned comparisons, matched-row rules, allowlisting, time order,
+  and output provenance. It does **not** recreate Phase 5 comparison results,
+  fit a model, or claim that any feature helps. Step 6.3 remains unchecked until
+  the student runs the notebook and reviews the generated report.
 
 ### Evaluate market feature groups
 

@@ -42,12 +42,30 @@ from src.model_training.feature_ablation.ablation_contract import (
 from src.model_training.feature_ablation.feature_inventory import (
     DEFAULT_INVENTORY_JSON,
     build_feature_inventory_report,
+    build_recovery_feature_inventory_report,
     same_inventory_content,
 )
 
 
 DEFAULT_RUN_PLAN = Path(
     "reports/model_evaluation/feature_ablation/v1/runner_validation.json"
+)
+DEFAULT_RECOVERY_DATASET = Path(
+    "data/processed/model_inputs/phase6_recovery_v1/"
+    "market_features_and_labels.csv"
+)
+DEFAULT_RECOVERY_METADATA = DEFAULT_RECOVERY_DATASET.with_name(
+    "dataset_metadata.json"
+)
+DEFAULT_RECOVERY_PROTOCOL = Path(
+    "reports/model_evaluation/phase6_recovery_v1/"
+    "chronological_evaluation_protocol.json"
+)
+DEFAULT_RECOVERY_INVENTORY = Path(
+    "reports/model_evaluation/phase6_recovery_v1/feature_inventory.json"
+)
+DEFAULT_RECOVERY_RUN_PLAN = Path(
+    "reports/model_evaluation/phase6_recovery_v1/runner_validation.json"
 )
 DEFAULT_GROUP_ORDER = (
     "momentum",
@@ -602,6 +620,96 @@ def write_runner_validation_report(
             raise FileExistsError(
                 "Existing runner validation differs from current inputs; "
                 "refusing to overwrite it"
+            )
+        return saved_report
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def build_recovery_runner_validation_report(
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Validate the recovery plan without fitting, tuning, or scoring a model.
+
+    The original Phase 5 generated evidence is unavailable in this checkout, so
+    this route deliberately validates only the separately versioned Phase 3/4
+    recovery inputs and the verified Step 6.2 inventory. It is not a substitute
+    for old Phase 5 results and it does not make a feature-performance claim.
+    """
+
+    dataset_path, metadata_path, protocol_path, inventory_path = map(
+        Path, (dataset_path, metadata_path, protocol_path, inventory_path)
+    )
+    inventory = _read_json(inventory_path, "recovery Phase 6.2 feature inventory")
+    rebuilt_inventory, _ = build_recovery_feature_inventory_report(
+        dataset_path, metadata_path, protocol_path
+    )
+    if not same_inventory_content(inventory, rebuilt_inventory):
+        raise AblationContractError(
+            "Recovery Phase 6.2 inventory differs from its dataset or protocol"
+        )
+    if inventory.get("evidence_mode") != (
+        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
+    ):
+        raise AblationContractError("Recovery inventory has an unexpected evidence mode")
+
+    plan = build_experiment_plan(inventory)
+    return {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_3_runner_validation",
+        "status": "validated",
+        "evidence_mode": inventory["evidence_mode"],
+        "input_identities": {
+            **rebuilt_inventory["input_identities"],
+            "inventory": {"path": str(inventory_path), "sha256": sha256(inventory_path)},
+        },
+        "runner_code_sha256": sha256(__file__),
+        "groups": list(DEFAULT_GROUP_ORDER),
+        "planned_experiments": plan,
+        "tasks": ["return", "risk"],
+        "estimators": ["LogisticRegression", "HistGradientBoosting"],
+        "selection_and_leakage_rules": [
+            "The rebuilt Phase 4 protocol must exactly match the recovery dataset.",
+            "Task labels and fold-specific risk cutoffs stay separate.",
+            "Future outcomes, identifiers, and unapproved fundamentals cannot become inputs.",
+            "Later tuning uses inner validation only; final fitting uses outer training only.",
+            "Every later feature set must use matched task-specific rows and a new output path.",
+        ],
+        "phase_5_comparison_recreated": False,
+        "model_fitting_performed": False,
+        "next_step": (
+            "This validates the runner design only. Run market-group comparisons in "
+            "Steps 6.4-6.8 after reviewing this report; do not use this plan as a "
+            "model-performance result."
+        ),
+    }
+
+
+def write_recovery_runner_validation_report(
+    output_path: Path = DEFAULT_RECOVERY_RUN_PLAN,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Write one recovery validation report and refuse differing replacement."""
+
+    output_path = Path(output_path)
+    report = build_recovery_runner_validation_report(
+        dataset_path, metadata_path, protocol_path, inventory_path
+    )
+    if output_path.exists():
+        saved_report = _read_json(output_path, "existing recovery runner validation")
+        if saved_report != report:
+            raise FileExistsError(
+                "Existing recovery runner validation differs from current inputs; "
+                "choose a reviewed new version instead of overwriting it"
             )
         return saved_report
     output_path.parent.mkdir(parents=True, exist_ok=True)

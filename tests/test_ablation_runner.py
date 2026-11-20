@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import sys
 
@@ -17,6 +18,7 @@ from src.model_training.feature_ablation.ablation_runner import (
     tune_on_inner_validation,
     write_ablation_experiment,
 )
+import src.model_training.feature_ablation.ablation_runner as ablation_runner
 from src.model_training.feature_ablation.feature_inventory import FEATURE_CATALOG
 
 
@@ -203,6 +205,45 @@ def test_tuning_receives_only_inner_rows_and_uses_primary_metric(monkeypatch):
     assert selected == {"C": 1}
     assert candidates[0]["primary_score"] > candidates[1]["primary_score"]
     assert fit_calls == [(3, 3, 6), (3, 3, 6)]
+
+
+def test_recovery_validation_creates_a_no_fit_plan(monkeypatch, tmp_path, inventory_report):
+    """The recovery route may validate a plan but must not train a model."""
+
+    inventory = {
+        **inventory_report,
+        "evidence_mode": (
+            "reconstructed_phase_3_and_4_inputs; "
+            "original_phase_5_reports_unavailable"
+        ),
+        "input_identities": {
+            "dataset": {"path": "recovery.csv", "sha256": "dataset-hash"},
+            "metadata": {"path": "metadata.json", "sha256": "metadata-hash"},
+            "chronological_protocol": {
+                "path": "protocol.json",
+                "sha256": "protocol-hash",
+            },
+        },
+    }
+    inventory_path = tmp_path / "feature_inventory.json"
+    inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
+
+    monkeypatch.setattr(
+        ablation_runner,
+        "build_recovery_feature_inventory_report",
+        lambda *_: (inventory, pd.DataFrame()),
+    )
+    report = ablation_runner.build_recovery_runner_validation_report(
+        tmp_path / "market_features_and_labels.csv",
+        tmp_path / "dataset_metadata.json",
+        tmp_path / "chronological_evaluation_protocol.json",
+        inventory_path,
+    )
+
+    assert report["status"] == "validated"
+    assert report["model_fitting_performed"] is False
+    assert report["phase_5_comparison_recreated"] is False
+    assert len(report["planned_experiments"]) == 14
 
 
 if __name__ == "__main__":

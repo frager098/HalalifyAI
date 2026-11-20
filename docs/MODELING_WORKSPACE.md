@@ -44,3 +44,27 @@ The output identifies 3 momentum, 2 volatility, 5 downside/trend, 3
 market-relative and 1 volume candidate. It approves **no** fundamental features;
 the SEC readiness gate remains required. This is a completed feature inventory,
 not a new model result or a replacement for the unavailable old Phase 5 reports.
+
+## Phase 6.3 recovery validation — student run required
+
+Open `notebooks/phase6_recovery_validation.ipynb` in VS Code or Jupyter and
+run its cells in order. It reads the completed Phase 6.2 recovery dataset,
+metadata, time-based protocol, and feature inventory. It writes:
+
+`reports/model_evaluation/phase6_recovery_v1/runner_validation.json`
+
+A successful result says `validated`, lists 14 planned comparisons, and says
+`model_fitting_performed: false`. This means the later comparison runner has
+checked its safety rules: only approved inputs, the same ticker/date rows for a
+comparison, training-only tuning, and time order. It is **not** a model result;
+it cannot say that a feature improved return or risk prediction.
+
+Before the notebook, run this focused code check from the repository root:
+
+```powershell
+.\.venv-phase6\Scripts\python.exe -m pytest -q tests\test_ablation_runner.py
+```
+
+The test should pass. The generated validation report remains local because it
+is reproducible evidence; the notebook, reusable runner, tests, and this
+instruction are committed for teammates.
