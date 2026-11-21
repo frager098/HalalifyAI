@@ -684,6 +684,16 @@ It records no model fitting and does not recreate Phase 5 results. The
 student-run entry point is `notebooks/phase6_recovery_validation.ipynb`; its
 local output is `reports/model_evaluation/phase6_recovery_v1/runner_validation.json`.
 
-This is preparation, not a feature-performance result. Step 6.3 remains open
-until the student runs the notebook, reviews the `validated` output, and checks
-that it lists 14 comparisons with `model_fitting_performed: false`.
+## 2026-11-21 — Step 6.3 recovery validation completed
+
+The student ran `notebooks/phase6_recovery_validation.ipynb` locally. The
+generated `reports/model_evaluation/phase6_recovery_v1/runner_validation.json`
+reports `status: validated`, 14 planned comparisons, the separate `return` and
+`risk` tasks, and `model_fitting_performed: false`. Its SHA-256 is
+`6b73ce25cf9a7362fe850f5a8aa4aad32b947175deb5268405c97b3c1418e27`.
+The eight focused `tests/test_ablation_runner.py` checks passed.
+
+This completes the technical runner-validation gate. It is not a
+feature-performance result: no model was trained, no feature was retained or
+rejected, and no new accuracy claim was made. The next work is the controlled
+group experiments in Steps 6.4–6.8.

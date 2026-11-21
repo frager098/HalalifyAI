@@ -180,7 +180,7 @@ is recorded rather than silently combined with later groups.
   Steps 6.10–6.11 has not passed. The inventory was rerun and reproduced with
   identical file hashes. This completes the availability inventory only; it does
   not recreate missing old Phase 5 model-comparison reports or select a model.
-- [ ] **6.3 Build and validate the ablation runner.** Extend reusable code under `src/` to evaluate one group at a time and in predeclared combinations. Require identical row keys for market groups, report any unavoidable coverage change, fit/tune inside each fold only, and refuse overwritten or incompatible artifacts. **Done when:** focused checks demonstrate allowlist enforcement, chronological isolation, training-only preprocessing/tuning, matched-row comparisons, and deterministic provenance.
+- [x] **6.3 Build and validate the ablation runner.** Extend reusable code under `src/` to evaluate one group at a time and in predeclared combinations. Require identical row keys for market groups, report any unavoidable coverage change, fit/tune inside each fold only, and refuse overwritten or incompatible artifacts.
 
   **Prepared for student execution:** `src/model_training/feature_ablation/ablation_runner.py`
   provides one experiment per call, using the frozen inner/outer roles and
@@ -193,8 +193,16 @@ is recorded rather than silently combined with later groups.
   The focused checks are in `tests/test_ablation_runner.py`. This validation
   checks 14 planned comparisons, matched-row rules, allowlisting, time order,
   and output provenance. It does **not** recreate Phase 5 comparison results,
-  fit a model, or claim that any feature helps. Step 6.3 remains unchecked until
-  the student runs the notebook and reviews the generated report.
+  fit a model, or claim that any feature helps.
+
+  **Completed 2026-11-21:** The student ran the notebook successfully. Its local
+  `runner_validation.json` reports `validated`, 14 planned comparisons, return
+  and risk tasks, both predeclared estimators, and `model_fitting_performed:
+  false`. The report SHA-256 is
+  `6b73ce25cf9a7362fe850f5a8aa4aad32b947175deb5268405c97b3c1418e27`.
+  The focused runner checks also passed (8 tests). The runner is ready for the
+  controlled group experiments in Steps 6.4–6.8; it has not produced a feature
+  performance or accuracy result.
 
 ### Evaluate market feature groups
 

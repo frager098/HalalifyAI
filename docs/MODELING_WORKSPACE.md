@@ -45,7 +45,7 @@ market-relative and 1 volume candidate. It approves **no** fundamental features;
 the SEC readiness gate remains required. This is a completed feature inventory,
 not a new model result or a replacement for the unavailable old Phase 5 reports.
 
-## Phase 6.3 recovery validation — student run required
+## Phase 6.3 recovery validation — completed 2026-11-21
 
 Open `notebooks/phase6_recovery_validation.ipynb` in VS Code or Jupyter and
 run its cells in order. It reads the completed Phase 6.2 recovery dataset,
@@ -65,6 +65,11 @@ Before the notebook, run this focused code check from the repository root:
 .\.venv\Scripts\python.exe -m pytest -q tests\test_ablation_runner.py
 ```
 
-The test should pass. The generated validation report remains local because it
-is reproducible evidence; the notebook, reusable runner, tests, and this
-instruction are committed for teammates.
+The test passed: 8 focused checks completed successfully. The student then ran
+the notebook, which created a `validated` local report with 14 planned
+comparisons and `model_fitting_performed: false`. Its SHA-256 is
+`6b73ce25cf9a7362fe850f5a8aa4aad32b947175deb5268405c97b3c1418e27`.
+The generated validation report remains local because it is reproducible
+evidence; the notebook, reusable runner, tests, and this instruction are
+committed for teammates. This validates the runner only; Steps 6.4–6.8 are
+where actual feature-comparison results will be generated.
