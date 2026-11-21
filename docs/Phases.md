@@ -206,7 +206,7 @@ is recorded rather than silently combined with later groups.
 
 ### Evaluate market feature groups
 
-- [ ] **6.4 Evaluate momentum features.** Test the approved trailing momentum columns against the task baseline and a feature-excluded reference while holding all other experimental choices fixed. **Done when:** return and risk fold metrics, coverage, uncertainty, and failure cases are reviewed and the group is marked retain, reject, or inconclusive per task.
+- [x] **6.4 Evaluate momentum features.** Test the approved trailing momentum columns against the task baseline and a feature-excluded reference while holding all other experimental choices fixed. **Done when:** return and risk fold metrics, coverage, uncertainty, and failure cases are reviewed and the group is marked retain, reject, or inconclusive per task.
 
   **Prepared for student execution:** `notebooks/phase6_momentum_ablation.ipynb`
   runs one paired, predeclared comparison using the verified Phase 6.2 recovery
@@ -219,8 +219,18 @@ is recorded rather than silently combined with later groups.
   difference and improvement in at least three of four folds; reject requires a
   nonpositive mean and at least three nonpositive folds; otherwise the outcome
   is inconclusive. For risk, a primary gain is not retained if High-risk recall
-  falls or High outcomes predicted Low increase. This is prepared code, not
-  completed evidence, until the student runs and reviews it.
+  falls or High outcomes predicted Low increase.
+
+  **Completed 2026-11-22:** The student ran the notebook successfully. Return
+  rejects momentum: the mean same-date rank-correlation difference was
+  `-0.00621`, and momentum helped in only one of four folds. Risk is
+  inconclusive: its mean macro-F1 difference was `+0.00418`, with two improving
+  and two worsening folds. Its safety checks improved (mean High-risk recall
+  difference `+0.01085`; 100 fewer High-predicted-Low errors), but the gain was
+  not stable enough to retain the group. The matched row keys and coverage were
+  identical in every pair. Local evidence is
+  `reports/model_evaluation/phase6_recovery_v1/momentum_ablation/`; the summary
+  SHA-256 is `74062c9f29bec20b553a15d63d4e7ebe6e224541c61555f64af072bc5f46b8347`.
 - [ ] **6.5 Evaluate volatility features.** Repeat the controlled comparison for trailing volatility features, preserving fold-specific risk cutoffs and keeping future realized volatility out of the inputs. **Done when:** risk underestimation errors, return ordering, fold variation, and the keep/reject decision are recorded.
 - [ ] **6.6 Evaluate downside and trend features.** Test return, moving-average ratio, downside-deviation, and trailing-drawdown inputs as an approved group; distinguish related features without treating their count as independent evidence. **Done when:** matched ablations and a per-task decision are reviewed.
 - [ ] **6.7 Evaluate market-relative features.** Test SPY momentum, excess momentum, and trailing beta only after confirming SPY values are available on or before each stock date. **Done when:** benchmark alignment, missingness, matched fold results, and a per-task decision are reviewed.

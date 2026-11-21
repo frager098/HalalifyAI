@@ -90,4 +90,15 @@ It contains four fold-result JSON files and `momentum_ablation_summary.json`.
 The summary displays whether momentum is **retain**, **reject**, or
 **inconclusive** for each task. `retain` does not mean a final investment model
 is approved; it only means momentum helped this controlled development
-comparison. Keep the generated reports local until they have been reviewed.
+comparison.
+
+### Completed result — 2026-11-22
+
+The student-run evidence summary has SHA-256
+`74062c9f29bec20b553a15d63d4e7ebe6e224541c61555f64af072bc5f46b8347`.
+Momentum is **rejected for return**: it improved only one of four folds and
+reduced the mean same-date ranking score by 0.00621. Momentum is
+**inconclusive for risk**: macro F1 increased by 0.00418 on average and risk
+safety checks improved, but only two of four folds improved. All four paired
+comparisons used identical rows and dates. These are development findings, not
+untouched-test, portfolio, or trading results.

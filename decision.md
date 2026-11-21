@@ -720,3 +720,33 @@ report remains local and Step 6.4 stays incomplete until the student runs the
 notebook and reviews its fold results, coverage and failure cases. It does not
 recreate unavailable original Phase 5 generated reports or establish an
 untouched-test, portfolio, or trading result.
+
+## 2026-11-22 — Step 6.4 momentum comparison completed
+
+The student ran `notebooks/phase6_momentum_ablation.ipynb` locally. The
+generated summary is at
+`reports/model_evaluation/phase6_recovery_v1/momentum_ablation/momentum_ablation_summary.json`
+with SHA-256
+`74062c9f29bec20b553a15d63d4e7ebe6e224541c61555f64af072bc5f46b8347`.
+It compared all 14 approved market features against the same feature set without
+the three momentum columns, using HistGradientBoosting, four time-based folds,
+and the exact same task-specific rows in each paired comparison.
+
+**Return decision: reject momentum.** The mean same-date rank-correlation score
+was 0.00413 with momentum and 0.01033 without it: a mean difference of -0.00621.
+Momentum helped only fold 2 and was worse in folds 1, 3, and 4. The predefined
+reject rule therefore applies.
+
+**Risk decision: inconclusive.** Mean macro F1 was 0.56665 with momentum and
+0.56248 without it: a small +0.00418 difference. It improved folds 2 and 3 but
+worsened folds 1 and 4, so it did not satisfy the three-of-four retain rule.
+The risk guardrails improved rather than deteriorated: mean High-risk recall
+increased by 0.01085 and the total count of High outcomes predicted Low fell by
+100. This makes momentum a possible later research candidate for risk, but not
+an approved retained feature group.
+
+These conclusions are controlled development evidence from the separately
+versioned recovery dataset. They do not recreate unavailable original Phase 5
+reports and are not untouched-test, portfolio, or trading evidence. Step 6.4 is
+complete; later group experiments must retain the same time-order, matched-row,
+and outcome-separation safeguards.
