@@ -31,7 +31,7 @@ and checked against a newly rebuilt Phase 4 protocol:
 Run the verified recovery inventory with:
 
 ```powershell
-.\.venv-phase6\Scripts\python.exe -m src.model_training.feature_ablation.feature_inventory `
+.\.venv\Scripts\python.exe -m src.model_training.feature_ablation.feature_inventory `
   --recovery-dataset data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv `
   --recovery-metadata data/processed/model_inputs/phase6_recovery_v1/dataset_metadata.json `
   --recovery-protocol reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json `
@@ -62,7 +62,7 @@ it cannot say that a feature improved return or risk prediction.
 Before the notebook, run this focused code check from the repository root:
 
 ```powershell
-.\.venv-phase6\Scripts\python.exe -m pytest -q tests\test_ablation_runner.py
+.\.venv\Scripts\python.exe -m pytest -q tests\test_ablation_runner.py
 ```
 
 The test should pass. The generated validation report remains local because it
