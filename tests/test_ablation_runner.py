@@ -275,6 +275,38 @@ def test_momentum_risk_decision_respects_safety_guardrails():
     ) == "inconclusive"
 
 
+def test_volatility_summary_rejects_consistently_worse_return_results():
+    def run(experiment, scores):
+        return {
+            "task": "return",
+            "estimator": "HistGradientBoosting",
+            "experiment": {"name": experiment},
+            "folds": [
+                {
+                    "fold": number,
+                    "outer_training_rows": 10,
+                    "outer_evaluation_rows": 5,
+                    "outer_training_keys_sha256": f"train-{number}",
+                    "outer_evaluation_keys_sha256": f"eval-{number}",
+                    "outer_first": f"202{number}-01-01",
+                    "outer_last": f"202{number}-02-01",
+                    "metrics": {"mean_daily_spearman": score},
+                }
+                for number, score in enumerate(scores, start=1)
+            ],
+        }
+
+    summary = ablation_runner.summarize_volatility_comparison(
+        "return",
+        run("full", [0.01, 0.00, 0.02, 0.01]),
+        run("without_volatility", [0.02, 0.01, 0.03, 0.02]),
+    )
+
+    assert summary["decision"] == "reject"
+    assert summary["positive_fold_count"] == 0
+    assert summary["nonpositive_fold_count"] == 4
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
 

@@ -102,3 +102,20 @@ reduced the mean same-date ranking score by 0.00621. Momentum is
 safety checks improved, but only two of four folds improved. All four paired
 comparisons used identical rows and dates. These are development findings, not
 untouched-test, portfolio, or trading results.
+
+## Phase 6.5 volatility comparison — prepared for student execution
+
+Select the repository `.venv` kernel, then run
+`notebooks/phase6_volatility_ablation.ipynb` from top to bottom. This compares
+all approved market features with the same feature set excluding the two
+trailing-volatility inputs. It evaluates return ordering and risk classification
+separately using the same four chronological folds.
+
+The notebook creates this new local folder and refuses to overwrite it:
+
+`reports/model_evaluation/phase6_recovery_v1/volatility_ablation/`
+
+It produces four fold-result JSON files and `volatility_ablation_summary.json`.
+The risk summary includes both High-risk recall and the severe error where a
+High-risk outcome was predicted Low. No result is final until the generated
+summary has been reviewed.

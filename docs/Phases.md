@@ -232,6 +232,22 @@ is recorded rather than silently combined with later groups.
   `reports/model_evaluation/phase6_recovery_v1/momentum_ablation/`; the summary
   SHA-256 is `74062c9f29bec20b553a15d63d4e7ebe6e224541c61555f64af072bc5f46b8347`.
 - [ ] **6.5 Evaluate volatility features.** Repeat the controlled comparison for trailing volatility features, preserving fold-specific risk cutoffs and keeping future realized volatility out of the inputs. **Done when:** risk underestimation errors, return ordering, fold variation, and the keep/reject decision are recorded.
+
+  **Prepared for student execution:** `notebooks/phase6_volatility_ablation.ipynb`
+  compares all 14 approved market columns with the same 12 columns excluding
+  `volatility_20d` and `volatility_60d`. It uses HistGradientBoosting, the
+  saved inner-only tuning budget, and the same four chronological folds for
+  both return and risk. The later future-volatility label remains an outcome,
+  not an input. The run writes a new-only local package under
+  `reports/model_evaluation/phase6_recovery_v1/volatility_ablation/`.
+
+  The result rule is fixed before fitting: retain requires a positive mean
+  primary-metric difference and improvement in at least three of four folds;
+  reject requires a nonpositive mean and at least three nonpositive folds;
+  otherwise mark it inconclusive. For risk, a primary gain is not retained if
+  High-risk recall falls or the total number of High outcomes predicted Low
+  rises. This is prepared code, not completed evidence, until the student runs
+  and reviews the notebook.
 - [ ] **6.6 Evaluate downside and trend features.** Test return, moving-average ratio, downside-deviation, and trailing-drawdown inputs as an approved group; distinguish related features without treating their count as independent evidence. **Done when:** matched ablations and a per-task decision are reviewed.
 - [ ] **6.7 Evaluate market-relative features.** Test SPY momentum, excess momentum, and trailing beta only after confirming SPY values are available on or before each stock date. **Done when:** benchmark alignment, missingness, matched fold results, and a per-task decision are reviewed.
 - [ ] **6.8 Evaluate volume features.** Test the point-in-time trailing volume ratio while retaining the documented Alpaca feed limitation and avoiding claims about consolidated market volume. **Done when:** its incremental contribution, stability, and limitation are recorded.
