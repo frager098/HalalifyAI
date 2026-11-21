@@ -73,3 +73,21 @@ The generated validation report remains local because it is reproducible
 evidence; the notebook, reusable runner, tests, and this instruction are
 committed for teammates. This validates the runner only; Steps 6.4–6.8 are
 where actual feature-comparison results will be generated.
+
+## Phase 6.4 momentum comparison — prepared for student execution
+
+Select the repository `.venv` kernel, then open and run
+`notebooks/phase6_momentum_ablation.ipynb` from top to bottom. It performs the
+first actual feature comparison: full approved market features versus the same
+features without momentum. It runs return and risk separately, with the same
+four chronological folds and inner-only tuning for both.
+
+The run creates this local folder (it will refuse to overwrite it):
+
+`reports/model_evaluation/phase6_recovery_v1/momentum_ablation/`
+
+It contains four fold-result JSON files and `momentum_ablation_summary.json`.
+The summary displays whether momentum is **retain**, **reject**, or
+**inconclusive** for each task. `retain` does not mean a final investment model
+is approved; it only means momentum helped this controlled development
+comparison. Keep the generated reports local until they have been reviewed.

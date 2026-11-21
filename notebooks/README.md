@@ -7,6 +7,12 @@
 - `phase6_recovery_validation.ipynb` is the student-run recovery notebook for
   Phase 6.3. It validates the verified Phase 6.2 recovery inputs and writes a
   no-model-fitting comparison plan. It does not create performance results.
+- `phase6_momentum_ablation.ipynb` is the student-run Phase 6.4 notebook. It
+  fits the predeclared HistGradientBoosting comparison for the full allowed
+  market feature set versus the same set without momentum, separately for
+  return and risk. It writes new local evidence under
+  `reports/model_evaluation/phase6_recovery_v1/momentum_ablation/` and refuses
+  to overwrite an existing result.
 - `legacy/` contains earlier baseline, Colab, and embedded data-cleaning
   notebooks retained for historical comparison.
 

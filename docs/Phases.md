@@ -207,6 +207,20 @@ is recorded rather than silently combined with later groups.
 ### Evaluate market feature groups
 
 - [ ] **6.4 Evaluate momentum features.** Test the approved trailing momentum columns against the task baseline and a feature-excluded reference while holding all other experimental choices fixed. **Done when:** return and risk fold metrics, coverage, uncertainty, and failure cases are reviewed and the group is marked retain, reject, or inconclusive per task.
+
+  **Prepared for student execution:** `notebooks/phase6_momentum_ablation.ipynb`
+  runs one paired, predeclared comparison using the verified Phase 6.2 recovery
+  inputs: all 14 allowed market columns versus the same 11 non-momentum columns.
+  It uses HistGradientBoosting, the recorded inner-only tuning budget, and the
+  same four chronological folds for both return and risk. It writes a new-only
+  local package under
+  `reports/model_evaluation/phase6_recovery_v1/momentum_ablation/`. The rule is
+  fixed before results: retain requires a positive mean primary-metric
+  difference and improvement in at least three of four folds; reject requires a
+  nonpositive mean and at least three nonpositive folds; otherwise the outcome
+  is inconclusive. For risk, a primary gain is not retained if High-risk recall
+  falls or High outcomes predicted Low increase. This is prepared code, not
+  completed evidence, until the student runs and reviews it.
 - [ ] **6.5 Evaluate volatility features.** Repeat the controlled comparison for trailing volatility features, preserving fold-specific risk cutoffs and keeping future realized volatility out of the inputs. **Done when:** risk underestimation errors, return ordering, fold variation, and the keep/reject decision are recorded.
 - [ ] **6.6 Evaluate downside and trend features.** Test return, moving-average ratio, downside-deviation, and trailing-drawdown inputs as an approved group; distinguish related features without treating their count as independent evidence. **Done when:** matched ablations and a per-task decision are reviewed.
 - [ ] **6.7 Evaluate market-relative features.** Test SPY momentum, excess momentum, and trailing beta only after confirming SPY values are available on or before each stock date. **Done when:** benchmark alignment, missingness, matched fold results, and a per-task decision are reviewed.

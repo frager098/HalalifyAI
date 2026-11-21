@@ -246,6 +246,35 @@ def test_recovery_validation_creates_a_no_fit_plan(monkeypatch, tmp_path, invent
     assert len(report["planned_experiments"]) == 14
 
 
+def test_momentum_decision_requires_consistent_return_improvement():
+    assert ablation_runner._momentum_decision(
+        "return", 0.02, [0.01, 0.02, 0.03, -0.01]
+    ) == "retain"
+    assert ablation_runner._momentum_decision(
+        "return", -0.01, [-0.02, 0.01, -0.01, 0.0]
+    ) == "reject"
+    assert ablation_runner._momentum_decision(
+        "return", 0.01, [0.03, -0.02, -0.01, 0.04]
+    ) == "inconclusive"
+
+
+def test_momentum_risk_decision_respects_safety_guardrails():
+    assert ablation_runner._momentum_decision(
+        "risk",
+        0.02,
+        [0.01, 0.02, 0.03, -0.01],
+        mean_high_recall_difference=0.01,
+        high_to_low_difference=0,
+    ) == "retain"
+    assert ablation_runner._momentum_decision(
+        "risk",
+        0.02,
+        [0.01, 0.02, 0.03, -0.01],
+        mean_high_recall_difference=-0.01,
+        high_to_low_difference=0,
+    ) == "inconclusive"
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
 

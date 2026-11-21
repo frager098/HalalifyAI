@@ -697,3 +697,26 @@ This completes the technical runner-validation gate. It is not a
 feature-performance result: no model was trained, no feature was retained or
 rejected, and no new accuracy claim was made. The next work is the controlled
 group experiments in Steps 6.4–6.8.
+
+## 2026-11-21 — Step 6.4 momentum comparison prepared
+
+The first actual Phase 6 feature experiment is now specified before fitting.
+`notebooks/phase6_momentum_ablation.ipynb` calls the reusable recovery runner
+to compare the 14 approved market columns with the same set excluding the three
+momentum columns. It uses the saved Phase 6.2 recovery dataset and rebuilt
+chronological protocol, HistGradientBoosting, the existing inner-only tuning
+budget, and the four development folds. Return and risk remain separate tasks.
+
+The decision rule is fixed before seeing results. For each task, retain momentum
+only when the full feature set has a positive mean primary-metric difference and
+improves at least three of four folds; reject it when the mean is nonpositive
+and at least three folds are nonpositive; otherwise call it inconclusive. The
+return primary metric is same-date mean Spearman ranking correlation. The risk
+primary metric is macro F1, with guardrails: a primary gain cannot be retained
+if High-risk recall falls or High outcomes predicted Low increase.
+
+This is a prepared execution plan, not an experiment result. The generated
+report remains local and Step 6.4 stays incomplete until the student runs the
+notebook and reviews its fold results, coverage and failure cases. It does not
+recreate unavailable original Phase 5 generated reports or establish an
+untouched-test, portfolio, or trading result.

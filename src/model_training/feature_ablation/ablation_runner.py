@@ -34,6 +34,8 @@ from src.model_training.chronological_evaluation_protocol import (
     _hash_keys,
     apply_risk_boundaries,
     assert_fold,
+    build_protocol,
+    load_and_audit,
 )
 from src.model_training.feature_ablation.ablation_contract import (
     DEFAULT_OUTPUT as DEFAULT_CONTRACT,
@@ -66,6 +68,13 @@ DEFAULT_RECOVERY_INVENTORY = Path(
 )
 DEFAULT_RECOVERY_RUN_PLAN = Path(
     "reports/model_evaluation/phase6_recovery_v1/runner_validation.json"
+)
+DEFAULT_RECOVERY_MOMENTUM_OUTPUT = Path(
+    "reports/model_evaluation/phase6_recovery_v1/momentum_ablation"
+)
+RECOVERY_MOMENTUM_EXPERIMENTS = (
+    "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
+    "without_momentum",
 )
 DEFAULT_GROUP_ORDER = (
     "momentum",
@@ -714,6 +723,368 @@ def write_recovery_runner_validation_report(
         return saved_report
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def _recovery_context(
+    dataset_path: Path,
+    metadata_path: Path,
+    protocol_path: Path,
+    inventory_path: Path,
+) -> tuple[pd.DataFrame, dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Load and independently re-check the separately versioned recovery inputs."""
+
+    dataset_path, metadata_path, protocol_path, inventory_path = map(
+        Path, (dataset_path, metadata_path, protocol_path, inventory_path)
+    )
+    frame, metadata = load_and_audit(dataset_path)
+    saved_metadata = _read_json(metadata_path, "recovery dataset metadata")
+    if saved_metadata != metadata:
+        raise AblationContractError("Recovery dataset metadata differs from the audited data")
+    protocol = _read_json(protocol_path, "recovery chronological protocol")
+    if protocol.get("dataset_sha256") != sha256(dataset_path):
+        raise AblationContractError("Recovery protocol refers to another dataset")
+    if build_protocol(frame, metadata) != protocol:
+        raise AblationContractError("Recovery protocol differs from reconstructed folds")
+    inventory = _read_json(inventory_path, "recovery Phase 6.2 feature inventory")
+    rebuilt_inventory, _ = build_recovery_feature_inventory_report(
+        dataset_path, metadata_path, protocol_path
+    )
+    if not same_inventory_content(inventory, rebuilt_inventory):
+        raise AblationContractError(
+            "Recovery Phase 6.2 inventory differs from its dataset or protocol"
+        )
+    if inventory.get("evidence_mode") != (
+        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
+    ):
+        raise AblationContractError("Recovery inventory has an unexpected evidence mode")
+    return frame, protocol, inventory, rebuilt_inventory
+
+
+def run_recovery_ablation_experiment(
+    task: str,
+    estimator: str,
+    experiment_name: str,
+    *,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Fit one verified recovery ablation using inner-only tuning.
+
+    This deliberately uses the separately named Phase 6.2 recovery evidence.
+    It does not assert that unavailable original Phase 5 generated reports have
+    been recreated.
+    """
+
+    if task not in {"return", "risk"}:
+        raise AblationContractError("Task must be 'return' or 'risk'")
+    frame, protocol, inventory, rebuilt_inventory = _recovery_context(
+        dataset_path, metadata_path, protocol_path, inventory_path
+    )
+    selected = [
+        item
+        for item in build_experiment_plan(inventory)
+        if item["name"] == experiment_name
+    ]
+    if len(selected) != 1:
+        raise AblationContractError(f"Unknown predeclared experiment: {experiment_name}")
+    experiment = selected[0]
+    parameter_grid = _parameters(protocol, estimator)
+    fold_results = []
+
+    for fold in protocol["folds"]:
+        try:
+            inner_train, inner_evaluation = fold_roles(frame, fold, task, "inner")
+            outer_train, outer_evaluation = fold_roles(frame, fold, task, "outer")
+        except ValueError as exc:
+            raise AblationContractError(str(exc)) from exc
+        assert_fold(inner_train, inner_evaluation, fold["inner_first"])
+        assert_fold(outer_train, outer_evaluation, fold["outer_first"])
+        for role, train, evaluation in (
+            ("inner", inner_train, inner_evaluation),
+            ("outer", outer_train, outer_evaluation),
+        ):
+            saved = fold["tasks"][task][role]
+            if (
+                len(train) != saved["train_rows"]
+                or _hash_keys(train) != saved["train_keys_sha256"]
+                or len(evaluation) != saved["evaluation_rows"]
+                or _hash_keys(evaluation) != saved["evaluation_keys_sha256"]
+            ):
+                raise AblationContractError("Fold rows differ from the recovery protocol")
+
+        x_inner_train, x_inner_evaluation = select_matched_features(
+            inner_train, inner_evaluation, experiment["features"]
+        )
+        y_inner_train, y_inner_evaluation, _ = _labels(
+            inner_train, inner_evaluation, fold, task, role="inner"
+        )
+        selected_parameters, candidates = tune_on_inner_validation(
+            task,
+            estimator,
+            parameter_grid,
+            x_inner_train,
+            y_inner_train,
+            x_inner_evaluation,
+            y_inner_evaluation,
+            inner_evaluation,
+        )
+        x_outer_train, x_outer_evaluation = select_matched_features(
+            outer_train, outer_evaluation, experiment["features"]
+        )
+        y_outer_train, y_outer_evaluation, risk_boundaries = _labels(
+            outer_train, outer_evaluation, fold, task, role="outer"
+        )
+        probabilities = _fit_predict(
+            estimator,
+            selected_parameters,
+            x_outer_train,
+            y_outer_train,
+            x_outer_evaluation,
+        )
+        fold_results.append(
+            {
+                "fold": fold["fold"],
+                "task": task,
+                "estimator": estimator,
+                "experiment": experiment["name"],
+                "groups": experiment["groups"],
+                "features": experiment["features"],
+                "selected_parameters": selected_parameters,
+                "inner_candidates": candidates,
+                "inner_training_rows": len(inner_train),
+                "inner_evaluation_rows": len(inner_evaluation),
+                "outer_training_rows": len(outer_train),
+                "outer_evaluation_rows": len(outer_evaluation),
+                "coverage_change_vs_protocol_rows": {"train": 0, "evaluation": 0},
+                "inner_training_keys_sha256": _hash_keys(inner_train),
+                "inner_evaluation_keys_sha256": _hash_keys(inner_evaluation),
+                "outer_training_keys_sha256": _hash_keys(outer_train),
+                "outer_evaluation_keys_sha256": _hash_keys(outer_evaluation),
+                "outer_first": fold["outer_first"],
+                "outer_last": fold["outer_last"],
+                "risk_boundaries": risk_boundaries,
+                "metrics": _outer_metrics(
+                    task,
+                    outer_train,
+                    outer_evaluation,
+                    y_outer_train,
+                    y_outer_evaluation,
+                    probabilities,
+                    risk_boundaries,
+                ),
+            }
+        )
+
+    return {
+        "schema_version": 1,
+        "stage": "phase_6_recovery_feature_ablation",
+        "status": "complete",
+        "evidence_mode": inventory["evidence_mode"],
+        "task": task,
+        "estimator": estimator,
+        "experiment": experiment,
+        "primary_metric": "mean_daily_spearman" if task == "return" else "macro_f1",
+        "selection_rule": (
+            "Tune only on the saved inner training/validation rows using the primary "
+            "metric; choose the first setting on a tie; refit once on outer training "
+            "rows and score outer rows once."
+        ),
+        "comparison_rule": (
+            "Each feature set uses the exact same task-specific recovery-protocol row "
+            "keys. Future outcomes, identifiers, and unapproved fundamentals are not features."
+        ),
+        "phase_5_comparison_recreated": False,
+        "provenance": {
+            "dataset_sha256": sha256(dataset_path),
+            "metadata_sha256": sha256(metadata_path),
+            "protocol_sha256": sha256(protocol_path),
+            "inventory_sha256": sha256(inventory_path),
+            "inventory_source_hashes_recorded": inventory.get("code_sha256", {}),
+            "inventory_source_hashes_current": rebuilt_inventory.get("code_sha256", {}),
+            "runner_code_sha256": sha256(__file__),
+            "protocol_code_sha256": protocol["code_sha256"],
+        },
+        "folds": fold_results,
+    }
+
+
+def _momentum_decision(
+    task: str,
+    mean_difference: float,
+    fold_differences: list[float],
+    *,
+    mean_high_recall_difference: float | None = None,
+    high_to_low_difference: int | None = None,
+) -> str:
+    """Apply the predeclared Phase 6.4 evidence rule, without picking a model."""
+
+    positive_folds = sum(value > 0 for value in fold_differences)
+    nonpositive_folds = sum(value <= 0 for value in fold_differences)
+    if mean_difference <= 0 and nonpositive_folds >= 3:
+        return "reject"
+    if mean_difference > 0 and positive_folds >= 3:
+        if task == "risk" and (
+            mean_high_recall_difference is None
+            or high_to_low_difference is None
+            or mean_high_recall_difference < 0
+            or high_to_low_difference > 0
+        ):
+            return "inconclusive"
+        return "retain"
+    return "inconclusive"
+
+
+def summarize_momentum_comparison(
+    task: str, with_momentum: dict[str, Any], without_momentum: dict[str, Any]
+) -> dict[str, Any]:
+    """Compare paired outer-fold results and make fold variation visible."""
+
+    if task not in {"return", "risk"}:
+        raise AblationContractError("Task must be 'return' or 'risk'")
+    if with_momentum.get("task") != task or without_momentum.get("task") != task:
+        raise AblationContractError("Momentum comparison reports have the wrong task")
+    if with_momentum.get("estimator") != without_momentum.get("estimator"):
+        raise AblationContractError("Momentum comparison must keep the estimator fixed")
+    full = {entry["fold"]: entry for entry in with_momentum["folds"]}
+    excluded = {entry["fold"]: entry for entry in without_momentum["folds"]}
+    if not full or set(full) != set(excluded):
+        raise AblationContractError("Momentum comparison requires the same nonempty folds")
+    primary_metric = "mean_daily_spearman" if task == "return" else "macro_f1"
+    fold_differences = []
+    coverage = []
+    for fold in sorted(full):
+        first, second = full[fold], excluded[fold]
+        comparable_keys = (
+            "outer_training_rows",
+            "outer_evaluation_rows",
+            "outer_training_keys_sha256",
+            "outer_evaluation_keys_sha256",
+            "outer_first",
+            "outer_last",
+        )
+        if any(first[key] != second[key] for key in comparable_keys):
+            raise AblationContractError("Momentum comparison changed fold coverage")
+        first_score = first["metrics"][primary_metric]
+        second_score = second["metrics"][primary_metric]
+        if first_score is None or second_score is None:
+            raise AblationContractError("Momentum comparison has an undefined primary metric")
+        fold_differences.append(
+            {
+                "fold": fold,
+                "with_momentum": float(first_score),
+                "without_momentum": float(second_score),
+                "difference": float(first_score - second_score),
+            }
+        )
+        coverage.append({key: first[key] for key in comparable_keys})
+
+    differences = [item["difference"] for item in fold_differences]
+    summary: dict[str, Any] = {
+        "task": task,
+        "estimator": with_momentum["estimator"],
+        "primary_metric": primary_metric,
+        "comparison": "full_allowlisted_market_features versus the same set without momentum",
+        "fold_metrics": fold_differences,
+        "mean_with_momentum": float(np.mean([item["with_momentum"] for item in fold_differences])),
+        "mean_without_momentum": float(np.mean([item["without_momentum"] for item in fold_differences])),
+        "mean_difference": float(np.mean(differences)),
+        "positive_fold_count": sum(value > 0 for value in differences),
+        "nonpositive_fold_count": sum(value <= 0 for value in differences),
+        "coverage": coverage,
+        "decision_rule": (
+            "Retain only if the mean primary-metric difference is positive and at "
+            "least three of four fold differences are positive. Reject if the mean "
+            "difference is nonpositive and at least three folds are nonpositive; "
+            "otherwise mark inconclusive."
+        ),
+    }
+    if task == "risk":
+        recall_differences = [
+            float(full[fold]["metrics"]["high_recall"] - excluded[fold]["metrics"]["high_recall"])
+            for fold in sorted(full)
+        ]
+        high_to_low_difference = int(
+            sum(full[fold]["metrics"]["high_to_low_count"] for fold in full)
+            - sum(excluded[fold]["metrics"]["high_to_low_count"] for fold in excluded)
+        )
+        summary["risk_guardrails"] = {
+            "mean_high_recall_difference": float(np.mean(recall_differences)),
+            "high_to_low_count_difference": high_to_low_difference,
+            "rule": (
+                "A primary-metric gain is not retained if mean High-risk recall falls "
+                "or the total High-predicted-Low count rises."
+            ),
+        }
+        summary["decision"] = _momentum_decision(
+            task,
+            summary["mean_difference"],
+            differences,
+            mean_high_recall_difference=summary["risk_guardrails"]["mean_high_recall_difference"],
+            high_to_low_difference=high_to_low_difference,
+        )
+    else:
+        summary["decision"] = _momentum_decision(task, summary["mean_difference"], differences)
+    return summary
+
+
+def write_recovery_momentum_ablation_report(
+    output_dir: Path = DEFAULT_RECOVERY_MOMENTUM_OUTPUT,
+    *,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Run the Phase 6.4 paired momentum test and write a new-only evidence package."""
+
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite momentum evidence: {output_dir}")
+    inputs = {
+        "dataset_path": dataset_path,
+        "metadata_path": metadata_path,
+        "protocol_path": protocol_path,
+        "inventory_path": inventory_path,
+    }
+    runs: dict[str, dict[str, Any]] = {}
+    for task in ("return", "risk"):
+        for experiment in RECOVERY_MOMENTUM_EXPERIMENTS:
+            runs[f"{task}_{experiment}"] = run_recovery_ablation_experiment(
+                task, "HistGradientBoosting", experiment, **inputs
+            )
+    task_summaries = {
+        task: summarize_momentum_comparison(
+            task,
+            runs[f"{task}_{RECOVERY_MOMENTUM_EXPERIMENTS[0]}"],
+            runs[f"{task}_{RECOVERY_MOMENTUM_EXPERIMENTS[1]}"],
+        )
+        for task in ("return", "risk")
+    }
+    report = {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_4_momentum_ablation",
+        "status": "complete",
+        "evidence_mode": runs["return_" + RECOVERY_MOMENTUM_EXPERIMENTS[0]]["evidence_mode"],
+        "estimator": "HistGradientBoosting",
+        "experiments": list(RECOVERY_MOMENTUM_EXPERIMENTS),
+        "task_summaries": task_summaries,
+        "limitations": [
+            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            "The 2024-2025 period remains excluded from development selection.",
+            "This report is development evidence, not an untouched-test, trading, or portfolio result.",
+        ],
+    }
+    output_dir.mkdir(parents=True, exist_ok=False)
+    for name, run in runs.items():
+        (output_dir / f"{name}.json").write_text(
+            json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
+    (output_dir / "momentum_ablation_summary.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     return report
