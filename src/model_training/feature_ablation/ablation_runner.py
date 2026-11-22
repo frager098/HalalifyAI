@@ -75,6 +75,9 @@ DEFAULT_RECOVERY_MOMENTUM_OUTPUT = Path(
 DEFAULT_RECOVERY_VOLATILITY_OUTPUT = Path(
     "reports/model_evaluation/phase6_recovery_v1/volatility_ablation"
 )
+DEFAULT_RECOVERY_DOWNSIDE_TREND_OUTPUT = Path(
+    "reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation"
+)
 RECOVERY_MOMENTUM_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_momentum",
@@ -82,6 +85,10 @@ RECOVERY_MOMENTUM_EXPERIMENTS = (
 RECOVERY_VOLATILITY_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_volatility",
+)
+RECOVERY_DOWNSIDE_TREND_EXPERIMENTS = (
+    "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
+    "without_downside_trend",
 )
 DEFAULT_GROUP_ORDER = (
     "momentum",
@@ -1243,6 +1250,163 @@ def write_recovery_volatility_ablation_report(
             json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
         )
     (output_dir / "volatility_ablation_summary.json").write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def summarize_downside_trend_comparison(
+    task: str,
+    with_downside_trend: dict[str, Any],
+    without_downside_trend: dict[str, Any],
+) -> dict[str, Any]:
+    """Compare paired outer-fold results for the related downside/trend group."""
+
+    if task not in {"return", "risk"}:
+        raise AblationContractError("Task must be 'return' or 'risk'")
+    if (
+        with_downside_trend.get("task") != task
+        or without_downside_trend.get("task") != task
+    ):
+        raise AblationContractError("Downside/trend comparison reports have the wrong task")
+    if with_downside_trend.get("estimator") != without_downside_trend.get("estimator"):
+        raise AblationContractError("Downside/trend comparison must keep the estimator fixed")
+    full = {entry["fold"]: entry for entry in with_downside_trend["folds"]}
+    excluded = {entry["fold"]: entry for entry in without_downside_trend["folds"]}
+    if not full or set(full) != set(excluded):
+        raise AblationContractError("Downside/trend comparison requires the same nonempty folds")
+    primary_metric = "mean_daily_spearman" if task == "return" else "macro_f1"
+    fold_differences = []
+    coverage = []
+    for fold in sorted(full):
+        first, second = full[fold], excluded[fold]
+        comparable_keys = (
+            "outer_training_rows",
+            "outer_evaluation_rows",
+            "outer_training_keys_sha256",
+            "outer_evaluation_keys_sha256",
+            "outer_first",
+            "outer_last",
+        )
+        if any(first[key] != second[key] for key in comparable_keys):
+            raise AblationContractError("Downside/trend comparison changed fold coverage")
+        first_score = first["metrics"][primary_metric]
+        second_score = second["metrics"][primary_metric]
+        if first_score is None or second_score is None:
+            raise AblationContractError("Downside/trend comparison has an undefined primary metric")
+        fold_differences.append(
+            {
+                "fold": fold,
+                "with_downside_trend": float(first_score),
+                "without_downside_trend": float(second_score),
+                "difference": float(first_score - second_score),
+            }
+        )
+        coverage.append({key: first[key] for key in comparable_keys})
+
+    differences = [item["difference"] for item in fold_differences]
+    summary: dict[str, Any] = {
+        "task": task,
+        "estimator": with_downside_trend["estimator"],
+        "primary_metric": primary_metric,
+        "comparison": "full_allowlisted_market_features versus the same set without downside_trend",
+        "fold_metrics": fold_differences,
+        "mean_with_downside_trend": float(np.mean([item["with_downside_trend"] for item in fold_differences])),
+        "mean_without_downside_trend": float(np.mean([item["without_downside_trend"] for item in fold_differences])),
+        "mean_difference": float(np.mean(differences)),
+        "positive_fold_count": sum(value > 0 for value in differences),
+        "nonpositive_fold_count": sum(value <= 0 for value in differences),
+        "coverage": coverage,
+        "decision_rule": (
+            "Retain only if the mean primary-metric difference is positive and at "
+            "least three of four fold differences are positive. Reject if the mean "
+            "difference is nonpositive and at least three folds are nonpositive; "
+            "otherwise mark inconclusive."
+        ),
+    }
+    if task == "risk":
+        recall_differences = [
+            float(full[fold]["metrics"]["high_recall"] - excluded[fold]["metrics"]["high_recall"])
+            for fold in sorted(full)
+        ]
+        high_to_low_difference = int(
+            sum(full[fold]["metrics"]["high_to_low_count"] for fold in full)
+            - sum(excluded[fold]["metrics"]["high_to_low_count"] for fold in excluded)
+        )
+        summary["risk_guardrails"] = {
+            "mean_high_recall_difference": float(np.mean(recall_differences)),
+            "high_to_low_count_difference": high_to_low_difference,
+            "rule": (
+                "A primary-metric gain is not retained if mean High-risk recall falls "
+                "or the total High-predicted-Low count rises."
+            ),
+        }
+        summary["decision"] = _momentum_decision(
+            task,
+            summary["mean_difference"],
+            differences,
+            mean_high_recall_difference=summary["risk_guardrails"]["mean_high_recall_difference"],
+            high_to_low_difference=high_to_low_difference,
+        )
+    else:
+        summary["decision"] = _momentum_decision(task, summary["mean_difference"], differences)
+    return summary
+
+
+def write_recovery_downside_trend_ablation_report(
+    output_dir: Path = DEFAULT_RECOVERY_DOWNSIDE_TREND_OUTPUT,
+    *,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Run the Phase 6.6 paired downside/trend test and write new-only evidence."""
+
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite downside/trend evidence: {output_dir}")
+    inputs = {
+        "dataset_path": dataset_path,
+        "metadata_path": metadata_path,
+        "protocol_path": protocol_path,
+        "inventory_path": inventory_path,
+    }
+    runs: dict[str, dict[str, Any]] = {}
+    for task in ("return", "risk"):
+        for experiment in RECOVERY_DOWNSIDE_TREND_EXPERIMENTS:
+            runs[f"{task}_{experiment}"] = run_recovery_ablation_experiment(
+                task, "HistGradientBoosting", experiment, **inputs
+            )
+    task_summaries = {
+        task: summarize_downside_trend_comparison(
+            task,
+            runs[f"{task}_{RECOVERY_DOWNSIDE_TREND_EXPERIMENTS[0]}"],
+            runs[f"{task}_{RECOVERY_DOWNSIDE_TREND_EXPERIMENTS[1]}"],
+        )
+        for task in ("return", "risk")
+    }
+    report = {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_6_downside_trend_ablation",
+        "status": "complete",
+        "evidence_mode": runs["return_" + RECOVERY_DOWNSIDE_TREND_EXPERIMENTS[0]]["evidence_mode"],
+        "estimator": "HistGradientBoosting",
+        "experiments": list(RECOVERY_DOWNSIDE_TREND_EXPERIMENTS),
+        "task_summaries": task_summaries,
+        "limitations": [
+            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            "The five downside/trend columns are assessed as one related group, not as independent discoveries.",
+            "The 2024-2025 period remains excluded from development selection.",
+            "This report is development evidence, not an untouched-test, trading, or portfolio result.",
+        ],
+    }
+    output_dir.mkdir(parents=True, exist_ok=False)
+    for name, run in runs.items():
+        (output_dir / f"{name}.json").write_text(
+            json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
+    (output_dir / "downside_trend_ablation_summary.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     return report

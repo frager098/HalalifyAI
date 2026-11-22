@@ -119,3 +119,21 @@ It produces four fold-result JSON files and `volatility_ablation_summary.json`.
 The risk summary includes both High-risk recall and the severe error where a
 High-risk outcome was predicted Low. No result is final until the generated
 summary has been reviewed.
+
+## Phase 6.6 downside/trend comparison — prepared for student execution
+
+Select the repository `.venv` kernel, then run
+`notebooks/phase6_downside_trend_ablation.ipynb` from top to bottom. This
+compares all approved market features with the same set excluding five related
+inputs: one-day return, downside deviation, drawdown, and the two
+price-to-moving-average ratios. It evaluates return ordering and risk
+classification separately using the same four chronological folds.
+
+The notebook creates this new local folder and refuses to overwrite it:
+
+`reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/`
+
+It produces four fold-result JSON files and
+`downside_trend_ablation_summary.json`. The risk summary includes both
+High-risk recall and the severe error where a High-risk outcome was predicted
+Low. No result is final until the generated summary has been reviewed.

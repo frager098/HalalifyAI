@@ -19,6 +19,12 @@
   risk. It writes new local evidence under
   `reports/model_evaluation/phase6_recovery_v1/volatility_ablation/` and
   refuses to overwrite an existing result.
+- `phase6_downside_trend_ablation.ipynb` is the student-run Phase 6.6 notebook.
+  It fits the predeclared HistGradientBoosting comparison for all approved
+  market features versus the same set without the five related downside/trend
+  inputs, separately for return and risk. It writes new local evidence under
+  `reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/` and
+  refuses to overwrite an existing result.
 - `legacy/` contains earlier baseline, Colab, and embedded data-cleaning
   notebooks retained for historical comparison.
 

@@ -249,6 +249,24 @@ is recorded rather than silently combined with later groups.
   rises. This is prepared code, not completed evidence, until the student runs
   and reviews the notebook.
 - [ ] **6.6 Evaluate downside and trend features.** Test return, moving-average ratio, downside-deviation, and trailing-drawdown inputs as an approved group; distinguish related features without treating their count as independent evidence. **Done when:** matched ablations and a per-task decision are reviewed.
+
+  **Prepared for student execution:** `notebooks/phase6_downside_trend_ablation.ipynb`
+  compares all 14 approved market columns with the same nine columns excluding
+  the five related downside/trend inputs: `return_1d`, `downside_dev_20d`,
+  `drawdown_from_peak_60d`, `price_to_sma20`, and `price_to_sma50`. It uses
+  HistGradientBoosting, the saved inner-only tuning budget, and the same four
+  chronological folds for both return and risk. The group is evaluated as one
+  related set, not as five independent findings. It writes a new-only local
+  package under
+  `reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/`.
+
+  The result rule is fixed before fitting: retain requires a positive mean
+  primary-metric difference and improvement in at least three of four folds;
+  reject requires a nonpositive mean and at least three nonpositive folds;
+  otherwise mark it inconclusive. For risk, a primary gain is not retained if
+  High-risk recall falls or the total number of High outcomes predicted Low
+  rises. This is prepared code, not completed evidence, until the student runs
+  and reviews the notebook.
 - [ ] **6.7 Evaluate market-relative features.** Test SPY momentum, excess momentum, and trailing beta only after confirming SPY values are available on or before each stock date. **Done when:** benchmark alignment, missingness, matched fold results, and a per-task decision are reviewed.
 - [ ] **6.8 Evaluate volume features.** Test the point-in-time trailing volume ratio while retaining the documented Alpaca feed limitation and avoiding claims about consolidated market volume. **Done when:** its incremental contribution, stability, and limitation are recorded.
 - [ ] **6.9 Review limited new market features.** Add a new trailing measure only if steps 6.4–6.8 expose a specific unresolved weakness and its formula, lookback, availability, and expected contribution are written before scoring. Do not broaden the search merely to improve the same folds. **Done when:** either a small predeclared challenger is evaluated with the same safeguards or the decision to add none is recorded.

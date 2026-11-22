@@ -307,6 +307,31 @@ def test_volatility_summary_rejects_consistently_worse_return_results():
     assert summary["nonpositive_fold_count"] == 4
 
 
+def test_downside_trend_summary_refuses_mismatched_coverage():
+    template = {
+        "task": "return",
+        "estimator": "HistGradientBoosting",
+        "folds": [
+            {
+                "fold": 1,
+                "outer_training_rows": 10,
+                "outer_evaluation_rows": 5,
+                "outer_training_keys_sha256": "train",
+                "outer_evaluation_keys_sha256": "eval",
+                "outer_first": "2020-01-01",
+                "outer_last": "2020-02-01",
+                "metrics": {"mean_daily_spearman": 0.01},
+            }
+        ],
+    }
+    changed = {**template, "folds": [{**template["folds"][0], "outer_evaluation_rows": 4}]}
+
+    with pytest.raises(AblationContractError, match="changed fold coverage"):
+        ablation_runner.summarize_downside_trend_comparison(
+            "return", template, changed
+        )
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
 

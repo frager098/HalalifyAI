@@ -773,3 +773,27 @@ This is not yet a result. The output stays local under
 `reports/model_evaluation/phase6_recovery_v1/volatility_ablation/` until the
 student runs the notebook and the fold results, matched coverage, and risk
 failures are reviewed.
+
+## 2026-11-22 — Step 6.6 downside/trend comparison prepared
+
+The next controlled experiment is specified before fitting. It compares all 14
+approved market features with the same set without the five related
+downside/trend inputs: `return_1d`, `downside_dev_20d`,
+`drawdown_from_peak_60d`, `price_to_sma20`, and `price_to_sma50`. The group is
+assessed together; the project must not treat its five related measurements as
+five separate discoveries. It uses HistGradientBoosting, the same four
+development folds, and only the recorded inner-validation tuning budget.
+
+The student-run entry point is `notebooks/phase6_downside_trend_ablation.ipynb`.
+Return uses same-date mean Spearman rank correlation as its primary score; risk
+uses macro F1, High-risk recall, and High-predicted-Low errors. The selection
+rule is frozen before results: retain requires a positive mean primary-metric
+difference and improvement in at least three folds; reject requires a
+nonpositive mean and at least three nonpositive folds; otherwise mark
+inconclusive. For risk, a primary gain cannot be retained if High-risk recall
+falls or severe High-to-Low errors rise.
+
+This is not yet a result. The output stays local under
+`reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/` until
+the student runs the notebook and the fold results, matched coverage, and risk
+failures are reviewed.
