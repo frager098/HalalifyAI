@@ -196,3 +196,18 @@ it cannot claim to measure whole-market trading volume. The same predeclared
 retain/reject/inconclusive rule and extra risk safety checks from Steps 6.4–6.7
 are used. This is prepared code, not a completed result, until the student
 runs the notebook and reviews its output.
+
+## Phase 6.9 new-market-feature review — completed
+
+**Decision: do not add another market feature now.** This is an intentional
+decision, not missing work. The completed results show that momentum and
+volatility do not help the return task consistently; volatility and
+downside/trend help the risk task. They do not identify one clear missing piece
+that a new trailing feature is expected to fix. The Phase 6.7 market-relative
+and Phase 6.8 volume comparisons also still need their student-run results.
+
+Adding more features merely to search for a better score would make the study
+less fair. No extra code, notebook, model fitting, or parameter tuning was
+created for this step. Reopen this decision only if the reviewed 6.7 or 6.8
+output identifies a precise weakness, and write that proposed feature's formula,
+lookback, availability time, and expected purpose before evaluating it.

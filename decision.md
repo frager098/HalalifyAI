@@ -851,6 +851,21 @@ described as proof about total market volume. Output stays local under
 student runs the notebook and the fold results, matched coverage, and risk
 failures are reviewed.
 
+## 2026-11-23 — Step 6.9 decision: add no new market feature
+
+No additional market feature will be added at this stage. This follows the
+predeclared rule that a new feature may be considered only when earlier group
+comparisons expose a specific weakness it is expected to address. The completed
+evidence does not do that: momentum and volatility are rejected for return,
+while volatility and downside/trend are retained for risk. The market-relative
+and volume comparisons are still awaiting student-run evidence, so expanding
+the feature list now would be an unsupported search for a better score.
+
+No new dataset, code, notebook, model fitting, or tuning run is needed for this
+decision. It may be reopened only after reviewed Step 6.7 or 6.8 results name a
+precise weakness. Before any future challenger is scored, its formula, lookback,
+point-in-time availability, and expected contribution must be recorded.
+
 ## 2026-11-22 — Step 6.6 downside/trend comparison prepared
 
 The next controlled experiment is specified before fitting. It compares all 14
