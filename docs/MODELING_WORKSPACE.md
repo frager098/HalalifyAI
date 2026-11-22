@@ -120,6 +120,16 @@ The risk summary includes both High-risk recall and the severe error where a
 High-risk outcome was predicted Low. No result is final until the generated
 summary has been reviewed.
 
+### Completed result — 2026-11-22
+
+The student-run volatility summary has SHA-256
+`3d63089b35e627951da1c1f184f8284301651056309dd56d04ef1b6a6f3edc3b`.
+Volatility is **rejected for return** because it helped in only one of four
+folds and removing it improved mean return ranking by 0.01624. Volatility is
+**retained for risk**: macro F1 improved in all four folds by 0.02229 on
+average, High-risk recall improved, and there were 529 fewer High outcomes
+predicted Low.
+
 ## Phase 6.6 downside/trend comparison — prepared for student execution
 
 Select the repository `.venv` kernel, then run
@@ -137,3 +147,12 @@ It produces four fold-result JSON files and
 `downside_trend_ablation_summary.json`. The risk summary includes both
 High-risk recall and the severe error where a High-risk outcome was predicted
 Low. No result is final until the generated summary has been reviewed.
+
+### Completed result — 2026-11-22
+
+The student-run downside/trend summary has SHA-256
+`95828b67118708311f46e10b9653335e57c951b3849dc5c56648d9782cf6ab95`.
+The group is **inconclusive for return**: it improved the mean ranking score by
+only 0.00156 and improved two of four folds. It is **retained for risk**:
+macro F1 improved in three of four folds by 0.00396 on average, High-risk
+recall improved, and there were 187 fewer High outcomes predicted Low.

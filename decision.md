@@ -774,6 +774,33 @@ This is not yet a result. The output stays local under
 student runs the notebook and the fold results, matched coverage, and risk
 failures are reviewed.
 
+## 2026-11-22 — Step 6.5 volatility comparison completed
+
+The student ran `notebooks/phase6_volatility_ablation.ipynb` locally. Its
+summary SHA-256 is
+`3d63089b35e627951da1c1f184f8284301651056309dd56d04ef1b6a6f3edc3b`.
+Return rejects volatility: its mean same-date rank-correlation difference was
+-0.01624 and it helped in only one of four folds. Risk retains volatility: it
+improved macro F1 in all four folds by 0.02229 on average, increased mean
+High-risk recall by 0.00583, and reduced High outcomes predicted Low by 529.
+The paired inputs used identical rows and dates.
+
+## 2026-11-22 — Step 6.6 downside/trend comparison completed
+
+The student ran `notebooks/phase6_downside_trend_ablation.ipynb` locally. Its
+summary SHA-256 is
+`95828b67118708311f46e10b9653335e57c951b3849dc5c56648d9782cf6ab95`.
+Return is inconclusive: the mean rank-correlation difference was only +0.00156,
+with two improving and two worsening folds. Risk retains the related
+downside/trend group: macro F1 improved in three of four folds by 0.00396 on
+average, mean High-risk recall increased by 0.01407, and High outcomes predicted
+Low fell by 187. The five columns remain one related group, not five separate
+discoveries; the paired inputs used identical rows and dates.
+
+All Phase 6.4–6.6 findings are development evidence from the separately
+versioned recovery dataset. They are not untouched-test, portfolio, or trading
+results, and do not recreate unavailable original Phase 5 generated reports.
+
 ## 2026-11-22 — Step 6.6 downside/trend comparison prepared
 
 The next controlled experiment is specified before fitting. It compares all 14
