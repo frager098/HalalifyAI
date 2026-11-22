@@ -256,3 +256,18 @@ are also excluded. Step 6.11 is blocked; it must not compare market-only data
 with unverified fundamentals. A future retry needs a new complete immutable SEC
 snapshot, a hash manifest, verified issuer identity, point-in-time filing
 availability, amendment treatment, and explicit feature definitions.
+
+## Phase 6.11 market-only versus fundamentals comparison — completed, blocked
+
+There is no Phase 6.11 notebook or model result. This is correct: Step 6.10
+approved **zero** financial-company fields, so a market-plus-fundamentals model
+cannot be built honestly. The current valid benchmark is the market-only model
+using its 14 approved market features.
+
+Do not fill missing SEC values with zero, copy current financial values into
+past dates, or use the research-only assets/cash panel as though it were
+verified training data. After a future successful SEC gate, this comparison
+must use the same ticker/date rows in both versions, report how many rows are
+lost because of financial-data availability, use only information available
+after each filing, and learn missing-value handling from the training period
+only.

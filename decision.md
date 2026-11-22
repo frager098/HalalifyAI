@@ -911,6 +911,22 @@ verified issuer identity, confirmed filing/accession availability, amendment
 handling, validated units and period semantics, and an explicit definition for
 each proposed feature. No unresolved fundamental may be added silently.
 
+## 2026-11-23 — Step 6.11 market-plus-fundamentals comparison: blocked
+
+No market-plus-fundamentals model was fitted and no performance number was
+created. This is the correct outcome because Step 6.10 approved no fundamental
+field. The current market-only dataset, with its 14 approved market features,
+remains the Phase 6 comparison baseline.
+
+A future comparison is allowed only after the SEC readiness gate passes. It
+must compare market-only and market-plus-fundamentals versions on the same
+ticker/date rows, separately report coverage lost to financial-data
+availability, preserve the conservative first-usable session after a filing,
+keep source accession and period provenance, and fit missing-value treatment on
+training rows only. Filling missing history with zeros, using current SEC facts
+for past predictions, or treating research-only values as verified would
+invalidate the result.
+
 ## 2026-11-23 — Step 6.7 market-relative result recorded
 
 The local saved report
