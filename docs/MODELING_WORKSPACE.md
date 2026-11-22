@@ -271,3 +271,20 @@ must use the same ticker/date rows in both versions, report how many rows are
 lost because of financial-data availability, use only information available
 after each filing, and learn missing-value handling from the training period
 only.
+
+## Phase 6.12 feature-ablation conclusion — completed
+
+The complete evaluator-facing summary is in
+`docs/PHASE6_ABLATION_REPORT.md`. The machine-readable setting for future work
+is `configs/phase6_feature_freeze_v1.json`.
+
+The return candidate contains only volume and SPY-based market-relative
+features. The risk candidate contains volatility, downside/trend, and volume.
+This difference is intentional: a feature can help predict return while hurting
+risk, or the other way around. No fundamental field is included because the
+SEC gate failed.
+
+These are frozen **development candidates** for the next controlled stage, not
+already-proven smaller-model results. Phase 6 tested each group by removing it
+from the full 14-feature model; it did not refit the two final smaller lists.
+Phase 7 must evaluate the exact lists without silently adding features.

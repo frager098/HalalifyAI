@@ -314,7 +314,7 @@ is recorded rather than silently combined with later groups.
 
 ### Freeze the Phase 6 conclusion
 
-- [ ] **6.12 Select task-specific feature sets and publish the ablation report.** Compare only predeclared experiments, show all four fold results beside averages, and retain different return/risk feature sets when supported. Record rejected and inconclusive groups as well as selected ones. Do not use the reused 2024–2025 period to choose features. **Done when:** reproducible code and a concise evaluator-facing report identify the frozen feature set for each task, exact hashes, coverage, limitations, and the next independent-evaluation gate in `decision.md`.
+- [x] **6.12 Select task-specific feature sets and publish the ablation report.** The frozen development candidates are versioned in `configs/phase6_feature_freeze_v1.json`, with the concise evaluator report in `docs/PHASE6_ABLATION_REPORT.md`. Return's minimal candidate contains volume plus the three market-relative features; risk's minimal candidate contains volatility, downside/trend, and volume. Momentum and volatility are rejected for return; market-relative is rejected for risk; inconclusive groups are excluded from the minimal candidates without being described as harmful. No fundamental feature is included because Step 6.10 did not pass. These smaller combinations were not refit in Phase 6, so they are fixed Phase 7 candidates—not new performance claims. All five saved group reports, their hashes, matched-row scope, limitations, and next gate are recorded. The 2024–2025 reused test period was not used for selection.
 
 **Exit evidence:** A reproducible ablation report showing each group's
 incremental contribution, fold variation, matched-row coverage, leakage

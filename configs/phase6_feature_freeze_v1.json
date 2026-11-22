@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "stage": "phase_6_step_6_12_feature_freeze",
+  "status": "frozen_development_candidate",
+  "dataset": {
+    "path": "data/processed/model_inputs/phase6_recovery_v1/market_features_and_labels.csv",
+    "sha256": "3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f"
+  },
+  "protocol": {
+    "path": "reports/model_evaluation/phase6_recovery_v1/chronological_evaluation_protocol.json",
+    "sha256": "764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60",
+    "reused_test_period_used_for_selection": false
+  },
+  "estimator_used_for_group_evidence": "HistGradientBoosting",
+  "fundamental_features": [],
+  "fundamental_gate": "blocked_by_phase_6_10",
+  "tasks": {
+    "return": {
+      "candidate_features": [
+        "volume_ratio_20d",
+        "spy_momentum_20d",
+        "excess_momentum_20d",
+        "market_beta_60d"
+      ],
+      "included_groups": ["market_relative", "volume"],
+      "rejected_groups": ["momentum", "volatility"],
+      "inconclusive_groups_not_in_minimal_candidate": ["downside_trend"],
+      "combined_candidate_was_not_refit_in_phase_6": true
+    },
+    "risk": {
+      "candidate_features": [
+        "volatility_20d",
+        "volatility_60d",
+        "return_1d",
+        "downside_dev_20d",
+        "drawdown_from_peak_60d",
+        "price_to_sma20",
+        "price_to_sma50",
+        "volume_ratio_20d"
+      ],
+      "included_groups": ["volatility", "downside_trend", "volume"],
+      "rejected_groups": ["market_relative"],
+      "inconclusive_groups_not_in_minimal_candidate": ["momentum"],
+      "combined_candidate_was_not_refit_in_phase_6": true
+    }
+  },
+  "selection_rule": "Retain only a group with positive mean primary-metric difference and improvement in at least three of four development folds. For risk, also require non-worse High-risk recall and no increase in High-risk outcomes predicted Low. Use the minimal candidate to avoid promoting inconclusive groups.",
+  "limitations": [
+    "This configuration is based on leave-one-group-out development evidence, not a direct fit of each final combined candidate.",
+    "It is not an untouched-test, trading, portfolio, or user-facing model result.",
+    "The 2024-2025 reused test period was not used for feature selection.",
+    "No SEC fundamental field is approved because the Phase 6.10 readiness gate did not pass.",
+    "The volume feature uses Alpaca IEX feed volume, not consolidated SIP whole-market volume."
+  ],
+  "next_gate": "Phase 7 may tune and evaluate only these exact development candidates with chronological training-side validation; it must not add new features silently."
+}

@@ -927,6 +927,29 @@ training rows only. Filling missing history with zeros, using current SEC facts
 for past predictions, or treating research-only values as verified would
 invalidate the result.
 
+## 2026-11-23 — Step 6.12 Phase 6 feature-ablation conclusion
+
+The Phase 6 group comparisons are frozen in
+`configs/phase6_feature_freeze_v1.json`; the evaluator-facing summary is
+`docs/PHASE6_ABLATION_REPORT.md`. They use the recovery dataset SHA-256
+`3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f` and
+chronological protocol SHA-256
+`764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60`.
+
+The frozen return development candidate is volume plus the three
+market-relative features. The frozen risk development candidate is volatility,
+downside/trend, and volume. This is task-specific: market-relative features
+are retained for return but rejected for risk, while volatility is rejected for
+return but retained for risk. Inconclusive groups are left out of the minimal
+candidates without being claimed harmful. No SEC fundamental is included.
+
+The candidate lists are a conservative freeze based on five individual
+leave-one-group-out comparisons. They were not separately refit as small
+combined models in Phase 6, so they make no new performance claim. Phase 7 is
+the next gate: it may evaluate only these exact lists with chronological
+training-side validation. It must keep the reused 2024-2025 period out of
+feature selection and must not silently add a market or SEC fundamental field.
+
 ## 2026-11-23 — Step 6.7 market-relative result recorded
 
 The local saved report
