@@ -332,6 +332,36 @@ def test_downside_trend_summary_refuses_mismatched_coverage():
         )
 
 
+def test_market_relative_summary_uses_the_shared_decision_rule():
+    def run(scores):
+        return {
+            "task": "return",
+            "estimator": "HistGradientBoosting",
+            "folds": [
+                {
+                    "fold": number,
+                    "outer_training_rows": 10,
+                    "outer_evaluation_rows": 5,
+                    "outer_training_keys_sha256": f"train-{number}",
+                    "outer_evaluation_keys_sha256": f"eval-{number}",
+                    "outer_first": f"202{number}-01-01",
+                    "outer_last": f"202{number}-02-01",
+                    "metrics": {"mean_daily_spearman": score},
+                }
+                for number, score in enumerate(scores, start=1)
+            ],
+        }
+
+    summary = ablation_runner.summarize_market_relative_comparison(
+        "return",
+        run([0.03, 0.02, 0.04, 0.01]),
+        run([0.02, 0.01, 0.03, 0.00]),
+    )
+
+    assert summary["decision"] == "retain"
+    assert summary["positive_fold_count"] == 4
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
 

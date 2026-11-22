@@ -801,6 +801,30 @@ All Phase 6.4–6.6 findings are development evidence from the separately
 versioned recovery dataset. They are not untouched-test, portfolio, or trading
 results, and do not recreate unavailable original Phase 5 generated reports.
 
+## 2026-11-22 — Step 6.7 market-relative comparison prepared
+
+The next controlled experiment is specified before fitting. It tests the three
+SPY-based features as one group: `spy_momentum_20d`, `excess_momentum_20d`, and
+`market_beta_60d`. Before fitting, the runner checks that these values are
+present on every task/fold training and evaluation row, then compares all 14
+approved market features with the same set excluding these three columns.
+
+The model predicts after the daily session closes, so daily same-session SPY
+alignment is the available research rule. The source's `bar_available_at` field
+is blank in every row, so exact intraday arrival time cannot be proven. This is
+recorded as a limitation; it is not silently treated as verified minute-level
+timing.
+
+The student-run entry point is `notebooks/phase6_market_relative_ablation.ipynb`.
+It uses HistGradientBoosting, the same four development folds, and only the
+recorded inner-validation tuning budget. Return uses same-date mean Spearman
+rank correlation; risk uses macro F1, High-risk recall, and High-predicted-Low
+errors. The retain/reject/inconclusive rule is fixed before results and matches
+Steps 6.4–6.6. Output stays local under
+`reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/` until
+the student runs the notebook and the alignment, fold results, coverage, and
+risk failures are reviewed.
+
 ## 2026-11-22 — Step 6.6 downside/trend comparison prepared
 
 The next controlled experiment is specified before fitting. It compares all 14

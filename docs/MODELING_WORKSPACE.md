@@ -156,3 +156,21 @@ The group is **inconclusive for return**: it improved the mean ranking score by
 only 0.00156 and improved two of four folds. It is **retained for risk**:
 macro F1 improved in three of four folds by 0.00396 on average, High-risk
 recall improved, and there were 187 fewer High outcomes predicted Low.
+
+## Phase 6.7 market-relative comparison — prepared for student execution
+
+Select the repository `.venv` kernel, then run
+`notebooks/phase6_market_relative_ablation.ipynb` from top to bottom. It first
+checks daily SPY alignment, then compares all approved market features with the
+same set excluding SPY momentum, excess momentum, and beta. It evaluates return
+ordering and risk classification separately using the same four chronological
+folds.
+
+The notebook creates this new local folder and refuses to overwrite it:
+
+`reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/`
+
+It produces four fold-result JSON files,
+`market_relative_alignment.json`, and `market_relative_ablation_summary.json`.
+The source has no exact intraday availability timestamp, so the report records
+this as a daily after-close alignment check with a timing limitation.

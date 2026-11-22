@@ -78,6 +78,9 @@ DEFAULT_RECOVERY_VOLATILITY_OUTPUT = Path(
 DEFAULT_RECOVERY_DOWNSIDE_TREND_OUTPUT = Path(
     "reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation"
 )
+DEFAULT_RECOVERY_MARKET_RELATIVE_OUTPUT = Path(
+    "reports/model_evaluation/phase6_recovery_v1/market_relative_ablation"
+)
 RECOVERY_MOMENTUM_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_momentum",
@@ -89,6 +92,15 @@ RECOVERY_VOLATILITY_EXPERIMENTS = (
 RECOVERY_DOWNSIDE_TREND_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_downside_trend",
+)
+RECOVERY_MARKET_RELATIVE_EXPERIMENTS = (
+    "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
+    "without_market_relative",
+)
+MARKET_RELATIVE_FEATURES = (
+    "spy_momentum_20d",
+    "excess_momentum_20d",
+    "market_beta_60d",
 )
 DEFAULT_GROUP_ORDER = (
     "momentum",
@@ -1407,6 +1419,244 @@ def write_recovery_downside_trend_ablation_report(
             json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
         )
     (output_dir / "downside_trend_ablation_summary.json").write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def build_recovery_market_relative_alignment_report(
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Verify daily SPY-derived features are present on every comparison row.
+
+    The dataset defines predictions after the daily session closes. The source
+    has no exact bar timestamp, so this check proves daily-session alignment and
+    intentionally records that intraday arrival timing cannot be proven.
+    """
+
+    frame, protocol, inventory, _ = _recovery_context(
+        dataset_path, metadata_path, protocol_path, inventory_path
+    )
+    if inventory["groups"].get("market_relative") != list(MARKET_RELATIVE_FEATURES):
+        raise AblationContractError("Recovery market-relative feature definition differs")
+    metadata = _read_json(Path(metadata_path), "recovery dataset metadata")
+    if metadata.get("decision_time") != "After session t closes; earliest execution next observed session.":
+        raise AblationContractError("Recovery dataset does not use the approved after-close timing")
+
+    fold_checks = []
+    for task in ("return", "risk"):
+        for fold in protocol["folds"]:
+            for role in ("inner", "outer"):
+                try:
+                    train, evaluation = fold_roles(frame, fold, task, role)
+                except ValueError as exc:
+                    raise AblationContractError(str(exc)) from exc
+                for name, rows in (("training", train), ("evaluation", evaluation)):
+                    missing = int(rows[list(MARKET_RELATIVE_FEATURES)].isna().sum().sum())
+                    if missing:
+                        raise AblationContractError(
+                            "SPY-derived market-relative features are missing on a comparison row"
+                        )
+                    fold_checks.append(
+                        {
+                            "task": task,
+                            "fold": fold["fold"],
+                            "role": role,
+                            "partition": name,
+                            "rows": len(rows),
+                            "first_session": str(rows.session_date.min()),
+                            "last_session": str(rows.session_date.max()),
+                            "missing_market_relative_values": 0,
+                        }
+                    )
+    return {
+        "schema_version": 1,
+        "status": "daily_aligned_with_timestamp_limitation",
+        "features": list(MARKET_RELATIVE_FEATURES),
+        "decision_time": metadata["decision_time"],
+        "rule": (
+            "SPY-derived values must be present on every task/fold row and are used "
+            "only after that daily session closes."
+        ),
+        "source_timing_limitation": (
+            "bar_available_at is missing in every source row, so exact intraday "
+            "availability cannot be proven from this dataset."
+        ),
+        "fold_checks": fold_checks,
+    }
+
+
+def _summarize_feature_group_comparison(
+    task: str,
+    with_group: dict[str, Any],
+    without_group: dict[str, Any],
+    *,
+    group_name: str,
+) -> dict[str, Any]:
+    """Summarize one paired leave-one-group-out comparison."""
+
+    if task not in {"return", "risk"}:
+        raise AblationContractError("Task must be 'return' or 'risk'")
+    if with_group.get("task") != task or without_group.get("task") != task:
+        raise AblationContractError(f"{group_name} comparison reports have the wrong task")
+    if with_group.get("estimator") != without_group.get("estimator"):
+        raise AblationContractError(f"{group_name} comparison must keep the estimator fixed")
+    full = {entry["fold"]: entry for entry in with_group["folds"]}
+    excluded = {entry["fold"]: entry for entry in without_group["folds"]}
+    if not full or set(full) != set(excluded):
+        raise AblationContractError(f"{group_name} comparison requires the same nonempty folds")
+    primary_metric = "mean_daily_spearman" if task == "return" else "macro_f1"
+    fold_differences = []
+    coverage = []
+    for fold in sorted(full):
+        first, second = full[fold], excluded[fold]
+        comparable_keys = (
+            "outer_training_rows",
+            "outer_evaluation_rows",
+            "outer_training_keys_sha256",
+            "outer_evaluation_keys_sha256",
+            "outer_first",
+            "outer_last",
+        )
+        if any(first[key] != second[key] for key in comparable_keys):
+            raise AblationContractError(f"{group_name} comparison changed fold coverage")
+        first_score = first["metrics"][primary_metric]
+        second_score = second["metrics"][primary_metric]
+        if first_score is None or second_score is None:
+            raise AblationContractError(f"{group_name} comparison has an undefined primary metric")
+        fold_differences.append(
+            {
+                "fold": fold,
+                f"with_{group_name}": float(first_score),
+                f"without_{group_name}": float(second_score),
+                "difference": float(first_score - second_score),
+            }
+        )
+        coverage.append({key: first[key] for key in comparable_keys})
+    differences = [item["difference"] for item in fold_differences]
+    summary: dict[str, Any] = {
+        "task": task,
+        "estimator": with_group["estimator"],
+        "primary_metric": primary_metric,
+        "comparison": f"full_allowlisted_market_features versus the same set without {group_name}",
+        "fold_metrics": fold_differences,
+        f"mean_with_{group_name}": float(np.mean([item[f"with_{group_name}"] for item in fold_differences])),
+        f"mean_without_{group_name}": float(np.mean([item[f"without_{group_name}"] for item in fold_differences])),
+        "mean_difference": float(np.mean(differences)),
+        "positive_fold_count": sum(value > 0 for value in differences),
+        "nonpositive_fold_count": sum(value <= 0 for value in differences),
+        "coverage": coverage,
+        "decision_rule": (
+            "Retain only if the mean primary-metric difference is positive and at "
+            "least three of four fold differences are positive. Reject if the mean "
+            "difference is nonpositive and at least three folds are nonpositive; "
+            "otherwise mark inconclusive."
+        ),
+    }
+    if task == "risk":
+        recall_differences = [
+            float(full[fold]["metrics"]["high_recall"] - excluded[fold]["metrics"]["high_recall"])
+            for fold in sorted(full)
+        ]
+        high_to_low_difference = int(
+            sum(full[fold]["metrics"]["high_to_low_count"] for fold in full)
+            - sum(excluded[fold]["metrics"]["high_to_low_count"] for fold in excluded)
+        )
+        summary["risk_guardrails"] = {
+            "mean_high_recall_difference": float(np.mean(recall_differences)),
+            "high_to_low_count_difference": high_to_low_difference,
+            "rule": (
+                "A primary-metric gain is not retained if mean High-risk recall falls "
+                "or the total High-predicted-Low count rises."
+            ),
+        }
+        summary["decision"] = _momentum_decision(
+            task,
+            summary["mean_difference"],
+            differences,
+            mean_high_recall_difference=summary["risk_guardrails"]["mean_high_recall_difference"],
+            high_to_low_difference=high_to_low_difference,
+        )
+    else:
+        summary["decision"] = _momentum_decision(task, summary["mean_difference"], differences)
+    return summary
+
+
+def summarize_market_relative_comparison(
+    task: str, with_market_relative: dict[str, Any], without_market_relative: dict[str, Any]
+) -> dict[str, Any]:
+    """Summarize the paired market-relative experiment."""
+
+    return _summarize_feature_group_comparison(
+        task,
+        with_market_relative,
+        without_market_relative,
+        group_name="market_relative",
+    )
+
+
+def write_recovery_market_relative_ablation_report(
+    output_dir: Path = DEFAULT_RECOVERY_MARKET_RELATIVE_OUTPUT,
+    *,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Run Phase 6.7 and write its aligned-SPY evidence package once."""
+
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite market-relative evidence: {output_dir}")
+    inputs = {
+        "dataset_path": dataset_path,
+        "metadata_path": metadata_path,
+        "protocol_path": protocol_path,
+        "inventory_path": inventory_path,
+    }
+    alignment = build_recovery_market_relative_alignment_report(**inputs)
+    runs: dict[str, dict[str, Any]] = {}
+    for task in ("return", "risk"):
+        for experiment in RECOVERY_MARKET_RELATIVE_EXPERIMENTS:
+            runs[f"{task}_{experiment}"] = run_recovery_ablation_experiment(
+                task, "HistGradientBoosting", experiment, **inputs
+            )
+    task_summaries = {
+        task: summarize_market_relative_comparison(
+            task,
+            runs[f"{task}_{RECOVERY_MARKET_RELATIVE_EXPERIMENTS[0]}"],
+            runs[f"{task}_{RECOVERY_MARKET_RELATIVE_EXPERIMENTS[1]}"],
+        )
+        for task in ("return", "risk")
+    }
+    report = {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_7_market_relative_ablation",
+        "status": "complete",
+        "evidence_mode": runs["return_" + RECOVERY_MARKET_RELATIVE_EXPERIMENTS[0]]["evidence_mode"],
+        "estimator": "HistGradientBoosting",
+        "market_relative_alignment": alignment,
+        "experiments": list(RECOVERY_MARKET_RELATIVE_EXPERIMENTS),
+        "task_summaries": task_summaries,
+        "limitations": [
+            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            "Daily same-session SPY alignment is verified, but exact intraday source availability is unavailable because bar_available_at is blank.",
+            "The 2024-2025 period remains excluded from development selection.",
+            "This report is development evidence, not an untouched-test, trading, or portfolio result.",
+        ],
+    }
+    output_dir.mkdir(parents=True, exist_ok=False)
+    for name, run in runs.items():
+        (output_dir / f"{name}.json").write_text(
+            json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
+    (output_dir / "market_relative_alignment.json").write_text(
+        json.dumps(alignment, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    (output_dir / "market_relative_ablation_summary.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     return report

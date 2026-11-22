@@ -25,6 +25,13 @@
   inputs, separately for return and risk. It writes new local evidence under
   `reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/` and
   refuses to overwrite an existing result.
+- `phase6_market_relative_ablation.ipynb` is the student-run Phase 6.7 notebook.
+  It first checks daily SPY alignment, then fits the predeclared
+  HistGradientBoosting comparison for all approved market features versus the
+  same set without SPY-based market-relative features, separately for return
+  and risk. It writes new local evidence under
+  `reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/` and
+  refuses to overwrite an existing result.
 - `legacy/` contains earlier baseline, Colab, and embedded data-cleaning
   notebooks retained for historical comparison.
 
