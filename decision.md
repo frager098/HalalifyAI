@@ -879,6 +879,38 @@ recall improved by `0.00339`, and 55 fewer High outcomes were predicted Low.
 The result remains limited to the Alpaca IEX-feed volume collected by this
 project; it is not a claim about consolidated whole-market volume.
 
+## 2026-11-23 — Step 6.10 SEC readiness gate: not passed
+
+**Approved fundamental columns for Phase 6 training: none.** The current
+market-only Phase 6 dataset remains the only approved input for feature
+comparison. Its allowlist contains 14 market features; the existing ablation
+safeguard rejects an `eligible_fundamentals` group before a fundamental field
+can enter an experiment.
+
+The prior point-in-time SEC review was deliberately narrow: assets, cash, and
+same-filing cash-to-assets were research candidates only. It did not approve
+them for training because AAPL source checksums failed and both historical
+issuer identity and as-filed historical snapshot vintage remained unverified.
+The present checkout cannot reproduce that review: the expected immutable
+`data/raw/sec_snapshots/20261009T110657727507Z/` source and its generated audit
+reports are absent. `data/raw/sec/` holds Company Facts files but not the
+matching full submissions files and immutable manifest needed to establish
+50-company provenance.
+
+Assets, cash, and cash-to-assets stay research-only. Filing age is not approved
+because it has no versioned feature definition and depends on the same missing
+provenance. Debt remains excluded because current/noncurrent components can
+overlap; revenue growth remains excluded because annual, quarterly, and
+year-to-date periods need reconciliation; profit margin lacks a validated net
+income plus revenue pair; and historical market capitalization lacks verified
+point-in-time shares outstanding.
+
+Step 6.11 is blocked. Retry this gate only from a complete new immutable SEC
+snapshot with a hash manifest, matching Company Facts and submissions records,
+verified issuer identity, confirmed filing/accession availability, amendment
+handling, validated units and period semantics, and an explicit definition for
+each proposed feature. No unresolved fundamental may be added silently.
+
 ## 2026-11-23 — Step 6.7 market-relative result recorded
 
 The local saved report

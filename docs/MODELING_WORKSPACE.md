@@ -233,3 +233,26 @@ less fair. No extra code, notebook, model fitting, or parameter tuning was
 created for this step. Reopen this decision only if later evidence identifies a
 precise weakness, and write that proposed feature's formula,
 lookback, availability time, and expected purpose before evaluating it.
+
+## Phase 6.10 SEC fundamental readiness gate — completed, not passed
+
+**No financial-company field may enter the model yet.** This is a safety
+decision, not a failure of the market-feature work. The available SEC evidence
+does not meet the project's requirements for reproducible historical model
+features.
+
+The earlier point-in-time review selected only assets, cash, and a same-filing
+cash-to-assets ratio as research candidates. It kept them out of model training
+because the AAPL SEC source was not verified and historical issuer identity and
+as-filed snapshot vintage were unresolved. In the current checkout, the full
+versioned SEC snapshot and its generated audit report are also absent, so that
+review cannot be reproduced here. The raw SEC folder alone is not enough: it
+lacks the matching full submission files and immutable manifest needed for the
+50-company provenance check.
+
+Therefore the approved Phase 6 fundamental feature list is **empty**. Debt,
+revenue growth, profit margin, historical market capitalization, and filing age
+are also excluded. Step 6.11 is blocked; it must not compare market-only data
+with unverified fundamentals. A future retry needs a new complete immutable SEC
+snapshot, a hash manifest, verified issuer identity, point-in-time filing
+availability, amendment treatment, and explicit feature definitions.
