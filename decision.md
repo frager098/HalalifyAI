@@ -857,14 +857,28 @@ No additional market feature will be added at this stage. This follows the
 predeclared rule that a new feature may be considered only when earlier group
 comparisons expose a specific weakness it is expected to address. The completed
 evidence does not do that: momentum and volatility are rejected for return,
-while volatility and downside/trend are retained for risk. The market-relative
-and volume comparisons are still awaiting student-run evidence, so expanding
-the feature list now would be an unsupported search for a better score.
+while volatility and downside/trend are retained for risk. Market-relative
+features help return but harm risk, which supports task-specific feature sets
+rather than a new feature. The volume comparison is still awaiting student-run
+evidence, so expanding the feature list now would be an unsupported search for
+a better score.
 
 No new dataset, code, notebook, model fitting, or tuning run is needed for this
-decision. It may be reopened only after reviewed Step 6.7 or 6.8 results name a
+decision. It may be reopened only after reviewed Step 6.8 results name a
 precise weakness. Before any future challenger is scored, its formula, lookback,
 point-in-time availability, and expected contribution must be recorded.
+
+## 2026-11-23 — Step 6.7 market-relative result recorded
+
+The local saved report
+`reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/market_relative_ablation_summary.json`
+has status `complete`. It verifies that SPY momentum, excess momentum, and beta
+are present in every task/fold row. Return **retains** the group: mean daily
+same-date ranking correlation improved by `+0.01227` and 3 of 4 folds improved.
+Risk **rejects** the group: mean macro F1 fell by `-0.00475`, only 1 of 4 folds
+improved, mean High-risk recall fell by `0.02094`, and 234 more High outcomes
+were predicted Low. The exact intraday arrival time remains unknown because
+`bar_available_at` is absent; the result is only daily after-close evidence.
 
 ## 2026-11-22 — Step 6.6 downside/trend comparison prepared
 

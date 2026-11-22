@@ -197,6 +197,18 @@ retain/reject/inconclusive rule and extra risk safety checks from Steps 6.4–6.
 are used. This is prepared code, not a completed result, until the student
 runs the notebook and reviews its output.
 
+### Phase 6.7 completed result
+
+The saved local report at
+`reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/market_relative_ablation_summary.json`
+shows that the three SPY-based features are **retained for return**. They raised
+the mean return ranking score by `+0.01227` and helped in 3 of 4 folds. They are
+**rejected for risk**: average macro F1 fell by `-0.00475`, High-risk recall
+fell by `0.02094`, and the model made 234 more serious mistakes where a future
+High-risk outcome was predicted Low. No SPY-based feature was missing in any
+fold row. The daily timing limitation remains: exact intraday source arrival is
+not provable because `bar_available_at` is blank.
+
 ## Phase 6.9 new-market-feature review — completed
 
 **Decision: do not add another market feature now.** This is an intentional
@@ -204,10 +216,11 @@ decision, not missing work. The completed results show that momentum and
 volatility do not help the return task consistently; volatility and
 downside/trend help the risk task. They do not identify one clear missing piece
 that a new trailing feature is expected to fix. The Phase 6.7 market-relative
-and Phase 6.8 volume comparisons also still need their student-run results.
+result gives different answers for return and risk; it does not point to a new
+feature. The Phase 6.8 volume comparison still needs its student-run result.
 
 Adding more features merely to search for a better score would make the study
 less fair. No extra code, notebook, model fitting, or parameter tuning was
-created for this step. Reopen this decision only if the reviewed 6.7 or 6.8
+created for this step. Reopen this decision only if the reviewed 6.8
 output identifies a precise weakness, and write that proposed feature's formula,
 lookback, availability time, and expected purpose before evaluating it.
