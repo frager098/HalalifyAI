@@ -846,10 +846,7 @@ falls or severe High-to-Low errors rise.
 The source volume was collected through Alpaca's IEX feed. It is not
 consolidated SIP volume from all US exchanges. The experiment therefore tests
 only the usefulness of this project’s collected volume ratio; it must not be
-described as proof about total market volume. Output stays local under
-`reports/model_evaluation/phase6_recovery_v1/volume_ablation/` until the
-student runs the notebook and the fold results, matched coverage, and risk
-failures are reviewed.
+described as proof about total market volume.
 
 ## 2026-11-23 — Step 6.9 decision: add no new market feature
 
@@ -859,14 +856,28 @@ comparisons expose a specific weakness it is expected to address. The completed
 evidence does not do that: momentum and volatility are rejected for return,
 while volatility and downside/trend are retained for risk. Market-relative
 features help return but harm risk, which supports task-specific feature sets
-rather than a new feature. The volume comparison is still awaiting student-run
-evidence, so expanding the feature list now would be an unsupported search for
-a better score.
+rather than a new feature. The volume feature helps both tasks, and does not
+identify a missing weakness for a new feature. Expanding the feature list now
+would be an unsupported search for a better score.
 
 No new dataset, code, notebook, model fitting, or tuning run is needed for this
-decision. It may be reopened only after reviewed Step 6.8 results name a
-precise weakness. Before any future challenger is scored, its formula, lookback,
+decision. It may be reopened only after later reviewed evidence names a precise
+weakness. Before any future challenger is scored, its formula, lookback,
 point-in-time availability, and expected contribution must be recorded.
+
+## 2026-11-23 — Step 6.8 volume result recorded
+
+The local saved report
+`reports/model_evaluation/phase6_recovery_v1/volume_ablation/volume_ablation_summary.json`
+has status `complete` and SHA-256
+`085723ff7a1305030d1d35745f52c1f384e65470e7ecf9df4d19bbac76cf21cf`.
+It compares all approved market features with the same set without
+`volume_ratio_20d`. Return **retains** volume: mean same-date ranking
+correlation improved by `+0.00192` and 3 of 4 folds improved. Risk **retains**
+volume: mean macro F1 improved by `+0.00137` in all 4 folds, mean High-risk
+recall improved by `0.00339`, and 55 fewer High outcomes were predicted Low.
+The result remains limited to the Alpaca IEX-feed volume collected by this
+project; it is not a claim about consolidated whole-market volume.
 
 ## 2026-11-23 — Step 6.7 market-relative result recorded
 

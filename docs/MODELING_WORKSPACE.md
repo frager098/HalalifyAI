@@ -175,7 +175,7 @@ It produces four fold-result JSON files,
 The source has no exact intraday availability timestamp, so the report records
 this as a daily after-close alignment check with a timing limitation.
 
-## Phase 6.8 volume comparison — prepared for student execution
+## Phase 6.8 volume comparison — completed
 
 Select the repository `.venv` kernel, then run
 `notebooks/phase6_volume_ablation.ipynb` from top to bottom. It compares all
@@ -194,8 +194,16 @@ Alpaca's IEX feed, not the combined volume of all US exchanges (SIP). Therefore
 the result can show whether this collected volume feature helps this project;
 it cannot claim to measure whole-market trading volume. The same predeclared
 retain/reject/inconclusive rule and extra risk safety checks from Steps 6.4–6.7
-are used. This is prepared code, not a completed result, until the student
-runs the notebook and reviews its output.
+are used.
+
+### Completed result
+
+The student ran the notebook and generated the local report. **Keep volume for
+both models.** For return, including volume raised the mean ranking score by
+`+0.00192` and helped in 3 of 4 chronological folds. For risk, it raised macro
+F1 by `+0.00137` in all 4 folds, raised High-risk recall by `0.00339`, and made
+55 fewer serious High-risk-predicted-Low mistakes. The summary SHA-256 is
+`085723ff7a1305030d1d35745f52c1f384e65470e7ecf9df4d19bbac76cf21cf`.
 
 ### Phase 6.7 completed result
 
@@ -217,10 +225,11 @@ volatility do not help the return task consistently; volatility and
 downside/trend help the risk task. They do not identify one clear missing piece
 that a new trailing feature is expected to fix. The Phase 6.7 market-relative
 result gives different answers for return and risk; it does not point to a new
-feature. The Phase 6.8 volume comparison still needs its student-run result.
+feature. The Phase 6.8 volume result retains the existing volume feature for
+both tasks; it does not identify a justified new feature.
 
 Adding more features merely to search for a better score would make the study
 less fair. No extra code, notebook, model fitting, or parameter tuning was
-created for this step. Reopen this decision only if the reviewed 6.8
-output identifies a precise weakness, and write that proposed feature's formula,
+created for this step. Reopen this decision only if later evidence identifies a
+precise weakness, and write that proposed feature's formula,
 lookback, availability time, and expected purpose before evaluating it.
