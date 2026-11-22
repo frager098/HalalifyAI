@@ -174,3 +174,25 @@ It produces four fold-result JSON files,
 `market_relative_alignment.json`, and `market_relative_ablation_summary.json`.
 The source has no exact intraday availability timestamp, so the report records
 this as a daily after-close alignment check with a timing limitation.
+
+## Phase 6.8 volume comparison — prepared for student execution
+
+Select the repository `.venv` kernel, then run
+`notebooks/phase6_volume_ablation.ipynb` from top to bottom. It compares all
+14 approved market features against the same set without the one volume feature
+`volume_ratio_20d`. That feature means today's daily volume divided by the
+company's average daily volume over today and the previous 19 sessions. Return
+and risk are evaluated separately using the same four chronological folds.
+
+The notebook creates this new local folder and refuses to overwrite it:
+
+`reports/model_evaluation/phase6_recovery_v1/volume_ablation/`
+
+It produces four fold-result JSON files and `volume_ablation_summary.json`.
+The report states an important limitation: this historical volume came from
+Alpaca's IEX feed, not the combined volume of all US exchanges (SIP). Therefore
+the result can show whether this collected volume feature helps this project;
+it cannot claim to measure whole-market trading volume. The same predeclared
+retain/reject/inconclusive rule and extra risk safety checks from Steps 6.4–6.7
+are used. This is prepared code, not a completed result, until the student
+runs the notebook and reviews its output.

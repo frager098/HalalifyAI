@@ -304,7 +304,7 @@ is recorded rather than silently combined with later groups.
   High-risk recall falls or the total number of High outcomes predicted Low
   rises. This is prepared code, not completed evidence, until the student runs
   and reviews the notebook.
-- [ ] **6.8 Evaluate volume features.** Test the point-in-time trailing volume ratio while retaining the documented Alpaca feed limitation and avoiding claims about consolidated market volume. **Done when:** its incremental contribution, stability, and limitation are recorded.
+- [ ] **6.8 Evaluate volume features.** Prepared for student execution. Compare all 14 approved market features with the same set excluding `volume_ratio_20d`, separately for return and risk, using the same four chronological folds and HistGradientBoosting settings. The ratio is current daily volume divided by its own 20-day average. The collected historical volume is from Alpaca's IEX feed, not consolidated SIP market volume, so no result may claim full-market volume coverage. The retain/reject/inconclusive and risk-safety rules from Steps 6.4–6.7 are fixed before fitting. **Done when:** the student-run output records its incremental contribution, four-fold stability, matched coverage, and IEX limitation.
 - [ ] **6.9 Review limited new market features.** Add a new trailing measure only if steps 6.4–6.8 expose a specific unresolved weakness and its formula, lookback, availability, and expected contribution are written before scoring. Do not broaden the search merely to improve the same folds. **Done when:** either a small predeclared challenger is evaluated with the same safeguards or the decision to add none is recorded.
 
 ### Gate and evaluate fundamentals

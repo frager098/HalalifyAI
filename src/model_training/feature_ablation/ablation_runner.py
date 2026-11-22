@@ -81,6 +81,9 @@ DEFAULT_RECOVERY_DOWNSIDE_TREND_OUTPUT = Path(
 DEFAULT_RECOVERY_MARKET_RELATIVE_OUTPUT = Path(
     "reports/model_evaluation/phase6_recovery_v1/market_relative_ablation"
 )
+DEFAULT_RECOVERY_VOLUME_OUTPUT = Path(
+    "reports/model_evaluation/phase6_recovery_v1/volume_ablation"
+)
 RECOVERY_MOMENTUM_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_momentum",
@@ -96,6 +99,10 @@ RECOVERY_DOWNSIDE_TREND_EXPERIMENTS = (
 RECOVERY_MARKET_RELATIVE_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_market_relative",
+)
+RECOVERY_VOLUME_EXPERIMENTS = (
+    "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
+    "without_volume",
 )
 MARKET_RELATIVE_FEATURES = (
     "spy_momentum_20d",
@@ -1657,6 +1664,84 @@ def write_recovery_market_relative_ablation_report(
         json.dumps(alignment, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     (output_dir / "market_relative_ablation_summary.json").write_text(
+        json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return report
+
+
+def summarize_volume_comparison(
+    task: str, with_volume: dict[str, Any], without_volume: dict[str, Any]
+) -> dict[str, Any]:
+    """Summarize the paired trailing-volume-ratio experiment."""
+
+    return _summarize_feature_group_comparison(
+        task, with_volume, without_volume, group_name="volume"
+    )
+
+
+def write_recovery_volume_ablation_report(
+    output_dir: Path = DEFAULT_RECOVERY_VOLUME_OUTPUT,
+    *,
+    dataset_path: Path = DEFAULT_RECOVERY_DATASET,
+    metadata_path: Path = DEFAULT_RECOVERY_METADATA,
+    protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
+    inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+) -> dict[str, Any]:
+    """Run Phase 6.8's trailing-volume-ratio test and write new-only evidence."""
+
+    output_dir = Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite volume evidence: {output_dir}")
+    inputs = {
+        "dataset_path": dataset_path,
+        "metadata_path": metadata_path,
+        "protocol_path": protocol_path,
+        "inventory_path": inventory_path,
+    }
+    runs: dict[str, dict[str, Any]] = {}
+    for task in ("return", "risk"):
+        for experiment in RECOVERY_VOLUME_EXPERIMENTS:
+            runs[f"{task}_{experiment}"] = run_recovery_ablation_experiment(
+                task, "HistGradientBoosting", experiment, **inputs
+            )
+    task_summaries = {
+        task: summarize_volume_comparison(
+            task,
+            runs[f"{task}_{RECOVERY_VOLUME_EXPERIMENTS[0]}"],
+            runs[f"{task}_{RECOVERY_VOLUME_EXPERIMENTS[1]}"],
+        )
+        for task in ("return", "risk")
+    }
+    report = {
+        "schema_version": 1,
+        "stage": "phase_6_step_6_8_volume_ablation",
+        "status": "complete",
+        "evidence_mode": runs["return_" + RECOVERY_VOLUME_EXPERIMENTS[0]]["evidence_mode"],
+        "estimator": "HistGradientBoosting",
+        "feature_definition": {
+            "column": "volume_ratio_20d",
+            "formula": "volume(t) / mean(volume[t-19:t])",
+            "availability": "Calculated after the daily session closes from the current and prior 19 company-volume observations.",
+        },
+        "volume_source_limitation": (
+            "The historical source is Alpaca's IEX feed, not consolidated SIP market "
+            "volume. This result does not claim whole-market volume coverage."
+        ),
+        "experiments": list(RECOVERY_VOLUME_EXPERIMENTS),
+        "task_summaries": task_summaries,
+        "limitations": [
+            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            "The volume ratio uses Alpaca IEX feed volume and must not be described as consolidated whole-market volume.",
+            "The 2024-2025 period remains excluded from development selection.",
+            "This report is development evidence, not an untouched-test, trading, or portfolio result.",
+        ],
+    }
+    output_dir.mkdir(parents=True, exist_ok=False)
+    for name, run in runs.items():
+        (output_dir / f"{name}.json").write_text(
+            json.dumps(run, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
+    (output_dir / "volume_ablation_summary.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
     return report

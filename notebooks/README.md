@@ -32,6 +32,13 @@
   and risk. It writes new local evidence under
   `reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/` and
   refuses to overwrite an existing result.
+- `phase6_volume_ablation.ipynb` is the student-run Phase 6.8 notebook. It
+  fits the predeclared HistGradientBoosting comparison for all approved market
+  features versus the same set without `volume_ratio_20d`, separately for
+  return and risk. It documents that Alpaca IEX volume is not consolidated
+  whole-market volume, writes new local evidence under
+  `reports/model_evaluation/phase6_recovery_v1/volume_ablation/`, and refuses
+  to overwrite an existing result.
 - `legacy/` contains earlier baseline, Colab, and embedded data-cleaning
   notebooks retained for historical comparison.
 

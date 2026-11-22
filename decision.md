@@ -825,6 +825,32 @@ Steps 6.4–6.6. Output stays local under
 the student runs the notebook and the alignment, fold results, coverage, and
 risk failures are reviewed.
 
+## 2026-11-22 — Step 6.8 volume comparison prepared
+
+The next controlled experiment is specified before fitting. It compares all 14
+approved market features with the same set excluding the one trailing-volume
+feature, `volume_ratio_20d`. The formula is daily volume on the decision date
+divided by the average daily volume from that date and the preceding 19 trading
+sessions. It uses HistGradientBoosting, the same four development folds, and
+only the recorded inner-validation tuning budget.
+
+The student-run entry point is `notebooks/phase6_volume_ablation.ipynb`.
+Return uses same-date mean Spearman rank correlation as its primary score; risk
+uses macro F1, High-risk recall, and High-predicted-Low errors. The selection
+rule is frozen before results: retain requires a positive mean primary-metric
+difference and improvement in at least three folds; reject requires a
+nonpositive mean and at least three nonpositive folds; otherwise mark
+inconclusive. For risk, a primary gain cannot be retained if High-risk recall
+falls or severe High-to-Low errors rise.
+
+The source volume was collected through Alpaca's IEX feed. It is not
+consolidated SIP volume from all US exchanges. The experiment therefore tests
+only the usefulness of this project’s collected volume ratio; it must not be
+described as proof about total market volume. Output stays local under
+`reports/model_evaluation/phase6_recovery_v1/volume_ablation/` until the
+student runs the notebook and the fold results, matched coverage, and risk
+failures are reviewed.
+
 ## 2026-11-22 — Step 6.6 downside/trend comparison prepared
 
 The next controlled experiment is specified before fitting. It compares all 14

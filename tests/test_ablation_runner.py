@@ -362,6 +362,36 @@ def test_market_relative_summary_uses_the_shared_decision_rule():
     assert summary["positive_fold_count"] == 4
 
 
+def test_volume_summary_marks_mixed_return_evidence_inconclusive():
+    def run(scores):
+        return {
+            "task": "return",
+            "estimator": "HistGradientBoosting",
+            "folds": [
+                {
+                    "fold": number,
+                    "outer_training_rows": 10,
+                    "outer_evaluation_rows": 5,
+                    "outer_training_keys_sha256": f"train-{number}",
+                    "outer_evaluation_keys_sha256": f"eval-{number}",
+                    "outer_first": f"202{number}-01-01",
+                    "outer_last": f"202{number}-02-01",
+                    "metrics": {"mean_daily_spearman": score},
+                }
+                for number, score in enumerate(scores, start=1)
+            ],
+        }
+
+    summary = ablation_runner.summarize_volume_comparison(
+        "return",
+        run([0.03, 0.01, 0.02, 0.00]),
+        run([0.02, 0.02, 0.01, 0.01]),
+    )
+
+    assert summary["decision"] == "inconclusive"
+    assert summary["positive_fold_count"] == 2
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))
 
