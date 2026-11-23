@@ -35,6 +35,20 @@ EXPECTED_BRANCH = "feature/model-evaluation"
 ESTIMATOR_ORDER = ["LogisticRegression", "HistGradientBoosting"]
 VARIANT_ORDER = ["comparator", "candidate"]
 
+# Notebook execution changes cell outputs and execution counters. Those are not
+# part of the frozen modelling implementation, so they must not stop a normal
+# notebook run. These paths are the code and versioned settings that actually
+# control the Phase 7 result.
+IDENTITY_PATHS = [
+    HANDOFF_PATH,
+    FREEZE_PATH,
+    Path("src/feature_engineering/build_feature_dataset.py"),
+    Path("src/model_training/baseline_models.py"),
+    Path("src/model_training/chronological_evaluation_protocol.py"),
+    Path("src/model_training/feature_ablation/ablation_runner.py"),
+    Path("src/model_training/phase7"),
+]
+
 
 class Phase7ContractError(ValueError):
     """Raised when frozen Phase 7 inputs or rules do not reproduce."""
@@ -62,18 +76,38 @@ def _git_value(*arguments: str) -> str:
     return result.stdout.strip()
 
 
+def _phase7_implementation_is_dirty() -> bool:
+    """Check only files that define the frozen Phase 7 procedure.
+
+    `git diff --quiet` returns 1 when a difference is found, which is a
+    normal result rather than a subprocess failure.
+    """
+
+    result = subprocess.run(
+        ["git", "diff", "--quiet", "HEAD", "--", *map(str, IDENTITY_PATHS)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode not in (0, 1):
+        raise Phase7ContractError(
+            "Could not verify the frozen Phase 7 implementation with Git"
+        )
+    return result.returncode == 1
+
+
 def source_identity() -> dict[str, str]:
-    """Record the checked-out source identity without changing Git state."""
+    """Record the frozen source identity without blocking notebook outputs."""
 
     branch = _git_value("branch", "--show-current")
     if branch != EXPECTED_BRANCH:
         raise Phase7ContractError(
             f"Phase 7 must run on {EXPECTED_BRANCH}; current branch is {branch!r}"
         )
-    dirty = _git_value("status", "--porcelain", "--untracked-files=no")
-    if dirty:
+    if _phase7_implementation_is_dirty():
         raise Phase7ContractError(
-            "Tracked files differ from the checked-out commit; commit or restore them first"
+            "Phase 7 code or frozen settings differ from the checked-out commit; "
+            "commit or restore those files first"
         )
     return {"branch": branch, "commit": _git_value("rev-parse", "HEAD")}
 

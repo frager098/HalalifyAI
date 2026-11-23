@@ -60,6 +60,11 @@ notebooks after the handoff validation passes. Any proposed change to the
 frozen features, folds, estimator families, tuning budget, or metrics must be
 reviewed and versioned before results are viewed.
 
+Running a notebook normally changes its saved cell output. This is allowed.
+The Phase 7 handoff check verifies the frozen Phase 7 code and settings instead
+of treating notebook output changes as a failure. It still stops if that code
+or those settings differ from the checked-out commit.
+
 ## Required directory structure
 
 The transfer package should reproduce repository-relative paths exactly:

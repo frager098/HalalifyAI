@@ -1,4 +1,5 @@
 import json
+from types import SimpleNamespace
 
 import numpy as np
 import pandas as pd
@@ -9,6 +10,7 @@ from src.model_training.phase7.contract import (
     HANDOFF_PATH,
     Phase7ContractError,
 )
+from src.model_training.phase7 import contract
 from src.model_training.phase7.review import _review_rule
 from src.model_training.phase7.runner import (
     _classification_metrics,
@@ -28,6 +30,27 @@ def test_phase7_frozen_candidates_match_handoff_design():
     assert handoff["phase7_output_root"] == (
         "reports/model_evaluation/phase7_candidate_tuning_v1"
     )
+
+
+def test_source_identity_checks_frozen_implementation_not_notebook_outputs(monkeypatch):
+    values = {
+        ("branch", "--show-current"): "feature/model-evaluation",
+        ("rev-parse", "HEAD"): "example-commit",
+    }
+    monkeypatch.setattr(contract, "_git_value", lambda *args: values[args])
+    calls = []
+
+    def fake_run(arguments, **_kwargs):
+        calls.append(arguments)
+        return SimpleNamespace(returncode=0)
+
+    monkeypatch.setattr(contract.subprocess, "run", fake_run)
+
+    assert contract.source_identity() == {
+        "branch": "feature/model-evaluation",
+        "commit": "example-commit",
+    }
+    assert calls == [["git", "diff", "--quiet", "HEAD", "--", *map(str, contract.IDENTITY_PATHS)]]
 
 
 def test_phase7_feature_selection_rejects_non_allowlisted_and_missing_values():
