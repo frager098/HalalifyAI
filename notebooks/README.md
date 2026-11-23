@@ -74,6 +74,20 @@ is split into eight small student-run notebooks covering handoff/runner
 validation, two return estimators, return review, two risk estimators, risk
 review, and the final report.
 
-Those notebooks and their reusable Phase 7 modules are not implemented yet.
-Do not send notebook execution instructions to a collaborator until the code,
-tests, and notebooks are created, reviewed, committed, and pushed.
+The eight notebooks and reusable modules are now implemented. After pulling the
+reviewed source commit and placing the transferred Phase 6 artifacts at their
+exact repository-relative paths, run them in this order with the existing
+`.venv` Python 3.12 kernel:
+
+1. `phase7_handoff_and_runner_validation.ipynb` (Steps 7.1-7.3, no fitting)
+2. `phase7_return_logistic.ipynb` (Step 7.4)
+3. `phase7_return_hist_gradient_boosting.ipynb` (Step 7.5)
+4. `phase7_return_review.ipynb` (Step 7.6, no fitting)
+5. `phase7_risk_logistic.ipynb` (Step 7.7)
+6. `phase7_risk_hist_gradient_boosting.ipynb` (Step 7.8)
+7. `phase7_risk_review.ipynb` (Step 7.9, no fitting)
+8. `phase7_final_report.ipynb` (Step 7.10, no fitting)
+
+Every step writes new-only evidence. Do not rerun Phase 3, Phase 5, or Phase 6
+preparation and do not delete an earlier output merely to obtain a preferred
+result.

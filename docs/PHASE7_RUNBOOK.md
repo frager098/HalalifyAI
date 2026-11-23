@@ -259,6 +259,7 @@ Prepare and run them in this order:
 7. `phase7_risk_review.ipynb` — Step 7.9, no fitting.
 8. `phase7_final_report.ipynb` — Step 7.10, no additional search.
 
-These are planned entry points. Do not ask the friend to run them until their
-reusable modules, tests, and notebooks have been implemented, reviewed,
-committed, and pushed.
+These entry points are implemented in `src/model_training/phase7/`, covered by
+focused tests, and ready for student execution after the source commit is
+pushed. They have not yet produced Phase 7 model results. Each notebook writes
+new-only output and refuses to overwrite prior evidence.

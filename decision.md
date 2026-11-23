@@ -1083,3 +1083,17 @@ budget. It must keep the reused 2024-2025 period out of selection, preserve the
 four chronological folds, report risk safety errors, compare return ranking
 with momentum, and refuse silent feature or budget changes. A genuinely later
 verified period remains necessary for Phase 8.
+
+## 2026-11-23 — Phase 7 implementation prepared; execution pending
+
+**Decision:** Phase 7 source code, validation checks, and eight small
+student-run notebooks are prepared under `src/model_training/phase7/` and
+`notebooks/`. The workflow first checks the exact transferred Phase 6 dataset
+and reports, then freezes the Phase 7 contract, then runs the four declared
+model comparisons, reviews return and risk separately, and writes the final
+Phase 7 conclusion.
+
+This is not a model-performance result. The Phase 7 generated reports,
+candidate selection, and Phase 8 freeze do not exist until the student runs the
+notebooks in the declared order. Each output is new-only: rerunning a completed
+step without choosing a new, documented experiment version is refused.

@@ -361,12 +361,15 @@ result is presented as untouched-test, portfolio, or trading evidence.
 
 ## Phase 7 — Tune the strongest candidates within a fixed budget
 
-**Prepared plan, not yet implemented or executed:** The exact artifact handoff,
+**Implementation ready; execution pending:** The exact artifact handoff,
 directory layout, candidates, comparators, fixed search budget, outputs, and
 student-run order are defined in `docs/PHASE7_RUNBOOK.md` and
-`configs/phase7_handoff_v1.json`. Phase 7 must use the exact source-control
-commit containing the reviewed Phase 6 work plus the separately transferred,
-Git-ignored artifacts at their original repository-relative paths.
+`configs/phase7_handoff_v1.json`. Reusable code is under
+`src/model_training/phase7/` and the eight user-facing notebooks are under
+`notebooks/`. Phase 7 must use the exact source-control commit containing the
+reviewed Phase 6 work plus the separately transferred, Git-ignored artifacts
+at their original repository-relative paths. No Phase 7 result exists until the
+student runs the notebooks in the stated order.
 
 - [ ] **7.1 Validate the handoff without fitting.** Verify source commit,
   artifact hashes, schema, rows, eligibility, features, folds, and v2 freeze.
