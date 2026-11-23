@@ -1544,6 +1544,7 @@ def _summarize_feature_group_comparison(
     without_group: dict[str, Any],
     *,
     group_name: str,
+    comparison_description: str | None = None,
 ) -> dict[str, Any]:
     """Summarize one paired leave-one-group-out comparison."""
 
@@ -1590,7 +1591,8 @@ def _summarize_feature_group_comparison(
         "task": task,
         "estimator": with_group["estimator"],
         "primary_metric": primary_metric,
-        "comparison": f"full_allowlisted_market_features versus the same set without {group_name}",
+        "comparison": comparison_description
+        or f"full_allowlisted_market_features versus the same set without {group_name}",
         "fold_metrics": fold_differences,
         f"mean_with_{group_name}": float(np.mean([item[f"with_{group_name}"] for item in fold_differences])),
         f"mean_without_{group_name}": float(np.mean([item[f"without_{group_name}"] for item in fold_differences])),

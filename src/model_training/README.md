@@ -10,6 +10,9 @@ This package is grouped by research task:
 - `feature_ablation/` contains the Phase 6 input contract and candidate-feature
   inventory and controlled ablation runner used by
   `notebooks/feature_ablation_report.ipynb`.
+- Phase 7 is currently documented, not implemented. Its frozen handoff,
+  candidate lists, tuning budget, planned modules/notebooks, and output layout
+  are in `docs/PHASE7_RUNBOOK.md` and `configs/phase7_handoff_v1.json`.
 
 The Phase 4/5 modules remain at this package level because their source paths
 and hashes are recorded in frozen experiment evidence. New Phase 6 code belongs

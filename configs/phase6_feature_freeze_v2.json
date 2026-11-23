@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "stage": "phase_6_step_6_12_exact_lineage_feature_freeze",
+  "status": "frozen_development_candidate",
+  "supersedes_for_current_decisions": "configs/phase6_feature_freeze_v1.json",
+  "parent_dataset": {
+    "path": "data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv",
+    "sha256": "71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f"
+  },
+  "expanded_dataset": {
+    "path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+    "sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0",
+    "metadata_sha256": "0f1df79371f9fe45f09f7b8ddb576629ac744f01e51e3d2238c79dd7f8563f27",
+    "preserves_parent_rows_labels_splits_and_eligibility": true
+  },
+  "protocol": {
+    "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json",
+    "sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060",
+    "folds": 4,
+    "reused_test_period_used_for_selection": false
+  },
+  "estimator_used_for_group_evidence": "HistGradientBoosting",
+  "original_phase5_features": [
+    "return_1d",
+    "momentum_5d",
+    "momentum_20d",
+    "momentum_60d",
+    "volatility_20d",
+    "volatility_60d",
+    "downside_dev_20d",
+    "drawdown_from_peak_60d",
+    "price_to_sma20",
+    "price_to_sma50",
+    "volume_ratio_20d",
+    "spy_momentum_20d",
+    "excess_momentum_20d",
+    "market_beta_60d"
+  ],
+  "fundamental_features": [],
+  "fundamental_gate": "blocked_by_phase_6_10",
+  "tasks": {
+    "return": {
+      "candidate_features": [
+        "return_1d",
+        "momentum_5d",
+        "momentum_20d",
+        "momentum_60d",
+        "volatility_20d",
+        "volatility_60d",
+        "downside_dev_20d",
+        "drawdown_from_peak_60d",
+        "price_to_sma20",
+        "price_to_sma50",
+        "volume_ratio_20d",
+        "spy_momentum_20d",
+        "excess_momentum_20d",
+        "market_beta_60d",
+        "return_5d_peer_rank",
+        "momentum_20d_peer_rank",
+        "momentum_60d_peer_rank"
+      ],
+      "candidate_basis": "Exactly tested original 14 Phase 5 features plus the retained cross-sectional relative-strength group.",
+      "retained_expansion_groups": ["cross_sectional_relative_strength"],
+      "inconclusive_expansion_groups_not_promoted": ["market_regime"],
+      "candidate_was_directly_evaluated_in_phase_6": true,
+      "mean_daily_spearman_difference_vs_original_14": 0.007595451709376347,
+      "positive_fold_count": 3
+    },
+    "risk": {
+      "candidate_features": [
+        "volatility_20d",
+        "volatility_60d",
+        "return_1d",
+        "downside_dev_20d",
+        "drawdown_from_peak_60d",
+        "price_to_sma20",
+        "price_to_sma50"
+      ],
+      "candidate_basis": "Minimal candidate assembled from the two continuation groups that passed both consistency and risk-safety rules.",
+      "retained_continuation_groups": ["volatility", "downside_trend"],
+      "rejected_groups": ["market_relative", "cross_sectional_relative_strength"],
+      "inconclusive_groups_not_promoted": ["momentum", "volume", "market_regime"],
+      "combined_candidate_was_not_refit_in_phase_6": true
+    }
+  },
+  "expansion_decisions": {
+    "cross_sectional_relative_strength": {
+      "return": "retain",
+      "risk": "reject"
+    },
+    "market_regime": {
+      "return": "inconclusive",
+      "risk": "inconclusive"
+    }
+  },
+  "evidence_sha256": {
+    "continuation_momentum_summary": "715a2d03bf58a2fb08bdef1e3d8438f8ffd38a13f55d36527f2c3c59ca0f7e48",
+    "continuation_volatility_summary": "8431df9d0c3eef50768f6a07011c6e9daa7d120833174a097a3bf2968c308b16",
+    "continuation_downside_trend_summary": "f9b427df9220d65f40d912b21092aa0b108fdaf8033c45fdbe5110d5b0a14916",
+    "continuation_market_relative_summary": "26c020c1a2c987212846a5cdb9ea6cd7679b0823936d33c5913249f5b65e0c1d",
+    "continuation_volume_summary": "0aec70ae1a820f7bde74fa2d8482172c26fb9b693983be3bbe1097d27c856d4b",
+    "expansion_validation": "4777f3e9d7aca48b2fd15833e474a33a46533f9bf2a691806396611865dbef7e",
+    "cross_sectional_relative_strength_summary": "7032a0a0760634d660f511099da1a3853163cd1bdf3874a6421dc7fd5f935d59",
+    "market_regime_summary": "cd6fb7288d5f923db831145147d0a524baae4a01e5dc2a2e05a35c4973e5d315"
+  },
+  "selection_rule": "Retain only with positive mean primary-metric difference and improvement in at least three of four folds. Risk also requires non-worse mean High-risk recall and no increase in High-risk outcomes predicted Low. Inconclusive groups are not promoted.",
+  "limitations": [
+    "This is development-fold feature evidence, not untouched-test, trading, portfolio, or user-facing model evidence.",
+    "The return result establishes the complete 17-feature augmentation, not the three peer-rank features in isolation.",
+    "The seven-feature risk candidate combines separately retained groups and was not directly refit in Phase 6.",
+    "CSV round-trip noise changed one continuous return by about 3.4e-21 and one continuous risk outcome by about 4.4e-16; classes, ranks, cutoffs, splits, eligibility, and folds were unchanged.",
+    "The fixed current 50-stock universe introduces survivorship and selection bias.",
+    "No SEC fundamental field is approved because the Phase 6.10 point-in-time readiness gate did not pass.",
+    "Alpaca IEX volume is not consolidated SIP whole-market volume, and SPY inputs have only daily after-close availability."
+  ],
+  "next_gate": "Phase 7 may tune and compare only the frozen task-specific candidates and their declared baselines using training-side chronological validation. It must not add or remove features after viewing Phase 7 outcomes."
+}

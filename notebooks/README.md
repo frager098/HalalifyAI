@@ -45,3 +45,35 @@ before ending the runtime.
 Each fitting notebook refuses to overwrite its existing continuation output.
 Reusable data and model logic belongs in `src/`; notebooks call those modules
 instead of maintaining separate implementations.
+
+## Phase 6.9 controlled expansion
+
+The student completed `phase6_market_feature_expansion.ipynb` after preserving
+all five continuation comparisons. Its formulas and decision rules were frozen
+before execution in
+`configs/phase6_market_feature_expansion_v1.json` and explained in
+`docs/PHASE6.md`.
+
+The notebook creates a separate
+`data/processed/model_inputs/phase6_expanded_features_v1/` dataset. It compares
+the original 14 features with the exact same rows plus one new three-feature
+group at a time: cross-sectional relative strength, then SPY market regime.
+Return and risk are evaluated separately across the four frozen chronological
+folds. Generated evidence is written only under
+`reports/model_evaluation/phase6_market_feature_expansion_v1/`.
+
+The reviewed outcome is frozen in `configs/phase6_feature_freeze_v2.json` and
+documented in `docs/PHASE6.md`. Phase 7 must use only those
+task-specific candidates and their declared baselines.
+
+## Phase 7 status
+
+The Phase 7 workflow and friend handoff are specified in
+`docs/PHASE7_RUNBOOK.md` and `configs/phase7_handoff_v1.json`. The planned work
+is split into eight small student-run notebooks covering handoff/runner
+validation, two return estimators, return review, two risk estimators, risk
+review, and the final report.
+
+Those notebooks and their reusable Phase 7 modules are not implemented yet.
+Do not send notebook execution instructions to a collaborator until the code,
+tests, and notebooks are created, reviewed, committed, and pushed.

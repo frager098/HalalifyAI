@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "stage": "phase_7_handoff_contract",
+  "status": "prepared_requires_source_commit_and_artifact_transfer",
+  "branch": "feature/model-evaluation",
+  "source_control_rule": "Commit and push the reviewed Phase 6 source, configs, tests, notebooks, and documentation. The recipient must checkout that exact commit before copying local artifacts into the repository root.",
+  "dataset_policy": "The transferred phase6_expanded_features_v1 CSV is the only approved Phase 7 dataset. The recipient must not rebuild, redownload, repair, or substitute it. A missing or mismatched artifact requires a fresh transfer from the student.",
+  "required_local_artifacts": [
+    {
+      "path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+      "sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0",
+      "purpose": "Phase 7 model input with the original 14 and six expansion features."
+    },
+    {
+      "path": "data/processed/model_inputs/phase6_expanded_features_v1/dataset_metadata.json",
+      "sha256": "0f1df79371f9fe45f09f7b8ddb576629ac744f01e51e3d2238c79dd7f8563f27",
+      "purpose": "Dataset lineage, feature allowlist, counts, missingness, and parent identities."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json",
+      "sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060",
+      "purpose": "Four frozen chronological folds, purges, cutoffs, and tuning budget."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/expansion_validation.json",
+      "sha256": "4777f3e9d7aca48b2fd15833e474a33a46533f9bf2a691806396611865dbef7e",
+      "purpose": "No-fit validation of the expanded inputs and matched-row contract."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/cross_sectional_relative_strength/cross_sectional_relative_strength_summary.json",
+      "sha256": "7032a0a0760634d660f511099da1a3853163cd1bdf3874a6421dc7fd5f935d59",
+      "purpose": "Evidence for retaining the new return group and rejecting it for risk."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/market_regime/market_regime_summary.json",
+      "sha256": "cd6fb7288d5f923db831145147d0a524baae4a01e5dc2a2e05a35c4973e5d315",
+      "purpose": "Evidence that the market-regime group is not promoted."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_phase5_continuation_v1/momentum_ablation/momentum_ablation_summary.json",
+      "sha256": "715a2d03bf58a2fb08bdef1e3d8438f8ffd38a13f55d36527f2c3c59ca0f7e48",
+      "purpose": "Exact-lineage momentum decision."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_phase5_continuation_v1/volatility_ablation/volatility_ablation_summary.json",
+      "sha256": "8431df9d0c3eef50768f6a07011c6e9daa7d120833174a097a3bf2968c308b16",
+      "purpose": "Exact-lineage volatility decision."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_phase5_continuation_v1/downside_trend_ablation/downside_trend_ablation_summary.json",
+      "sha256": "f9b427df9220d65f40d912b21092aa0b108fdaf8033c45fdbe5110d5b0a14916",
+      "purpose": "Exact-lineage downside/trend decision."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_phase5_continuation_v1/market_relative_ablation/market_relative_ablation_summary.json",
+      "sha256": "26c020c1a2c987212846a5cdb9ea6cd7679b0823936d33c5913249f5b65e0c1d",
+      "purpose": "Exact-lineage market-relative decision."
+    },
+    {
+      "path": "reports/model_evaluation/phase6_phase5_continuation_v1/volume_ablation/volume_ablation_summary.json",
+      "sha256": "0aec70ae1a820f7bde74fa2d8482172c26fb9b693983be3bbe1097d27c856d4b",
+      "purpose": "Exact-lineage volume decision."
+    }
+  ],
+  "required_versioned_repository_files": [
+    "configs/phase6_feature_freeze_v2.json",
+    "configs/phase6_market_feature_expansion_v1.json",
+    "configs/phase7_handoff_v1.json",
+    "docs/PHASE6.md",
+    "docs/PHASE7_RUNBOOK.md",
+    "decision.md",
+    "src/feature_engineering/phase6_expansion_features.py",
+    "src/model_training/feature_ablation/phase6_market_expansion.py",
+    "src/target_engineering/build_phase6_expanded_dataset.py",
+    "requirements.txt",
+    "requirements-cleaning.txt"
+  ],
+  "excluded_from_handoff": [
+    ".env and all credentials",
+    ".venv and .venv-phases",
+    "data/raw and data/interim provider downloads",
+    "phase6_recovery_v1 as an active input",
+    "the friend's historical results folder as an active input",
+    "trained model binaries or unreviewed Phase 7 outputs"
+  ],
+  "copy_rule": "Copy the package contents into the cloned HalalifyAI repository root without renaming any directory or file. Do not place these artifacts under results/, Downloads/, or a new custom folder.",
+  "recipient_first_action": "Run a no-fit Phase 7 handoff validator against this manifest. Do not execute any Phase 3, Phase 5, or Phase 6 dataset/notebook workflow.",
+  "phase7_output_root": "reports/model_evaluation/phase7_candidate_tuning_v1"
+}

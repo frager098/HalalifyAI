@@ -930,8 +930,8 @@ invalidate the result.
 ## 2026-11-23 — Step 6.12 Phase 6 feature-ablation conclusion
 
 The Phase 6 group comparisons are frozen in
-`configs/phase6_feature_freeze_v1.json`; the evaluator-facing summary is
-`docs/PHASE6_ABLATION_REPORT.md`. They use the recovery dataset SHA-256
+`configs/phase6_feature_freeze_v1.json`; its historical summary is now retained
+inside `docs/PHASE6.md`. They use the recovery dataset SHA-256
 `3373211ab40f218413818575e8ec04654e76c12feeedb7e148e0c02cc98a5c0f` and
 chronological protocol SHA-256
 `764f988c93b537a18d7584c5847b7d8a1e588356a29c894bc5443992d2901c60`.
@@ -985,3 +985,101 @@ This is not yet a result. The output stays local under
 `reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/` until
 the student runs the notebook and the fold results, matched coverage, and risk
 failures are reviewed.
+
+## 2026-11-23 — Exact-lineage Phase 6 continuation supersedes recovery decisions
+
+**Decision:** Use the Phase 6 evidence generated from the exact dataset and
+protocol used in the student's Phase 5 execution for all current feature
+decisions. Preserve `phase6_recovery_v1`, the friend's `results/` folder,
+`configs/phase6_feature_freeze_v1.json`, with its historical status recorded in
+`docs/PHASE6.md`, as evidence only. They do not control Phase 7.
+
+The authoritative parent identities are:
+
+- Phase 5 dataset SHA-256:
+  `71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f`.
+- Phase 5 metadata SHA-256:
+  `b36ed46ac5a68b74130b26df8f20d965928c53d62467c163a214f8b37fd35ba9`.
+- Phase 5 chronological protocol SHA-256:
+  `048d82ce2ed0bedde60bd5f6215303fa86ebdab31aae5b5c330f0947372859ff`.
+
+The exact-lineage continuation decisions are:
+
+| Existing group | Return | Risk |
+| --- | --- | --- |
+| Momentum | Inconclusive | Inconclusive |
+| Volatility | Inconclusive | Retain |
+| Downside/trend | Inconclusive | Retain |
+| Market-relative | Inconclusive | Reject |
+| Volume | Reject | Inconclusive |
+
+Retain required a positive mean primary-metric change and improvement in at
+least three of four chronological folds. Risk additionally required non-worse
+mean High-risk recall and no increase in High outcomes predicted Low. Improving
+in most folds alone was not sufficient: return momentum improved in three
+folds, but its mean change was negative, so it remains inconclusive. Decisions
+apply to complete groups, not individual columns.
+
+The five continuation summary identities are frozen in
+`configs/phase6_market_feature_expansion_v1.json`. Their current hashes still
+match the saved reports. No continuation report was overwritten by the
+expansion.
+
+## 2026-11-23 — Controlled Phase 6.9 expansion completed
+
+**Decision:** Retain cross-sectional relative strength for return only. Reject
+it for risk. Do not promote the SPY market-regime group for either task because
+both results are inconclusive.
+
+The separately versioned expansion dataset is
+`data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv`
+with SHA-256
+`99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0`.
+It preserves the ordered parent keys, classes, splits, and eligibility flags.
+No eligible row is missing an expansion feature.
+
+| New group | Return evidence | Return decision | Risk evidence | Risk decision |
+| --- | --- | --- | --- | --- |
+| Cross-sectional relative strength | Mean daily Spearman `+0.00760`; 3/4 folds | Retain | Macro F1 `-0.00117`; 1/4 folds; 29 more High-to-Low errors | Reject |
+| SPY market regime | Mean daily Spearman `+0.00981`; 2/4 folds | Inconclusive | Macro F1 `-0.00667`; 2/4 folds; recall and severe errors worsened | Inconclusive |
+
+All paired variants used identical inner-training, inner-validation,
+outer-training, and outer-evaluation row identities. Training outcome windows
+ended before evaluation, risk cutoffs came from the applicable training rows,
+and all development evaluation ended before the reused-test boundary of
+2024-07-01. These four folds are development evidence used for feature
+selection, not an untouched test.
+
+A CSV serialization audit found one machine-precision change in each continuous
+outcome after the new CSV was written (`3.4e-21` for one return and `4.4e-16`
+for one volatility value). No key, class, same-date return rank, split,
+eligibility flag, fold membership, or risk cutoff changed. This is recorded as
+round-trip precision noise, not as new data or leakage.
+
+## 2026-11-23 — Final Phase 6 v2 freeze and Phase 7 gate
+
+**Decision:** The current exact-lineage freeze is
+`configs/phase6_feature_freeze_v2.json`; its evaluator report is the canonical
+`docs/PHASE6.md`. These supersede the recovery-based v1
+freeze for current work.
+
+The return candidate is the directly evaluated 17-feature augmentation: the
+original 14 Phase 5 market features plus `return_5d_peer_rank`,
+`momentum_20d_peer_rank`, and `momentum_60d_peer_rank`. The original features
+remain part of this candidate because the peer-rank group was tested as an
+addition to that baseline; this does not reclassify every original group as
+individually retained.
+
+The risk candidate contains seven features from the two retained continuation
+groups: `volatility_20d`, `volatility_60d`, `return_1d`,
+`downside_dev_20d`, `drawdown_from_peak_60d`, `price_to_sma20`, and
+`price_to_sma50`. This exact smaller combination was not refit in Phase 6 and
+must be compared with the original 14-feature risk baseline in Phase 7.
+
+No SEC fundamental is approved. Phase 7 may use only the frozen feature lists,
+the original 14-feature comparators, the already declared Logistic Regression
+and HistGradientBoosting estimator families, and the fixed training-side search
+budget. It must keep the reused 2024-2025 period out of selection, preserve the
+four chronological folds, report risk safety errors, compare return ranking
+with momentum, and refuse silent feature or budget changes. A genuinely later
+verified period remains necessary for Phase 8.

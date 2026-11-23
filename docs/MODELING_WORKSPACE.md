@@ -14,6 +14,12 @@ Phase 2 preserves the original inputs and adds `data/raw/alpaca/alpaca_sip_20261
 
 See `CLEANING_README.md` for execution instructions. Both target columns must be excluded from model input features for every task. The source's unresolved corporate-action and historical identity checks still apply.
 
+> **Current-status notice (2026-11-23):** The recovery experiment documented
+> below is preserved historical evidence. Current decisions use the student's
+> exact Phase 5 lineage, the controlled Phase 6.9 expansion, and
+> `configs/phase6_feature_freeze_v2.json`. See
+> `docs/PHASE6.md` and `docs/PHASE7_RUNBOOK.md`.
+
 ## Phase 6.2 recovery run — completed 2026-11-20
 
 The old Git-ignored Phase 3–5 generated package was not available on this
@@ -274,17 +280,19 @@ only.
 
 ## Phase 6.12 feature-ablation conclusion — completed
 
-The complete evaluator-facing summary is in
-`docs/PHASE6_ABLATION_REPORT.md`. The machine-readable setting for future work
-is `configs/phase6_feature_freeze_v1.json`.
+The current evaluator-facing summary is the canonical
+`docs/PHASE6.md`; the machine-readable setting is
+`configs/phase6_feature_freeze_v2.json`. The earlier report and v1 freeze remain
+historical recovery evidence.
 
-The return candidate contains only volume and SPY-based market-relative
-features. The risk candidate contains volatility, downside/trend, and volume.
-This difference is intentional: a feature can help predict return while hurting
-risk, or the other way around. No fundamental field is included because the
-SEC gate failed.
+Return advances with the directly evaluated 17-feature augmentation: the
+original 14 market features plus three cross-sectional peer-rank features.
+Risk advances with the seven-feature candidate assembled from the retained
+volatility and downside/trend groups. That smaller risk combination was not
+refit in Phase 6 and must be compared with the original 14-feature risk model
+in Phase 7. SPY market-regime features are not promoted, and no fundamental
+field is included because the SEC gate failed.
 
-These are frozen **development candidates** for the next controlled stage, not
-already-proven smaller-model results. Phase 6 tested each group by removing it
-from the full 14-feature model; it did not refit the two final smaller lists.
-Phase 7 must evaluate the exact lists without silently adding features.
+These remain **development candidates**, not production or untouched-test
+results. Phase 7 handoff, fixed tuning budget, notebook order, metrics, and
+stop rules are defined in `docs/PHASE7_RUNBOOK.md`.

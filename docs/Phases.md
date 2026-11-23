@@ -141,13 +141,23 @@ Random Forest, ordinal models and listwise ranking are later challengers only if
 
 ## Phase 6 — Improve features in small groups
 
-**Phase 5 continuation rerun prepared, not yet executed:** the completed
+**Current authoritative status (2026-11-23):** The student completed the five
+exact-lineage continuation comparisons and both controlled expansion groups.
+The evidence has been reviewed and Phase 6 is frozen in
+`configs/phase6_feature_freeze_v2.json`, with the conclusion in the canonical
+`docs/PHASE6.md`. Cross-sectional relative strength is
+retained for return; it is rejected for risk. The SPY regime group is
+inconclusive for both tasks and is not promoted. Phase 7 may now begin using
+only the frozen candidates and declared baselines. Earlier `phase6_recovery_v1`
+descriptions and the v1 freeze remain historical evidence from the friend's
+separately rebuilt dataset; they do not control current decisions.
+
+**Historical recovery context:** the completed
 `phase6_recovery_v1` evidence below remains historical evidence from a
-separately rebuilt dataset. The student will rerun Steps 6.2–6.8 as
-`phase6_phase5_continuation_v1` using the exact dataset and protocol used in the
-student's Phase 5 execution. See `docs/PHASE6_CONTINUATION_RUNBOOK.md`. Do not
-replace the recovery conclusions or advance the continuation experiment to
-Phase 7 until its new student-run summaries have been reviewed and frozen.
+separately rebuilt dataset. The exact-lineage continuation has now superseded
+it for current decisions. The older per-step recovery descriptions and hashes
+are retained below for audit history and must not be mistaken for continuation
+results. See `docs/PHASE6.md` for the completed rerun and expansion evidence.
 
 Use the frozen Phase 4 chronological folds and Phase 5 baselines. Run return
 and risk ablations separately because the two tasks may need different
@@ -313,7 +323,16 @@ is recorded rather than silently combined with later groups.
   rises. This is prepared code, not completed evidence, until the student runs
   and reviews the notebook.
 - [x] **6.8 Evaluate volume features.** The student-run comparison tested all 14 market features against the same set without `volume_ratio_20d`. **Return retains volume:** mean ranking improved by `+0.00192` and it helped in 3 of 4 folds. **Risk retains volume:** macro F1 improved by `+0.00137` in all 4 folds; High-risk recall improved by `0.00339`; and there were 55 fewer serious High-risk outcomes predicted Low. The ratio is current daily volume divided by its own 20-day average. The collected historical volume is from Alpaca's IEX feed, not consolidated SIP market volume, so no result may claim full-market volume coverage. Local summary: `reports/model_evaluation/phase6_recovery_v1/volume_ablation/volume_ablation_summary.json`, SHA-256 `085723ff7a1305030d1d35745f52c1f384e65470e7ecf9df4d19bbac76cf21cf`.
-- [x] **6.9 Review limited new market features.** **Decision: add none at this time.** The completed comparisons do not identify a specific problem that another market feature is expected to solve: market-relative inputs help return but harm risk, while volatility, downside/trend, and volume help risk. Volume also helps return, but it does not expose a missing weakness that a new feature should address. Searching for extra features now would be guessing and would weaken the fair comparison process. No additional feature, script, notebook, model run, or tuning search was added. Reconsider only after later evidence identifies a precise weakness. **Done:** the documented decision is to add no new market feature now.
+- [x] **6.9 Review limited new market features.** The student completed both
+  predeclared comparisons on identical rows across all four chronological
+  folds. Cross-sectional relative strength is retained for return: mean daily
+  Spearman improved by `+0.00760` and 3 of 4 folds improved. It is rejected for
+  risk: macro F1 changed by `-0.00117`, only one fold improved, and serious
+  High-to-Low errors increased by 29. The SPY market-regime group is
+  inconclusive for return (`+0.00981`, 2 of 4 folds) and risk (`-0.00667`, 2 of
+  4 folds); it is not promoted. The expanded dataset, metadata, protocol, and
+  two summaries reproduce the frozen identities recorded in the v2 freeze.
+  See `docs/PHASE6.md`.
 
 ### Gate and evaluate fundamentals
 
@@ -322,7 +341,17 @@ is recorded rather than silently combined with later groups.
 
 ### Freeze the Phase 6 conclusion
 
-- [x] **6.12 Select task-specific feature sets and publish the ablation report.** The frozen development candidates are versioned in `configs/phase6_feature_freeze_v1.json`, with the concise evaluator report in `docs/PHASE6_ABLATION_REPORT.md`. Return's minimal candidate contains volume plus the three market-relative features; risk's minimal candidate contains volatility, downside/trend, and volume. Momentum and volatility are rejected for return; market-relative is rejected for risk; inconclusive groups are excluded from the minimal candidates without being described as harmful. No fundamental feature is included because Step 6.10 did not pass. These smaller combinations were not refit in Phase 6, so they are fixed Phase 7 candidates—not new performance claims. All five saved group reports, their hashes, matched-row scope, limitations, and next gate are recorded. The 2024–2025 reused test period was not used for selection.
+- [x] **6.12 Select task-specific feature sets and publish the ablation report.**
+  The exact-lineage freeze is `configs/phase6_feature_freeze_v2.json` and the
+  evaluator report is `docs/PHASE6.md`. Return advances with
+  the exactly tested 17-feature candidate: the original 14 features plus the
+  three retained peer-rank features. Risk advances with the seven-feature
+  minimal candidate assembled from retained volatility and downside/trend
+  groups; this exact combination was not refit in Phase 6 and must be compared
+  with the original 14-feature risk candidate in Phase 7. Inconclusive groups
+  are excluded without being described as harmful. SEC features remain
+  excluded while Step 6.10 is blocked. The recovery-based v1 freeze and report
+  remain historical evidence only.
 
 **Exit evidence:** A reproducible ablation report showing each group's
 incremental contribution, fold variation, matched-row coverage, leakage
@@ -332,11 +361,44 @@ result is presented as untouched-test, portfolio, or trading evidence.
 
 ## Phase 7 — Tune the strongest candidates within a fixed budget
 
-- Search a small, recorded set of regularization strengths and tree settings on training-side chronological validation only.
-- Prevent tree-model early stopping, imputation, scaling, and probability calibration from seeing later evaluation rows.
-- For return, prioritize mean within-date rank correlation across folds; report class metrics and matched top-10 selection versus momentum and the same research universe. Ranking metrics and 20-day forward returns are research diagnostics until execution and eligibility rules exist.
-- For risk, prioritize macro F1 and inspect High-risk recall, High predicted as Low, probability calibration, and numerical volatility errors.
-- Examine results across folds and market periods. Twenty-day future windows overlap, so do not treat daily stock rows as independent evidence of uncertainty.
+**Prepared plan, not yet implemented or executed:** The exact artifact handoff,
+directory layout, candidates, comparators, fixed search budget, outputs, and
+student-run order are defined in `docs/PHASE7_RUNBOOK.md` and
+`configs/phase7_handoff_v1.json`. Phase 7 must use the exact source-control
+commit containing the reviewed Phase 6 work plus the separately transferred,
+Git-ignored artifacts at their original repository-relative paths.
+
+- [ ] **7.1 Validate the handoff without fitting.** Verify source commit,
+  artifact hashes, schema, rows, eligibility, features, folds, and v2 freeze.
+- [ ] **7.2 Freeze the experiment contract without fitting.** Record candidates,
+  comparators, estimator families, parameter grids, metrics, risk guardrails,
+  benchmarks, tie rules, and decision rules before results exist.
+- [ ] **7.3 Validate the runner without fitting.** Test allowlists, matched rows,
+  purging, training-only preprocessing and risk cutoffs, inner-only tuning,
+  disabled early stopping, provenance, and overwrite refusal.
+- [ ] **7.4 Tune/evaluate return Logistic Regression.** Compare the original 14
+  features and frozen 17-feature candidate on identical rows; retain the
+  momentum benchmark.
+- [ ] **7.5 Tune/evaluate return HistGradientBoosting.** Use only the three
+  frozen leaf-node settings and fixed tree configuration.
+- [ ] **7.6 Review the return choice without new fitting.** Compare folds,
+  feature sets, estimators, and momentum; retain a benchmark if learned gains
+  are inconsistent.
+- [ ] **7.7 Tune/evaluate risk Logistic Regression.** Compare the original 14
+  features with the frozen seven-feature candidate using fold-training risk
+  cutoffs.
+- [ ] **7.8 Tune/evaluate risk HistGradientBoosting.** Preserve fold-level macro
+  F1, High-risk recall, High-to-Low errors, probability metrics, and confusion
+  matrices.
+- [ ] **7.9 Review the risk choice without new fitting.** Compare learned
+  candidates, the 14-feature comparator, and trailing-volatility benchmark;
+  do not accept a primary gain that hides unsafe High-risk errors.
+- [ ] **7.10 Publish the Phase 7 conclusion without extra search.** Freeze exact
+  features, estimator, hyperparameters, evidence identities, limitations, and
+  the Phase 8 gate.
+
+Twenty-day future windows overlap, so daily rows are not independent trials.
+These folds remain development evidence, not a fresh holdout.
 
 **Exit evidence:** A documented risk candidate and return candidate, including a reason to retain a simple benchmark if learned alternatives fail to improve reliably.
 

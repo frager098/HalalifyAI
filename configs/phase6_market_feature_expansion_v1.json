@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "stage": "phase_6_step_6_9_market_feature_expansion_precommitment",
+  "status": "prepared_for_student_execution",
+  "experiment_id": "phase6_market_feature_expansion_v1",
+  "parent_dataset": {
+    "path": "data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv",
+    "sha256": "71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f"
+  },
+  "new_dataset": {
+    "path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+    "overwrite_parent": false
+  },
+  "preserved_continuation_summaries": {
+    "momentum": "715a2d03bf58a2fb08bdef1e3d8438f8ffd38a13f55d36527f2c3c59ca0f7e48",
+    "volatility": "8431df9d0c3eef50768f6a07011c6e9daa7d120833174a097a3bf2968c308b16",
+    "downside_trend": "f9b427df9220d65f40d912b21092aa0b108fdaf8033c45fdbe5110d5b0a14916",
+    "market_relative": "26c020c1a2c987212846a5cdb9ea6cd7679b0823936d33c5913249f5b65e0c1d",
+    "volume": "0aec70ae1a820f7bde74fa2d8482172c26fb9b693983be3bbe1097d27c856d4b"
+  },
+  "groups": {
+    "cross_sectional_relative_strength": {
+      "purpose": "Align trailing company performance with the same-date peer-ordering return target.",
+      "features": {
+        "return_5d_peer_rank": "Average-tie percentile rank of adjusted_close(t)/adjusted_close(t-5)-1 among active same-date peers; (rank-1)/(peer_count-1).",
+        "momentum_20d_peer_rank": "Average-tie percentile rank of adjusted_close(t)/adjusted_close(t-20)-1 among active same-date peers; (rank-1)/(peer_count-1).",
+        "momentum_60d_peer_rank": "Average-tie percentile rank of adjusted_close(t)/adjusted_close(t-60)-1 among active same-date peers; (rank-1)/(peer_count-1)."
+      },
+      "minimum_peers": 45,
+      "availability": "After session t closes; uses only company observations at or before t and same-date peer values."
+    },
+    "market_regime": {
+      "purpose": "Represent whether the wider market is calm, volatile, trending, or in drawdown.",
+      "features": {
+        "spy_volatility_20d": "Sample standard deviation of SPY daily returns over t-19 through t, multiplied by sqrt(252).",
+        "spy_drawdown_60d": "Reconstructed SPY index at t divided by its maximum over t-59 through t, minus 1.",
+        "spy_price_to_sma50": "Reconstructed SPY index at t divided by its mean over t-49 through t, minus 1."
+      },
+      "availability": "After session t closes from SPY returns available through t; exact intraday source arrival is not claimed."
+    }
+  },
+  "comparison": {
+    "baseline": "Original 14 Phase 5 market features.",
+    "candidate": "The same 14 features plus exactly one predeclared three-feature group.",
+    "rows": "Identical task-specific ticker/date rows in both variants.",
+    "folds": 4,
+    "tuning": "Training-side inner chronological validation only; outer folds scored once.",
+    "return_primary_metric": "mean_daily_spearman",
+    "risk_primary_metric": "macro_f1"
+  },
+  "decision_rule": {
+    "retain": "Positive mean primary-metric difference and improvement in at least three of four folds; risk also requires non-worse High-risk recall and no increase in High-predicted-Low count.",
+    "reject": "Non-positive mean difference and non-positive differences in at least three folds.",
+    "inconclusive": "Every other outcome. Inconclusive groups are not promoted into the minimal candidate."
+  },
+  "prohibitions": [
+    "Do not inspect or tune on the reused 2024-2025 period.",
+    "Do not add indicators after seeing these two group results without a new versioned precommitment.",
+    "Do not overwrite the Phase 5 or Phase 6 continuation datasets or reports.",
+    "Do not add SEC fundamentals while the point-in-time readiness gate is blocked."
+  ]
+}
