@@ -231,7 +231,7 @@ def test_recovery_validation_creates_a_no_fit_plan(monkeypatch, tmp_path, invent
     monkeypatch.setattr(
         ablation_runner,
         "build_recovery_feature_inventory_report",
-        lambda *_: (inventory, pd.DataFrame()),
+        lambda *_, **__: (inventory, pd.DataFrame()),
     )
     report = ablation_runner.build_recovery_runner_validation_report(
         tmp_path / "market_features_and_labels.csv",

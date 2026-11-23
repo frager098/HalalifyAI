@@ -141,6 +141,14 @@ Random Forest, ordinal models and listwise ranking are later challengers only if
 
 ## Phase 6 — Improve features in small groups
 
+**Phase 5 continuation rerun prepared, not yet executed:** the completed
+`phase6_recovery_v1` evidence below remains historical evidence from a
+separately rebuilt dataset. The student will rerun Steps 6.2–6.8 as
+`phase6_phase5_continuation_v1` using the exact dataset and protocol used in the
+student's Phase 5 execution. See `docs/PHASE6_CONTINUATION_RUNBOOK.md`. Do not
+replace the recovery conclusions or advance the continuation experiment to
+Phase 7 until its new student-run summaries have been reviewed and frozen.
+
 Use the frozen Phase 4 chronological folds and Phase 5 baselines. Run return
 and risk ablations separately because the two tasks may need different
 features. Within each comparison, keep the model, tuning budget, eligible

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "stage": "phase_6_phase_5_continuation_setup",
+  "status": "prepared_for_student_execution",
+  "experiment_id": "phase6_phase5_continuation_v1",
+  "dataset": {
+    "path": "data/processed/model_inputs/market_features_and_labels_v1/market_features_and_labels.csv",
+    "sha256": "71bbe3686cdd75ecbfded9130623c134b45636b6b658c45cc8fba3ecba90be7f"
+  },
+  "metadata": {
+    "path": "data/processed/model_inputs/market_features_and_labels_v1/dataset_metadata.json",
+    "sha256": "b36ed46ac5a68b74130b26df8f20d965928c53d62467c163a214f8b37fd35ba9"
+  },
+  "protocol": {
+    "path": "reports/model_evaluation/phase6_phase5_continuation_v1/chronological_evaluation_protocol.json",
+    "expected_sha256": "048d82ce2ed0bedde60bd5f6215303fa86ebdab31aae5b5c330f0947372859ff"
+  },
+  "output_root": "reports/model_evaluation/phase6_phase5_continuation_v1",
+  "relationship": "Continues the exact dataset and chronological protocol used by the student's Phase 5 execution.",
+  "friend_recovery_evidence": "Preserved separately under results/ and never overwritten by this experiment."
+}

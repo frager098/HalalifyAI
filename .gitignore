@@ -11,6 +11,7 @@ htmlcov/
 # Virtual environment
 .venv/
 .venv-phase6/
+.venv-phases/
 venv/
 
 # Environment variables
@@ -62,6 +63,7 @@ reports/data_validation/
 reports/legacy_model_experiments/
 reports/literature_review/
 reports/model_evaluation/
+/results/
 # Planning and research documents
 plan.md
 docs/plan.md

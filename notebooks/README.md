@@ -1,46 +1,47 @@
 # Notebooks
 
-- `model_evaluation_report.ipynb` is the current evaluator-facing notebook.
-- `feature_ablation_report.ipynb` is the student-run Phase 6 notebook. Its
-  first sections verify the frozen ablation contract and inventory every
-  candidate or excluded dataset column before feature-group comparisons.
-- `phase6_recovery_validation.ipynb` is the student-run recovery notebook for
-  Phase 6.3. It validates the verified Phase 6.2 recovery inputs and writes a
-  no-model-fitting comparison plan. It does not create performance results.
-- `phase6_momentum_ablation.ipynb` is the student-run Phase 6.4 notebook. It
-  fits the predeclared HistGradientBoosting comparison for the full allowed
-  market feature set versus the same set without momentum, separately for
-  return and risk. It writes new local evidence under
-  `reports/model_evaluation/phase6_recovery_v1/momentum_ablation/` and refuses
-  to overwrite an existing result.
-- `phase6_volatility_ablation.ipynb` is the student-run Phase 6.5 notebook. It
-  fits the predeclared HistGradientBoosting comparison for all approved market
-  features versus the same set without volatility, separately for return and
-  risk. It writes new local evidence under
-  `reports/model_evaluation/phase6_recovery_v1/volatility_ablation/` and
-  refuses to overwrite an existing result.
-- `phase6_downside_trend_ablation.ipynb` is the student-run Phase 6.6 notebook.
-  It fits the predeclared HistGradientBoosting comparison for all approved
-  market features versus the same set without the five related downside/trend
-  inputs, separately for return and risk. It writes new local evidence under
-  `reports/model_evaluation/phase6_recovery_v1/downside_trend_ablation/` and
-  refuses to overwrite an existing result.
-- `phase6_market_relative_ablation.ipynb` is the student-run Phase 6.7 notebook.
-  It first checks daily SPY alignment, then fits the predeclared
-  HistGradientBoosting comparison for all approved market features versus the
-  same set without SPY-based market-relative features, separately for return
-  and risk. It writes new local evidence under
-  `reports/model_evaluation/phase6_recovery_v1/market_relative_ablation/` and
-  refuses to overwrite an existing result.
-- `phase6_volume_ablation.ipynb` is the student-run Phase 6.8 notebook. It
-  fits the predeclared HistGradientBoosting comparison for all approved market
-  features versus the same set without `volume_ratio_20d`, separately for
-  return and risk. It documents that Alpaca IEX volume is not consolidated
-  whole-market volume, writes new local evidence under
-  `reports/model_evaluation/phase6_recovery_v1/volume_ablation/`, and refuses
-  to overwrite an existing result.
+## Phase 6 continuation in Google Colab
+
+The active Phase 6 notebooks continue the exact dataset used by the student's
+Phase 5 execution. In Colab, the setup cell clones the
+`feature/model-evaluation` branch into `/content/HalalifyAI`, installs pinned
+dependencies, and restores the Git-ignored Phase 5 CSV from the same public
+artifact folder used by `model_evaluation_report.ipynb`. It does not mount
+Google Drive.
+
+Run `phase6_phase5_continuation_setup.ipynb` first. It verifies dataset
+`71bbe368...`, reproduces chronological protocol `048d82ce...`, creates the
+Phase 6.2 inventory, and performs the no-fit Phase 6.3 validation. All new
+evidence is written under:
+
+`reports/model_evaluation/phase6_phase5_continuation_v1/`
+
+The friend's separate recovery experiment remains preserved under the local,
+Git-ignored `results/` folder and is never overwritten. Colab's `/content`
+storage is temporary, so download the completed continuation report folder
+before ending the runtime.
+
+## Notebook roles and order
+
+- `model_evaluation_report.ipynb` is the Phase 5 evaluator-facing notebook.
+- `phase6_phase5_continuation_setup.ipynb` performs Steps 6.2 and 6.3 without
+  model fitting.
+- `phase6_momentum_ablation.ipynb` performs Step 6.4 and writes the continuation
+  momentum evidence.
+- `phase6_volatility_ablation.ipynb` performs Step 6.5 and writes the
+  continuation volatility evidence.
+- `phase6_downside_trend_ablation.ipynb` performs Step 6.6 and writes the
+  continuation downside/trend evidence.
+- `phase6_market_relative_ablation.ipynb` performs Step 6.7, including the daily
+  SPY-alignment check.
+- `phase6_volume_ablation.ipynb` performs Step 6.8 and retains the Alpaca IEX
+  volume limitation.
+- `feature_ablation_report.ipynb` is a read-only historical workflow guide.
+- `phase6_recovery_validation.ipynb` belongs to the friend's historical recovery
+  experiment and is not part of the continuation run.
 - `legacy/` contains earlier baseline, Colab, and embedded data-cleaning
   notebooks retained for historical comparison.
 
-Reusable data and model logic belongs in `src/`; notebooks should call those
-modules instead of maintaining separate implementations.
+Each fitting notebook refuses to overwrite its existing continuation output.
+Reusable data and model logic belongs in `src/`; notebooks call those modules
+instead of maintaining separate implementations.

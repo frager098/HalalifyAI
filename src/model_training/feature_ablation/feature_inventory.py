@@ -580,6 +580,10 @@ def build_recovery_feature_inventory_report(
     dataset_path: Path,
     metadata_path: Path,
     protocol_path: Path,
+    *,
+    evidence_mode: str = (
+        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
+    ),
 ) -> tuple[dict[str, Any], pd.DataFrame]:
     """Build Phase 6.2 evidence from a newly rebuilt Phase 3/4 package.
 
@@ -596,7 +600,7 @@ def build_recovery_feature_inventory_report(
         Path(dataset_path),
         Path(metadata_path),
         input_identities,
-        evidence_mode="reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable",
+        evidence_mode=evidence_mode,
     )
 
 
@@ -606,12 +610,19 @@ def write_recovery_feature_inventory_report(
     protocol_path: Path,
     json_path: Path,
     csv_path: Path,
+    *,
+    evidence_mode: str = (
+        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
+    ),
 ) -> tuple[dict[str, Any], pd.DataFrame]:
     """Write recovery inventory evidence once, without overwriting a run."""
 
     json_path, csv_path = Path(json_path), Path(csv_path)
     report, inventory = build_recovery_feature_inventory_report(
-        dataset_path, metadata_path, protocol_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        evidence_mode=evidence_mode,
     )
     json_text = json.dumps(report, indent=2) + "\n"
     csv_text = inventory.to_csv(index=False, lineterminator="\n")

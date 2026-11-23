@@ -84,6 +84,21 @@ DEFAULT_RECOVERY_MARKET_RELATIVE_OUTPUT = Path(
 DEFAULT_RECOVERY_VOLUME_OUTPUT = Path(
     "reports/model_evaluation/phase6_recovery_v1/volume_ablation"
 )
+RECOVERY_EVIDENCE_MODE = (
+    "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
+)
+
+
+def _phase6_input_limitation(evidence_mode: str) -> str:
+    if evidence_mode == RECOVERY_EVIDENCE_MODE:
+        return (
+            "This is recovery evidence from the separately versioned Phase 6.2 "
+            "dataset; unavailable original Phase 5 result files were not recreated."
+        )
+    return (
+        "This evidence continues the exact dataset and chronological protocol used "
+        "by the student's completed Phase 5 experiment."
+    )
 RECOVERY_MOMENTUM_EXPERIMENTS = (
     "cumulative_momentum_plus_volatility_plus_downside_trend_plus_market_relative_plus_volume",
     "without_momentum",
@@ -676,6 +691,8 @@ def build_recovery_runner_validation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    *,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Validate the recovery plan without fitting, tuning, or scoring a model.
 
@@ -690,16 +707,17 @@ def build_recovery_runner_validation_report(
     )
     inventory = _read_json(inventory_path, "recovery Phase 6.2 feature inventory")
     rebuilt_inventory, _ = build_recovery_feature_inventory_report(
-        dataset_path, metadata_path, protocol_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        evidence_mode=evidence_mode,
     )
     if not same_inventory_content(inventory, rebuilt_inventory):
         raise AblationContractError(
             "Recovery Phase 6.2 inventory differs from its dataset or protocol"
         )
-    if inventory.get("evidence_mode") != (
-        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
-    ):
-        raise AblationContractError("Recovery inventory has an unexpected evidence mode")
+    if inventory.get("evidence_mode") != evidence_mode:
+        raise AblationContractError("Phase 6 inventory has an unexpected evidence mode")
 
     plan = build_experiment_plan(inventory)
     return {
@@ -717,7 +735,7 @@ def build_recovery_runner_validation_report(
         "tasks": ["return", "risk"],
         "estimators": ["LogisticRegression", "HistGradientBoosting"],
         "selection_and_leakage_rules": [
-            "The rebuilt Phase 4 protocol must exactly match the recovery dataset.",
+            "The chronological protocol must exactly reproduce from the selected dataset.",
             "Task labels and fold-specific risk cutoffs stay separate.",
             "Future outcomes, identifiers, and unapproved fundamentals cannot become inputs.",
             "Later tuning uses inner validation only; final fitting uses outer training only.",
@@ -739,12 +757,18 @@ def write_recovery_runner_validation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    *,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Write one recovery validation report and refuse differing replacement."""
 
     output_path = Path(output_path)
     report = build_recovery_runner_validation_report(
-        dataset_path, metadata_path, protocol_path, inventory_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        inventory_path,
+        evidence_mode=evidence_mode,
     )
     if output_path.exists():
         saved_report = _read_json(output_path, "existing recovery runner validation")
@@ -766,6 +790,7 @@ def _recovery_context(
     metadata_path: Path,
     protocol_path: Path,
     inventory_path: Path,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> tuple[pd.DataFrame, dict[str, Any], dict[str, Any], dict[str, Any]]:
     """Load and independently re-check the separately versioned recovery inputs."""
 
@@ -783,16 +808,17 @@ def _recovery_context(
         raise AblationContractError("Recovery protocol differs from reconstructed folds")
     inventory = _read_json(inventory_path, "recovery Phase 6.2 feature inventory")
     rebuilt_inventory, _ = build_recovery_feature_inventory_report(
-        dataset_path, metadata_path, protocol_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        evidence_mode=evidence_mode,
     )
     if not same_inventory_content(inventory, rebuilt_inventory):
         raise AblationContractError(
             "Recovery Phase 6.2 inventory differs from its dataset or protocol"
         )
-    if inventory.get("evidence_mode") != (
-        "reconstructed_phase_3_and_4_inputs; original_phase_5_reports_unavailable"
-    ):
-        raise AblationContractError("Recovery inventory has an unexpected evidence mode")
+    if inventory.get("evidence_mode") != evidence_mode:
+        raise AblationContractError("Phase 6 inventory has an unexpected evidence mode")
     return frame, protocol, inventory, rebuilt_inventory
 
 
@@ -805,6 +831,7 @@ def run_recovery_ablation_experiment(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Fit one verified recovery ablation using inner-only tuning.
 
@@ -816,7 +843,11 @@ def run_recovery_ablation_experiment(
     if task not in {"return", "risk"}:
         raise AblationContractError("Task must be 'return' or 'risk'")
     frame, protocol, inventory, rebuilt_inventory = _recovery_context(
-        dataset_path, metadata_path, protocol_path, inventory_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        inventory_path,
+        evidence_mode,
     )
     selected = [
         item
@@ -1072,6 +1103,7 @@ def write_recovery_momentum_ablation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Run the Phase 6.4 paired momentum test and write a new-only evidence package."""
 
@@ -1083,6 +1115,7 @@ def write_recovery_momentum_ablation_report(
         "metadata_path": metadata_path,
         "protocol_path": protocol_path,
         "inventory_path": inventory_path,
+        "evidence_mode": evidence_mode,
     }
     runs: dict[str, dict[str, Any]] = {}
     for task in ("return", "risk"):
@@ -1107,7 +1140,7 @@ def write_recovery_momentum_ablation_report(
         "experiments": list(RECOVERY_MOMENTUM_EXPERIMENTS),
         "task_summaries": task_summaries,
         "limitations": [
-            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            _phase6_input_limitation(evidence_mode),
             "The 2024-2025 period remains excluded from development selection.",
             "This report is development evidence, not an untouched-test, trading, or portfolio result.",
         ],
@@ -1223,6 +1256,7 @@ def write_recovery_volatility_ablation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Run the Phase 6.5 paired volatility test and write new-only evidence."""
 
@@ -1234,6 +1268,7 @@ def write_recovery_volatility_ablation_report(
         "metadata_path": metadata_path,
         "protocol_path": protocol_path,
         "inventory_path": inventory_path,
+        "evidence_mode": evidence_mode,
     }
     runs: dict[str, dict[str, Any]] = {}
     for task in ("return", "risk"):
@@ -1258,7 +1293,7 @@ def write_recovery_volatility_ablation_report(
         "experiments": list(RECOVERY_VOLATILITY_EXPERIMENTS),
         "task_summaries": task_summaries,
         "limitations": [
-            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            _phase6_input_limitation(evidence_mode),
             "The 2024-2025 period remains excluded from development selection.",
             "This report is development evidence, not an untouched-test, trading, or portfolio result.",
         ],
@@ -1379,6 +1414,7 @@ def write_recovery_downside_trend_ablation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Run the Phase 6.6 paired downside/trend test and write new-only evidence."""
 
@@ -1390,6 +1426,7 @@ def write_recovery_downside_trend_ablation_report(
         "metadata_path": metadata_path,
         "protocol_path": protocol_path,
         "inventory_path": inventory_path,
+        "evidence_mode": evidence_mode,
     }
     runs: dict[str, dict[str, Any]] = {}
     for task in ("return", "risk"):
@@ -1414,7 +1451,7 @@ def write_recovery_downside_trend_ablation_report(
         "experiments": list(RECOVERY_DOWNSIDE_TREND_EXPERIMENTS),
         "task_summaries": task_summaries,
         "limitations": [
-            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            _phase6_input_limitation(evidence_mode),
             "The five downside/trend columns are assessed as one related group, not as independent discoveries.",
             "The 2024-2025 period remains excluded from development selection.",
             "This report is development evidence, not an untouched-test, trading, or portfolio result.",
@@ -1436,6 +1473,7 @@ def build_recovery_market_relative_alignment_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Verify daily SPY-derived features are present on every comparison row.
 
@@ -1445,7 +1483,11 @@ def build_recovery_market_relative_alignment_report(
     """
 
     frame, protocol, inventory, _ = _recovery_context(
-        dataset_path, metadata_path, protocol_path, inventory_path
+        dataset_path,
+        metadata_path,
+        protocol_path,
+        inventory_path,
+        evidence_mode,
     )
     if inventory["groups"].get("market_relative") != list(MARKET_RELATIVE_FEATURES):
         raise AblationContractError("Recovery market-relative feature definition differs")
@@ -1612,6 +1654,7 @@ def write_recovery_market_relative_ablation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Run Phase 6.7 and write its aligned-SPY evidence package once."""
 
@@ -1623,6 +1666,7 @@ def write_recovery_market_relative_ablation_report(
         "metadata_path": metadata_path,
         "protocol_path": protocol_path,
         "inventory_path": inventory_path,
+        "evidence_mode": evidence_mode,
     }
     alignment = build_recovery_market_relative_alignment_report(**inputs)
     runs: dict[str, dict[str, Any]] = {}
@@ -1649,7 +1693,7 @@ def write_recovery_market_relative_ablation_report(
         "experiments": list(RECOVERY_MARKET_RELATIVE_EXPERIMENTS),
         "task_summaries": task_summaries,
         "limitations": [
-            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            _phase6_input_limitation(evidence_mode),
             "Daily same-session SPY alignment is verified, but exact intraday source availability is unavailable because bar_available_at is blank.",
             "The 2024-2025 period remains excluded from development selection.",
             "This report is development evidence, not an untouched-test, trading, or portfolio result.",
@@ -1686,6 +1730,7 @@ def write_recovery_volume_ablation_report(
     metadata_path: Path = DEFAULT_RECOVERY_METADATA,
     protocol_path: Path = DEFAULT_RECOVERY_PROTOCOL,
     inventory_path: Path = DEFAULT_RECOVERY_INVENTORY,
+    evidence_mode: str = RECOVERY_EVIDENCE_MODE,
 ) -> dict[str, Any]:
     """Run Phase 6.8's trailing-volume-ratio test and write new-only evidence."""
 
@@ -1697,6 +1742,7 @@ def write_recovery_volume_ablation_report(
         "metadata_path": metadata_path,
         "protocol_path": protocol_path,
         "inventory_path": inventory_path,
+        "evidence_mode": evidence_mode,
     }
     runs: dict[str, dict[str, Any]] = {}
     for task in ("return", "risk"):
@@ -1730,7 +1776,7 @@ def write_recovery_volume_ablation_report(
         "experiments": list(RECOVERY_VOLUME_EXPERIMENTS),
         "task_summaries": task_summaries,
         "limitations": [
-            "This is recovery evidence from the separately versioned Phase 6.2 dataset; unavailable original Phase 5 result files were not recreated.",
+            _phase6_input_limitation(evidence_mode),
             "The volume ratio uses Alpaca IEX feed volume and must not be described as consolidated whole-market volume.",
             "The 2024-2025 period remains excluded from development selection.",
             "This report is development evidence, not an untouched-test, trading, or portfolio result.",
