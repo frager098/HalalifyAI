@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "stage": "phase_7_model_selection_freeze",
+  "status": "frozen_for_phase_8_evaluation",
+  "dataset_sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0",
+  "protocol_sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060",
+  "return": {
+    "kind": "simple_benchmark",
+    "benchmark": "momentum_20d"
+  },
+  "risk": {
+    "kind": "simple_benchmark",
+    "benchmark": "volatility_20d_with_fold_training_cutoffs"
+  },
+  "estimators": {
+    "order": [
+      "LogisticRegression",
+      "HistGradientBoosting"
+    ],
+    "LogisticRegression": {
+      "C": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "preprocessing": "StandardScaler fit on training rows only"
+    },
+    "HistGradientBoosting": {
+      "max_leaf_nodes": [
+        15,
+        31,
+        63
+      ],
+      "max_iter": 100,
+      "learning_rate": 0.1,
+      "early_stopping": false,
+      "random_state": 42
+    }
+  },
+  "decision_rules": {
+    "return": "A learned option may advance over momentum only with a positive mean primary difference and improvement in at least three of four folds. Otherwise retain momentum.",
+    "risk": "A learned option may advance over trailing volatility only with a positive mean macro-F1 difference, improvement in at least three of four folds, non-worse mean High-risk recall, and no increase in total High-to-Low errors."
+  },
+  "phase8_gate": "Freeze the selected procedure before inspecting a genuinely later verified period. The reused 2024-2025 period is not a blind test."
+}
