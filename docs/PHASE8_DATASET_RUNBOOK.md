@@ -78,7 +78,8 @@ paths.
 First commit and push the complete Phase 8 code on
 `feature/model-evaluation`. Open or upload the notebook and run from the first
 cell. It clones that branch into `/content/HalalifyAI`, verifies the required
-tracked code, installs the declared requirements, and asks for only:
+tracked code, and installs the declared requirements. Use Colab's left **Files**
+sidebar to upload these four files directly into `/content`:
 
 If `/content/HalalifyAI` already exists, the setup cell fetches, checks out, and
 fast-forwards `feature/model-evaluation` before the code preflight.
@@ -88,8 +89,10 @@ fast-forwards `feature/model-evaluation` before the code preflight.
 3. `validation_report.json`
 4. `runner_validation.json`
 
-The upload cell places each file at the correct repository-relative path and
-then runs the same preflight and evaluation logic as local Python.
+Rerun the preflight cell after the sidebar uploads finish. It copies each file
+from `/content` to the correct repository-relative path and then runs the same
+preflight and evaluation logic as local Python. This avoids Colab's occasionally
+unresponsive `files.upload()` widget.
 
 Successful execution creates exactly one new file:
 

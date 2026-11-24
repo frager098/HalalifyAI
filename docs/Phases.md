@@ -470,15 +470,22 @@ viewed 2024–2025 period is not eligible as an untouched test.
   identities reproduce the Step 8.4 runner gate, the frozen contract, and the
   unscored reserved dataset without reading reserved outcomes or reopening
   selection.
-- [ ] **8.6 Evaluate once on the reserved later period.** Produce all
+- [x] **8.6 Evaluate once on the reserved later period.** Produce all
   predeclared return and risk metrics, fold-independent row counts, class
   distributions, confusion matrices where applicable, and risk-safety errors.
-  Preserve failures and unexpected results. **Prepared for one-time student
-  execution:** `notebooks/phase8_one_time_evaluation.ipynb` uses the validated
-  runner and Step 8.5 no-fit procedure freeze. It supports both local Python and
-  Google Colab, performs hash/preflight checks, and refuses overwrite before
-  reading reserved outcomes. Local and Colab instructions are in
-  `docs/PHASE8_DATASET_RUNBOOK.md`.
+  Preserve failures and unexpected results. **Complete:** the student executed
+  `notebooks/phase8_one_time_evaluation.ipynb` once and copied the result to
+  `reports/model_evaluation/phase8_reserved_evaluation_v1/one_time_evaluation.json`.
+  Verification found 187 sessions, 50 companies per session, and 9,350 eligible
+  rows with no exclusions. All predeclared return and risk fields are present;
+  the daily, class-count, support, safety-error, and confusion-matrix totals are
+  internally consistent. The frozen artifact identities match, no model was
+  fitted, and model selection was not reopened. The recorded results are mean
+  daily Spearman `0.013061481277002776`, mean top-10-minus-universe return
+  `0.01468055223257987`, and risk macro F1 `0.5536780089009589`. Result SHA-256:
+  `8d967ae09b73053a9742072f713a9f1ff94ed8045f4344b005a3c7c05af81896`.
+  These values are recorded without interpretation; comparison belongs to Step
+  8.7.
 - [ ] **8.7 Review the result without tuning.** Compare the genuinely unseen
   evidence with Phase 7 development evidence, clearly separating it from the
   reused 2024–2025 period. If coverage is inadequate or a change is proposed,
@@ -512,8 +519,8 @@ viewed 2024–2025 period is not eligible as an untouched test.
 ## Immediate working order
 
 Phases 1–7 have completed research evidence and documented limitations. Phase 8
-is next: verify and freeze a genuinely later evaluation period before inspecting
-its outcomes, then evaluate the retained return and risk benchmarks once under
-the frozen contract. Keep SEC predictors excluded until their separate
-point-in-time gate passes. No generalization or operational model claim is
-permitted until the later-period evidence is reproducible and reviewed.
+Steps 8.1–8.6 are complete. Step 8.7 is next: review the single reserved-period
+result against Phase 7 evidence without tuning or reopening selection. Keep SEC
+predictors excluded until their separate point-in-time gate passes. No
+generalization or operational model claim is permitted until the later-period
+evidence is reviewed and the Phase 8 conclusion is frozen.

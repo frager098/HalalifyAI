@@ -17,6 +17,9 @@ def test_phase8_notebook_is_local_and_colab_portable():
     assert "'fetch', 'origin', REPO_REF" in source
     assert "'pull', '--ff-only', 'origin', REPO_REF" in source
     assert "google.colab" in source
+    assert "Colab left Files sidebar" in source
+    assert "files.upload()" not in source
+    assert "Path('/content') / name" in source
     assert "reserved_features_and_labels.csv" in source
     assert "runner_validation.json" in source
     assert "run_one_time_evaluation" in source
