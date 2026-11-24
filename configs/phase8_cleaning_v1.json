@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "stage": "phase_8_step_8_1_cleaning",
+  "status": "frozen_before_outcomes_are_inspected",
+  "input_snapshot": "data/raw/phase8_market/phase8_alpaca_sip_20261124T005018Z",
+  "input_normalized_sha256": "e4d76e74663e519450ac41c91de30928a021aa3689ff5b28223ad1346eb75f20",
+  "previous_cleaned_csv": "data/processed/cleaned_market_data/selected_market_data_2026-10-22T060940Z/prices_clean.csv",
+  "previous_cleaned_sha256": "f5734f6b7e3d2e7e41a877834f1cb5210bcb6845e329543459e49eed84959d21",
+  "output_directory": "data/processed/phase8_market_cleaned/phase8_alpaca_sip_20261124T005018Z_cleaned_v1",
+  "collection_period": {
+    "start": "2025-10-01",
+    "end": "2026-10-28"
+  },
+  "overlap_period": {
+    "start": "2025-10-01",
+    "end": "2025-12-31"
+  },
+  "evaluation_period": {
+    "start": "2026-01-02",
+    "end": "2026-09-30"
+  },
+  "expected_symbols": 51,
+  "expected_companies": 50,
+  "expected_evaluation_sessions": 187,
+  "minimum_active_companies": 45,
+  "numeric_rtol": 1e-12,
+  "numeric_atol": 1e-10,
+  "rules": [
+    "Do not create or inspect future return, future risk, or class-label columns.",
+    "Quarantine invalid dates, non-finite values, nonpositive prices, invalid volumes, invalid OHLC rows, and duplicate keys.",
+    "Require complete XNYS coverage for all configured symbols over the collection period.",
+    "Require exact overlap keys and unchanged split-adjusted OHLC and volume.",
+    "Document all-adjusted-close as-of drift separately; do not call corporate actions independently verified.",
+    "Refuse to overwrite an existing Phase 8 cleaned output."
+  ]
+}

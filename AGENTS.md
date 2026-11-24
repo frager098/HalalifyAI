@@ -963,3 +963,42 @@ When creating new executable work for this project:
     checkpoints, logs, or large reproducible results. Do not ignore source
     code, configuration templates, documentation, tests, or small required
     reproducibility metadata merely because they are newly created.
+
+------------------------------------------------------------------------
+
+# 39. Local and Google Colab Notebook Portability
+
+Every new or modified user-facing notebook must run in both the student's local
+Python environment and Google Colab without manual path rewriting.
+
+1.  Never hard-code machine-specific paths such as `D:\...`, a Windows user
+    directory, `/content/...` outside the setup cell, or another developer's
+    absolute path. After setup, use repository-relative `pathlib.Path` paths.
+2.  Put environment setup at the beginning of the notebook. It must:
+    - detect whether it is running locally or in Colab;
+    - locate and change to the repository root locally using repository markers
+      such as `AGENTS.md`, `src/`, and `configs/`;
+    - in Colab, use `/content/HalalifyAI` as the standard clone location, clone
+      the repository there when absent, and then change to that repository root;
+    - install only the requirements needed by that notebook when running in
+      Colab; and
+    - print the selected environment and repository root.
+3.  Prefer the following fast Colab workflow: clone the repository for code,
+    then upload one phase-specific ZIP containing only required Git-ignored
+    inputs in their repository-relative directory structure. Extract it into
+    the cloned repository root. Do not require uploading the whole repository
+    or large unrelated datasets.
+4.  Add a preflight cell immediately after setup. It must list every required
+    input path, verify that each file exists, and stop with a simple message
+    showing the exact local or Colab destination for anything missing. It must
+    validate important hashes before expensive work begins.
+5.  Write outputs only to the same repository-relative, versioned locations in
+    both environments. Create missing output parent directories safely, never
+    overwrite frozen evidence, and print the created paths.
+6.  Avoid Windows-only shell commands and path separators inside Python cells.
+    When a shell command genuinely differs by environment, keep the difference
+    inside the setup cell and explain both paths briefly.
+7.  At handoff, provide the exact local run order and the exact Colab run order,
+    including which small input bundle must be uploaded and where it will be
+    extracted. The notebook should otherwise use identical cells and logic in
+    both environments.

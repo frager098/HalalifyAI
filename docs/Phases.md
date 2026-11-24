@@ -361,42 +361,41 @@ result is presented as untouched-test, portfolio, or trading evidence.
 
 ## Phase 7 — Tune the strongest candidates within a fixed budget
 
-**Implementation ready; execution pending:** The exact artifact handoff,
-directory layout, candidates, comparators, fixed search budget, outputs, and
-student-run order are defined in `docs/PHASE7_RUNBOOK.md` and
-`configs/phase7_handoff_v1.json`. Reusable code is under
-`src/model_training/phase7/` and the eight user-facing notebooks are under
-`notebooks/`. Phase 7 must use the exact source-control commit containing the
-reviewed Phase 6 work plus the separately transferred, Git-ignored artifacts
-at their original repository-relative paths. No Phase 7 result exists until the
-student runs the notebooks in the stated order.
+**Complete:** The frozen experiment was executed through the eight student-run
+notebooks under the predeclared Phase 7 contract. The final report is
+`docs/PHASE7_REPORT.md`. Neither learned return candidate passed every declared
+benchmark and consistency requirement, so return retains the `momentum_20d`
+benchmark. Neither learned risk candidate passed every declared benchmark,
+consistency, and safety requirement, so risk retains the training-cutoff-based
+`volatility_20d` benchmark. These are development decisions, not untouched-test,
+portfolio, or trading results.
 
-- [ ] **7.1 Validate the handoff without fitting.** Verify source commit,
+- [x] **7.1 Validate the handoff without fitting.** Verify source commit,
   artifact hashes, schema, rows, eligibility, features, folds, and v2 freeze.
-- [ ] **7.2 Freeze the experiment contract without fitting.** Record candidates,
+- [x] **7.2 Freeze the experiment contract without fitting.** Record candidates,
   comparators, estimator families, parameter grids, metrics, risk guardrails,
   benchmarks, tie rules, and decision rules before results exist.
-- [ ] **7.3 Validate the runner without fitting.** Test allowlists, matched rows,
+- [x] **7.3 Validate the runner without fitting.** Test allowlists, matched rows,
   purging, training-only preprocessing and risk cutoffs, inner-only tuning,
   disabled early stopping, provenance, and overwrite refusal.
-- [ ] **7.4 Tune/evaluate return Logistic Regression.** Compare the original 14
+- [x] **7.4 Tune/evaluate return Logistic Regression.** Compare the original 14
   features and frozen 17-feature candidate on identical rows; retain the
   momentum benchmark.
-- [ ] **7.5 Tune/evaluate return HistGradientBoosting.** Use only the three
+- [x] **7.5 Tune/evaluate return HistGradientBoosting.** Use only the three
   frozen leaf-node settings and fixed tree configuration.
-- [ ] **7.6 Review the return choice without new fitting.** Compare folds,
+- [x] **7.6 Review the return choice without new fitting.** Compare folds,
   feature sets, estimators, and momentum; retain a benchmark if learned gains
   are inconsistent.
-- [ ] **7.7 Tune/evaluate risk Logistic Regression.** Compare the original 14
+- [x] **7.7 Tune/evaluate risk Logistic Regression.** Compare the original 14
   features with the frozen seven-feature candidate using fold-training risk
   cutoffs.
-- [ ] **7.8 Tune/evaluate risk HistGradientBoosting.** Preserve fold-level macro
+- [x] **7.8 Tune/evaluate risk HistGradientBoosting.** Preserve fold-level macro
   F1, High-risk recall, High-to-Low errors, probability metrics, and confusion
   matrices.
-- [ ] **7.9 Review the risk choice without new fitting.** Compare learned
+- [x] **7.9 Review the risk choice without new fitting.** Compare learned
   candidates, the 14-feature comparator, and trailing-volatility benchmark;
   do not accept a primary gain that hides unsafe High-risk errors.
-- [ ] **7.10 Publish the Phase 7 conclusion without extra search.** Freeze exact
+- [x] **7.10 Publish the Phase 7 conclusion without extra search.** Freeze exact
   features, estimator, hyperparameters, evidence identities, limitations, and
   the Phase 8 gate.
 
@@ -407,10 +406,88 @@ These folds remain development evidence, not a fresh holdout.
 
 ## Phase 8 — Evaluate on a reserved later period
 
-- Freeze feature definitions, fitted preprocessing strategy, thresholds, hyperparameters, model-selection rules, and all reported metrics before examining new outcomes.
-- Train with only historically permitted observations; evaluate once on the reserved later period.
-- Report every predeclared metric and failure. Distinguish development folds, the reused 2024–2025 period, and genuinely unseen results.
-- If the period is too short or results motivate model changes, record that limitation and require a different future period to evaluate the changed model.
+Phase 8 must evaluate the frozen Phase 7 decisions on a genuinely later period
+whose outcomes have not already influenced model or benchmark selection. The
+exact dates cannot be chosen silently: first verify available coverage and
+record the reserved period before inspecting its outcomes. The previously
+viewed 2024–2025 period is not eligible as an untouched test.
+
+- [x] **8.1 Verify that an eligible later period exists without inspecting its
+  outcomes.** **Complete:**
+  reserve 2026-01-02 through 2026-09-30. Collect separate supporting prices
+  from 2025-10-01 through 2026-10-28 for trailing-history continuity and the
+  final 20-session label window. The frozen collection contract is
+  `configs/phase8_market_data_collection_v1.json`; student instructions are in
+  `docs/PHASE8_DATA_COLLECTION.md`. Step 8.1 remains incomplete until the new
+  snapshot passes date, symbol, active-company, and label-support checks, then
+  the separate `configs/phase8_cleaning_v1.json` workflow must pass OHLC,
+  volume, finite-value, duplicate, calendar, overlap-continuity, and hash-freeze
+  gates without inspecting outcomes. Raw acquisition, cleaning, overlap review,
+  and acceptance passed. The accepted clean CSV SHA-256 is
+  `136ac09eee24f4e1c9a378f64fbc2ebf0009da229cf49207d1f5901f0ad5d7a8`.
+- [x] **8.2 Freeze the Phase 8 evaluation contract before fitting or scoring.**
+  **Complete:** `configs/phase8_evaluation_contract_v1.json` freezes the exact
+  training and evaluation dates, target-window purge, row eligibility, Phase 7
+  benchmark selections, final training-only risk cutoffs, applicable metrics,
+  safety checks, identities, and failure rules. The evaluator summary is
+  `docs/PHASE8_EVALUATION_CONTRACT.md`. No Phase 8 feature, label, fit, or score
+  was produced while freezing the contract.
+- [x] **8.3 Create and validate the reserved-period dataset.** Reuse the frozen
+  feature and label definitions, confirm chronological ordering and required
+  history, exclude unavailable future labels, and save dataset/code identities.
+  Do not introduce SEC predictors or new market features. **Prepared for student
+  execution:** `src/model_training/phase8/build_reserved_dataset.py` creates the
+  original 14 market features and frozen labels under the separate
+  `data/processed/phase8_model_inputs/phase8_reserved_evaluation_v1/` namespace.
+  Run instructions and expected evidence are in
+  `docs/PHASE8_DATASET_RUNBOOK.md`. **Complete:** the validated dataset contains
+  9,350 rows, 50 companies, and 187 sessions from 2026-01-02 through
+  2026-09-30; both tasks have 9,350 eligible rows, the final target ends on
+  2026-10-28, and the dataset SHA-256 is
+  `389aedcf19eca331c7eed048229deadc5c649c4def8c727c4bf0c8edb3b5a411`.
+  Outcomes are materialized but remain unscored.
+- [x] **8.4 Validate the final evaluation runner without examining results.**
+  Test schema and feature allowlists, training/reserved separation,
+  target-window purging, training-only preprocessing and cutoffs,
+  deterministic behavior, provenance, and overwrite refusal. **Prepared for
+  student execution:** the real dataset audit in
+  `src/model_training/phase8/validate_runner.py` excludes reserved outcome
+  columns, while metric functions are tested only with synthetic fixtures. The
+  command and required no-score evidence are documented in
+  `docs/PHASE8_DATASET_RUNBOOK.md`. **Complete:**
+  `reports/model_evaluation/phase8_reserved_evaluation_v1/runner_validation.json`
+  passed schema, allowlist, chronology, purge, training-only cutoff,
+  determinism, provenance, and overwrite checks. Its runner and validator hashes
+  match the current code; no reserved outcome value was read, no reserved-period
+  metric was calculated, and no evaluation output was created.
+- [x] **8.5 Fit the frozen return and risk selections once.** Use only rows
+  available before the reserved period. Preserve the Phase 7 benchmark logic;
+  do not reopen feature, model, or hyperparameter search. **Complete as a
+  documented no-fit step:** Phase 7 retained deterministic simple benchmarks,
+  so no estimator, scaler, calibration object, or model artifact is fitted.
+  `configs/phase8_procedure_freeze_v1.json` freezes `momentum_20d` for return
+  and `volatility_20d` with the two Step 8.2 training-only cutoffs for risk. Its
+  identities reproduce the Step 8.4 runner gate, the frozen contract, and the
+  unscored reserved dataset without reading reserved outcomes or reopening
+  selection.
+- [ ] **8.6 Evaluate once on the reserved later period.** Produce all
+  predeclared return and risk metrics, fold-independent row counts, class
+  distributions, confusion matrices where applicable, and risk-safety errors.
+  Preserve failures and unexpected results. **Prepared for one-time student
+  execution:** `notebooks/phase8_one_time_evaluation.ipynb` uses the validated
+  runner and Step 8.5 no-fit procedure freeze. It supports both local Python and
+  Google Colab, performs hash/preflight checks, and refuses overwrite before
+  reading reserved outcomes. Local and Colab instructions are in
+  `docs/PHASE8_DATASET_RUNBOOK.md`.
+- [ ] **8.7 Review the result without tuning.** Compare the genuinely unseen
+  evidence with Phase 7 development evidence, clearly separating it from the
+  reused 2024–2025 period. If coverage is inadequate or a change is proposed,
+  record the limitation and reserve a different future period for that changed
+  approach.
+- [ ] **8.8 Publish and freeze the Phase 8 conclusion.** Record the final
+  dataset, code, contract, and output hashes; the selected benchmark behavior;
+  limitations; and the evidence-based gate for Phase 9. Do not claim portfolio
+  performance, trading performance, or general market validity.
 
 **Exit evidence:** A final research comparison with dataset/code identifiers and limitations. Do not claim an untouched test result from the previously viewed period.
 
@@ -434,4 +511,9 @@ These folds remain development evidence, not a fresh holdout.
 
 ## Immediate working order
 
-Phases 1–5 have completed research evidence and documented limitations. Phase 6/7 work should address unstable return ordering and review risk-error tradeoffs under a predeclared protocol. Keep SEC predictors excluded until their separate point-in-time gate passes. A later verified period is required before any generalization or operational model claim; each phase begins only when its inputs and evaluation rules can be reproduced.
+Phases 1–7 have completed research evidence and documented limitations. Phase 8
+is next: verify and freeze a genuinely later evaluation period before inspecting
+its outcomes, then evaluate the retained return and risk benchmarks once under
+the frozen contract. Keep SEC predictors excluded until their separate
+point-in-time gate passes. No generalization or operational model claim is
+permitted until the later-period evidence is reproducible and reviewed.

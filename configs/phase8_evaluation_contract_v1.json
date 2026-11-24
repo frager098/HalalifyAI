@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "stage": "phase_8_step_8_2_evaluation_contract",
+  "status": "frozen_before_phase_8_feature_label_generation_or_scoring",
+  "outcomes_inspected": false,
+  "model_fitting_performed": false,
+  "selection_reopened": false,
+  "input_identities": {
+    "accepted_cleaned_csv": {
+      "path": "data/processed/phase8_market_cleaned/phase8_alpaca_sip_20261124T005018Z_cleaned_v1/prices_clean.csv",
+      "sha256": "136ac09eee24f4e1c9a378f64fbc2ebf0009da229cf49207d1f5901f0ad5d7a8"
+    },
+    "accepted_snapshot": {
+      "path": "data/processed/phase8_market_cleaned/phase8_alpaca_sip_20261124T005018Z_cleaned_v1/accepted_snapshot.json",
+      "sha256": "9b36ba42813eaa72fd3997a771e274e9e502d725ba07a3debf2102f1ef5a6d49"
+    },
+    "cleaning_acceptance_report": {
+      "path": "data/processed/phase8_market_cleaned/phase8_alpaca_sip_20261124T005018Z_cleaned_v1/acceptance_report.json",
+      "sha256": "ba48de9a3273be0192f2033e083751f03c97e8137e3c751689aa4689123fa305"
+    },
+    "development_dataset": {
+      "path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+      "sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0"
+    },
+    "development_protocol": {
+      "path": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json",
+      "sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060"
+    },
+    "phase7_model_freeze": {
+      "path": "configs/phase7_model_freeze_v1.json",
+      "sha256": "de41f74592e4ed3ccc0deea7e271325ba725a9f287f6748d5ec7b695e1f35caa"
+    },
+    "phase7_experiment_contract": {
+      "path": "reports/model_evaluation/phase7_candidate_tuning_v1/experiment_contract.json",
+      "sha256": "d817a11916228a2af9709daf78dbfca0ecc150f5ab3d45155fed84fd2c42d8fa"
+    }
+  },
+  "chronology": {
+    "training_information_cutoff_inclusive": "2025-12-31",
+    "last_eligible_training_decision_date": "2025-12-02",
+    "last_training_target_window_end": "2025-12-31",
+    "reserved_evaluation_start": "2026-01-02",
+    "reserved_evaluation_end": "2026-09-30",
+    "twentieth_support_session": "2026-10-28",
+    "overlap_start": "2025-10-01",
+    "overlap_end": "2025-12-31",
+    "overlap_role": "feature_history_and_source_continuity_only_not_evaluation",
+    "decision_time": "after session t closes",
+    "earliest_execution_assumption": "next observed XNYS session; not used to claim trading performance"
+  },
+  "training_role": {
+    "source": "development_dataset",
+    "selection": [
+      "session_date < 2026-01-02",
+      "target_window_end is present and target_window_end < 2026-01-02",
+      "all 14 frozen base market features are present",
+      "risk_volatility_next_20d is present for risk-cutoff fitting"
+    ],
+    "rows": 120987,
+    "first_decision_date": "2016-03-31",
+    "last_decision_date": "2025-12-02",
+    "last_target_window_end": "2025-12-31",
+    "ticker_date_keys_sha256": "e2529c0148ea6fea44cf711e5edcba81207a815b8fc912004e280eb2c5752a21",
+    "previously_viewed_period_policy": "The 2024-2025 period is not reported as blind evidence, but after Phase 7 selection is frozen it may enter the final pre-2026 training-only role. It cannot be used to alter the selected procedures."
+  },
+  "feature_contract": {
+    "feature_definition_code": {
+      "path": "src/feature_engineering/market_features.py",
+      "sha256": "21927c63a4c2e9a8d6ba31d386230a7e25ebeee4c88ec061d96940cb174825fc"
+    },
+    "dataset_builder_reference": {
+      "path": "src/feature_engineering/build_feature_dataset.py",
+      "sha256": "72bea151e39b502ff58d3684d1676156ecb65917618d9b4275528f642174a317"
+    },
+    "base_features": [
+      "return_1d",
+      "momentum_5d",
+      "momentum_20d",
+      "momentum_60d",
+      "volatility_20d",
+      "volatility_60d",
+      "downside_dev_20d",
+      "drawdown_from_peak_60d",
+      "price_to_sma20",
+      "price_to_sma50",
+      "volume_ratio_20d",
+      "spy_momentum_20d",
+      "excess_momentum_20d",
+      "market_beta_60d"
+    ],
+    "scoring_allowlist": {
+      "return": [
+        "momentum_20d"
+      ],
+      "risk": [
+        "volatility_20d"
+      ]
+    },
+    "excluded": [
+      "SEC fundamental predictors",
+      "Phase 6 peer-rank candidate features",
+      "Phase 6 SPY regime candidate features",
+      "learned estimator probabilities or rank scores"
+    ],
+    "availability_rule": "Every feature for date t uses only company and SPY observations at or before t. The 2025 overlap supplies trailing history but is not scored."
+  },
+  "label_contract": {
+    "reference_code": {
+      "path": "src/target_engineering/build_modeling_dataset.py",
+      "sha256": "87f9f2562ba816f231a6fdd2f38a071b3d767f4c1eaf113b197b64a48b73de27"
+    },
+    "horizon": "20 subsequent XNYS trading sessions",
+    "target_window_rule": "target_window_end is exactly the twentieth shared XNYS session after decision date t",
+    "return_outcome": "adjusted_close(t+20) / adjusted_close(t) - 1",
+    "risk_outcome": "sample standard deviation (ddof=1) of adjusted-close simple returns t+1 through t+20, annualized by sqrt(252)",
+    "return_classes": {
+      "names": [
+        "Lower",
+        "Middle",
+        "Higher"
+      ],
+      "rule": "On each evaluation date, rank available future 20-session returns across eligible peers using average ties; rank <= n/3 is Lower, rank <= 2n/3 is Middle, otherwise Higher. At least 45 active and outcome peers are required."
+    },
+    "risk_classes": {
+      "names": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "cutoff_method": "Pooled linear 1/3 and 2/3 quantiles from the frozen training role only; values equal to a cutoff enter the lower class.",
+      "low_upper_inclusive": 0.18488299831813548,
+      "medium_upper_inclusive": 0.2816141905811629,
+      "training_rows": 120987,
+      "training_class_counts": [
+        40329,
+        40329,
+        40329
+      ]
+    }
+  },
+  "evaluation_eligibility": {
+    "common": [
+      "ticker is one of the frozen 50 modeled companies and is not SPY",
+      "session_date is between 2026-01-02 and 2026-09-30 inclusive",
+      "all 14 base market features are finite",
+      "target_window_end and the required continuous outcome are present",
+      "target_window_end is no later than 2026-10-28",
+      "ticker/session_date key is unique"
+    ],
+    "return_additional": [
+      "current volume is positive",
+      "active_peer_count is at least 45",
+      "outcome_peer_count is at least 45",
+      "relative return class is available"
+    ],
+    "risk_additional": [
+      "risk class from the frozen training-only cutoffs is available"
+    ],
+    "matched_date_rule": "Return ranking metrics use every eligible same-date peer; no stock from a date may be moved to another role."
+  },
+  "selected_procedures": {
+    "return": {
+      "kind": "simple_benchmark",
+      "name": "momentum_20d",
+      "score": "adjusted_close(t) / adjusted_close(t-20) - 1",
+      "ordering": "higher score ranks first; ticker ascending breaks an exact score tie for deterministic top-10 membership",
+      "fit": "none",
+      "interpretation": "ranking control only; not an expected percentage return"
+    },
+    "risk": {
+      "kind": "simple_benchmark",
+      "name": "volatility_20d_with_training_cutoffs",
+      "score": "sample standard deviation (ddof=1) of the latest 20 adjusted-close simple returns ending at t, annualized by sqrt(252)",
+      "class_mapping": "Apply the two frozen training-only risk cutoffs to trailing volatility_20d",
+      "fit": "risk cutoffs only; no learned estimator",
+      "interpretation": "future price-risk class control; not a Shariah compliance score"
+    }
+  },
+  "reported_metrics": {
+    "return": {
+      "primary": "mean_daily_spearman between momentum_20d and return_next_20d",
+      "secondary": [
+        "mean_top10_minus_universe_return",
+        "defined_spearman_dates",
+        "evaluation_dates",
+        "same-date peer counts",
+        "daily Spearman values",
+        "daily top-10 minus universe return values",
+        "future-return and relative-class distributions for descriptive audit"
+      ]
+    },
+    "risk": {
+      "primary": "macro_f1",
+      "secondary": [
+        "per-class precision recall F1 and support",
+        "High-risk recall",
+        "High outcomes predicted Low count",
+        "High outcomes predicted Low rate using High outcomes as denominator",
+        "ordinal_mae",
+        "confusion_matrix with class order Low Medium High",
+        "true and predicted class distributions"
+      ],
+      "probability_metrics": "not applicable because the selected procedure emits hard classes and no probabilities; log loss and Brier score must not be fabricated"
+    },
+    "shared": [
+      "eligible and excluded row counts with exclusion reasons",
+      "first and last scored dates",
+      "dataset contract and code identities",
+      "all failures and limitations"
+    ]
+  },
+  "decision_and_failure_rules": [
+    "Score the reserved period once after Step 8.3 validation passes.",
+    "Publish every declared metric even when unfavorable or undefined.",
+    "Do not tune, replace, recalibrate, or add a feature, cutoff, model, metric, or date after any 2026 outcome is inspected.",
+    "Do not invent a post-hoc performance threshold. Phase 8 is a final research estimate, not another selection round.",
+    "If construction or eligibility differs from this contract, stop before scoring and version a corrected contract while outcomes remain uninspected.",
+    "If the result motivates a changed procedure, label this reserved result as evidence for the old procedure and require a different future period for the changed procedure.",
+    "Do not claim trading, portfolio, Shariah-compliance, or whole-market performance from this evaluation."
+  ],
+  "phase9_gate": "Phase 9 may package the frozen benchmark procedures only after the Phase 8 dataset and one-time evaluation reproduce exactly. Proceeding does not imply strong predictive performance; unfavorable results must remain visible."
+}

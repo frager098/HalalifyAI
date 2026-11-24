@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "stage": "phase_8_market_data_collection",
+  "status": "approved_before_outcomes_are_inspected",
+  "provider": "alpaca",
+  "feed": "sip",
+  "timeframe": "1Day",
+  "currency": "USD",
+  "evaluation_period": {
+    "start": "2026-01-02",
+    "end": "2026-09-30"
+  },
+  "collection_period": {
+    "start": "2025-10-01",
+    "end": "2026-10-28"
+  },
+  "collection_period_reason": "The overlap supplies at least 60 prior sessions for frozen trailing features and permits continuity checks. Prices after the evaluation end supply the complete next-20-session labels through 2026-09-30.",
+  "adjustments": [
+    "split",
+    "all"
+  ],
+  "symbols": [
+    "AAPL", "MSFT", "NVDA", "AMD", "AVGO", "ORCL", "ADBE", "CRM", "CSCO", "INTC",
+    "GOOGL", "META", "NFLX", "AMZN", "TSLA", "HD", "LOW", "NKE", "SBUX", "MCD",
+    "COST", "WMT", "JNJ", "LLY", "ABBV", "MRK", "TMO", "ABT", "DHR", "CAT",
+    "DE", "HON", "UPS", "UNP", "GE", "XOM", "CVX", "COP", "SLB", "JPM",
+    "BAC", "GS", "MS", "V", "MA", "PG", "KO", "PEP", "LIN", "NEE", "SPY"
+  ],
+  "minimum_active_companies": 45,
+  "output_root": "data/raw/phase8_market",
+  "rules": [
+    "Write a new immutable snapshot and never overwrite Phase 1-7 data.",
+    "SPY is a benchmark and is not a modeled company.",
+    "Do not calculate, inspect, summarize, or score future return or future risk outcomes during collection.",
+    "Use split-adjusted OHLC and volume plus the all-adjusted close convention used by the frozen development dataset.",
+    "Step 8.1 passes only after coverage and the 20-session support window are validated."
+  ]
+}
