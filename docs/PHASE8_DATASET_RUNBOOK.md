@@ -99,3 +99,47 @@ Successful execution creates exactly one new file:
 `reports/model_evaluation/phase8_reserved_evaluation_v1/one_time_evaluation.json`
 
 Do not delete or overwrite it to rerun the same reserved evaluation.
+
+## Step 8.7 non-tuning review notebook
+
+Use `notebooks/phase8_step_8_7_review.ipynb`. This notebook compares the
+retained Phase 7 simple benchmarks with the single Phase 8 reserved result. It
+does not fit a model, reopen selection, or create a post-hoc performance gate.
+
+### Create the one-file Colab upload bundle
+
+From the repository root in PowerShell, create the small input bundle:
+
+```powershell
+tar -a -c -f phase8_step_8_7_inputs.zip `
+  reports/model_evaluation/phase7_candidate_tuning_v1/phase7_summary.json `
+  reports/model_evaluation/phase7_candidate_tuning_v1/return/logistic_regression/comparator_report.json `
+  reports/model_evaluation/phase7_candidate_tuning_v1/risk/logistic_regression/comparator_report.json `
+  reports/model_evaluation/phase8_reserved_evaluation_v1/one_time_evaluation.json
+```
+
+The ZIP must keep those repository-relative paths. It contains no raw dataset,
+credentials, or model binary.
+
+### Google Colab browser run order
+
+1. Commit and push the Step 8.7 source files to `feature/model-evaluation`.
+2. Open `phase8_step_8_7_review.ipynb` in the Colab browser.
+3. Run the first setup code cell. It clones or fast-forwards the branch.
+4. Run the next upload code cell. When the browser picker appears, choose only
+   `phase8_step_8_7_inputs.zip`.
+5. Run the remaining cells in order. The preflight checks all four SHA-256
+   identities before producing a review.
+6. The final cell downloads `phase8_step_8_7_results.zip` automatically.
+
+Successful execution creates these new-only files inside the downloaded ZIP:
+
+```text
+reports/model_evaluation/phase8_reserved_evaluation_v1/
+├── step_8_7_review.json
+└── step_8_7_review.md
+```
+
+Extract the downloaded ZIP into the local repository root without renaming its
+directories. Do not rerun after those outputs exist; the review refuses to
+overwrite them.

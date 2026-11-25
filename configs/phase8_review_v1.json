@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "stage": "phase_8_step_8_7_review_contract",
+  "status": "frozen_after_step_8_6_for_non_tuning_review",
+  "required_inputs": {
+    "phase7_summary": {
+      "path": "reports/model_evaluation/phase7_candidate_tuning_v1/phase7_summary.json",
+      "sha256": "3d297b7a1dc30b850b337539ca44229093262c206f35753d2ceb127e9d411c3b"
+    },
+    "phase7_return_benchmark_report": {
+      "path": "reports/model_evaluation/phase7_candidate_tuning_v1/return/logistic_regression/comparator_report.json",
+      "sha256": "01241000ae559ccd59ac52cb840c8cec01d83582477c8a78322079c996ce4ae7"
+    },
+    "phase7_risk_benchmark_report": {
+      "path": "reports/model_evaluation/phase7_candidate_tuning_v1/risk/logistic_regression/comparator_report.json",
+      "sha256": "cc193d328306a8b1e7087bc70e790d69684b5f48bfa563a0fb4137e17ce452e5"
+    },
+    "phase8_one_time_evaluation": {
+      "path": "reports/model_evaluation/phase8_reserved_evaluation_v1/one_time_evaluation.json",
+      "sha256": "8d967ae09b73053a9742072f713a9f1ff94ed8045f4344b005a3c7c05af81896"
+    }
+  },
+  "outputs": {
+    "json": "reports/model_evaluation/phase8_reserved_evaluation_v1/step_8_7_review.json",
+    "markdown": "reports/model_evaluation/phase8_reserved_evaluation_v1/step_8_7_review.md"
+  },
+  "comparison_rules": [
+    "Compare Phase 8 only with the retained simple benchmarks in Phase 7, not with rejected learned candidates.",
+    "Keep the four Phase 7 development folds separate from the single reserved 2026 evaluation period.",
+    "Report numerical differences descriptively; do not invent a post-hoc performance threshold or significance claim.",
+    "Do not tune, replace, recalibrate, or add a feature, cutoff, model, metric, or date in response to the reserved result.",
+    "Do not claim portfolio, trading, Shariah-compliance, whole-market, or production performance."
+  ],
+  "next_gate": "If the review reproduces exactly, Step 8.8 may publish and freeze the Phase 8 conclusion without changing the procedures."
+}

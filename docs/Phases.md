@@ -490,7 +490,13 @@ viewed 2024–2025 period is not eligible as an untouched test.
   evidence with Phase 7 development evidence, clearly separating it from the
   reused 2024–2025 period. If coverage is inadequate or a change is proposed,
   record the limitation and reserve a different future period for that changed
-  approach.
+  approach. **Prepared for student execution:**
+  `notebooks/phase8_step_8_7_review.ipynb` performs a deterministic comparison
+  against only the retained Phase 7 simple benchmarks. It creates no post-hoc
+  threshold, fitting, tuning, or selection change. In a Colab browser it asks
+  for one small phase-specific ZIP, validates all four input hashes, and its
+  final cell downloads the JSON and Markdown review evidence. Exact bundle and
+  run instructions are in `docs/PHASE8_DATASET_RUNBOOK.md`.
 - [ ] **8.8 Publish and freeze the Phase 8 conclusion.** Record the final
   dataset, code, contract, and output hashes; the selected benchmark behavior;
   limitations; and the evidence-based gate for Phase 9. Do not claim portfolio

@@ -91,3 +91,15 @@ exact repository-relative paths, run them in this order with the existing
 Every step writes new-only evidence. Do not rerun Phase 3, Phase 5, or Phase 6
 preparation and do not delete an earlier output merely to obtain a preferred
 result.
+
+## Phase 8 reserved evaluation and review
+
+- `phase8_one_time_evaluation.ipynb` performs the one-time Step 8.6 scoring.
+  Do not rerun it after the frozen result exists.
+- `phase8_step_8_7_review.ipynb` compares that result with the retained Phase 7
+  benchmark evidence without fitting or tuning. In the Colab browser it asks
+  for one `phase8_step_8_7_inputs.zip`; its final cell downloads
+  `phase8_step_8_7_results.zip`.
+
+The exact upload contents and Colab run order are documented in
+`docs/PHASE8_DATASET_RUNBOOK.md`.
