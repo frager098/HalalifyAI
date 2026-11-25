@@ -4,6 +4,7 @@ Python AI service for Halalify.
 
 ## Research status
 
+Browse the [documentation index](docs/README.md) for Phase 7 and Phase 8 guides.
 The current model work is documented in [model evaluation](docs/MODEL_EVALUATION.md)
 and [data review](docs/DATA_REVIEW.md). The evaluation includes a saved-period
 check whose labels had been viewed in earlier notebooks; it is not a fresh

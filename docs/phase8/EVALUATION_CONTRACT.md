@@ -1,4 +1,4 @@
-# Phase 8 reserved-period evaluation contract
+# Phase 8: Frozen evaluation contract
 
 ## Status
 

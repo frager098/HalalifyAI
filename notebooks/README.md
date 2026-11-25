@@ -102,4 +102,4 @@ result.
   `phase8_step_8_7_results.zip`.
 
 The exact upload contents and Colab run order are documented in
-`docs/PHASE8_DATASET_RUNBOOK.md`.
+`docs/phase8/DATASET_AND_NOTEBOOK_RUNBOOK.md`.

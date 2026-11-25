@@ -1,4 +1,4 @@
-# Phase 8 reserved-period data collection
+# Phase 8: Data collection and coverage
 
 ## Frozen period
 

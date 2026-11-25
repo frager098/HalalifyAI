@@ -1,4 +1,4 @@
-# Phase 8 reserved dataset runbook
+# Phase 8: Dataset and notebook runbook
 
 ## Purpose
 

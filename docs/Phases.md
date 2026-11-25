@@ -418,8 +418,8 @@ viewed 2024–2025 period is not eligible as an untouched test.
   from 2025-10-01 through 2026-10-28 for trailing-history continuity and the
   final 20-session label window. The frozen collection contract is
   `configs/phase8_market_data_collection_v1.json`; student instructions are in
-  `docs/PHASE8_DATA_COLLECTION.md`. Step 8.1 remains incomplete until the new
-  snapshot passes date, symbol, active-company, and label-support checks, then
+  `docs/phase8/DATA_COLLECTION.md`. The snapshot passed date, symbol,
+  active-company, and label-support checks, and
   the separate `configs/phase8_cleaning_v1.json` workflow must pass OHLC,
   volume, finite-value, duplicate, calendar, overlap-continuity, and hash-freeze
   gates without inspecting outcomes. Raw acquisition, cleaning, overlap review,
@@ -430,7 +430,7 @@ viewed 2024–2025 period is not eligible as an untouched test.
   training and evaluation dates, target-window purge, row eligibility, Phase 7
   benchmark selections, final training-only risk cutoffs, applicable metrics,
   safety checks, identities, and failure rules. The evaluator summary is
-  `docs/PHASE8_EVALUATION_CONTRACT.md`. No Phase 8 feature, label, fit, or score
+  `docs/phase8/EVALUATION_CONTRACT.md`. No Phase 8 feature, label, fit, or score
   was produced while freezing the contract.
 - [x] **8.3 Create and validate the reserved-period dataset.** Reuse the frozen
   feature and label definitions, confirm chronological ordering and required
@@ -440,7 +440,7 @@ viewed 2024–2025 period is not eligible as an untouched test.
   original 14 market features and frozen labels under the separate
   `data/processed/phase8_model_inputs/phase8_reserved_evaluation_v1/` namespace.
   Run instructions and expected evidence are in
-  `docs/PHASE8_DATASET_RUNBOOK.md`. **Complete:** the validated dataset contains
+  `docs/phase8/DATASET_AND_NOTEBOOK_RUNBOOK.md`. **Complete:** the validated dataset contains
   9,350 rows, 50 companies, and 187 sessions from 2026-01-02 through
   2026-09-30; both tasks have 9,350 eligible rows, the final target ends on
   2026-10-28, and the dataset SHA-256 is
@@ -454,7 +454,7 @@ viewed 2024–2025 period is not eligible as an untouched test.
   `src/model_training/phase8/validate_runner.py` excludes reserved outcome
   columns, while metric functions are tested only with synthetic fixtures. The
   command and required no-score evidence are documented in
-  `docs/PHASE8_DATASET_RUNBOOK.md`. **Complete:**
+  `docs/phase8/DATASET_AND_NOTEBOOK_RUNBOOK.md`. **Complete:**
   `reports/model_evaluation/phase8_reserved_evaluation_v1/runner_validation.json`
   passed schema, allowlist, chronology, purge, training-only cutoff,
   determinism, provenance, and overwrite checks. Its runner and validator hashes
@@ -486,21 +486,28 @@ viewed 2024–2025 period is not eligible as an untouched test.
   `8d967ae09b73053a9742072f713a9f1ff94ed8045f4344b005a3c7c05af81896`.
   These values are recorded without interpretation; comparison belongs to Step
   8.7.
-- [ ] **8.7 Review the result without tuning.** Compare the genuinely unseen
+- [x] **8.7 Review the result without tuning.** Compare the genuinely unseen
   evidence with Phase 7 development evidence, clearly separating it from the
   reused 2024–2025 period. If coverage is inadequate or a change is proposed,
   record the limitation and reserve a different future period for that changed
-  approach. **Prepared for student execution:**
-  `notebooks/phase8_step_8_7_review.ipynb` performs a deterministic comparison
-  against only the retained Phase 7 simple benchmarks. It creates no post-hoc
-  threshold, fitting, tuning, or selection change. In a Colab browser it asks
-  for one small phase-specific ZIP, validates all four input hashes, and its
-  final cell downloads the JSON and Markdown review evidence. Exact bundle and
-  run instructions are in `docs/PHASE8_DATASET_RUNBOOK.md`.
-- [ ] **8.8 Publish and freeze the Phase 8 conclusion.** Record the final
+  approach. **Complete:** the student ran
+  `notebooks/phase8_step_8_7_review.ipynb`; the downloaded JSON and Markdown
+  reports are under `reports/model_evaluation/phase8_reserved_evaluation_v1/`.
+  All four input hashes and primary comparisons were checked against the
+  source evidence. Reserved return Spearman is `0.013061481277002776` versus
+  the Phase 7 development-fold mean `0.0005774563696639388`; reserved risk
+  macro F1 is `0.5536780089009589` versus `0.5325990982925246`. The return
+  signal is small, and Low-risk recall is `0.3944672131147541`. No tuning,
+  fitting, selection change, or post-hoc threshold was reported. Review JSON
+  SHA-256: `96cbb69d1090de28246313c88db8ab1bbc04d5f5e31a24ff5e09b8a1b83d635f`.
+- [x] **8.8 Publish and freeze the Phase 8 conclusion.** Record the final
   dataset, code, contract, and output hashes; the selected benchmark behavior;
   limitations; and the evidence-based gate for Phase 9. Do not claim portfolio
-  performance, trading performance, or general market validity.
+  performance, trading performance, or general market validity. **Complete:**
+  `docs/phase8/FINAL_CONCLUSION.md`
+  records the reviewed results, SHA-256 manifest, limitations, and the Phase 9
+  inference gate. Both retained procedures are deterministic simple benchmarks;
+  there is no fitted model artifact or probability output to package.
 
 **Exit evidence:** A final research comparison with dataset/code identifiers and limitations. Do not claim an untouched test result from the previously viewed period.
 
@@ -524,9 +531,8 @@ viewed 2024–2025 period is not eligible as an untouched test.
 
 ## Immediate working order
 
-Phases 1–7 have completed research evidence and documented limitations. Phase 8
-Steps 8.1–8.6 are complete. Step 8.7 is next: review the single reserved-period
-result against Phase 7 evidence without tuning or reopening selection. Keep SEC
-predictors excluded until their separate point-in-time gate passes. No
-generalization or operational model claim is permitted until the later-period
-evidence is reviewed and the Phase 8 conclusion is frozen.
+Phases 1–8 have completed research evidence and documented limitations. Phase 9
+is next: verify historical inference and package the frozen simple benchmark
+rules with their metadata. Keep SEC predictors excluded until their separate
+point-in-time gate passes. The Phase 8 conclusion does not establish trading,
+portfolio, Shariah-compliance, or whole-market performance.
