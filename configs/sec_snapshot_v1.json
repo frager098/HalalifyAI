@@ -1,0 +1,19 @@
+{
+  "snapshot_version": "sec_point_in_time_snapshot_v1",
+  "purpose": "Immutable SEC Company Facts and filing-submission evidence for point-in-time research.",
+  "tickers": [
+    "AAPL", "MSFT", "NVDA", "AMD", "AVGO", "ORCL", "ADBE", "CRM", "CSCO", "INTC",
+    "GOOGL", "META", "NFLX", "AMZN", "TSLA", "HD", "LOW", "NKE", "SBUX", "MCD",
+    "COST", "WMT", "JNJ", "LLY", "ABBV", "MRK", "TMO", "ABT", "DHR", "CAT",
+    "DE", "HON", "UPS", "UNP", "GE", "XOM", "CVX", "COP", "SLB", "JPM",
+    "BAC", "GS", "MS", "V", "MA", "PG", "KO", "PEP", "LIN", "NEE"
+  ],
+  "forms": ["10-Q", "10-K"],
+  "availability_rule": "A fact first becomes eligible on the next calendar day after its SEC filing date. A trading-session join must select only eligible facts.",
+  "approved_candidate_concepts": {
+    "assets_usd": "Assets",
+    "cash_usd": "CashAndCashEquivalentsAtCarryingValue"
+  },
+  "not_approved_for_model_features": ["debt", "revenue", "receivables", "net_income", "market_cap", "cash_to_assets"],
+  "request_delay_seconds": 0.12
+}
