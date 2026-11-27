@@ -511,7 +511,7 @@ viewed 2024–2025 period is not eligible as an untouched test.
 
 **Exit evidence:** A final research comparison with dataset/code identifiers and limitations. Do not claim an untouched test result from the previously viewed period.
 
-## Phase 9 — Package selected predictors and verify inference
+## Phase 9 — Experiment, fit, package, and verify AI predictors
 
 Complete one step at a time. Each step has a separate output and can be checked
 without running later steps. Phase 8 selected deterministic benchmarks, not
@@ -519,7 +519,12 @@ fitted estimators. The Kronos smoke test and development comparison are
 exploratory work and do not change that selection. Do not call a benchmark a
 trained model or treat its score as a return percentage.
 
-- [ ] **9.1 Resolve the predictor handoff.** Review the frozen Phase 8
+Phase 9.1 records the team's later choice to investigate learned candidates.
+Preserve the Phase 7/8 procedures, datasets, frozen contracts, and reports as
+historical evidence. All new experiments and fitted artifacts use new versioned
+paths. A changed model does not inherit the Phase 8 reserved evaluation score.
+
+- [x] **9.1 Resolve the predictor handoff.** Review the frozen Phase 8
   selections and any subsequently completed development experiment. Record
   which return and risk procedures may enter Phase 9, whether the first
   user-facing release requires trained models and class probabilities, and
@@ -528,27 +533,101 @@ trained model or treat its score as a return percentage.
   **Output:** a dated, versioned handoff decision linked from this roadmap.
   **Done when:** both tasks have named procedures and no missing approval is
   hidden by the packaging plan. This gate requires an explicit team decision.
+  **Complete:** the team explicitly excluded the simple `momentum_20d` and
+  `volatility_20d` procedures from Phase 9 prediction and directed it to use
+  the best learned candidates from the completed comparisons. The
+  [v1 predictor handoff](phase9/PREDICTOR_HANDOFF_V1.md) names the 17-feature
+  Logistic Regression return candidate and the 7-feature HistGradientBoosting
+  risk candidate. It preserves their failed promotion safeguards and records
+  that final training-only hyperparameter selection, fitting, artifacts, and
+  model-specific evaluation evidence are still required before packaging.
 - [ ] **9.2 Freeze the inference contract.** For each selected procedure,
   specify required input fields and order, permitted tickers, minimum history,
   after-close prediction time, horizon, class definitions, return ranking
   semantics, risk cutoffs, missing-value behavior, and whether probabilities
   exist. **Output:** a versioned contract in `configs/` and a readable summary
   in `docs/`. **Done when:** sample valid and invalid requests have unambiguous
-  expected outputs and errors.
-- [ ] **9.3 Verify the package inputs.** Check selected dataset, source-code,
+  expected outputs and errors. **Precondition review:** the
+  [distribution and leakage audit](phase9/PRE_9_2_LEAKAGE_AND_DISTRIBUTION_AUDIT_V1.md)
+  confirms chronological nested folds, target-window purging, training-only
+  preprocessing/cutoffs, and inner-only tuning. It also requires the contract
+  to address repeated-development overfitting, final-fit ambiguity, and the
+  absence of an untouched evaluation for the selected AI candidates.
+  **Specification established:** [v1 contract](../configs/phase9_inference_contract_v1.json)
+  and [readable explanation](phase9/INFERENCE_CONTRACT_V1.md) fix model inputs,
+  output semantics, and rejection rules. The step remains open until final-fit
+  dates are frozen and the Phase 6 identity mismatch is resolved.
+- [x] **9.2a Freeze the new experiment protocol.** Investigate the Step 9.3
+  feature-freeze hash mismatch and record its cause without changing frozen
+  evidence. Identify the exact source dataset hash, eligible dates, 20-session
+  purges, chronological tuning, calibration, early-stopping, and scoring blocks.
+  Predeclare a bounded grid and feature variants for Logistic Regression
+  (standardization, `C`, class weighting, redundant-feature ablation,
+  cross-sectional normalization, probability calibration) and
+  HistGradientBoosting (learning rate, iterations, leaves, minimum leaf size,
+  L2, feature ablation, controlled early stopping). Define return ranking and
+  probability metrics, risk macro F1 and High-risk safety checks, and a rule
+  for selecting or rejecting changes. **Output:** a new versioned experiment
+  contract under `configs/` with a readable runbook. **Done when:** no outcome
+  in a scoring block can influence an earlier fit, calibration, stop, or
+  parameter choice; the experiment contract is frozen before execution.
+  **Complete:** [experiment protocol](../configs/phase9_experiment_protocol_v1.json)
+  and [runbook](phase9/EXPERIMENT_RUNBOOK_V1.md) declare bounded one-factor
+  comparisons, purged chronological roles, metrics, safety and selection gates,
+  and new-only output paths. Git and worktree copies of the Phase 6 freeze
+  agree with each other but differ from Phase 7's recorded hash; the cause is
+  not recoverable from reachable Git history. Preserve and disclose that
+  discrepancy rather than rewriting earlier evidence.
+- [ ] **9.2b Run the student-led comparison.** Use a Local/Colab portable
+  notebook as the entry point; put reusable, tested fitting and scoring logic
+  in `src/`. Compare each declared option to the exact Phase 7 candidate on
+  matched development rows. Keep tuning, calibration, early stopping, and
+  outer scoring in their frozen chronological roles. Save fold predictions,
+  metrics, parameters, hashes, and failures under a new versioned
+  `reports/model_evaluation/` path. Do not overwrite prior reports or call the
+  viewed 2026 period an untouched test. **Done when:** the student has run the
+  notebook and reviewed results for every declared candidate and fold.
+  **Implementation prepared:** `notebooks/phase9_tuning_comparison.ipynb`
+  calls `src/model_training/phase9_experiment.py` and writes only to the new
+  `phase9_tuning_v1` report path. Student execution and review are still pending.
+- [ ] **9.2c Select and fit the final candidates.** Review all fold results,
+  including return consistency, class probabilities, risk High recall, and
+  High-to-Low errors. Record an evidence-based choice even if no experiment
+  improves the Phase 7 learned candidates. Freeze final fit dates and the
+  training-only parameter selection rule; use a student-run notebook to fit
+  the chosen estimators and save preprocessing, cutoffs, class/feature order,
+  dependencies, and artifact hashes to new versioned locations. Record
+  development-only status unless a new untouched period is available.
+  **Done when:** both trained AI artifacts have complete provenance; no simple
+  benchmark is substituted for a missing artifact.
+- [x] **9.3 Verify the package inputs.** Check selected dataset, source-code,
   procedure or fitted-model, contract, and evaluation hashes against the
   handoff. Confirm that any fitted preprocessing or risk cutoffs came only
   from eligible training dates. **Output:** a no-fit validation report under
   `reports/model_evaluation/`. **Done when:** every identity matches or the
-  package is stopped with a specific mismatch.
+  package is stopped with a specific mismatch. **Complete with stopped
+  status:** the no-fit validation report at
+  `reports/model_evaluation/phase9_package_input_validation_v1/validation_report.json`
+  records 6 passing and 6 failing checks (SHA-256
+  `1c6a07b8d48d342605f47d3d79f32b6e07711a9b900b32eea4e7fd3ad27a3adb`).
+  The dataset, metadata, chronological protocol, Phase 7 experiment contract,
+  and both candidate reports match their expected identities. Packaging is
+  stopped because Step 9.2, final fitted artifacts, training-only final-fit
+  provenance, and selected-model evaluation identity are absent. In addition,
+  `configs/phase6_feature_freeze_v2.json` currently hashes to
+  `9f9999df278823f9d73b688439085a349d99c74ecd2eac377c0f72cde9c2b91a`,
+  not the `312ec2...` identity recorded by the Phase 7 evidence. Investigate
+  that mismatch without overwriting frozen evidence before final fitting.
+  **Repeat after 9.2a–9.2c:** write a new versioned no-fit report against the
+  chosen contract and artifacts; retain this original stopped report.
 - [ ] **9.4 Package the return procedure.** Save the return estimator and its
-  preprocessing only if Step 9.1 selected a fitted model; otherwise package the
-  exact frozen ranking rule and its metadata. Record version, feature order,
+  fitted preprocessing after 9.2c and the repeated 9.3 validation pass.
+  Record version, feature order,
   class order, training cutoff when applicable, and evaluation reference.
   **Output:** one versioned return package. **Done when:** it loads in a fresh
   Python process and produces the same result for a fixed fixture.
-- [ ] **9.5 Package the risk procedure.** Apply the same rule to the selected
-  risk estimator or benchmark. Preserve the two frozen training-only class
+- [ ] **9.5 Package the risk procedure.** Package the selected fitted AI risk
+  estimator after 9.2c and the repeated 9.3 validation pass. Preserve its training-only class
   boundaries and explicit Low/Medium/High order. **Output:** one versioned risk
   package. **Done when:** a fresh process reproduces fixture risk classes,
   including exact cutoff ties.
@@ -601,10 +680,11 @@ account of remaining model-quality and product limitations.
 
 ## Immediate working order
 
-Phases 1–8 have completed research evidence and documented limitations. Step
-9.1 is next: record whether Phase 9 may package the frozen simple benchmarks or
-must first await selected trained models and supported probability outputs.
-Exploratory Kronos work is not a new selection by itself. Keep SEC predictors
-excluded until their separate point-in-time gate passes. The Phase 8 conclusion
-does not establish trading, portfolio, Shariah-compliance, or whole-market
-performance.
+Phases 1–8 remain frozen research evidence. Phase 9.1 nominated learned
+candidates despite their recorded promotion-rule failures. Phase 9.2a has
+frozen the new experiment plan and documented the unresolved historical hash
+discrepancy. Next, implement 9.2b's student-run notebook and reusable logic,
+then run 9.2b and 9.2c before repeating 9.3. The current 9.2 contract is a draft and the
+original 9.3 report remains stopped. Do not substitute simple comparators for
+missing AI artifacts. Keep SEC predictors excluded until their point-in-time
+gate passes. Existing evidence does not establish portfolio or trading results.

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "stage": "phase_9_step_9_2a_experiment_protocol",
+  "status": "frozen_before_phase9_experiments",
+  "source_dataset": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+  "dataset_sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0",
+  "fold_source": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json",
+  "fold_sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060",
+  "identity_discrepancy": {
+    "file": "configs/phase6_feature_freeze_v2.json",
+    "phase7_recorded_sha256": "312ec2857625ab6d87c90bc1eb61f4a36d637c7255f8a1d86b861df3195c29dc",
+    "git_and_worktree_sha256": "9f9999df278823f9d73b688439085a349d99c74ecd2eac377c0f72cde9c2b91a",
+    "disposition": "unresolved_stale_or_external_phase7_identity; do_not_rewrite_prior_evidence; new_experiment_must_record_its_own_actual_hashes"
+  },
+  "baseline": {
+    "return": "Phase 7 LogisticRegression candidate, 17 features, StandardScaler, C grid [0.1,1.0,10.0]",
+    "risk": "Phase 7 HistGradientBoosting candidate, 7 features, learning_rate 0.1, max_iter 100, leaf grid [15,31,63], early_stopping false"
+  },
+  "folds": "Use all four frozen outer folds and their inner train/validation periods; never use dates at or after 2024-07-01 for tuning or selection",
+  "split_rule": "Every fitting role must have target_window_end strictly earlier than the first date of its next validation, calibration, or scoring role. Use the existing 20-session target-window purge; never randomly split dates or tickers.",
+  "tuning": {
+    "approach": "one-factor-at-a-time versus the exact Phase 7 candidate on matched eligible rows; no Cartesian product search",
+    "return_primary": "mean same-date Spearman of P(Higher)-P(Lower) versus future return",
+    "risk_primary": "macro F1",
+    "return_variants": {
+      "standardization": ["StandardScaler training-only baseline", "no_scaling diagnostic"],
+      "C": [0.1, 1.0, 10.0],
+      "class_weight": [null, "balanced"],
+      "feature_sets": ["Phase 7 frozen 17", "Phase 7 original 14 without three peer ranks", "Phase 7 17 without momentum_20d when momentum_20d_peer_rank is retained"],
+      "peer_normalization": ["Phase 7 fixed peer percentile ranks", "same-date z score of momentum_5d, momentum_20d and momentum_60d over available active peers, fitted with no future dates"],
+      "calibration": ["none", "sigmoid on separate chronological calibration block"]
+    },
+    "risk_variants": {
+      "learning_rate": [0.05, 0.1],
+      "max_iter": [100, 200],
+      "max_leaf_nodes": [15, 31, 63],
+      "min_samples_leaf": [20, 50],
+      "l2_regularization": [0.0, 1.0],
+      "feature_sets": ["Phase 7 frozen 7", "7 without price_to_sma50", "7 without volatility_60d"],
+      "early_stopping": ["disabled baseline", "explicit earlier chronological validation block; never sklearn automatic random validation"]
+    },
+    "tie_rule": "retain the Phase 7 baseline setting on exact ties, then use listed order",
+    "budget_rule": "Each variant changes only the named factor. Record tested combinations and do not invent further variants after viewing results."
+  },
+  "calibration_and_early_stopping": {
+    "rule": "Partition each fold's inner chronological period into tuning and later calibration/stop blocks before running. Apply a 20-session target purge at each boundary. Fit classifier on earlier rows, fit sigmoid calibrator or choose stopping iteration on the later block, score only on untouched outer rows. Do not refit the calibrated base on its calibration or stop rows.",
+    "inner_partition": "first 63 observed inner-validation sessions for tuning; remaining observed inner-validation sessions for calibration/stop, subject to target-window purge and eligibility",
+    "required_assertions": ["max fit target_window_end < first tuning date", "max tuning target_window_end < first calibration date", "max calibration target_window_end < first outer date", "no shared ticker-date key across fit and calibration"]
+  },
+  "selection": {
+    "return": "positive mean rank-score improvement versus Phase 7 learned baseline in at least three of four matched outer folds; report macro F1 and probability scores; otherwise retain Phase 7 learned candidate",
+    "risk": "positive mean macro-F1 improvement in at least three of four matched outer folds, non-worse mean High recall, and no increase in total High-to-Low errors versus Phase 7 learned baseline; otherwise retain Phase 7 learned candidate",
+    "calibration": "adopt only if outer multiclass Brier and log loss both improve without worsening the return primary or risk safety gates",
+    "not_independent_test": "These reused development folds support candidate comparison only; no untouched-test claim. The 2026 benchmark evaluation is already viewed and cannot validate the changed AI model."
+  },
+  "outputs": {
+    "root": "reports/model_evaluation/phase9_tuning_v1/",
+    "write_policy": "create new versioned outputs only; refuse overwrite",
+    "required": ["input_hash_manifest.json", "fold_roles.json", "candidate_results.json", "outer_predictions.csv", "selection_review.md"],
+    "student_entry_point": "notebooks/phase9_tuning_comparison.ipynb",
+    "execution": "student_run_only; notebook must support local and Colab with preflight hashes and phase-specific input ZIP"
+  }
+}

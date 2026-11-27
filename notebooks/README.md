@@ -141,6 +141,30 @@ this notebook's Python packages.
 Download the JSON result before ending the Colab session; Colab storage is
 temporary. A fresh run refuses to overwrite an existing result.
 
+## Phase 9 tuning comparison
+
+Open `phase9_tuning_comparison.ipynb` with the repository's Python environment.
+Run setup, preflight, comparison, then review/export cells in order. Preflight
+reads `configs/phase9_experiment_protocol_v1.json` and verifies the Phase 6
+dataset and chronological protocol hashes. The comparison fits only on
+development folds and creates new files under
+`reports/model_evaluation/phase9_tuning_v1/`; an existing output directory
+causes an error rather than an overwrite. The student should inspect all four
+folds before selecting any change.
+
+In Colab, upload/open the notebook itself if it has not been pushed. Its setup
+cell clones the existing branch. When prompted, upload `phase9_code.zip`
+containing only `configs/phase9_experiment_protocol_v1.json` and
+`src/model_training/phase9_experiment.py` at those repository-relative paths;
+this supplies the new untracked code without staging or pushing it. Then upload
+`phase9_tuning_inputs.zip` when prompted. The input ZIP must contain only the missing
+Git-ignored files at their repository-relative paths: the Phase 6 expanded
+`market_features_and_labels.csv`, the Phase 6 chronological protocol JSON, the
+Phase 7 experiment contract JSON, and the selected return and risk candidate
+report JSON files. The preflight cell prints each exact path. The final
+cell downloads the generated results bundle. This is a development comparison;
+it does not create final fitted artifacts or an untouched test result.
+
 ## Kronos-small development comparison
 
 After the smoke test, use `kronos_small_development_comparison.ipynb` to inspect

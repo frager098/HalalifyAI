@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "draft_pending_tuning_protocol_and_fit",
+  "scope": "research_market_only",
+  "dataset": {
+    "path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv",
+    "sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0",
+    "chronological_protocol": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json",
+    "protocol_sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060"
+  },
+  "decision_time": "after_close_of_session_date",
+  "horizon_trading_sessions": 20,
+  "universe_source": "data/processed/model_inputs/phase6_expanded_features_v1/dataset_metadata.json#reference_universe",
+  "inference_input": {
+    "type": "complete_daily_panel",
+    "required_raw_fields": ["ticker", "session_date", "adjusted_close", "volume", "spy_return"],
+    "minimum_consecutive_sessions_including_decision_date": 61,
+    "minimum_active_peers_on_decision_date": 45,
+    "maximum_active_peers_on_decision_date": 50,
+    "ordering": "one unique ticker/session_date; shared exchange sessions in ascending date order; prediction date is final supplied session",
+    "missing_policy": "reject missing, nonfinite, duplicate, unknown ticker, incomplete rolling history, missing same-date SPY, or missing peer-group inputs; no imputation",
+    "availability": "all input bars and SPY return must be available by decision time; after-close only"
+  },
+  "return": {
+    "estimator": "LogisticRegression",
+    "preprocessing": "StandardScaler fitted on training rows only",
+    "feature_order": ["return_1d", "momentum_5d", "momentum_20d", "momentum_60d", "volatility_20d", "volatility_60d", "downside_dev_20d", "drawdown_from_peak_60d", "price_to_sma20", "price_to_sma50", "volume_ratio_20d", "spy_momentum_20d", "excess_momentum_20d", "market_beta_60d", "return_5d_peer_rank", "momentum_20d_peer_rank", "momentum_60d_peer_rank"],
+    "class_order": ["Lower", "Middle", "Higher"],
+    "class_definition": "same-date relative tertiles of eligible future 20-session returns; ties retained together; minimum 45 peers",
+    "ranking_score": "P(Higher) - P(Lower)",
+    "ranking_tie_break": "ticker ascending",
+    "probabilities": "predict_proba for three classes; uncalibrated; must be finite and sum to one",
+    "unsupported": "expected percentage return"
+  },
+  "risk": {
+    "estimator": "HistGradientBoostingClassifier",
+    "feature_order": ["volatility_20d", "volatility_60d", "return_1d", "downside_dev_20d", "drawdown_from_peak_60d", "price_to_sma20", "price_to_sma50"],
+    "class_order": ["Low", "Medium", "High"],
+    "target": "annualized realized volatility of future sessions t+1 through t+20",
+    "boundaries": "training-only one-third and two-thirds quantiles; Low <= first, Medium <= second, otherwise High; save actual values with final artifact",
+    "probabilities": "predict_proba for three classes; uncalibrated; must be finite and sum to one"
+  },
+  "final_fit_gate": {
+    "eligible_only": true,
+    "training_target_window_end_must_precede_validation_start": true,
+    "hyperparameters": "select only on a frozen chronological inner validation interval using return mean daily Spearman and risk macro F1; tie keeps declared grid order; no final value is preselected",
+    "return_C_grid": [0.1, 1.0, 10.0],
+    "risk_max_leaf_nodes_grid": [15, 31, 63],
+    "risk_fixed": {"max_iter": 100, "learning_rate": 0.1, "early_stopping": false, "random_state": 42},
+    "required_manifest": ["dataset_sha256", "code_sha256", "contract_sha256", "training_start", "training_end", "training_max_target_window_end", "validation_start", "validation_end", "training_rows", "validation_rows", "ticker_counts", "class_counts", "selected_hyperparameters", "risk_boundaries", "feature_order", "class_order", "dependencies", "artifact_sha256"],
+    "unresolved": ["final fitting and inner validation dates", "phase6 feature-freeze hash mismatch", "fitted artifacts and training provenance"],
+    "package_allowed": false
+  },
+  "proposed_tuning_extension": {
+    "status": "requires_predeclared_development_experiment",
+    "return": ["training-only feature standardization", "C search", "class weighting comparison", "redundant-feature ablation", "same-date cross-sectional normalization ablation", "chronological probability calibration"],
+    "risk": ["learning rate search", "max iterations search", "maximum leaf nodes search", "minimum samples per leaf search", "L2 regularization search", "feature ablation", "chronologically controlled early stopping comparison"],
+    "rules": ["freeze candidate grids and feature variants before fitting", "purge 20-session target windows at every train/validation/calibration boundary", "fit every transformer and calibrator only on earlier permitted rows", "reserve a distinct later chronological block to score the complete tuned pipeline", "do not use the viewed 2026 benchmark evaluation as an untouched AI-model test", "record fold metrics, probability quality, High-risk recall and High-to-Low errors", "do not promote a tuned candidate from its best fold alone"],
+    "unresolved": ["candidate grids", "chronological tuning and calibration dates", "acceptance rule for risk safety", "later evaluation period"]
+  },
+  "response": {
+    "required": ["session_date", "horizon_trading_sessions", "model_version", "evidence_status", "return_class", "return_probabilities", "return_rank_score", "risk_class", "risk_probabilities"],
+    "evidence_status": "development_only",
+    "no_shariah_or_portfolio_result": true
+  }
+}
