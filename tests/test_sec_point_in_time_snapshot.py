@@ -1,7 +1,8 @@
 import hashlib
+import gzip
 import json
 
-from src.data_pipeline.collect_sec_point_in_time_snapshot import load_config, ticker_mapping
+from src.data_pipeline.collect_sec_point_in_time_snapshot import fetch_bytes, load_config, ticker_mapping
 from src.data_pipeline.validate_sec_point_in_time_snapshot import validate_snapshot
 
 
@@ -42,6 +43,26 @@ def test_config_has_exactly_50_unique_tickers():
 
 def test_ticker_mapping_normalizes_cik_and_ticker():
     assert ticker_mapping({"0": {"ticker": "aapl", "cik_str": 320193}}) == {"AAPL": "0000320193"}
+
+
+def test_fetch_bytes_unpacks_gzip_response(monkeypatch):
+    class Response:
+        headers = {"Content-Encoding": "gzip"}
+
+        def read(self):
+            return gzip.compress(b'{"ok": true}')
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return None
+
+    monkeypatch.setattr(
+        "src.data_pipeline.collect_sec_point_in_time_snapshot.urlopen", lambda *args, **kwargs: Response()
+    )
+    monkeypatch.setattr("src.data_pipeline.collect_sec_point_in_time_snapshot.time.sleep", lambda *args: None)
+    assert fetch_bytes("https://example.test", "Example test@example.com", 0) == b'{"ok": true}'
 
 
 def test_complete_snapshot_passes(tmp_path):

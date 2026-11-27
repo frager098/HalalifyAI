@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import gzip
 import hashlib
 import json
 import os
@@ -57,12 +58,22 @@ def fetch_bytes(url: str, user_agent: str, delay_seconds: float) -> bytes:
     try:
         with urlopen(request, timeout=90) as response:
             payload = response.read()
+            content_encoding = response.headers.get("Content-Encoding", "").lower()
     except HTTPError as exc:
         raise RuntimeError(f"SEC returned HTTP {exc.code} for {url}") from exc
     except URLError as exc:
         raise RuntimeError(f"Could not reach SEC for {url}: {exc.reason}") from exc
     if not payload:
         raise RuntimeError(f"SEC returned an empty response for {url}")
+    # SEC may return gzip bytes when the request allows compression.  Python's
+    # urllib gives us those raw bytes, unlike the requests library, so unpack
+    # them before JSON parsing.  The magic-byte check also covers proxies that
+    # remove the response header while leaving the compressed body unchanged.
+    if content_encoding == "gzip" or payload.startswith(b"\x1f\x8b"):
+        try:
+            payload = gzip.decompress(payload)
+        except OSError as exc:
+            raise RuntimeError(f"SEC returned unreadable gzip data for {url}") from exc
     time.sleep(delay_seconds)
     return payload
 
