@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "stage": "phase_9_step_9_2c_final_fit",
+  "status": "frozen_before_student_fit",
+  "evidence_status": "development_only",
+  "inputs": {
+    "dataset": {"path": "data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv", "sha256": "99957129c288d90f63539577f707f0e04d9ad1be3a847e929b9e54e51e2ba9b0"},
+    "metadata": {"path": "data/processed/model_inputs/phase6_expanded_features_v1/dataset_metadata.json", "sha256": "0f1df79371f9fe45f09f7b8ddb576629ac744f01e51e3d2238c79dd7f8563f27"},
+    "protocol": {"path": "reports/model_evaluation/phase6_market_feature_expansion_v1/chronological_evaluation_protocol.json", "sha256": "cc949ed87cda07a22693e4f1844475d2588078895cef6cd79f8dbaf103995060"},
+    "phase7_contract": {"path": "reports/model_evaluation/phase7_candidate_tuning_v1/experiment_contract.json", "sha256": "d817a11916228a2af9709daf78dbfca0ecc150f5ab3d45155fed84fd2c42d8fa"},
+    "phase9_comparison": {"path": "reports/model_evaluation/phase9_tuning_v1/candidate_results.json", "sha256": "713412a05ca2d3e86f8a0a542195f8fff1975de950ebd180500c40964ceb2962"},
+    "phase9_comparison_manifest": {"path": "reports/model_evaluation/phase9_tuning_v1/input_hash_manifest.json", "sha256": "0bd0b582279ca756ed5a6a4eda9a6c4d3daba7e965cd5af59442bf8d678ccf1a"},
+    "inference_contract": {"path": "configs/phase9_inference_contract_v1.json", "sha256": "eed051bcaa3e25b2121d6f62734dfcbb49bad78afa97a19ca61a3d055fbe3258"}
+  },
+  "selection": {
+    "validation_fold": 4,
+    "validation_role": "inner",
+    "validation_start": "2022-12-27",
+    "validation_end": "2023-06-28",
+    "first_eligible_validation_session": "2022-12-28",
+    "last_eligible_validation_session": "2023-05-30",
+    "training_target_window_end_before": "2022-12-27",
+    "return_C_grid": [0.1, 1.0, 10.0],
+    "risk_max_leaf_nodes_grid": [15, 31, 63],
+    "tie_rule": "first_declared_option",
+    "return_metric": "mean_daily_spearman_of_P_Higher_minus_P_Lower",
+    "risk_metric": "macro_f1",
+    "risk_boundaries": "one_third_and_two_thirds_quantiles_of_inner_training_only"
+  },
+  "final_refit": {
+    "session_date_before": "2024-07-01",
+    "target_window_end_before": "2024-07-01",
+    "eligible_only": true,
+    "risk_boundaries": "recomputed_from_final_refit_training_rows_only",
+    "return_scaler": "StandardScaler_fit_on_final_refit_training_rows_only",
+    "return_fixed": {"solver": "lbfgs", "max_iter": 1000, "class_weight": null},
+    "risk_fixed": {"learning_rate": 0.1, "max_iter": 100, "min_samples_leaf": 20, "l2_regularization": 0.0, "early_stopping": false, "random_state": 42}
+  },
+  "output": "reports/model_evaluation/phase9_final_fit_v1",
+  "write_policy": "refuse_existing_output_directory",
+  "excluded": ["risk_chronological_early_stopping_diagnostic", "viewed_2026_period", "SEC_features", "simple_rankers"],
+  "known_limitation": "Phase 7 and Colab Phase 9 risk baselines differ slightly; this does not change the frozen promotion outcome. Phase 6 feature-freeze identity mismatch remains disclosed."
+}

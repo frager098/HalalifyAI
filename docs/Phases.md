@@ -578,7 +578,7 @@ paths. A changed model does not inherit the Phase 8 reserved evaluation score.
   agree with each other but differ from Phase 7's recorded hash; the cause is
   not recoverable from reachable Git history. Preserve and disclose that
   discrepancy rather than rewriting earlier evidence.
-- [ ] **9.2b Run the student-led comparison.** Use a Local/Colab portable
+- [x] **9.2b Run the student-led comparison.** Use a Local/Colab portable
   notebook as the entry point; put reusable, tested fitting and scoring logic
   in `src/`. Compare each declared option to the exact Phase 7 candidate on
   matched development rows. Keep tuning, calibration, early stopping, and
@@ -589,8 +589,14 @@ paths. A changed model does not inherit the Phase 8 reserved evaluation score.
   notebook and reviewed results for every declared candidate and fold.
   **Implementation prepared:** `notebooks/phase9_tuning_comparison.ipynb`
   calls `src/model_training/phase9_experiment.py` and writes only to the new
-  `phase9_tuning_v1` report path. Student execution and review are still pending.
-- [ ] **9.2c Select and fit the final candidates.** Review all fold results,
+  `phase9_tuning_v1` report path. **Student run received and reviewed:** the
+  [result review](phase9/STEP_9_2B_RESULT_REVIEW_V1.md) records the ZIP hash,
+  all factor-level metrics and the environment/protocol limitations. No change
+  met the three-of-four-fold promotion gate. The small risk-baseline difference
+  does not change selection; the early-stopping variant is excluded because its
+  implementation differed from the declared protocol. Preserve the student's
+  original ZIP as evidence.
+- [x] **9.2c Select and fit the final candidates.** Review all fold results,
   including return consistency, class probabilities, risk High recall, and
   High-to-Low errors. Record an evidence-based choice even if no experiment
   improves the Phase 7 learned candidates. Freeze final fit dates and the
@@ -599,7 +605,21 @@ paths. A changed model does not inherit the Phase 8 reserved evaluation score.
   dependencies, and artifact hashes to new versioned locations. Record
   development-only status unless a new untouched period is available.
   **Done when:** both trained AI artifacts have complete provenance; no simple
-  benchmark is substituted for a missing artifact.
+  benchmark is substituted for a missing artifact. **Current status:** the
+  [selection-readiness review](phase9/STEP_9_2C_SELECTION_READINESS_V1.md)
+  selects the two Phase 7 AI candidate families and excludes the
+  misimplemented early-stopping diagnostic. The risk-baseline difference is
+  documented as an environment-sensitive reproducibility limitation, not a
+  selection blocker. **Prepared for student run:**
+  `configs/phase9_final_fit_v1.json` freezes fold 4 inner validation and the
+  pre-2024-07-01 final-fit label cutoff; `notebooks/phase9_final_fit.ipynb`
+  calls `src/model_training/phase9_final_fit.py` and saves two fitted AI
+  models plus provenance at `reports/model_evaluation/phase9_final_fit_v1/`.
+  **Student run reviewed:** the [result review](phase9/STEP_9_2C_RESULT_REVIEW_V1.md)
+  verifies both model hashes, code and input identities, actual fitted
+  estimators, training-only cutoffs, row-key hashes, date purges, eligibility,
+  class counts, and zero reused-test rows. The result remains development-only.
+  Codex did not refit the models. Repeat 9.3 before packaging.
 - [x] **9.3 Verify the package inputs.** Check selected dataset, source-code,
   procedure or fitted-model, contract, and evaluation hashes against the
   handoff. Confirm that any fitted preprocessing or risk cutoffs came only
@@ -617,39 +637,60 @@ paths. A changed model does not inherit the Phase 8 reserved evaluation score.
   `configs/phase6_feature_freeze_v2.json` currently hashes to
   `9f9999df278823f9d73b688439085a349d99c74ecd2eac377c0f72cde9c2b91a`,
   not the `312ec2...` identity recorded by the Phase 7 evidence. Investigate
-  that mismatch without overwriting frozen evidence before final fitting.
+  that mismatch without overwriting frozen evidence before packaging.
   **Repeat after 9.2a–9.2c:** write a new versioned no-fit report against the
   chosen contract and artifacts; retain this original stopped report.
-- [ ] **9.4 Package the return procedure.** Save the return estimator and its
+  **Repeated:** the [v2 result review](phase9/STEP_9_3_REPEAT_V2.md) records
+  20 passing, zero failing checks for the current market-only research inputs
+  and fitted artifacts. It independently rechecked final row keys, purges,
+  and training-only risk cutoffs. The historical Phase 6 freeze hash mismatch
+  and unresolved source verification limits remain disclosed; v1 is preserved.
+- [x] **9.4 Package the return procedure.** Save the return estimator and its
   fitted preprocessing after 9.2c and the repeated 9.3 validation pass.
   Record version, feature order,
   class order, training cutoff when applicable, and evaluation reference.
   **Output:** one versioned return package. **Done when:** it loads in a fresh
-  Python process and produces the same result for a fixed fixture.
-- [ ] **9.5 Package the risk procedure.** Package the selected fitted AI risk
+  Python process and produces the same result for a fixed fixture. **Done:**
+  [package review](phase9/STEP_9_4_RETURN_PACKAGE_V1.md) records the exact
+  copied model hash, full metadata, and fresh-process AAPL fixture check.
+- [x] **9.5 Package the risk procedure.** Package the selected fitted AI risk
   estimator after 9.2c and the repeated 9.3 validation pass. Preserve its training-only class
   boundaries and explicit Low/Medium/High order. **Output:** one versioned risk
   package. **Done when:** a fresh process reproduces fixture risk classes,
-  including exact cutoff ties.
-- [ ] **9.6 Implement historical feature reconstruction.** Given raw bars
+  including exact cutoff ties. **Done:** the [package review](phase9/STEP_9_5_RISK_PACKAGE_V1.md)
+  records the exact copied model hash, training-only boundaries, and fresh-process
+  probability, predicted-class, and cutoff-tie checks.
+- [x] **9.6 Implement historical feature reconstruction.** Given raw bars
   ending at date `t`, reproduce only the approved features available after
   that session's close. Reject insufficient history, stale bars, unknown
   tickers, duplicate dates, non-finite values, and unsupported inputs.
   **Output:** a focused inference function in `src/`. **Done when:** historical
   fixtures match the frozen modeling features and invalid fixtures fail clearly.
-- [ ] **9.7 Verify prediction outputs.** Run both packages on fixed historical
+  **Done:** the [reconstruction review](phase9/STEP_9_6_FEATURE_RECONSTRUCTION_V1.md)
+  records matching 2016, 2021, and 2024 historical dates and ten passing tests. The function
+  requires a verified point-in-time ticker roster so omitted peers cannot
+  silently change cross-sectional ranks; the later API must supply it.
+- [x] **9.7 Verify prediction outputs.** Run both packages on fixed historical
   fixtures through the inference function. Check deterministic ranking,
   class mapping, version metadata, and probability totals only for a model
   that actually emits probabilities. **Output:** reproducibility and failure
   tests plus a compact validation report. **Done when:** every supported
   response is traceable to a package and no unavailable output is fabricated.
+  **Done:** the [validation review](phase9/STEP_9_7_PREDICTION_VALIDATION_V1.md)
+  records three deterministic historical fixtures, matching package
+  probabilities, valid class/rank outputs, five passing tests, and a versioned
+  no-fit report. No untouched predictive-performance claim is made.
 - [ ] **9.8 Expose the reviewed inference through FastAPI.** Add a thin route
   that calls the validated inference function and returns explicit prediction
   timing, horizon, return rank or class, risk class, model version, and input
   errors. Keep Shariah screening and portfolio construction outside this
   prediction route. **Output:** documented endpoint and API tests. **Done
   when:** one valid historical request and representative invalid requests
-  behave according to the Step 9.2 contract.
+  behave according to the Step 9.2 contract. **Backend review prepared:**
+  [proposed integration contract](phase9/BACKEND_INTEGRATION_CONTRACT_V1.md)
+  maps the current Node routes/data tables to the required AI panel and
+  records the missing adjusted-close, SPY, and dated-roster inputs. The AI
+  route and backend client are still pending.
 - [ ] **9.9 Publish the Phase 9 handoff.** Explain which outputs are supported
   by later-period evidence, which are development-only, and which user-facing
   capabilities remain blocked. Record package/code/contract hashes and a
@@ -683,8 +724,10 @@ account of remaining model-quality and product limitations.
 Phases 1–8 remain frozen research evidence. Phase 9.1 nominated learned
 candidates despite their recorded promotion-rule failures. Phase 9.2a has
 frozen the new experiment plan and documented the unresolved historical hash
-discrepancy. Next, implement 9.2b's student-run notebook and reusable logic,
-then run 9.2b and 9.2c before repeating 9.3. The current 9.2 contract is a draft and the
-original 9.3 report remains stopped. Do not substitute simple comparators for
+discrepancy. The student's 9.2b result ZIP has been reviewed. Keep the small
+risk-baseline difference disclosed, exclude the invalid early-stopping
+variant, and retain the reviewed 9.2c student-run artifacts. Repeat 9.3
+against those artifacts. The current 9.2 inference contract is a draft and the original
+9.3 report remains stopped. Do not substitute simple comparators for
 missing AI artifacts. Keep SEC predictors excluded until their point-in-time
 gate passes. Existing evidence does not establish portfolio or trading results.

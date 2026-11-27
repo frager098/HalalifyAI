@@ -196,6 +196,12 @@ def run_comparison(contract_path: Path, output: Path) -> dict:
             prior_report = Path(f"reports/model_evaluation/phase7_candidate_tuning_v1/{task}/" +
                                 ("logistic_regression" if task == "return" else "hist_gradient_boosting") +
                                 "/candidate_report.json")
+            expected_report_hash = {
+                "return": "2517e4b4e489edfda96534fcc2e9877fb6c10ce2ca28ee27b5cac28f82f44d4e",
+                "risk": "903de0f71b9c80009b4cfb4874bd5ce4f8f6343ae1c36a51fea0051391056919",
+            }[task]
+            if not prior_report.is_file() or digest(prior_report) != expected_report_hash:
+                raise ValueError(f"Missing or changed Phase 7 {task} candidate report: {prior_report}")
             prior = json.loads(prior_report.read_text(encoding="utf-8"))
             selected_prior = prior["folds"][fold["fold"] - 1]["selected_parameters"]
             baseline_params = {"C": selected_prior["C"]} if task == "return" else {"max_leaf_nodes": selected_prior["max_leaf_nodes"]}

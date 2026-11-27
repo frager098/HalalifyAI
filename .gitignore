@@ -66,9 +66,17 @@ reports/legacy_model_experiments/
 reports/literature_review/
 reports/model_evaluation/
 /results/
+# Local Colab transfer bundles
+/tmp/phase9_code.zip
+/tmp/phase9_tuning_inputs.zip
+/tmp/phase9_final_fit_code.zip
+/tmp/phase9_final_fit_inputs.zip
+/tmp/phase9_pytest/
+/tmp/phase9_final_fit_executed.ipynb
 # Planning and research documents
 plan.md
 docs/plan.md
 research papers/
 research.md
 docs/SRS_Shariah_Investment_Assistant.pdf
+phase9_tuning_v1.zip

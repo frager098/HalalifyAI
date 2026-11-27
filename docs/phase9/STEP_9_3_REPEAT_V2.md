@@ -1,0 +1,11 @@
+# Phase 9.3 repeat after student final fit
+
+The no-fit report is `reports/model_evaluation/phase9_package_input_validation_v2/validation_report.json` (SHA-256 `9813200b2fe78e8e16fbbff4c33ef4e97af44231e805f3edbead5fd3bc9a2cdf`). It has **20 passing checks and zero failing checks** for the current market-only research artifacts. The original stopped v1 report remains unchanged as historical evidence. The small Colab 9.2b risk-baseline difference was excluded from this gate at the student's request.
+
+The repeat verifies the final-fit contract, seven frozen inputs, three code files, both model hashes and structures, feature/class order, chronological purges, independent final-fit row-key hashes, zero reused-test rows, and the final risk boundaries recalculated from training rows only. It performs no fitting or model evaluation. This is an input/provenance pass, not a claim of predictive quality or production readiness.
+
+The Phase 7 report's `312ec2...` identity for `configs/phase6_feature_freeze_v2.json` is still not reproducible; the current file hashes to `9f9999...`. The cause cannot be recovered from reachable Git history. Current 9.2c provenance is established independently through matching dataset, fold protocol, final-fit contract, code, row keys, and model hashes. Keep the historical mismatch disclosed; do not edit Phase 7 evidence to manufacture a match.
+
+The selected source is the verified Alpaca SIP market snapshot described in `docs/DATA_REVIEW.md`. Its 18 raw-page byte mismatches were already recovered to their original exact hashes in a separate immutable snapshot, and retained market values matched the normalized table. Remaining source issues require outside evidence: independent verification of some corporate-action magnitudes and ex-dates, complete historical security identities, and actual provider bar-delivery timestamps. The current 50-name universe also has selection/survivorship bias. SEC predictors remain excluded because their own provenance/readiness gate has not passed. These cannot be resolved by changing a checksum, changing metadata flags, or rerunning model training.
+
+Disposition: Step 9.3 passes **for research-only package inputs**. Further packaging must preserve these source and evaluation limits; no untouched test result exists for the refitted AI models.

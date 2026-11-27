@@ -165,6 +165,34 @@ report JSON files. The preflight cell prints each exact path. The final
 cell downloads the generated results bundle. This is a development comparison;
 it does not create final fitted artifacts or an untouched test result.
 
+## Phase 9.2c final development fit
+
+Open `phase9_final_fit.ipynb` and run its five cells in order: introduction,
+environment setup, preflight, model fit, and result export. It reads the
+frozen paths in `configs/phase9_final_fit_v1.json`. The preflight checks all
+input hashes. The fit chooses Logistic Regression `C` and risk tree leaf nodes
+using fold 4's chronological inner validation, then refits both models on
+eligible development labels that end before 2024-07-01. It writes
+`return_model.joblib`, `risk_model.joblib`, and `manifest.json` under
+`reports/model_evaluation/phase9_final_fit_v1/`. A successful final cell
+prints both artifact hashes. It does not produce an untouched-test score.
+
+**Local:** open the notebook with the repository's Python kernel, then run
+all cells top to bottom. The required dataset and reports must already be at
+their repository-relative paths. The preflight prints any missing path.
+
+**Colab:** upload/open the notebook itself. Its setup cell clones the project
+and prompts for `tmp/phase9_final_fit_code.zip` (upload the file under the
+name `phase9_final_fit_code.zip`) if the new config and runner are absent from
+the clone. The preflight then prompts for
+`tmp/phase9_final_fit_inputs.zip` (upload as `phase9_final_fit_inputs.zip`)
+containing the six Git-ignored inputs at their repository-relative paths.
+The supplied bundle contains only the dataset CSV, its metadata, the Phase 6
+fold protocol, the Phase 7 experiment contract, and the two 9.2b JSON result
+files. The inference contract is already tracked in Git. The last cell
+downloads `phase9_final_fit_v1.zip`; retain that ZIP and share it for the
+9.2c result review. Both transfer ZIPs are ignored by Git.
+
 ## Kronos-small development comparison
 
 After the smoke test, use `kronos_small_development_comparison.ipynb` to inspect
