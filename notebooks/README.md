@@ -103,3 +103,66 @@ result.
 
 The exact upload contents and Colab run order are documented in
 `docs/phase8/DATASET_AND_NOTEBOOK_RUNBOOK.md`.
+
+## Kronos-small exploratory smoke test
+
+`kronos_small_smoke_test.ipynb` loads the upstream Kronos-small checkpoint and
+forecasts 20 AAPL sessions from a 90-session OHLCV history. Its one-date raw
+close comparison is a diagnostic, **not** a Phase 8 score or a new blind test.
+It preserves the frozen Phase 8 artifacts and writes one new JSON file under
+`reports/model_evaluation/kronos_small_smoke_v1/`.
+
+Local setup, using the same Python environment selected as the notebook kernel:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install "torch>=2.0" einops==0.8.1 huggingface_hub==0.33.1 safetensors==0.6.2 pandas numpy
+```
+
+In the first notebook cell, check `sys.executable`. If it is not the
+repository's `.venv` Python, select the `.venv` kernel in Jupyter and restart
+the notebook. Installing into one Python environment does not install packages
+into another kernel. The current local `.venv` uses Python 3.14.8; the command
+above targets that environment specifically.
+
+Open the notebook and run its cells from top to bottom. It needs the accepted
+`prices_clean.csv` at the path in
+`configs/phase8_evaluation_contract_v1.json`. The preflight checks its SHA-256
+before downloading the checkpoint. The notebook clones a fixed upstream
+Kronos commit into ignored `data/interim/kronos_upstream/`, loads fixed
+Hugging Face model and tokenizer revisions, and sets a sampling seed. If an
+existing interim clone is at another commit, use a fresh interim clone.
+
+For Colab, first make the notebook available in the cloned repository. Prepare
+one `kronos_small_inputs.zip` containing only the accepted `prices_clean.csv`
+at its full repository-relative path. Run the cells in order: the preflight
+cell prompts for the ZIP, validates its contents, extracts it into the cloned
+repository, and checks the frozen input hash. The setup cell installs only
+this notebook's Python packages.
+Download the JSON result before ending the Colab session; Colab storage is
+temporary. A fresh run refuses to overwrite an existing result.
+
+## Kronos-small development comparison
+
+After the smoke test, use `kronos_small_development_comparison.ipynb` to inspect
+30 preselected forecasts: 10 stocks on each of 2024-09-03, 2025-03-03, and
+2025-09-02. It reads the frozen Phase 6 development CSV identified by
+`configs/phase8_evaluation_contract_v1.json`, verifies its SHA-256, and uses
+the same pinned Kronos code and checkpoint as the smoke test. Each case uses
+90 past daily OHLCV bars and predicts 20 later daily bars. It compares raw
+20-session return ranking with raw trailing momentum, and raw future realized
+volatility error with raw trailing volatility. These are exploratory
+development comparisons, not the adjusted-price Phase 8 metrics.
+
+Local order: select the kernel with the Kronos dependencies (check the printed
+`sys.executable`), then run notebook cells from top to bottom. The cells check
+the input and dependencies, preflight all 30 cases, load Kronos, generate the
+forecasts, show the comparison, and write three files under
+`reports/model_evaluation/kronos_small_development_v1/`. Forecasting on CPU may
+take time. The notebook refuses to overwrite an existing report.
+
+Colab order: make the notebook available in the cloned repository, then run
+the same cells. In the preflight cell upload one
+`kronos_development_inputs.zip` containing only
+`data/processed/model_inputs/phase6_expanded_features_v1/market_features_and_labels.csv`
+at that exact repository-relative path. The cell extracts and hashes it.
+Download the three generated report files before ending the Colab session.

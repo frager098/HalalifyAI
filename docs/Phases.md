@@ -511,13 +511,83 @@ viewed 2024–2025 period is not eligible as an untouched test.
 
 **Exit evidence:** A final research comparison with dataset/code identifiers and limitations. Do not claim an untouched test result from the previously viewed period.
 
-## Phase 9 — Save models and verify inference
+## Phase 9 — Package selected predictors and verify inference
 
-- Save the selected fitted preprocessing pipelines and models with feature order, schema, required history, label definitions, training cutoff, class boundaries, data/code versions, dependencies, and evaluation summaries.
-- Test that historical inference reproduces the feature calculations used at training and rejects missing, stale, or unavailable inputs clearly.
-- Expose stable AI prediction functions through FastAPI when the model and input contract are reviewable. Return categories, probabilities where valid, model version, and explanations; do not present rank scores as expected percentage returns.
+Complete one step at a time. Each step has a separate output and can be checked
+without running later steps. Phase 8 selected deterministic benchmarks, not
+fitted estimators. The Kronos smoke test and development comparison are
+exploratory work and do not change that selection. Do not call a benchmark a
+trained model or treat its score as a return percentage.
 
-**Exit evidence:** Reusable model artifacts and tested inference functions with clear provenance.
+- [ ] **9.1 Resolve the predictor handoff.** Review the frozen Phase 8
+  selections and any subsequently completed development experiment. Record
+  which return and risk procedures may enter Phase 9, whether the first
+  user-facing release requires trained models and class probabilities, and
+  which requirements remain unmet. If a new learned procedure is proposed,
+  document its separate selection and evaluation status before packaging it.
+  **Output:** a dated, versioned handoff decision linked from this roadmap.
+  **Done when:** both tasks have named procedures and no missing approval is
+  hidden by the packaging plan. This gate requires an explicit team decision.
+- [ ] **9.2 Freeze the inference contract.** For each selected procedure,
+  specify required input fields and order, permitted tickers, minimum history,
+  after-close prediction time, horizon, class definitions, return ranking
+  semantics, risk cutoffs, missing-value behavior, and whether probabilities
+  exist. **Output:** a versioned contract in `configs/` and a readable summary
+  in `docs/`. **Done when:** sample valid and invalid requests have unambiguous
+  expected outputs and errors.
+- [ ] **9.3 Verify the package inputs.** Check selected dataset, source-code,
+  procedure or fitted-model, contract, and evaluation hashes against the
+  handoff. Confirm that any fitted preprocessing or risk cutoffs came only
+  from eligible training dates. **Output:** a no-fit validation report under
+  `reports/model_evaluation/`. **Done when:** every identity matches or the
+  package is stopped with a specific mismatch.
+- [ ] **9.4 Package the return procedure.** Save the return estimator and its
+  preprocessing only if Step 9.1 selected a fitted model; otherwise package the
+  exact frozen ranking rule and its metadata. Record version, feature order,
+  class order, training cutoff when applicable, and evaluation reference.
+  **Output:** one versioned return package. **Done when:** it loads in a fresh
+  Python process and produces the same result for a fixed fixture.
+- [ ] **9.5 Package the risk procedure.** Apply the same rule to the selected
+  risk estimator or benchmark. Preserve the two frozen training-only class
+  boundaries and explicit Low/Medium/High order. **Output:** one versioned risk
+  package. **Done when:** a fresh process reproduces fixture risk classes,
+  including exact cutoff ties.
+- [ ] **9.6 Implement historical feature reconstruction.** Given raw bars
+  ending at date `t`, reproduce only the approved features available after
+  that session's close. Reject insufficient history, stale bars, unknown
+  tickers, duplicate dates, non-finite values, and unsupported inputs.
+  **Output:** a focused inference function in `src/`. **Done when:** historical
+  fixtures match the frozen modeling features and invalid fixtures fail clearly.
+- [ ] **9.7 Verify prediction outputs.** Run both packages on fixed historical
+  fixtures through the inference function. Check deterministic ranking,
+  class mapping, version metadata, and probability totals only for a model
+  that actually emits probabilities. **Output:** reproducibility and failure
+  tests plus a compact validation report. **Done when:** every supported
+  response is traceable to a package and no unavailable output is fabricated.
+- [ ] **9.8 Expose the reviewed inference through FastAPI.** Add a thin route
+  that calls the validated inference function and returns explicit prediction
+  timing, horizon, return rank or class, risk class, model version, and input
+  errors. Keep Shariah screening and portfolio construction outside this
+  prediction route. **Output:** documented endpoint and API tests. **Done
+  when:** one valid historical request and representative invalid requests
+  behave according to the Step 9.2 contract.
+- [ ] **9.9 Publish the Phase 9 handoff.** Explain which outputs are supported
+  by later-period evidence, which are development-only, and which user-facing
+  capabilities remain blocked. Record package/code/contract hashes and a
+  restart-and-run verification procedure. **Output:** a concise Phase 9 report.
+  **Done when:** another developer can reproduce inference without retraining
+  and cannot mistake a research rank for an expected return or a risk class for
+  Shariah compliance.
+
+For fitting, experimentation, or evaluation added to Phase 9, use a student-run
+notebook as the entry point and keep reusable logic in `src/`. Local and Colab
+notebooks must share the same cells, use a small required-input bundle in Colab,
+and download generated evidence in the final cell. Do not rerun the viewed 2026
+period as an untouched test of a changed model.
+
+**Exit evidence:** Named and versioned return/risk predictors, reproducible
+inference, clear input/output contracts, tests, an API handoff, and an honest
+account of remaining model-quality and product limitations.
 
 ## Phase 10 — Evaluate the complete portfolio system
 
@@ -531,8 +601,10 @@ viewed 2024–2025 period is not eligible as an untouched test.
 
 ## Immediate working order
 
-Phases 1–8 have completed research evidence and documented limitations. Phase 9
-is next: verify historical inference and package the frozen simple benchmark
-rules with their metadata. Keep SEC predictors excluded until their separate
-point-in-time gate passes. The Phase 8 conclusion does not establish trading,
-portfolio, Shariah-compliance, or whole-market performance.
+Phases 1–8 have completed research evidence and documented limitations. Step
+9.1 is next: record whether Phase 9 may package the frozen simple benchmarks or
+must first await selected trained models and supported probability outputs.
+Exploratory Kronos work is not a new selection by itself. Keep SEC predictors
+excluded until their separate point-in-time gate passes. The Phase 8 conclusion
+does not establish trading, portfolio, Shariah-compliance, or whole-market
+performance.
